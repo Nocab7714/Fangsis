@@ -17,188 +17,8 @@
     </div>
   </div>
   <div class="container mt-8 mb-14">
-    <!-- 電腦版願望清單 -->
-    <div class="d-none d-md-block">
-      <div class="border border-2 border-secondary px-5 py-5">
-        <table class="table table-striped align-middle mb-3">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">商品名稱</th>
-              <th scope="col">價格</th>
-              <th class="text-center" scope="col">庫存狀態</th>
-              <th class="text-center" scope="col">加入購物車</th>
-              <th class="text-center" scope="col">刪除</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td scope="row">
-                <img
-                  class="img-fluid"
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                  alt="購物車商品圖片"
-                  width="100"
-                  height="100"
-                />
-              </td>
-              <td>柚子雪松蠟燭禮盒</td>
-              <td>1999</td>
-              <td class="text-center">
-                <!-- <span class="bg-success px-2 py-1 text-white">有貨</span> -->
-                <span class="bg-pink px-2 py-1 text-white">缺貨</span>
-              </td>
-              <td class="text-center">
-                <button class="btn btn-primary" disabled>
-                  <i class="bi bi-cart3 me-2"></i>加入購物車
-                </button>
-              </td>
-              <td class="text-center">
-                <a href=""><i class="bi bi-trash3-fill fs-5"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <img
-                  class="img-fluid"
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                  alt="購物車商品圖片"
-                  width="100"
-                  height="100"
-                />
-              </td>
-              <td>柚子雪松蠟燭禮盒</td>
-              <td>1999</td>
-              <td class="text-center">
-                <!-- <span class="bg-success px-2 py-1 text-white">有貨</span> -->
-                <span class="bg-pink px-2 py-1 text-white">缺貨</span>
-              </td>
-              <td class="text-center">
-                <button class="btn btn-primary" disabled>
-                  <i class="bi bi-cart3 me-2"></i>加入購物車
-                </button>
-              </td>
-              <td class="text-center">
-                <a href=""><i class="bi bi-trash3-fill fs-5"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <img
-                  class="img-fluid"
-                  src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                  alt="購物車商品圖片"
-                  width="100"
-                  height="100"
-                />
-              </td>
-              <td>柚子雪松蠟燭禮盒</td>
-              <td>1999</td>
-              <td class="text-center">
-                <span class="bg-success px-2 py-1 text-white">有貨</span>
-                <!-- <span class="bg-pink px-2 py-1 text-white">缺貨</span> -->
-              </td>
-              <td class="text-center">
-                <button class="btn btn-primary"><i class="bi bi-cart3 me-2"></i>加入購物車</button>
-              </td>
-              <td class="text-center">
-                <a href=""><i class="bi bi-trash3-fill fs-5"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!-- 行動版願望清單 -->
-    <div class="d-block d-md-none">
-      <div class="border border-2 border-secondary px-5 py-5">
-        <table class="table table-striped align-middle mb-3">
-          <thead>
-            <thead>
-              <tr>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                <div class="d-flex flex-column align-items-center py-4 px-2">
-                  <img
-                    class="img-fluid mb-3"
-                    src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                    alt="手機板購物車內的商品圖片"
-                    width="170"
-                    height="170"
-                  />
-                  <span class="fw-normal fs-5">柚子雪松蠟燭禮盒</span>
-                  <span class="fw-normal mb-3">NT$<span>1999</span></span>
-                  <!-- <span class="bg-success px-2 py-1 text-white mb-3">有貨</span> -->
-                  <span class="bg-pink px-2 py-1 text-white mb-3">缺貨</span>
-
-                  <button class="btn btn-primary w-100 mb-2" disabled>
-                    <i class="bi bi-cart3 me-2"></i>加入購物車
-                  </button>
-                  <button class="btn btn-outline-secondary w-100 mb-3">
-                    <i class="bi bi-trash3-fill"></i>刪除
-                  </button>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row">
-                <div class="d-flex flex-column align-items-center py-4 px-2">
-                  <img
-                    class="img-fluid mb-3"
-                    src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                    alt="手機板購物車內的商品圖片"
-                    width="170"
-                    height="170"
-                  />
-                  <span class="fw-normal fs-5">柚子雪松蠟燭禮盒</span>
-                  <span class="fw-normal mb-3">NT$<span>1999</span></span>
-                  <!-- <span class="bg-success px-2 py-1 text-white mb-3">有貨</span> -->
-                  <span class="bg-pink px-2 py-1 text-white mb-3">缺貨</span>
-
-                  <button class="btn btn-primary w-100 mb-2" disabled>
-                    <i class="bi bi-cart3 me-2"></i>加入購物車
-                  </button>
-                  <button class="btn btn-outline-secondary w-100 mb-3">
-                    <i class="bi bi-trash3-fill"></i>刪除
-                  </button>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <th scope="row">
-                <div class="d-flex flex-column align-items-center py-4 px-2">
-                  <img
-                    class="img-fluid mb-3"
-                    src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-                    alt="手機板購物車內的商品圖片"
-                    width="170"
-                    height="170"
-                  />
-                  <span class="fw-normal fs-5">柚子雪松蠟燭禮盒</span>
-                  <span class="fw-normal mb-3">NT$<span>1999</span></span>
-                  <span class="bg-success px-2 py-1 text-white mb-3">有貨</span>
-                  <!-- <span class="bg-pink px-2 py-1 text-white mb-3">缺貨</span> -->
-
-                  <button class="btn btn-primary w-100 mb-2">
-                    <i class="bi bi-cart3 me-2"></i>加入購物車
-                  </button>
-                  <button class="btn btn-outline-secondary w-100 mb-3">
-                    <i class="bi bi-trash3-fill"></i>刪除
-                  </button>
-                </div>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
     <!-- 願望清單沒有商品 -->
-    <!-- <div class="border border-2 border-secondary px-5 py-5">
+    <div v-if="wishList.length === 0" class="border border-2 border-secondary px-5 py-5">
       <div class="d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start py-7">
           <svg
@@ -226,9 +46,173 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
+
+    <div v-else="">
+      <!-- 電腦版願望清單 -->
+      <div class="d-none d-md-block">
+        <div class="border border-2 border-secondary px-5 py-5">
+          <table class="table table-striped align-middle mb-3">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">商品名稱</th>
+                <th scope="col">價格</th>
+                <th class="text-center" scope="col">庫存狀態</th>
+                <th class="text-center" scope="col">加入購物車</th>
+                <th class="text-center" scope="col">刪除</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="product in wishList" :key="product.id">
+                <tr>
+                  <td scope="row">
+                    <img
+                      class="img-fluid"
+                      :src="product.imageUrl"
+                      :alt="product.title"
+                      width="100"
+                      height="100"
+                    />
+                  </td>
+                  <td>{{ product.title }}</td>
+                  <td>{{ product.price }}</td>
+                  <td class="text-center">
+                    <span
+                      v-if="!product.is_enabled || product.quantity === 0"
+                      class="bg-pink px-2 py-1 text-white"
+                      >缺貨</span
+                    >
+                    <span v-else class="bg-success px-2 py-1 text-white">有貨</span>
+                  </td>
+                  <td class="text-center">
+                    <button
+                      @click="addToCart(product.id)"
+                      class="btn btn-primary"
+                      :disabled="!product.is_enabled || product.quantity === 0"
+                    >
+                      <i class="bi bi-cart3 me-2"></i>加入購物車
+                    </button>
+                  </td>
+                  <td class="text-center">
+                    <a @click.prevent="removeWishListProduct(product)" href=""
+                      ><i class="bi bi-trash3-fill fs-5"></i
+                    ></a>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- 行動版願望清單 -->
+      <div class="d-block d-md-none">
+        <div class="border border-2 border-secondary px-5 py-5">
+          <table class="table table-striped align-middle mb-3">
+            <thead>
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+            </thead>
+            <tbody>
+              <template v-for="product in wishList" :key="product.id">
+                <tr>
+                  <th scope="row">
+                    <div class="d-flex flex-column align-items-center py-4 px-2">
+                      <img
+                        class="img-fluid mb-3"
+                        :src="product.imageUrl"
+                        :alt="product.title"
+                        width="200"
+                        height="200"
+                      />
+                      <span class="fw-normal fs-5">{{ product.title }}</span>
+                      <span class="fw-normal mb-3"
+                        >NT$<span>{{ product.price }}</span></span
+                      >
+                      <span
+                        v-if="!product.is_enabled || product.quantity === 0"
+                        class="text-white bg-pink px-2 py-1 mb-3"
+                        >缺貨</span
+                      >
+                      <span v-else class="text-white bg-success px-2 py-1 mb-3">有貨</span>
+
+                      <button
+                        @click="addToCart(product.id)"
+                        class="btn btn-primary w-100 mb-2"
+                        :disabled="!product.is_enabled || product.quantity === 0"
+                      >
+                        <i class="bi bi-cart3 me-2"></i>加入購物車
+                      </button>
+                      <button
+                        @click.prevent="removeWishListProduct(product)"
+                        class="btn btn-outline-secondary w-100 mb-3"
+                      >
+                        <i class="bi bi-trash3-fill"></i>刪除
+                      </button>
+                    </div>
+                  </th>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+<script>
+import { RouterLink } from 'vue-router'
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+
+export default {
+  data() {
+    return {
+      wishList: []
+    }
+  },
+  methods: {
+    //移除願望清單品項
+    removeWishListProduct(product) {
+      console.log('移除品項: ' + product.title)
+      // 連接 pinia 狀態管理
+    },
+    // 取得購物車資料
+    getCart() {
+      this.$http
+        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
+        .then((res) => {
+          this.cart = res.data.data
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+    },
+    // 將產品加入入購物車
+    addToCart(product_id, qty = 1) {
+      //當沒有傳入參數時，會使用預設值
+      const data = {
+        product_id,
+        qty
+      }
+      this.$http
+        .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
+        .then((res) => {
+          // 加入購物車後，重新整理購物車資料
+          this.getCart()
+          alert(res.data.message)
+        })
+        .catch((err) => alert(err.message))
+    }
+  },
+  mounted() {
+    this.wishList = JSON.parse(localStorage.getItem('localStorageWishLis'))
+    console.log(this.wishList)
+  }
+}
+</script>
 <style lang="scss">
 .purchase-active {
   color: black;

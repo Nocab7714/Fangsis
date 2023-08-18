@@ -16,6 +16,7 @@
       </div>
     </div>
   </div>
+
   <div class="container my-6">
     <div class="row position-relative">
       <!-- 產品分類 (桌面版) -->
@@ -70,6 +71,7 @@
       </div>
 
       <!-- 產品顯示列表 -->
+
       <div class="products col-lg-9">
         <div v-if="categoryProducts.length === 0">
           <h2 class="fs-3 text-secondary text-center mt-10 mb-20">很抱歉! 找不到符合的商品</h2>
@@ -179,13 +181,39 @@ export default {
       productId: '',
       page: {},
       cart: {},
-      WishList: []
+      wishList: [],
+      wishListAddStatus: true
     }
   },
   methods: {
+    //加入願望清單
     addWishList(product) {
-      this.WishList.push(product)
-      console.log(this.WishList)
+      const wishListObj = {
+        title: product.title,
+        id: product.id,
+        price: product.price,
+        imageUrl: product.imageUrl,
+        quantity: product.quantity,
+        is_enabled: product.is_enabled
+      }
+
+      this.wishList.forEach((item, index) => {
+        if (item.id === wishListObj.id) {
+          // 加入 WishList 的資料若重複，便從願望清單中移除
+          this.wishList.splice(index, 1)
+          this.wishListAddStatus = false
+        }
+      })
+      //如果 wishListAddStatus 狀態，將產品資料加入願望清單
+      if (this.wishListAddStatus === true) {
+        this.wishList.push(wishListObj)
+      }
+      // 回復 wishListAddStatus 初始狀態
+      this.wishListAddStatus = true
+
+      //將願望清單資料存在 local Storage
+      let localStorageWishLis = JSON.stringify(this.wishList)
+      localStorage.setItem('localStorageWishLis', localStorageWishLis)
     },
     // 取得所有產品資料
     getProducts(page = 1, category = '') {
@@ -271,6 +299,7 @@ export default {
   mounted() {
     this.getProducts()
     this.getCart()
+    this.wishList = JSON.parse(localStorage.getItem('localStorageWishLis')) // 之後要將願望清單儲存在 pinia
   }
 }
 </script>
