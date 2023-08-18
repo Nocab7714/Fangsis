@@ -21,13 +21,14 @@
       </div>
     </div>
   </div>
+
   <div class="container my-6">
     <div class="row gx-lg-6 mb-8">
       <div class="col-lg-4">
         <img
           class="img-fluid product-img w-100"
-          src="https://shorturl.at/eLQZ4"
-          alt="柚子雪松蠟燭禮盒商品照片"
+          :src="product.imageUrl"
+          :alt="product.title"
           width="440"
           height="440"
         />
@@ -38,24 +39,34 @@
             class="fs-lg-1 fs-2 fw-bold mb-6 mt-5 mt-lg-0"
             style="font-family: var(--bs-NotoSerif-TC)"
           >
-            柚子雪松蠟燭禮盒
-            <span class="fs-lg-4 fs-5 badge bg-secondary rounded-0">已售完</span>
+            {{ product.title }}
+
+            <span v-if="product.quantity === 0" class="fs-lg-4 fs-5 badge bg-secondary rounded-0"
+              >已售完</span
+            >
           </h2>
           <p class="fs-6 mb-0">
-            雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
+            {{ product.description }}
           </p>
           <br />
           <p class="fs-6">
-            【每份禮盒含】 香氛蠟燭155ml (大) x1 香氛擴香50ml (小) x1 薑餅人手工皂 x1
-            附送：柚香擴香木
+            {{ product.content }}
           </p>
           <div
             class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-end mt-6"
           >
-            <p class="fw-bold fs-5 fst-italic mb-lg-0 mb-2">NT $<span>1999</span>/ 盒</p>
+            <p class="fw-bold fs-5 fst-italic mb-lg-0 mb-2">
+              NT $<span>{{ product.price }}</span
+              >/ {{ product.unit }}
+            </p>
             <form>
               <div class="d-flex fs-6">
-                <select class="form-select select-hight me-2 w-auto" name="" id="">
+                <select
+                  class="form-select select-hight me-2 w-auto"
+                  name=""
+                  id=""
+                  :disabled="product.quantity === 0"
+                >
                   <option disabled selected>數量選擇</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -68,7 +79,13 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
-                <button class="btn btn-primary fs-6 me-2" type="submit">加入購物車</button>
+                <button
+                  class="btn btn-primary fs-6 me-2"
+                  type="submit"
+                  :disabled="product.quantity === 0"
+                >
+                  加入購物車
+                </button>
                 <button class="btn btn-pink fs-6" type="button">
                   <i class="bi bi-heart-fill text-white"></i>
                 </button>
@@ -78,7 +95,6 @@
         </div>
       </div>
     </div>
-
     <hr />
     <div>
       <h2 class="fs-4 mb-4">你可能也喜歡</h2>
@@ -94,10 +110,24 @@ import { RouterLink } from 'vue-router'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
-    return {}
+    return {
+      product: {} // 存放取出的單向產品資料
+    }
+  },
+  components: {
+    RouterLink
   },
   mounted() {
-    console.log(VITE_APP_URL, VITE_APP_PATH)
+    // 取得產品 id 並串接 api 將資料儲存到 product 物件中
+    const { id } = this.$route.params
+    this.$http
+      .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
+      .then((res) => {
+        this.product = res.data.product
+      })
+      .catch((err) => {
+        alert(err)
+      })
   }
 }
 </script>

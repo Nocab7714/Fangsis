@@ -27,10 +27,10 @@ const router = createRouter({
           meta: { title: 'Fangsis | 全站商品' }
         },
         {
-          path: 'product',
-          name: 'product',
+          path: 'product/:id',
+          name: 'product', 
           component: () => import('../views/fronted/ProductView.vue'),
-          meta: { title: 'Fangsis | 單項商品' }
+          meta: { title: 'Fangsis | 商品資訊' }
         },
         {
           path: 'CartView',
