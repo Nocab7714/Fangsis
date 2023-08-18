@@ -536,7 +536,7 @@ export default {
 
 .navbar-link-white-hover {
   border-bottom: 2.5px solid transparent;
-  transition: all 0.4s;
+  transition: all 0.25s;
 }
 
 .navbar-link-white-hover:hover {
