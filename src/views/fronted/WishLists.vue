@@ -208,8 +208,7 @@ export default {
     }
   },
   mounted() {
-    this.wishList = JSON.parse(localStorage.getItem('localStorageWishLis'))
-    console.log(this.wishList)
+    this.wishList = JSON.parse(localStorage.getItem('localStorageWishList'))
   }
 }
 </script>

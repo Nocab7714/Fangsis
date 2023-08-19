@@ -71,7 +71,6 @@
       </div>
 
       <!-- 產品顯示列表 -->
-
       <div class="products col-lg-9">
         <div v-if="categoryProducts.length === 0">
           <h2 class="fs-3 text-secondary text-center mt-10 mb-20">很抱歉! 找不到符合的商品</h2>
@@ -81,7 +80,8 @@
             <div class="card border-0 h-100 position-relative">
               <!-- 加入許願清單按鈕 -->
               <a class="wishLists-btn fs-4 link-light" href="" @click.prevent="addWishList(product)"
-                ><i class="bi bi-heart"></i
+                ><i class="bi bi-heart position-relative"></i
+                ><i class="bi bi-heart-fill position-absolute"></i
               ></a>
               <router-link class="product-link text-decoration-none" :to="`/product/${product.id}`">
                 <div class="position-relative">
@@ -202,19 +202,22 @@ export default {
           // 加入 WishList 的資料若重複，便從願望清單中移除
           this.wishList.splice(index, 1)
           this.wishListAddStatus = false
+          alert('已經從願望清單移除')
         }
       })
-      //如果 wishListAddStatus 狀態，將產品資料加入願望清單
+      //如果 wishListAddStatus 狀態為真 (並沒有將重複資料移除)，將產品資料加入願望清單
       if (this.wishListAddStatus === true) {
         this.wishList.push(wishListObj)
+        alert('成功加入至願望清單')
       }
       // 回復 wishListAddStatus 初始狀態
       this.wishListAddStatus = true
 
       //將願望清單資料存在 local Storage
-      let localStorageWishLis = JSON.stringify(this.wishList)
-      localStorage.setItem('localStorageWishLis', localStorageWishLis)
+      const localStorageWishList = JSON.stringify(this.wishList)
+      localStorage.setItem('localStorageWishList', localStorageWishList)
     },
+
     // 取得所有產品資料
     getProducts(page = 1, category = '') {
       //頁數預設參數 : 預設 1
@@ -299,7 +302,10 @@ export default {
   mounted() {
     this.getProducts()
     this.getCart()
-    this.wishList = JSON.parse(localStorage.getItem('localStorageWishLis')) // 之後要將願望清單儲存在 pinia
+    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
+    if (localStorage.key('localStorageWishList') !== null) {
+      this.wishList = JSON.parse(localStorage.getItem('localStorageWishList')) // 之後要將願望清單儲存在 pinia
+    }
   }
 }
 </script>
