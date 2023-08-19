@@ -366,4 +366,16 @@ export default {
   right: 10px;
   top: 5px;
 }
+
+.bi-heart-fill {
+  left: 0;
+  opacity: 0;
+  &:hover {
+    opacity: 100;
+  }
+  &:active {
+    opacity: 100;
+    color: $pink;
+  }
+}
 </style>
