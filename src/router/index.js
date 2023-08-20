@@ -28,7 +28,7 @@ const router = createRouter({
         },
         {
           path: 'product/:id',
-          name: 'product', 
+          name: 'product',
           component: () => import('../views/fronted/ProductView.vue'),
           meta: { title: 'Fangsis | 商品資訊' }
         },
@@ -92,13 +92,6 @@ const router = createRouter({
           component: () => import('../views/fronted/MemberSignUp.vue'),
           meta: { title: 'Fangsis | 會員註冊' }
         },
-        // 切版佔放位置
-        {
-          name: 'AdminLogin',
-          path: 'AdminLogin',
-          component: () => import('../views/fronted/AdminLogin.vue'),
-          meta: { title: 'Fangsis | 後台管理登入' }
-        },
         {
           name: 'OrderSearch',
           path: 'OrderSearch',
@@ -110,6 +103,19 @@ const router = createRouter({
           path: 'WishLists',
           component: () => import('../views/fronted/WishLists.vue'),
           meta: { title: 'Fangsis | 願望清單' }
+        }
+      ]
+    },
+    {
+      path: '/admin',
+      component: () => import('../views/admin/AdminLogin.vue'),
+      meta: { title: 'Fangsis | 後台管理登入' },
+      children: [
+        {
+          path: 'adminProducts',
+          name: 'adminProducts',
+          component: () => import('../views/admin/AdminProducts.vue'),
+          meta: { title: 'Fangsis | 後台管理 - 全部產品' }
         }
       ]
     }

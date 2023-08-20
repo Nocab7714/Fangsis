@@ -34,7 +34,12 @@
                 <label for="AdminLoginPassword" class="form-label fs-6">密碼 / Password </label>
                 <div class="position-relative">
                   <i class="bi bi-key-fill fs-5 text-secondary position-absolute input-icon"></i>
-                  <input type="password" class="form-control input-text" id="AdminLoginPassword" />
+                  <input
+                    type="password"
+                    class="form-control input-text"
+                    id="AdminLoginPassword"
+                    autocomplete
+                  />
                 </div>
               </div>
               <div class="mb-4">
@@ -53,6 +58,15 @@
     </div>
   </div>
 </template>
+<script>
+import { RouterLink, RouterView } from 'vue-router'
+export default {
+  data() {
+    return {}
+  },
+  components: [RouterLink, RouterView]
+}
+</script>
 <style lang="scss">
 .login-bkg {
   position: relative;
