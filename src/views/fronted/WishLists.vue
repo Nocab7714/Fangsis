@@ -208,7 +208,10 @@ export default {
     }
   },
   mounted() {
-    this.wishList = JSON.parse(localStorage.getItem('localStorageWishList'))
+    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
+    if (localStorage.key('localStorageWishList') !== null) {
+      this.wishList = JSON.parse(localStorage.getItem('localStorageWishList')) // 之後要將願望清單儲存在 pinia
+    }
   }
 }
 </script>
