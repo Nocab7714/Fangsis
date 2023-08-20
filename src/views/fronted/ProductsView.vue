@@ -367,7 +367,7 @@ export default {
   top: 5px;
 }
 
-.bi-heart-fill {
+.wishLists-btn .bi-heart-fill {
   left: 0;
   opacity: 0;
   &:hover {
