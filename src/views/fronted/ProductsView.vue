@@ -80,7 +80,8 @@
             <div class="card border-0 h-100 position-relative">
               <!-- 加入許願清單按鈕 -->
               <a class="wishLists-btn fs-4 link-light" href="" @click.prevent="addWishList(product)"
-                ><i class="bi bi-heart"></i
+                ><i class="bi bi-heart position-relative"></i
+                ><i class="bi bi-heart-fill position-absolute"></i
               ></a>
               <router-link class="product-link text-decoration-none" :to="`/product/${product.id}`">
                 <div class="position-relative">
@@ -364,5 +365,17 @@ export default {
   z-index: 4;
   right: 10px;
   top: 5px;
+}
+
+.bi-heart-fill {
+  left: 0;
+  opacity: 0;
+  &:hover {
+    opacity: 100;
+  }
+  &:active {
+    opacity: 100;
+    color: $pink;
+  }
 }
 </style>
