@@ -37,9 +37,8 @@
           <button
             class="navbar-toggler"
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
+            @click="openNavbarListOffcanvas()"
           >
             <i class="bi bi-list fs-3 text-white"></i>
           </button>
@@ -84,10 +83,9 @@
             <li class="nav-item d-none d-lg-block">
               <a
                 class="nav-link fs-4 me-1 link-light"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
+                @click.prevent="openCartOffcanvas()"
               >
                 <i class="bi bi-bag-fill position-relative">
                   <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
@@ -149,9 +147,8 @@
           <button
             class="navbar-toggler"
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
+            @click="openNavbarListOffcanvas()"
           >
             <i class="bi bi-list fs-3 text-primary"></i>
           </button>
@@ -196,10 +193,9 @@
             <li class="nav-item d-none d-lg-block">
               <a
                 class="nav-link me-1 fs-4 link-primary"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
+                @click.prevent="openCartOffcanvas()"
               >
                 <i class="bi bi-bag-fill position-relative">
                   <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
@@ -331,15 +327,16 @@
     </div>
   </transition>
 
-  <!-- 購物車 offcanvas (拆成元件) -->
+  <!-- 購物車 offcanvas (拆成元件) ，要透過 pinia 傳入 cart 資料 -->
   <div
     class="offcanvas offcanvas-end"
     tabindex="-1"
-    id="offcanvasWithBackdrop"
+    id="cartOffcanvas"
     aria-labelledby="offcanvasWithBackdropLabel"
+    ref="cartOffcanvas"
   >
     <div class="offcanvas-header">
-      <h2 class="offcanvas-title fs-3" id="offcanvasWithBackdropLabel">購物車</h2>
+      <h2 class="offcanvas-title fs-3" id="cartOffcanvas">購物車</h2>
       <button
         type="button"
         class="btn-close text-reset"
@@ -419,33 +416,53 @@
   <div
     class="offcanvas offcanvas-end w-100"
     tabindex="-1"
-    id="offcanvasNavbar"
+    id="navbarListOffcanvas"
     aria-labelledby="offcanvasNavbar"
+    ref="navbarListOffcanvas"
   >
     <div class="offcanvas-header justify-content-end">
       <button
         type="button"
         class="btn-close text-reset"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
+        @click="closeNavbarListOffcanvas()"
       ></button>
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" aria-current="page" to="/about"
+          <router-link
+            class="nav-link mx-3 link-dark"
+            aria-current="page"
+            to="/about"
+            @click="closeNavbarListOffcanvas()"
             >關於芳心</router-link
           >
         </li>
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" to="/products">全部商品</router-link>
+          <router-link
+            class="nav-link mx-3 link-dark"
+            to="/products"
+            @click="closeNavbarListOffcanvas()"
+            >全部商品</router-link
+          >
         </li>
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" to="/OrderSearch">訂單查詢</router-link>
+          <router-link
+            class="nav-link mx-3 link-dark"
+            to="/OrderSearch"
+            @click="closeNavbarListOffcanvas()"
+            >訂單查詢</router-link
+          >
         </li>
 
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" to="/MemberLogin"> 會員中心 </router-link>
+          <router-link
+            class="nav-link mx-3 link-dark"
+            to="/MemberLogin"
+            @click="closeNavbarListOffcanvas()"
+          >
+            會員中心
+          </router-link>
         </li>
       </ul>
     </div>
@@ -456,6 +473,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
+import * as bootstrap from 'bootstrap'
 
 export default {
   data() {
@@ -464,7 +482,9 @@ export default {
         goToTopOpacity100: 'https://shorturl.at/DJT34'
       },
       isTop: true,
-      isGoToTopVisible: true
+      isGoToTopVisible: true,
+      cartOffcanvas: {}, //存放 cart Offcanvas 實體
+      navbarListOffcanvas: {} //存放 navbar 列表 Offcanvas 實體
     }
   },
   methods: {
@@ -481,6 +501,17 @@ export default {
       const threshold = 300
       this.isGoToTopVisible = distanceFromTop > threshold
     },
+    //打開購物車 Offcanvas 的方法
+    openCartOffcanvas() {
+      this.cartOffcanvas.show()
+    },
+    openNavbarListOffcanvas() {
+      this.navbarListOffcanvas.show()
+    },
+    closeNavbarListOffcanvas() {
+      this.navbarListOffcanvas.hide()
+    },
+
     ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList'])
   },
   beforeDestroy() {
@@ -494,6 +525,10 @@ export default {
     window.addEventListener('scroll', this.goToTopHandleScroll)
     this.getCart()
     this.pullLocalStorageToWishList()
+    // 購物車 Offcanvas 實體化
+    this.cartOffcanvas = new bootstrap.Offcanvas(this.$refs.cartOffcanvas)
+    // navbar 列表 Offcanvas 實體化
+    this.navbarListOffcanvas = new bootstrap.Offcanvas(this.$refs.navbarListOffcanvas)
   },
   computed: {
     ...mapState(cartAndWishListStore, ['carts', 'wishList'])
