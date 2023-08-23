@@ -79,9 +79,16 @@
           <div v-for="product in categoryProducts" :key="product.id" class="col-lg-4 col-6">
             <div class="card border-0 h-100 position-relative">
               <!-- 加入許願清單按鈕 -->
-              <a class="wishLists-btn fs-4 link-light" href="" @click.prevent="addWishList(product)"
-                ><i class="bi bi-heart position-relative"></i
-                ><i class="bi bi-heart-fill position-absolute"></i
+              <a
+                class="wishLists-btn fs-4 link-light"
+                href=""
+                @click.prevent="addWishList(product)"
+              >
+                <i
+                  class="bi bi-heart-fill position-relative"
+                  :class="{ 'heart-fill-active': wishListActive(product) }"
+                ></i
+                ><i class="bi bi-heart position-absolute"></i
               ></a>
               <router-link class="product-link text-decoration-none" :to="`/product/${product.id}`">
                 <div class="position-relative">
@@ -170,6 +177,8 @@
 
 <script>
 import { RouterLink } from 'vue-router'
+import { mapActions, mapState } from 'pinia'
+import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -179,45 +188,10 @@ export default {
       categoryProducts: [], //分類後的產品列表。用於操作產品分類
       categoryValue: '', //用於 pagination 換頁時將類別類型加入至 getProducts
       productId: '',
-      page: {},
-      cart: {},
-      wishList: [],
-      wishListAddStatus: true
+      page: {}
     }
   },
   methods: {
-    //加入願望清單
-    addWishList(product) {
-      const wishListObj = {
-        title: product.title,
-        id: product.id,
-        price: product.price,
-        imageUrl: product.imageUrl,
-        quantity: product.quantity,
-        is_enabled: product.is_enabled
-      }
-
-      this.wishList.forEach((item, index) => {
-        if (item.id === wishListObj.id) {
-          // 加入 WishList 的資料若重複，便從願望清單中移除
-          this.wishList.splice(index, 1)
-          this.wishListAddStatus = false
-          alert('已經從願望清單移除')
-        }
-      })
-      //如果 wishListAddStatus 狀態為真 (並沒有將重複資料移除)，將產品資料加入願望清單
-      if (this.wishListAddStatus === true) {
-        this.wishList.push(wishListObj)
-        alert('成功加入至願望清單')
-      }
-      // 回復 wishListAddStatus 初始狀態
-      this.wishListAddStatus = true
-
-      //將願望清單資料存在 local Storage
-      const localStorageWishList = JSON.stringify(this.wishList)
-      localStorage.setItem('localStorageWishList', localStorageWishList)
-    },
-
     // 取得所有產品資料
     getProducts(page = 1, category = '') {
       //頁數預設參數 : 預設 1
@@ -235,7 +209,7 @@ export default {
           alert(err)
         })
     },
-    // 取得購物車資料
+    // 取得購物車資料 ** 非 pinia
     getCart() {
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
@@ -247,23 +221,24 @@ export default {
         })
     },
     // 將產品加入入購物車
-    addToCart(product_id, qty = 1) {
-      //當沒有傳入參數時，會使用預設值
-      const data = {
-        product_id,
-        qty
-      }
-      this.$http
-        .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
-        .then((res) => {
-          // 加入購物車後，重新整理購物車資料
-          this.getCart()
-          alert(res.data.message)
-        })
-        .catch((err) => alert(err.message))
-    },
-    // 更新修改購物車資料
+    // addToCart(product_id, qty = 1) {
+    //   //當沒有傳入參數時，會使用預設值
+    //   const data = {
+    //     product_id,
+    //     qty
+    //   }
+    //   this.$http
+    //     .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
+    //     .then((res) => {
+    //       // 加入購物車後，重新整理購物車資料
+    //       this.getCart()
+    //       alert(res.data.message)
+    //     })
+    //     .catch((err) => alert(err.message))
+    // },
+
     upDataCartItem(item) {
+      //// 更新修改購物車資料** 非 pinia
       const data = {
         product_id: item.product.id,
         qty: item.qty
@@ -293,19 +268,23 @@ export default {
       const category = event.target.value
       this.getProducts(1, category)
     },
-    addWishLists(product) {},
     // 滾動到視窗最頂
     scrollToTop() {
       window.scrollTo(0, 0)
-    }
+    },
+    ...mapActions(cartAndWishListStore, [
+      'addToCart',
+      'addWishList',
+      'pullLocalStorageToWishList',
+      'wishListActive'
+    ])
+  },
+  computed: {
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus'])
   },
   mounted() {
     this.getProducts()
-    this.getCart()
-    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
-    if (localStorage.key('localStorageWishList') !== null) {
-      this.wishList = JSON.parse(localStorage.getItem('localStorageWishList')) // 之後要將願望清單儲存在 pinia
-    }
+    this.pullLocalStorageToWishList()
   }
 }
 </script>
@@ -365,17 +344,27 @@ export default {
   z-index: 4;
   right: 10px;
   top: 5px;
+  .bi-heart {
+    left: 0;
+    z-index: 2;
+  }
 }
 
 .wishLists-btn .bi-heart-fill {
   left: 0;
-  opacity: 0;
+  z-index: 3;
+  color: transparent; //active 樣式改為修改顏色
   &:hover {
-    opacity: 100;
+    color: white;
   }
   &:active {
     opacity: 100;
-    color: $pink;
+    color: $pink !important;
   }
+}
+
+.heart-fill-active {
+  // active 樣式改為修改顏色
+  color: white !important;
 }
 </style>

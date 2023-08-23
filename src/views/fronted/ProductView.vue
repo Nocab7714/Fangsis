@@ -31,6 +31,7 @@
           :alt="product.title"
           width="440"
           height="440"
+          style="background-color: var(--bs-secondary)"
         />
       </div>
       <div class="col-lg-8">
@@ -66,6 +67,7 @@
                   name=""
                   id=""
                   :disabled="product.quantity === 0"
+                  ref="productQty"
                 >
                   <option disabled selected>數量選擇</option>
                   <option value="1">1</option>
@@ -81,13 +83,22 @@
                 </select>
                 <button
                   class="btn btn-primary fs-6 me-2"
-                  type="submit"
+                  type="button"
+                  @click="addToCart(product.id, this.$refs.productQty.value)"
                   :disabled="product.quantity === 0"
                 >
                   加入購物車
                 </button>
-                <button class="btn btn-pink fs-6" type="button">
-                  <i class="bi bi-heart-fill text-white"></i>
+                <button
+                  class="btn btn-pink fs-6 position-relative btn-addToWishList"
+                  type="button"
+                  @click="addWishList(product)"
+                >
+                  <i
+                    class="bi bi-heart-fill position-absolute"
+                    :class="{ 'heart-fill-active': wishListActive(product) }"
+                  ></i>
+                  <i class="bi bi-heart text-white"></i>
                 </button>
               </div>
             </form>
@@ -107,15 +118,29 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router'
+import { mapActions, mapState } from 'pinia'
+import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
     return {
-      product: {} // 存放取出的單向產品資料
+      product: {} // 存放取出的單項產品資料
     }
+  },
+  methods: {
+    ...mapActions(cartAndWishListStore, [
+      'addToCart',
+      'getCart',
+      'addWishList',
+      'pullLocalStorageToWishList',
+      'wishListActive'
+    ])
   },
   components: {
     RouterLink
+  },
+  computed: {
+    ...mapState(cartAndWishListStore, ['carts', 'wishList'])
   },
   mounted() {
     // 取得產品 id 並串接 api 將資料儲存到 product 物件中
@@ -128,6 +153,8 @@ export default {
       .catch((err) => {
         alert(err)
       })
+
+    this.pullLocalStorageToWishList()
   }
 }
 </script>
@@ -136,5 +163,21 @@ export default {
   background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1689947167279.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HPMkP4A3VpRpZxeB2opnsMfTm7zoerIe27Pn6O6qhbyh8EkFs4nBrAkNn0jO11OeYDllGqlk2eC5SxekoC%2B9FHZ%2BFkwnOcz6A0UeiRTSPSfBv6V8pIv0n0YQ2ojXb7pPb1mKlGFRznE%2Fj5dr3f%2B4hlXp8ItFUKJ%2BgBS8%2FyodUAfTkG3gt6jhQhK98vBotZ7mCEWBW4fhxhjCF8RAZoDrBKxvKjyzB5cfzhY8ADvCJrIDS6BtCbTk68tuHpxoZGPt6davwZaQu5pECrO%2FZNLo21SRv352y4ro0Vpqfmb3odzFS6fYiNGegZ1TWIYCn5vSMUUSdlVlZqyZZbUh1x%2BIjA%3D%3D');
   background-position: center center;
   background-size: cover;
+}
+
+.btn-addToWishList {
+  .bi-heart-fill {
+    color: transparent;
+  }
+  &:hover {
+    .bi-heart-fill {
+      color: white;
+    }
+  }
+}
+
+.heart-fill-active {
+  // active 樣式改為修改顏色
+  color: white !important;
 }
 </style>

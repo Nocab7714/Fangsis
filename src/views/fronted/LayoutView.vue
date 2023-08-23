@@ -22,12 +22,16 @@
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-light d-block d-lg-none me-4" to="/WishLists">
             <i class="bi bi-heart-fill position-relative">
-              <span class="navbar-badge fs-7 fst-normal">10</span>
+              <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">
+                {{ wishList.length }}
+              </span>
             </i>
           </router-link>
           <router-link class="nav-link fs-5 link-light d-block d-lg-none me-4" to="/CartView">
             <i class="bi bi-bag-fill position-relative">
-              <span class="navbar-badge fs-7 fst-normal">10</span>
+              <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                carts.length
+              }}</span>
             </i>
           </router-link>
           <button
@@ -69,27 +73,31 @@
               >
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link mx-2 link-light" to="/WishLists">
+              <router-link class="nav-link ms-4 me-1 link-light" to="/WishLists">
                 <i class="bi bi-heart-fill position-relative fs-4">
-                  <span class="navbar-badge fs-7 fst-normal">13</span>
+                  <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                    wishList.length
+                  }}</span>
                 </i>
               </router-link>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
-                class="nav-link mx-2 fs-4 link-light"
+                class="nav-link fs-4 me-1 link-light"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
               >
                 <i class="bi bi-bag-fill position-relative">
-                  <span class="navbar-badge fs-7 fst-normal">10</span>
+                  <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                    carts.length
+                  }}</span>
                 </i>
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link mx-2 fs-3 link-light" to="/MemberLogin">
+              <router-link class="nav-link fs-3 link-light" to="/MemberLogin">
                 <i class="bi bi-person-fill"></i>
               </router-link>
             </li>
@@ -126,12 +134,16 @@
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-4" to="/WishLists">
             <i class="bi bi-heart-fill position-relative">
-              <span class="navbar-badge fs-7 fst-normal">10</span>
+              <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">
+                {{ wishList.length }}</span
+              >
             </i>
           </router-link>
           <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-4" to="/CartView">
             <i class="bi bi-bag-fill position-relative">
-              <span class="navbar-badge fs-7 fst-normal">10</span>
+              <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                carts.length
+              }}</span>
             </i>
           </router-link>
           <button
@@ -173,27 +185,31 @@
               >
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link mx-2 link-primary" to="/WishLists">
+              <router-link class="nav-link ms-4 me-1 link-primary" to="/WishLists">
                 <i class="bi bi-heart-fill position-relative fs-4">
-                  <span class="navbar-badge fs-7 fst-normal">13</span>
+                  <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                    wishList.length
+                  }}</span>
                 </i>
               </router-link>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
-                class="nav-link mx-2 fs-4 link-primary"
+                class="nav-link me-1 fs-4 link-primary"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBackdrop"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
               >
                 <i class="bi bi-bag-fill position-relative">
-                  <span class="navbar-badge fs-7 fst-normal">10</span>
+                  <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
+                    carts.length
+                  }}</span>
                 </i>
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link mx-2 fs-3 link-primary" to="/MemberLogin">
+              <router-link class="nav-link fs-3 link-primary" to="/MemberLogin">
                 <i class="bi bi-person-fill"></i>
               </router-link>
             </li>
@@ -207,8 +223,8 @@
       </div>
     </nav>
   </transition>
-
   <!-- 頁面顯示區塊 -->
+
   <router-view> </router-view>
 
   <footer class="bg-primary">
@@ -315,7 +331,7 @@
     </div>
   </transition>
 
-  <!-- 購物車 offcanvas -->
+  <!-- 購物車 offcanvas (拆成元件) -->
   <div
     class="offcanvas offcanvas-end"
     tabindex="-1"
@@ -399,7 +415,7 @@
       <router-link class="btn btn-primary w-100" to="/CartView">查看購物車</router-link>
     </div>
   </div>
-  <!-- navbar 打開漢堡選單的 offcanvas -->
+  <!-- navbar 打開漢堡選單的 offcanvas (拆成元件) -->
   <div
     class="offcanvas offcanvas-end w-100"
     tabindex="-1"
@@ -438,6 +454,8 @@
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import { mapActions, mapState } from 'pinia'
+import cartAndWishListStore from '../../stores/cartAndWishList'
 
 export default {
   data() {
@@ -448,11 +466,6 @@ export default {
       isTop: true,
       isGoToTopVisible: true
     }
-  },
-  mounted() {
-    // 監聽視窗滾動事件
-    window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('scroll', this.goToTopHandleScroll)
   },
   methods: {
     scrollToTop() {
@@ -467,12 +480,23 @@ export default {
       // 設定一個閾值，表示視窗離開頂部多少距離時，顯示 div 元素
       const threshold = 300
       this.isGoToTopVisible = distanceFromTop > threshold
-    }
+    },
+    ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList'])
   },
   beforeDestroy() {
     // 移除事件監聽器，避免記憶體洩漏
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('scroll', goToTopHandleScroll)
+  },
+  mounted() {
+    // 監聽視窗滾動事件
+    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.goToTopHandleScroll)
+    this.getCart()
+    this.pullLocalStorageToWishList()
+  },
+  computed: {
+    ...mapState(cartAndWishListStore, ['carts', 'wishList'])
   }
 }
 </script>

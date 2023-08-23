@@ -75,7 +75,13 @@
                       height="100"
                     />
                   </td>
-                  <td>{{ product.title }}</td>
+                  <td>
+                    <router-link
+                      :to="`/product/${product.id}`"
+                      class="text-decoration-none link-dark"
+                      >{{ product.title }}</router-link
+                    >
+                  </td>
                   <td>{{ product.price }}</td>
                   <td class="text-center">
                     <span
@@ -87,7 +93,7 @@
                   </td>
                   <td class="text-center">
                     <button
-                      @click="addToCart(product.id)"
+                      @click="addToCart(product.id, 1, product)"
                       class="btn btn-primary"
                       :disabled="!product.is_enabled || product.quantity === 0"
                     >
@@ -121,14 +127,21 @@
                 <tr>
                   <th scope="row">
                     <div class="d-flex flex-column align-items-center py-4 px-2">
-                      <img
-                        class="img-fluid mb-3"
-                        :src="product.imageUrl"
-                        :alt="product.title"
-                        width="200"
-                        height="200"
-                      />
-                      <span class="fw-normal fs-5">{{ product.title }}</span>
+                      <router-link :to="`/product/${product.id}`">
+                        <img
+                          class="img-fluid mb-3"
+                          :src="product.imageUrl"
+                          :alt="product.title"
+                          width="200"
+                          height="200"
+                        />
+                      </router-link>
+
+                      <router-link
+                        :to="`/product/${product.id}`"
+                        class="text-decoration-none link-dark"
+                        ><span class="fw-normal fs-5">{{ product.title }}</span></router-link
+                      >
                       <span class="fw-normal mb-3"
                         >NT$<span>{{ product.price }}</span></span
                       >
@@ -140,7 +153,7 @@
                       <span v-else class="text-white bg-success px-2 py-1 mb-3">有貨</span>
 
                       <button
-                        @click="addToCart(product.id)"
+                        @click="addToCart(product.id, 1, product)"
                         class="btn btn-primary w-100 mb-2"
                         :disabled="!product.is_enabled || product.quantity === 0"
                       >
@@ -165,53 +178,40 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router'
+import { mapActions, mapState } from 'pinia'
+import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   data() {
-    return {
-      wishList: []
-    }
+    return {}
   },
   methods: {
-    //移除願望清單品項
-    removeWishListProduct(product) {
-      console.log('移除品項: ' + product.title)
-      // 連接 pinia 狀態管理
-    },
     // 取得購物車資料
-    getCart() {
-      this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
-        .then((res) => {
-          this.cart = res.data.data
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
-    },
-    // 將產品加入入購物車
-    addToCart(product_id, qty = 1) {
-      //當沒有傳入參數時，會使用預設值
-      const data = {
-        product_id,
-        qty
-      }
-      this.$http
-        .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
-        .then((res) => {
-          // 加入購物車後，重新整理購物車資料
-          this.getCart()
-          alert(res.data.message)
-        })
-        .catch((err) => alert(err.message))
-    }
+    // getCart() {
+    //   this.$http
+    //     .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
+    //     .then((res) => {
+    //       this.cart = res.data.data
+    //     })
+    //     .catch((err) => {
+    //       alert(err.message)
+    //     })
+    // },
+    ...mapActions(cartAndWishListStore, [
+      'addToCart',
+      'pullLocalStorageToWishList',
+      'removeWishListProduct'
+    ])
+
+    // 差 removeWishListProduct 要放在 pinia 傳進來
+  },
+  computed: {
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus'])
+    // ...mapState(cartAndWishListStore, [])
   },
   mounted() {
-    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
-    if (localStorage.key('localStorageWishList') !== null) {
-      this.wishList = JSON.parse(localStorage.getItem('localStorageWishList')) // 之後要將願望清單儲存在 pinia
-    }
+    this.pullLocalStorageToWishList()
   }
 }
 </script>
