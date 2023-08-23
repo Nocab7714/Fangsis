@@ -83,8 +83,8 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         this.finial_total = res.data.data.finial_total // 包含套用優惠卷的總金額
       })
     },
-    // 將產品加入入購物車 (productsView 產品列表使用 )
-    addToCart(product_id, qty = 1, product) {
+    // 將產品加入入購物車
+    addToCart(product_id, qty = 1, product = '') {
       // 單項產品頁面判斷，未選擇產品數量會中斷加入購物車
       if (qty === '數量選擇') {
         alert('請選擇商品數量')
@@ -101,7 +101,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
         .then((res) => {
           this.getCart() // 加入購物車後，重新整理購物車資料
-          this.removeWishListProduct(product) // 許願清單品項加入購物車後，會在將品項從我的最愛移除
+          if (product !== '') {
+            //用於願望清單加入購物車的判斷。如果有傳入 product 資料便會將該項產品從許願清單移除。用於許願清單品項加入購物車後，會在將品項從我的最愛移除
+            this.removeWishListProduct(product)
+          }
           alert(res.data.message)
         })
         .catch((err) => alert(err.message))
