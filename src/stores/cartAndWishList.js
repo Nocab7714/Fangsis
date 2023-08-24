@@ -108,6 +108,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           alert(res.data.message)
         })
         .catch((err) => alert(err.message))
+    },
+    //刪除購物車資料
+    removeCartProduct(product_id) {
+      axios
+        .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
+        .then((res) => {
+          this.getCart()
+          alert(res.data.message)
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+      console.log(product_id)
     }
   },
   getters: {
