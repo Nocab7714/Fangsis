@@ -345,71 +345,70 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <div
+      <!-- <div
         class="border border-3 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
+      ></div> -->
+
+      <div
+        class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
       ></div>
 
       <ul class="list-unstyled">
-        <li class="d-flex align-items-center mb-3">
-          <img
-            class="img-fluid"
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-            alt="商品圖片"
-            width="100"
-            height="100"
-          />
-          <div class="ms-3">
-            <h3 class="fs-5">柚子雪松蠟燭禮盒</h3>
-            <p><span>10</span>x $<span>1999</span></p>
+        <div v-if="!carts.length" class="d-flex flex-column align-items-center mb-5">
+          <h3 class="fs-5 mb-3">您的購物車目前沒有任何商品!</h3>
+          <router-link to="/products" class="btn btn-primary px-4" @click="closeCartOffcanvas()"
+            >來去購物</router-link
+          >
+        </div>
+        <li
+          v-for="cart in carts"
+          :key="cart.product.id + 1"
+          class="d-flex align-items-center justify-content-between mb-3"
+        >
+          <div class="d-flex align-items-center">
+            <img
+              class="img-fluid"
+              :src="cart.product.imageUrl"
+              :alt="cart.product.id"
+              width="100"
+              height="100"
+            />
+            <div class="ms-3">
+              <h3 class="fs-6">{{ cart.product.title }}</h3>
+              <p class="mb-0">
+                <span>{{ cart.qty }}</span
+                >x $<span>{{ cart.product.origin_price }}</span>
+              </p>
+            </div>
           </div>
-          <a href=""><i class="bi bi-trash3-fill fs-5 ms-7"></i></a>
+
+          <a class="ms-6 me-3" href="" @click.prevent="removeCartProduct(cart.id)"
+            ><i class="bi bi-trash3-fill fs-5"></i
+          ></a>
         </li>
         <div
           class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
         ></div>
-        <li class="d-flex align-items-center mb-3">
-          <img
-            class="img-fluid"
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-            alt="購物車商品圖片"
-            width="100"
-            height="100"
-          />
-          <div class="ms-3">
-            <h3 class="fs-5">柚子雪松蠟燭禮盒</h3>
-            <p><span>10</span>x $<span>1999</span></p>
-          </div>
-          <a href=""><i class="bi bi-trash3-fill fs-5 ms-7"></i></a>
-        </li>
-        <div
-          class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
-        ></div>
-        <li class="d-flex align-items-center mb-3">
-          <img
-            class="img-fluid"
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
-            alt="購物車商品圖片"
-            width="100"
-            height="100"
-          />
-          <div class="ms-3">
-            <h3 class="fs-5">柚子雪松蠟燭禮盒</h3>
-            <p><span>10</span>x $<span>1999</span></p>
-          </div>
-          <a href=""><i class="bi bi-trash3-fill fs-5 ms-7"></i></a>
-        </li>
       </ul>
 
-      <div
+      <!-- <div
         class="border border-3 border-secondary border-top-0 border-end-0 border-start-0 mt-4 mb-4"
-      ></div>
+      ></div> -->
 
-      <div class="d-flex justify-content-between mb-7">
+      <div v-if="carts.length" class="d-flex justify-content-between mb-7">
         <span class="fs-5">總金額</span>
-        <span class="fs-5">$ <span>19990</span></span>
+        <span class="fs-5"
+          >$ <span>{{ total }}</span></span
+        >
       </div>
 
-      <router-link class="btn btn-primary w-100" to="/CartView">查看購物車</router-link>
+      <router-link
+        v-if="carts.length"
+        class="btn btn-primary w-100"
+        to="/CartView"
+        @click="closeCartOffcanvas()"
+        >查看購物車</router-link
+      >
     </div>
   </div>
   <!-- navbar 打開漢堡選單的 offcanvas (拆成元件) -->
@@ -505,14 +504,24 @@ export default {
     openCartOffcanvas() {
       this.cartOffcanvas.show()
     },
+    //關閉購物車 Offcanvas 的方法
+    closeCartOffcanvas() {
+      this.cartOffcanvas.hide()
+    },
+    //打開 NavbarList Offcanvas 的方法
     openNavbarListOffcanvas() {
       this.navbarListOffcanvas.show()
     },
+    //關閉 NavbarList Offcanvas 的方法
     closeNavbarListOffcanvas() {
       this.navbarListOffcanvas.hide()
     },
 
-    ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList'])
+    ...mapActions(cartAndWishListStore, [
+      'getCart',
+      'pullLocalStorageToWishList',
+      'removeCartProduct'
+    ])
   },
   beforeDestroy() {
     // 移除事件監聽器，避免記憶體洩漏
@@ -531,7 +540,7 @@ export default {
     this.navbarListOffcanvas = new bootstrap.Offcanvas(this.$refs.navbarListOffcanvas)
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList'])
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'total'])
   }
 }
 </script>
