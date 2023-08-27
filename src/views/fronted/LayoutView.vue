@@ -345,10 +345,6 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <!-- <div
-        class="border border-3 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
-      ></div> -->
-
       <div
         class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
       ></div>
@@ -390,18 +386,12 @@
           class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
         ></div>
       </ul>
-
-      <!-- <div
-        class="border border-3 border-secondary border-top-0 border-end-0 border-start-0 mt-4 mb-4"
-      ></div> -->
-
       <div v-if="carts.length" class="d-flex justify-content-between mb-7">
         <span class="fs-5">總金額</span>
         <span class="fs-5"
           >$ <span>{{ total }}</span></span
         >
       </div>
-
       <router-link
         v-if="carts.length"
         class="btn btn-primary w-100"
