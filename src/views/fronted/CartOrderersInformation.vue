@@ -24,15 +24,16 @@
         <li class="col-4 pb-3">完成訂單</li>
       </ul>
     </div>
-    <div class="row mt-4 gy-3">
-      <div class="col-lg-8">
-        <div class="border border-2 border-secondary px-5 py-5">
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-5 d-flex"
-          >
-            <h2 class="fs-4 fw-bold">訂購人資訊</h2>
-          </div>
-          <form>
+    <form>
+      <div class="row mt-4 gy-3">
+        <div class="col-lg-8">
+          <div class="border border-2 border-secondary px-5 py-5">
+            <div
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-5 d-flex"
+            >
+              <h2 class="fs-4 fw-bold">填寫訂購人資訊</h2>
+            </div>
+
             <div class="mb-4 w-100 w-md-50">
               <label for="PurchaserName" class="form-label">姓名 / Name</label>
               <input
@@ -40,6 +41,7 @@
                 id="PurchaserName"
                 type="text"
                 placeholder="請輸入您的姓名"
+                v-model="name"
               />
             </div>
             <div class="mb-4">
@@ -49,7 +51,7 @@
                 id="PurchaserPhoneNumber"
                 type="tel"
                 placeholder="請輸入您的手機電話號碼"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                v-model="tel"
               />
             </div>
             <div class="mb-4">
@@ -59,6 +61,7 @@
                 id="PurchaserEmail"
                 type="email"
                 placeholder="請輸入您的電子郵件地址"
+                v-model="email"
               />
             </div>
             <div class="mb-4">
@@ -70,6 +73,7 @@
                 id="PurchaserAddress"
                 type="text"
                 placeholder="請填寫配送位址，在此輸入您方便接受商品配送的地址"
+                v-model="address"
               />
             </div>
             <div class="mb-4">
@@ -83,117 +87,163 @@
                 maxlength="300"
                 placeholder="若您有任何的需要，可以在備註欄位中留下您對訂單的需求"
                 style="resize: none"
+                v-model="message"
               ></textarea>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="border border-2 border-secondary px-5 py-5 d-flex flex-column">
-          <div class="mb-6">
-            <div
-              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3"
-            >
-              <h2 class="fs-5 fw-bold">您的訂單</h2>
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">商品名稱</th>
-                  <th class="text-end" scope="col">數量</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th class="fw-lighter" scope="row">柚子雪松蠟燭禮盒</th>
-                  <td class="fw-lighter text-end">1</td>
-                </tr>
-                <tr>
-                  <th class="fw-lighter" scope="row">柚子雪松蠟燭禮盒</th>
-                  <td class="fw-lighter text-end">1</td>
-                </tr>
-                <tr>
-                  <th class="fw-lighter" scope="row">柚子雪松蠟燭禮盒</th>
-                  <td class="fw-lighter text-end">1</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-8 d-flex justify-content-between align-items-end"
-          >
-            <h3 class="fs-6 text-nowra">小計</h3>
-            <span class="fw-bold fs-4 fst-italic">NT$ <span>11994</span></span>
-          </div>
-          <div class="mb-5">
-            <div
-              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
-            >
-              <h3 class="fs-6">運送方式</h3>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                id="DeliveryMethod01"
-                type="radio"
-                name="DeliveryMethod"
-                disabled
-              />
-              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨 ( NT$60 ) </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                id="DeliveryMethod02"
-                type="radio"
-                name="DeliveryMethod"
-                checked
-                disabled
-              />
-              <label class="form-check-label" for="DeliveryMethod02">
-                順豐速遞 - 常溫配送 ( NT$100 )
-              </label>
-            </div>
-          </div>
-          <div class="mb-8">
-            <div
-              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
-            >
-              <h3 class="fs-6">請選擇付款方式</h3>
-            </div>
-            <select class="form-select">
-              <option selected disabled>請選擇您的付款方式</option>
-              <option value="PaymentMethod01">信用卡付款</option>
-              <option value="PaymentMethod02">ATM 轉帳或匯款</option>
-            </select>
-          </div>
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
-          >
-            <h3 class="fs-6 text-nowrap">總計</h3>
-            <div class="d-flex flex-column">
-              <span class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through"
-                >NT$ <span>11994</span></span
+        <div class="col-lg-4">
+          <div class="border border-2 border-secondary px-5 py-5 d-flex flex-column">
+            <div class="mb-6">
+              <div
+                class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3"
               >
-              <span class="fw-bold fs-4 fst-italic">NT$ <span>9999</span></span>
+                <h2 class="fs-5 fw-bold">您的訂單</h2>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">商品名稱</th>
+                    <th class="text-end text-nowrap" scope="col">數量</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="cart in carts">
+                    <th class="fw-lighter" scope="row">{{ cart.product.title }}</th>
+                    <td class="fw-lighter text-end">{{ cart.qty }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-          <span class="fs-7 text-end">( 已使用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span>
-          <div class="row mt-5 mb-8 gx-2">
-            <div class="col-6">
-              <router-link class="btn btn-outline-secondary w-100" to="CartView"
-                >回上一頁</router-link
+            <div
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
+            >
+              <h3 class="fs-6 text-nowra">小計</h3>
+              <span class="fw-bold fs-4 fst-italic"
+                >NT$ <span>{{ total }}</span></span
               >
             </div>
-            <div class="col-6">
-              <button class="btn btn-primary w-100" type="submit">送出訂單</button>
+            <div class="mb-8">
+              <div
+                class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
+              >
+                <h3 class="fs-6 fw-bold">配送方式</h3>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  id="DeliveryMethod01"
+                  type="radio"
+                  name="DeliveryMethod"
+                  :checked="delivery === '7-11 取貨'"
+                  disabled
+                />
+                <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  id="DeliveryMethod02"
+                  type="radio"
+                  name="DeliveryMethod"
+                  :checked="delivery === '順豐速遞 - 常溫配送'"
+                  disabled
+                />
+                <label class="form-check-label" for="DeliveryMethod02"> 順豐速遞 - 常溫配送 </label>
+              </div>
+            </div>
+            <div
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
+            >
+              <h3 class="fs-6 text-nowrap">總計</h3>
+              <div class="d-flex flex-column">
+                <span
+                  v-if="total !== final_total"
+                  class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through"
+                  >NT$ <span>{{ total }}</span></span
+                >
+                <span class="fw-bold fs-4 fst-italic"
+                  >NT$ <span>{{ final_total }}</span></span
+                >
+              </div>
+            </div>
+            <span v-if="total !== final_total" class="fs-7 text-end"
+              >( 已套用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span
+            >
+            <div class="row mt-5 mb-8 gx-2">
+              <div class="col-6">
+                <router-link class="btn btn-outline-secondary w-100" to="CartView"
+                  >回上一頁</router-link
+                >
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-primary w-100"
+                  type="button"
+                  @click="createOrder()"
+                  :disabled="carts.length === 0"
+                >
+                  建立訂單
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
+<script>
+import { RouterLink } from 'vue-router'
+import { mapActions, mapState } from 'pinia'
+import cartAndWishListStore from '../../stores/cartAndWishList'
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+export default {
+  data() {
+    return {
+      // order information
+      name: '',
+      email: '',
+      tel: '',
+      address: '',
+      message: ''
+    }
+  },
+  methods: {
+    //建立訂單
+    createOrder() {
+      // 訂購人資訊
+      const data = {
+        user: {
+          name: this.name,
+          email: this.email,
+          tel: this.tel,
+          address: this.address
+        },
+        message: this.message
+      }
+
+      this.$http
+        .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { data })
+        .then((res) => {
+          console.log(res)
+          alert(res.data.message)
+          this.getCart()
+          this.$router.push(`OrderPay/${res.data.orderId}`)
+        })
+        .catch((err) => {
+          alert('訂單建立失敗! 請確認您目前的網路連線狀況')
+          console.log(err)
+        })
+    },
+    ...mapActions(cartAndWishListStore, ['getCart'])
+  },
+  mounted() {},
+  computed: {
+    ...mapState(cartAndWishListStore, ['carts', 'total', 'final_total', 'delivery'])
+  }
+}
+</script>
 <style lang="scss">
 .purchase-active {
   color: black;
