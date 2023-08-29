@@ -63,8 +63,8 @@
   position: relative;
   background-image: url('https://images.unsplash.com/photo-1617351167197-1a8715231753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: left bottom;
+  background-size: cover;
+  background-position: center center;
 }
 .login-bkg-mask {
   position: absolute;
