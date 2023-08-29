@@ -57,9 +57,8 @@
           <p>
             收件地址 : <span class="ms-2">{{ address }}</span>
           </p>
-          <p>
-            訂單備註 : <span class="ms-2">{{ order.message }}</span>
-          </p>
+          <p><span class="mb-5">訂單備註</span> :{{ order.message }}</p>
+          <p></p>
         </div>
       </div>
       <div class="col-lg-4">
@@ -125,8 +124,8 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
     return {
-      order: {},
-      orderCreateTime: '',
+      order: {}, // 存放接收的訂單資料
+      orderCreateTime: '', //存放轉換格式時間格式後的訂單建立時間
       // order user data
       address: '',
       email: '',
@@ -168,7 +167,6 @@ export default {
         this.email = this.order.user.email
         this.name = this.order.user.name
         this.tel = this.order.user.tel
-
         //若付款成功後又再次回到該頁面，引導客戶到訂單查詢頁面
         if (this.order.is_paid === true) {
           alert('訂單已成功付款，若要查詢訂單資訊請透過「訂單查詢系統」，謝謝!')
