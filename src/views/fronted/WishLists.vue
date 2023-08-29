@@ -50,7 +50,7 @@
 
     <div v-else="">
       <!-- 電腦版願望清單 -->
-      <div class="d-none d-md-block">
+      <div class="d-none d-lg-block">
         <div class="border border-2 border-secondary px-5 py-5">
           <table class="table table-striped align-middle mb-3">
             <thead>
@@ -112,7 +112,7 @@
         </div>
       </div>
       <!-- 行動版願望清單 -->
-      <div class="d-block d-md-none">
+      <div class="d-block d-lg-none">
         <div class="border border-2 border-secondary px-5 py-5">
           <table class="table table-striped align-middle mb-3">
             <thead>
