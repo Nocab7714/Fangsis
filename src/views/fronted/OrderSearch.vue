@@ -113,10 +113,10 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
     return {
-      order: {},
+      order: {}, // 接收的訂單資料
       orderStatus: true, // 訂單搜尋狀態切換
       inputProductId: '',
-      orderCreateTime: '',
+      orderCreateTime: '', // 存放轉換格式時間格式後的訂單建立時間
       // order user data
       address: '',
       email: '',
