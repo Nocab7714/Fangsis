@@ -45,7 +45,9 @@
             我們希望連結花蓮在地的小農，用在地的農作物，<br />
             重心出發，恢復大地原本的芳香。
           </p>
-          <a class="btn btn-outline-primary w-100 w-lg-35" href="">View More</a>
+          <routerLink to="/about" class="btn btn-outline-primary w-100 w-lg-35" href=""
+            >View More</routerLink
+          >
         </div>
 
         <div class="col-lg-6">
