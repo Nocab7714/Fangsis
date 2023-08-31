@@ -495,13 +495,14 @@
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
+    <!-- swiper -->
     <div class="bg-light py-4">
       <swiper
         :slidesPerView="1"
         :spaceBetween="10"
         :breakpoints="{
-          '375': {
-            slidesPerView: 1.5,
+          '376': {
+            slidesPerView: 1.25,
             spaceBetween: 20
           },
           '576': {
