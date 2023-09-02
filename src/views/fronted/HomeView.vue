@@ -664,6 +664,7 @@
   </section>
 </template>
 <script>
+// Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Autoplay, EffectFade, FreeMode } from 'swiper/modules'
 
@@ -692,25 +693,19 @@ export default {
         hotSaleMobileImg02: 'https://shorturl.at/hDE23',
         hotSaleMobileImg03: 'https://shorturl.at/abhpM'
       },
-      modules: [Navigation, Autoplay, EffectFade, FreeMode]
+      modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
     }
   },
   components: {
     Swiper,
     SwiperSlide
-  },
-
-  methods: {}
+  }
 }
 </script>
 <style lang="scss">
 .banner-swiper {
   width: auto;
   height: 841px;
-}
-
-.more-product-swiper {
-  height: 400px;
 }
 
 .swiper-slide img {
@@ -723,21 +718,11 @@ export default {
   top: 45%;
 }
 
-.swiper-button-prev {
-  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693399232285.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=CxIaU4qeHDArnBAlLdV0lJgaAbGsxnpYe7Q4al%2B8LckdlhkLeQDL5TSu80tiDwQOIMKBD6tOWW8bUmXFTrqEb29Va9TL7UFwKzKYyraGWwscF%2FaXZxke1z0ti%2FwJqYY7kWG8%2FvNiHBvsb%2BaVG3hyzD82eiud9RrvG4Lnf93zWtgkpNDxFIWHah1%2FVD1x4Mnc15S1QK5gPF7eQB2lgGqa67Rd37VIsWMe0JDM4sSkwQoM6F8mPjB%2FmXvvyYAGI7ZMZk5O0PxmTliZC4c9tgxT60jX3ZNwb1DMkl%2Foyw534csYcFrt0REo8x8%2FTwtPGTMdwlPRzPf2yKLY7d0WYfKQSw%3D%3D') !important;
-}
-.swiper-button-prev::after {
-  display: none;
-}
-
-.swiper-button-next {
-  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693399233862.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=XzxONqc%2BASNXxpjtR%2B9WH127eflpY5uU9rJdTYOhb8pa1E11s5kOoMEYiE6l1%2Bk3Mi7cns%2Fv6QuAG81I0CqziA5uPY3%2F1Reqm06lhQW1d1SCIVgWDraVoqAVFozwyzy2JPqFfoHLs7RcGp29%2FKJ5hLJSt3pH%2B3KK0kBqyRTowxTz2XKYCCkqlTvMGJGzu0TAvmd2P4axuxqo6PAH5h0t0GCRPNkuhAx4tHZcfCOGfVy%2FH9lhtZpFWkuSALF%2Fymt4zgTPX7sZAzFARf98J3p73exlvfw7jXug4i8VxPpNJ4cazm7owffxmvXRdH8AkqRvm8PfOBC%2BigpvAx6JmdApZg%3D%3D') !important;
-}
-.swiper-button-next::after {
-  display: none;
-}
-
 // more-products swiper
+.more-product-swiper {
+  height: 400px;
+}
+
 .more-product-swiper .swiper-slide {
   img {
     position: relative;
@@ -769,6 +754,20 @@ export default {
 
 .swiper-slide .bg-opacity-75 {
   background: rgba(255, 255, 255, 0.9);
+}
+
+.swiper-button-prev {
+  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693399232285.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=CxIaU4qeHDArnBAlLdV0lJgaAbGsxnpYe7Q4al%2B8LckdlhkLeQDL5TSu80tiDwQOIMKBD6tOWW8bUmXFTrqEb29Va9TL7UFwKzKYyraGWwscF%2FaXZxke1z0ti%2FwJqYY7kWG8%2FvNiHBvsb%2BaVG3hyzD82eiud9RrvG4Lnf93zWtgkpNDxFIWHah1%2FVD1x4Mnc15S1QK5gPF7eQB2lgGqa67Rd37VIsWMe0JDM4sSkwQoM6F8mPjB%2FmXvvyYAGI7ZMZk5O0PxmTliZC4c9tgxT60jX3ZNwb1DMkl%2Foyw534csYcFrt0REo8x8%2FTwtPGTMdwlPRzPf2yKLY7d0WYfKQSw%3D%3D') !important;
+}
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-next {
+  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693399233862.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=XzxONqc%2BASNXxpjtR%2B9WH127eflpY5uU9rJdTYOhb8pa1E11s5kOoMEYiE6l1%2Bk3Mi7cns%2Fv6QuAG81I0CqziA5uPY3%2F1Reqm06lhQW1d1SCIVgWDraVoqAVFozwyzy2JPqFfoHLs7RcGp29%2FKJ5hLJSt3pH%2B3KK0kBqyRTowxTz2XKYCCkqlTvMGJGzu0TAvmd2P4axuxqo6PAH5h0t0GCRPNkuhAx4tHZcfCOGfVy%2FH9lhtZpFWkuSALF%2Fymt4zgTPX7sZAzFARf98J3p73exlvfw7jXug4i8VxPpNJ4cazm7owffxmvXRdH8AkqRvm8PfOBC%2BigpvAx6JmdApZg%3D%3D') !important;
+}
+.swiper-button-next::after {
+  display: none;
 }
 
 // 關於芳心 about 設定
