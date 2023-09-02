@@ -72,7 +72,7 @@
                         autocomplete="off"
                         maxlength="99"
                         minlength="1"
-                        pattern="^(100|[1-9][0-9]?|0)$"
+                        oninput="value=value.replace(/[^\d]/g,'')"
                         :value="cart.qty"
                         @change="upDataCartProduct(cart.id, $event.target.value)"
                       />
@@ -133,7 +133,7 @@
                           autocomplete="off"
                           maxlength="99"
                           minlength="1"
-                          pattern="^(100|[1-9][0-9]?|0)$"
+                          oninput="value=value.replace(/[^\d]/g,'')"
                           :value="cart.qty"
                           @change="upDataCartProduct(cart.id, $event.target.value)"
                         />
