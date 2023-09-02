@@ -24,7 +24,7 @@
         <li class="col-4 pb-3">完成訂單</li>
       </ul>
     </div>
-    <form>
+    <VForm v-slot="{ meta, errors }" @submit="createOrder">
       <div class="row mt-4 gy-3">
         <div class="col-lg-8">
           <div class="border border-2 border-secondary px-5 py-5">
@@ -36,45 +36,62 @@
 
             <div class="mb-4 w-100 w-md-50">
               <label for="PurchaserName" class="form-label">姓名 / Name</label>
-              <input
+              <VField
                 class="form-control"
+                :class="{ 'is-invalid': errors.訂購人姓名 }"
                 id="PurchaserName"
                 type="text"
+                name="訂購人姓名"
+                rules="required"
                 placeholder="請輸入您的姓名"
                 v-model="name"
               />
+              <ErrorMessage class="invalid-feedback ms-1" name="訂購人姓名" />
             </div>
             <div class="mb-4">
               <label for="PurchaserPhoneNumber" class="form-label">手機號碼 / Phone Number</label>
-              <input
+              <VField
                 class="form-control"
+                :class="{ 'is-invalid': errors.手機電話號碼 }"
                 id="PurchaserPhoneNumber"
                 type="tel"
+                name="手機電話號碼"
+                :rules="isPhone"
                 placeholder="請輸入您的手機電話號碼"
+                oninput="value=value.replace(/[^\d]/g,'')"
                 v-model="tel"
               />
+              <ErrorMessage class="invalid-feedback ms-1" name="手機電話號碼" />
             </div>
             <div class="mb-4">
               <label for="PurchaserEmail" class="form-label">電子郵件 / Email Address</label>
-              <input
+              <VField
                 class="form-control"
+                :class="{ 'is-invalid': errors.email }"
                 id="PurchaserEmail"
                 type="email"
+                name="email"
+                rules="required|email"
                 placeholder="請輸入您的電子郵件地址"
                 v-model="email"
               />
+              <ErrorMessage class="invalid-feedback ms-1" name="email" />
             </div>
             <div class="mb-4">
               <label for="PurchaserAddress" class="form-label"
                 >收件地址 / Recipient's Address</label
               >
-              <input
+              <VField
                 class="form-control"
+                :class="{ 'is-invalid': errors.收件地址 }"
                 id="PurchaserAddress"
                 type="text"
+                name="收件地址"
+                rules="required"
                 placeholder="請填寫配送位址，在此輸入您方便接受商品配送的地址"
                 v-model="address"
               />
+              <ErrorMessage class="invalid-feedback ms-1" name="收件地址" />
             </div>
             <div class="mb-4">
               <label for="PurchaserOrderRemark" class="form-label">訂單備註 / Order Remark</label>
@@ -179,9 +196,8 @@
               <div class="col-6">
                 <button
                   class="btn btn-primary w-100"
-                  type="button"
-                  @click="createOrder()"
-                  :disabled="carts.length === 0"
+                  type="submit"
+                  :disabled="carts.length === 0 || !meta.valid"
                 >
                   建立訂單
                 </button>
@@ -190,14 +206,17 @@
           </div>
         </div>
       </div>
-    </form>
+    </VForm>
   </div>
 </template>
 <script>
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// router
 import { RouterLink } from 'vue-router'
+// pinia
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+
 export default {
   data() {
     return {
@@ -235,6 +254,11 @@ export default {
           alert('訂單建立失敗! 請確認您目前的網路連線狀況')
           console.log(err)
         })
+    },
+    // 手機號碼驗證的規則
+    isPhone(value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '請輸入正確的手機號碼格式'
     },
     ...mapActions(cartAndWishListStore, ['getCart'])
   },
