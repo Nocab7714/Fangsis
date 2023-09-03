@@ -216,6 +216,18 @@ import { RouterLink } from 'vue-router'
 // pinia
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
+// sweetalert2
+import Swal from 'sweetalert2'
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1300,
+  timerProgressBar: true,
+  iconColor: '#5D7067',
+  background: '#ffffff',
+  color: '#5D7067'
+})
 
 export default {
   data() {
@@ -245,13 +257,21 @@ export default {
       this.$http
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { data })
         .then((res) => {
-          console.log(res)
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '訂單建立成功!'
+          })
           this.getCart()
           this.$router.push(`OrderPay/${res.data.orderId}`)
         })
         .catch((err) => {
-          alert('訂單建立失敗! 請確認您目前的網路連線狀況')
+          Swal.fire({
+            title: '訂單建立失敗',
+            text: '請確認您目前的網路連線狀況並再次嘗試',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          })
           console.log(err)
         })
     },

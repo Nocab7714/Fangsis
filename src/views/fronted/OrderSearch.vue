@@ -109,6 +109,8 @@
 </template>
 <script>
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
 
 export default {
   data() {
@@ -155,8 +157,14 @@ export default {
         })
         .catch((err) => {
           this.orderStatus = false
-          console.log(err)
-          alert('未找到輸入的訂單資訊，請確認您所輸入的訂單編號是否正確!')
+          console.log(err.message)
+          Swal.fire({
+            title: '查詢失敗',
+            text: '未找到您所查詢的訂單資訊，請確認輸入的訂單編號是否正確!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          })
         })
     }
   },

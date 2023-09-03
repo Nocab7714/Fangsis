@@ -1,6 +1,18 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1300,
+  timerProgressBar: true,
+  iconColor: '#5D7067',
+  background: '#ffffff',
+  color: '#5D7067'
+})
 
 const cartAndWishListStore = defineStore('cartAndWishList', {
   state: () => {
@@ -35,13 +47,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           // 加入 WishList 的資料若重複，便從願望清單中移除
           this.wishList.splice(index, 1)
           this.wishListAddStatus = false
-          alert('已經從願望清單移除')
+          Toast.fire({
+            icon: 'success',
+            title: '成功將產品從願望清單移除'
+          })
         }
       })
       //如果 wishListAddStatus 狀態為真 (並沒有將重複資料移除)，將產品資料加入願望清單
       if (this.wishListAddStatus === true) {
         this.wishList.push(wishListObj)
-        alert('成功加入至願望清單')
+        Toast.fire({
+          icon: 'success',
+          title: '成功將產品加入願望清單'
+        })
       }
       // 回復 wishListAddStatus 初始狀態
       this.wishListAddStatus = true
@@ -64,6 +82,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         }
         const localStorageWishList = JSON.stringify(this.wishList)
         localStorage.setItem('localStorageWishList', localStorageWishList)
+      })
+      Toast.fire({
+        icon: 'success',
+        title: '成功將產品從願望清單移除'
       })
     },
     //願望清單按鈕 active 狀態切換
@@ -90,7 +112,13 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     addToCart(product_id, qty = 1, product = '') {
       // 單項產品頁面判斷，未選擇產品數量會中斷加入購物車
       if (qty === '數量選擇') {
-        alert('請選擇商品數量')
+        Swal.fire({
+          icon: 'error',
+          title: '產品數量未選擇',
+          text: '請先選擇產品數量!',
+          confirmButtonColor: '#5D7067',
+          confirmButtonText: '關閉'
+        })
         return
       }
       // 避免傳入的商品數量值為 String
@@ -108,7 +136,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             //用於願望清單加入購物車的判斷。如果有傳入 product 資料便會將該項產品從許願清單移除。用於許願清單品項加入購物車後，會在將品項從我的最愛移除
             this.removeWishListProduct(product)
           }
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '成功將產品加入購物車'
+          })
         })
         .catch((err) => alert(err.message))
     },
@@ -118,7 +149,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
         .then((res) => {
           this.getCart()
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '成功將產品從購物車移除'
+          })
         })
         .catch((err) => {
           alert(err.message)
@@ -126,30 +160,50 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     },
     //刪除購物車"全部"產品資料資料
     removeCartAllProduct() {
-      axios
-        .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
-        .then((res) => {
-          this.getCart()
-          alert(res.data.message)
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
+      Swal.fire({
+        title: '清空購物車',
+        text: '您確定要空購物車內的所有產品嗎?',
+        icon: 'question',
+        iconColor: '#5D7067',
+        showCancelButton: true,
+        confirmButtonText: '確定',
+        confirmButtonColor: '#5D7067',
+        cancelButtonText: '取消',
+        cancelButtonColor: '#DC3545'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
+            .then((res) => {
+              this.getCart()
+              Toast.fire({
+                icon: 'success',
+                title: '已清空您的購物車'
+              })
+            })
+            .catch((err) => {
+              console.log(err.message)
+            })
+        }
+      })
     },
     upDataCartProduct(product_id, qty) {
       const newQty = Number(qty)
       // 商品數量若調整為小於0，將該項產品刪除
       if (newQty < 1) {
-        // this.removeCartProduct(product_id)
-        alert('產品購買數量不得小於 1')
-        location.reload() // 整理頁面刷新 input 的 value
-        return
-      } else if (newQty > 100) {
-        alert('產品購買數量不得超過 100')
-        location.reload() // 整理頁面刷新 input 的 value
+        Swal.fire({
+          title: '更新失敗',
+          text: '產品數量不得少於 1 ',
+          icon: 'error',
+          confirmButtonText: '確定',
+          confirmButtonColor: '#5D7067'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload() // 整理頁面刷新 input 的 value
+          }
+        })
         return
       }
-
       const data = {
         product_id,
         qty: newQty
@@ -158,10 +212,13 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         .put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`, { data })
         .then((res) => {
           this.getCart()
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '已成功更新產品數量'
+          })
         })
         .catch((err) => {
-          alert(err.message)
+          console.log(err.message)
         })
     },
     // coupon and order
@@ -180,11 +237,27 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       axios
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
         .then((res) => {
-          alert('成功使用 fangsis888 優惠代碼 - 結帳8折大優惠')
+          // Toast.fire({
+          //   icon: 'success',
+          //   title: '成功使用 fangsis888 優惠代碼 - 結帳8折大優惠'
+          // })
+          Swal.fire({
+            title: '成功使用優惠劵',
+            text: '已套用 fangsis888 優惠劵 - 結帳8折大優惠',
+            icon: 'success',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          })
           this.getCart()
         })
         .catch((err) => {
-          alert('您所輸入的折價劵並不存在!')
+          Swal.fire({
+            title: '資料錯誤',
+            text: '您所輸入的折價劵並不存在!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          })
         })
     },
     //選擇訂單配送方式

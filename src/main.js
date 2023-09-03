@@ -33,6 +33,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(VueAxios, axios)
 app.use(router)
+
 // 掛載 Global 的 VeeValidate 元件
 app.component('VField', Field)
 app.component('VForm', Form)

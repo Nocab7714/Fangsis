@@ -117,9 +117,22 @@
   </div>
 </template>
 <script>
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// pinia
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1300,
+  timerProgressBar: true,
+  iconColor: '#5D7067',
+  background: '#ffffff',
+  color: '#5D7067'
+})
 
 export default {
   data() {
@@ -142,10 +155,20 @@ export default {
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/pay/${id}`)
         .then((res) => {
           console.log(res)
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '付款成功!'
+          })
           this.$router.push(`/CartCompleteOrder/${id}`)
         })
         .catch((err) => {
+          Swal.fire({
+            title: '付款失敗',
+            text: '請確認您目前的網路連線狀況並再次嘗試',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          })
           console.log(err)
         })
     },
@@ -169,8 +192,17 @@ export default {
         this.tel = this.order.user.tel
         //若付款成功後又再次回到該頁面，引導客戶到訂單查詢頁面
         if (this.order.is_paid === true) {
-          alert('訂單已成功付款，若要查詢訂單資訊請透過「訂單查詢系統」，謝謝!')
-          this.$router.push(`/OrderSearch`)
+          Swal.fire({
+            title: '訂單付款已成功',
+            text: '若要查詢訂單資訊請透過「訂單查詢系統」，謝謝! ',
+            icon: 'warning',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$router.push(`/OrderSearch`)
+            }
+          })
         }
       })
       .catch((err) => {

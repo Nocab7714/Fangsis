@@ -491,7 +491,6 @@
   </section>
   <!-- more-products section -->
   <section class="more-products">
-    <!-- 套用輪播插件預留空間 -->
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
@@ -642,24 +641,28 @@
   <!-- subscript section -->
   <section class="subscript">
     <div class="container text-primary">
-      <div class="form">
+      <VForm v-slot="{ errors }" @submit="subscription">
         <label class="form-label fs-3 text-center text-md-start mb-55" for="subscript"
           >想隨時知道我們有什麼新產品嗎?</label
         >
         <div class="row input-group gx-0 gx-md-3 gy-2 align-items-center">
           <div class="col-md-10">
-            <input
+            <VField
               class="form-control border-primary fs-6 w-100"
+              :class="{ 'is-invalid': errors.email }"
               id="subscript"
-              type="text"
+              type="email"
+              name="email"
+              rules="required|email"
               placeholder="輸入您的信箱，訂閱我們的最新活動消息"
+              v-model="subscriptEmail"
             />
           </div>
           <div class="col-md-2">
             <button class="fs-6 btn btn-outline-primary w-100" type="submit">訂閱</button>
           </div>
         </div>
-      </div>
+      </VForm>
     </div>
   </section>
 </template>
@@ -674,6 +677,19 @@ import 'swiper/css/autoplay'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/free-mode'
+
+// sweetalert2
+import Swal from 'sweetalert2'
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 1300,
+  timerProgressBar: true,
+  iconColor: '#5D7067',
+  background: '#ffffff',
+  color: '#5D7067'
+})
 
 export default {
   data() {
@@ -693,9 +709,21 @@ export default {
         hotSaleMobileImg02: 'https://shorturl.at/hDE23',
         hotSaleMobileImg03: 'https://shorturl.at/abhpM'
       },
+      subscriptEmail: '',
       modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
     }
   },
+  methods: {
+    // 訂閱最新活動消息
+    subscription(subscriptEmail) {
+      Toast.fire({
+        icon: 'success',
+        title: '成功訂閱最新活動消息'
+      })
+      this.subscriptEmail = ''
+    }
+  },
+
   components: {
     Swiper,
     SwiperSlide

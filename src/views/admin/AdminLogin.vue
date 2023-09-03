@@ -83,9 +83,25 @@ defineRule('mix_num', (value) => {
   }
   return '需要以英文與數字混和'
 })
+// sweetalert2
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {}
+  },
+  methods: {
+    AdminLoginIn() {
+      Swal.fire({
+        title: '後台登入成功!',
+        icon: 'success',
+        confirmButtonText: '確定',
+        confirmButtonColor: '#5D7067'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$router.push(`/admin/adminProducts`)
+        }
+      })
+    }
   }
 }
 </script>
