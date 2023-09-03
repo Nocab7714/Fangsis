@@ -80,7 +80,6 @@
                         class="btn btn-outline-secondary"
                         type="button"
                         @click="upDataCartProduct(cart.id, cart.qty + 1)"
-                        :disabled="cart.qty > 99"
                       >
                         +
                       </button>
@@ -141,7 +140,6 @@
                           class="btn btn-outline-secondary"
                           type="button"
                           @click="upDataCartProduct(cart.id, cart.qty + 1)"
-                          :disabled="cart.qty > 99"
                         >
                           +
                         </button>
