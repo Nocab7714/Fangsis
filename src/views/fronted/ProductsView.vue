@@ -209,60 +209,6 @@ export default {
           alert(err)
         })
     },
-    // 取得購物車資料 ** 非 pinia
-    getCart() {
-      this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
-        .then((res) => {
-          this.cart = res.data.data
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
-    },
-    // 將產品加入入購物車
-    // addToCart(product_id, qty = 1) {
-    //   //當沒有傳入參數時，會使用預設值
-    //   const data = {
-    //     product_id,
-    //     qty
-    //   }
-    //   this.$http
-    //     .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
-    //     .then((res) => {
-    //       // 加入購物車後，重新整理購物車資料
-    //       this.getCart()
-    //       alert(res.data.message)
-    //     })
-    //     .catch((err) => alert(err.message))
-    // },
-
-    upDataCartItem(item) {
-      //// 更新修改購物車資料** 非 pinia
-      const data = {
-        product_id: item.product.id,
-        qty: item.qty
-      }
-      this.$http
-        .put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`, { data })
-        .then((res) => {
-          this.getCart()
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
-    },
-    // 取得單項產品 id
-    getProductId(id) {
-      this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
-        .then((res) => {
-          console.log(res.data.product.id)
-        })
-        .catch((err) => {
-          alert(err)
-        })
-    },
     // 產品分類 (手機版)
     classifyProductsMobile(event) {
       const category = event.target.value
