@@ -3,9 +3,12 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+
+// axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+// bootstrap 5
 import './assets/all.scss'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
