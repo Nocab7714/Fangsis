@@ -80,40 +80,50 @@
   <!-- about section -->
   <section class="about section-bkg py-7" :style="{ backgroundImage: `url(${imgUrl.aboutBkg})` }">
     <div class="container">
-      <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
-        關於芳心。
-      </h2>
+      <div data-aos="fade-up">
+        <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
+          關於芳心。
+        </h2>
+      </div>
+
       <div class="row flex-lg-row flex-column-reverse align-items-center gx-lg-8 gy-3">
         <div class="col-lg-6 p-55">
-          <h3 class="text-secondary fs-3 fw-bold mb-3" style="font-family: var(--bs-NotoSerif-TC)">
-            Fangsis
-          </h3>
-          <p class="text-secondary fs-4 fw-bold mb-4">
-            是阿美族語「馨香之氣」的意思， 那是造物主給予最獨特的記號。
-          </p>
-          <p class="text-secondary mb-4">
-            在花蓮，能看到大自然的美，就好像呼吸一樣理所當然。<br />
-            但這份禮物卻一點一滴的從我們眼前流失。<br />
-            我們希望連結花蓮在地的小農，用在地的農作物，<br />
-            重心出發，恢復大地原本的芳香。
-          </p>
-          <routerLink to="/about" class="btn btn-outline-primary w-100 w-lg-35" href=""
-            >View More</routerLink
-          >
+          <div data-aos="fade-up">
+            <h3
+              class="text-secondary fs-3 fw-bold mb-3"
+              style="font-family: var(--bs-NotoSerif-TC)"
+            >
+              Fangsis
+            </h3>
+            <p class="text-secondary fs-4 fw-bold mb-4">
+              是阿美族語「馨香之氣」的意思， 那是造物主給予最獨特的記號。
+            </p>
+            <p class="text-secondary mb-4">
+              在花蓮，能看到大自然的美，就好像呼吸一樣理所當然。<br />
+              但這份禮物卻一點一滴的從我們眼前流失。<br />
+              我們希望連結花蓮在地的小農，用在地的農作物，<br />
+              重心出發，恢復大地原本的芳香。
+            </p>
+            <routerLink to="/about" class="btn btn-outline-primary w-100 w-lg-35" href=""
+              >View More</routerLink
+            >
+          </div>
         </div>
 
         <div class="col-lg-6">
-          <img
-            class="img-fluid d-none d-lg-block"
-            src="https://shorturl.at/ckqGN"
-            alt="用滴管將黃色精油滴在手上的特寫"
-            width="636"
-            height="368"
-          />
-          <div
-            class="aboutImg d-block d-lg-none"
-            :style="{ backgroundImage: `url(${imgUrl.aboutImg})` }"
-          ></div>
+          <div data-aos="fade-up">
+            <img
+              class="img-fluid d-none d-lg-block"
+              src="https://shorturl.at/ckqGN"
+              alt="用滴管將黃色精油滴在手上的特寫"
+              width="636"
+              height="368"
+            />
+            <div
+              class="aboutImg d-block d-lg-none"
+              :style="{ backgroundImage: `url(${imgUrl.aboutImg})` }"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
@@ -122,91 +132,93 @@
   <section class="pain-points">
     <!-- 網頁版 pain-points -->
     <div class="container d-md-block d-none">
-      <div class="row gy-4 gy-xl-0">
-        <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
-            >
+      <div data-aos="fade-up">
+        <div class="row gy-4 gy-xl-0">
+          <div class="col-xl-4">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    想要送禮卻不知道送什麼嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      想要送禮卻不知道送什麼嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
-            >
+          <div class="col-xl-4">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    總覺得送的禮物不夠實用嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      總覺得送的禮物不夠實用嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
-            >
+          <div class="col-xl-4">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    擔心過度包裝會破壞環境嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      擔心過度包裝會破壞環境嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -219,29 +231,31 @@
     <div class="d-block d-md-none">
       <div class="row gy-4 gy-xl-0 gx-0">
         <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
-            >
+          <div data-aos="fade-up">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    想要送禮卻不知道送什麼嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      想要送禮卻不知道送什麼嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -249,29 +263,31 @@
           </div>
         </div>
         <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
-            >
+          <div data-aos="fade-up">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    總覺得送的禮物不夠實用嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      總覺得送的禮物不夠實用嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -279,29 +295,31 @@
           </div>
         </div>
         <div class="col-xl-4">
-          <div class="card border-0">
-            <div
-              class="card-body position-relative point-bkg"
-              :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
-            >
+          <div data-aos="fade-up">
+            <div class="card border-0">
               <div
-                class="point-mask position-absolute d-flex justify-content-center align-items-center"
+                class="card-body position-relative point-bkg"
+                :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
               >
                 <div
-                  class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
+                  class="point-mask position-absolute d-flex justify-content-center align-items-center"
                 >
-                  <h3
-                    class="text-white fs-5 card-title point-card-title mb-5"
-                    style="font-family: var(--bs-NotoSerif-TC)"
+                  <div
+                    class="circle border border-1 rounded-circle circle-size text-center d-flex flex-column align-items-center justify-content-center"
                   >
-                    擔心過度包裝會破壞環境嗎
-                  </h3>
-                  <div class="link-border border border-1 rounded-1 py-2">
-                    <routerLink
-                      class="link-light text-decoration-none fs-6 px-6 stretched-link"
-                      to="/products"
-                      >Read More</routerLink
+                    <h3
+                      class="text-white fs-5 card-title point-card-title mb-5"
+                      style="font-family: var(--bs-NotoSerif-TC)"
                     >
+                      擔心過度包裝會破壞環境嗎
+                    </h3>
+                    <div class="link-border border border-1 rounded-1 py-2">
+                      <routerLink
+                        class="link-light text-decoration-none fs-6 px-6 stretched-link"
+                        to="/products"
+                        >Read More</routerLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -317,172 +335,191 @@
     :style="{ backgroundImage: `url(${imgUrl.hotSellBkg})` }"
   >
     <div class="container">
-      <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
-        熱銷禮盒。
-      </h2>
-      <div class="hot-sale-desktop d-none d-md-block">
-        <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyfLN2KMNTi0BDw2a">
-          <div class="card border-0 position-relative">
-            <div class="row g-0">
-              <div class="col-6">
-                <div
-                  class="position-relative h-100 hot-sale-bkg-img"
-                  :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg01})` }"
-                >
-                  <div class="hot-sale-img-mask position-absolute"></div>
-                  <div
-                    class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
-                  >
-                    View More
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 hot-sale-hover-style">
-                <div class="card-body text-center px-6 py-10 d-flex flex-column align-items-center">
-                  <h3
-                    class="card-title fs-3 fw-bold text-secondary mb-3"
-                    style="font-family: var(--bs-NotoSerif-TC)"
-                  >
-                    柚子雪松蠟燭禮盒
-                  </h3>
-                  <p class="card-text fs-6 text-secondary">
-                    雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </routerLink>
-        <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyIBPAuloX43ptLPf">
-          <div class="card border-0 position-relative">
-            <div class="row g-0">
-              <div class="col-6 hot-sale-hover-style">
-                <div class="card-body text-center px-6 py-10 d-flex flex-column align-items-center">
-                  <h3
-                    class="card-title fs-3 fw-bold text-secondary mb-3"
-                    style="font-family: var(--bs-NotoSerif-TC)"
-                  >
-                    柚子花梨沐浴禮盒
-                  </h3>
-                  <p class="card-text fs-6 text-secondary">
-                    花梨木，也叫玫瑰木Rosewood，散發著淡淡的玫瑰香氣的木質調，平易近人卻又如此的貼近心房，就像它的花語「讓一切回歸平凡」一樣。花梨木的香氣輕柔、淡雅、溫潤，在身心俱疲時，花梨木精油帶來穩定及收斂心情的作用。以泡澡球為主打，送給疲倦忙碌的她/他，來一個輕鬆享受的泡泡浴。
-                  </p>
-                </div>
-              </div>
-              <div class="col-6">
-                <div
-                  class="position-relative h-100 hot-sale-bkg-img"
-                  :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg02})` }"
-                >
-                  <div class="hot-sale-img-mask position-absolute"></div>
-                  <div
-                    class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
-                  >
-                    View More
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </routerLink>
-        <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyVvyXTcrspg7NMK9">
-          <div class="card border-0 position-relative">
-            <div class="row g-0">
-              <div class="col-6">
-                <div
-                  class="position-relative h-100 hot-sale-bkg-img"
-                  :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg03})` }"
-                >
-                  <div class="hot-sale-img-mask position-absolute"></div>
-                  <div
-                    class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
-                  >
-                    View More
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 hot-sale-hover-style">
-                <div class="card-body text-center px-6 py-10 d-flex flex-column align-items-center">
-                  <h3
-                    class="card-title fs-3 fw-bold text-secondary mb-3"
-                    style="font-family: var(--bs-NotoSerif-TC)"
-                  >
-                    柚子鳶尾花擴香禮盒
-                  </h3>
-                  <p class="card-text fs-6 text-secondary">
-                    鳶尾花「Iris」，在希臘文中是彩虹的意思，會給人帶來好消息，也是鳶尾花花語「愛的使者」的由來。細膩濃厚，無與倫比的芳香，令人神魂顛倒。柚子與鳶尾花，是優雅與愉悅的結合，以擴香為主打，讓香氣滿溢在空間中，就好像好消息一直伴隨。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </routerLink>
+      <div data-aos="fade-up">
+        <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
+          熱銷禮盒。
+        </h2>
       </div>
+      <!-- 網頁版 hot-sale -->
+      <div class="hot-sale-desktop d-none d-md-block">
+        <div data-aos="fade-up">
+          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyfLN2KMNTi0BDw2a">
+            <div class="card border-0 position-relative">
+              <div class="row g-0">
+                <div class="col-6">
+                  <div
+                    class="position-relative h-100 hot-sale-bkg-img"
+                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg01})` }"
+                  >
+                    <div class="hot-sale-img-mask position-absolute"></div>
+                    <div
+                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                    >
+                      View More
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 hot-sale-hover-style">
+                  <div
+                    class="card-body text-center px-6 py-10 d-flex flex-column align-items-center"
+                  >
+                    <h3
+                      class="card-title fs-3 fw-bold text-secondary mb-3"
+                      style="font-family: var(--bs-NotoSerif-TC)"
+                    >
+                      柚子雪松蠟燭禮盒
+                    </h3>
+                    <p class="card-text fs-6 text-secondary">
+                      雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </routerLink>
+          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyIBPAuloX43ptLPf">
+            <div class="card border-0 position-relative">
+              <div class="row g-0">
+                <div class="col-6 hot-sale-hover-style">
+                  <div
+                    class="card-body text-center px-6 py-10 d-flex flex-column align-items-center"
+                  >
+                    <h3
+                      class="card-title fs-3 fw-bold text-secondary mb-3"
+                      style="font-family: var(--bs-NotoSerif-TC)"
+                    >
+                      柚子花梨沐浴禮盒
+                    </h3>
+                    <p class="card-text fs-6 text-secondary">
+                      花梨木，也叫玫瑰木Rosewood，散發著淡淡的玫瑰香氣的木質調，平易近人卻又如此的貼近心房，就像它的花語「讓一切回歸平凡」一樣。花梨木的香氣輕柔、淡雅、溫潤，在身心俱疲時，花梨木精油帶來穩定及收斂心情的作用。以泡澡球為主打，送給疲倦忙碌的她/他，來一個輕鬆享受的泡泡浴。
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div
+                    class="position-relative h-100 hot-sale-bkg-img"
+                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg02})` }"
+                  >
+                    <div class="hot-sale-img-mask position-absolute"></div>
+                    <div
+                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                    >
+                      View More
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </routerLink>
+          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyVvyXTcrspg7NMK9">
+            <div class="card border-0 position-relative">
+              <div class="row g-0">
+                <div class="col-6">
+                  <div
+                    class="position-relative h-100 hot-sale-bkg-img"
+                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg03})` }"
+                  >
+                    <div class="hot-sale-img-mask position-absolute"></div>
+                    <div
+                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                    >
+                      View More
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 hot-sale-hover-style">
+                  <div
+                    class="card-body text-center px-6 py-10 d-flex flex-column align-items-center"
+                  >
+                    <h3
+                      class="card-title fs-3 fw-bold text-secondary mb-3"
+                      style="font-family: var(--bs-NotoSerif-TC)"
+                    >
+                      柚子鳶尾花擴香禮盒
+                    </h3>
+                    <p class="card-text fs-6 text-secondary">
+                      鳶尾花「Iris」，在希臘文中是彩虹的意思，會給人帶來好消息，也是鳶尾花花語「愛的使者」的由來。細膩濃厚，無與倫比的芳香，令人神魂顛倒。柚子與鳶尾花，是優雅與愉悅的結合，以擴香為主打，讓香氣滿溢在空間中，就好像好消息一直伴隨。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </routerLink>
+        </div>
+      </div>
+      <!-- 行動版 hot-sale -->
       <div class="hot-sale-mobile d-block d-md-none">
-        <div class="card mb-3 border-0 rounded-0">
-          <img
-            :src="imgUrl.hotSaleMobileImg01"
-            class="card-img-top img-fluid rounded-0"
-            alt="禮盒中有一塊薑餅人造型香皂的禮盒"
-            width="351"
-            height="320"
-          />
-          <div class="card-body text-center text-secondary px-55 py-4">
-            <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
-              柚子雪松蠟燭禮盒
-            </h3>
-            <p class="card-text fs-6 mb-4">
-              雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
-            </p>
-            <routerLink
-              to="/product/-NbqyfLN2KMNTi0BDw2a"
-              class="btn btn-outline-secondary w-100 fs-6"
-              >View More</routerLink
-            >
+        <div data-aos="fade-up">
+          <div class="card mb-3 border-0 rounded-0">
+            <img
+              :src="imgUrl.hotSaleMobileImg01"
+              class="card-img-top img-fluid rounded-0"
+              alt="禮盒中有一塊薑餅人造型香皂的禮盒"
+              width="351"
+              height="320"
+            />
+            <div class="card-body text-center text-secondary px-55 py-4">
+              <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
+                柚子雪松蠟燭禮盒
+              </h3>
+              <p class="card-text fs-6 mb-4">
+                雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
+              </p>
+              <routerLink
+                to="/product/-NbqyfLN2KMNTi0BDw2a"
+                class="btn btn-outline-secondary w-100 fs-6"
+                >View More</routerLink
+              >
+            </div>
           </div>
         </div>
-        <div class="card mb-3 border-0 rounded-0">
-          <img
-            :src="imgUrl.hotSaleMobileImg02"
-            class="card-img-top img-fluid rounded-0"
-            alt="禮盒中有一個聖誕樹造型的香皂與兩個帶有花圖案的沐浴球"
-            width="351"
-            height="320"
-          />
-          <div class="card-body text-center text-secondary px-55 py-4">
-            <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
-              柚子花梨沐浴禮盒
-            </h3>
-            <p class="card-text fs-6 mb-4">
-              花梨木，也叫玫瑰木Rosewood，散發著淡淡的玫瑰香氣的木質調，平易近人卻又如此的貼近心房，就像它的花語「讓一切回歸平凡」一樣。花梨木的香氣輕柔、淡雅、溫潤，在身心俱疲時，花梨木精油帶來穩定及收斂心情的作用。以泡澡球為主打，送給疲倦忙碌的她/他，來一個輕鬆享受的泡泡浴。
-            </p>
-            <routerLink
-              to="/product/-NbqyIBPAuloX43ptLPf"
-              class="btn btn-outline-secondary w-100 fs-6"
-              >View More</routerLink
-            >
+        <div data-aos="fade-up">
+          <div class="card mb-3 border-0 rounded-0">
+            <img
+              :src="imgUrl.hotSaleMobileImg02"
+              class="card-img-top img-fluid rounded-0"
+              alt="禮盒中有一個聖誕樹造型的香皂與兩個帶有花圖案的沐浴球"
+              width="351"
+              height="320"
+            />
+            <div class="card-body text-center text-secondary px-55 py-4">
+              <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
+                柚子花梨沐浴禮盒
+              </h3>
+              <p class="card-text fs-6 mb-4">
+                花梨木，也叫玫瑰木Rosewood，散發著淡淡的玫瑰香氣的木質調，平易近人卻又如此的貼近心房，就像它的花語「讓一切回歸平凡」一樣。花梨木的香氣輕柔、淡雅、溫潤，在身心俱疲時，花梨木精油帶來穩定及收斂心情的作用。以泡澡球為主打，送給疲倦忙碌的她/他，來一個輕鬆享受的泡泡浴。
+              </p>
+              <routerLink
+                to="/product/-NbqyIBPAuloX43ptLPf"
+                class="btn btn-outline-secondary w-100 fs-6"
+                >View More</routerLink
+              >
+            </div>
           </div>
         </div>
-        <div class="card mb-3 border-0 rounded-0">
-          <img
-            :src="imgUrl.hotSaleMobileImg03"
-            class="card-img-top img-fluid rounded-0"
-            alt="禮盒中有一塊薑餅人造型香皂並且禮盒周圍有很多聖誕裝飾物品"
-            width="351"
-            height="320"
-          />
-          <div class="card-body text-center text-secondary px-55 py-4">
-            <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
-              柚子鳶尾花擴香禮盒
-            </h3>
-            <p class="card-text fs-6 mb-4">
-              鳶尾花「Iris」，在希臘文中是彩虹的意思，會給人帶來好消息，也是鳶尾花花語「愛的使者」的由來。細膩濃厚，無與倫比的芳香，令人神魂顛倒。柚子與鳶尾花，是優雅與愉悅的結合，以擴香為主打，讓香氣滿溢在空間中，就好像好消息一直伴隨。
-            </p>
-            <routerLink
-              to="/product/-NbqyVvyXTcrspg7NMK9"
-              class="btn btn-outline-secondary w-100 fs-6"
-              >View More</routerLink
-            >
+
+        <div data-aos="fade-up">
+          <div class="card mb-3 border-0 rounded-0">
+            <img
+              :src="imgUrl.hotSaleMobileImg03"
+              class="card-img-top img-fluid rounded-0"
+              alt="禮盒中有一塊薑餅人造型香皂並且禮盒周圍有很多聖誕裝飾物品"
+              width="351"
+              height="320"
+            />
+            <div class="card-body text-center text-secondary px-55 py-4">
+              <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
+                柚子鳶尾花擴香禮盒
+              </h3>
+              <p class="card-text fs-6 mb-4">
+                鳶尾花「Iris」，在希臘文中是彩虹的意思，會給人帶來好消息，也是鳶尾花花語「愛的使者」的由來。細膩濃厚，無與倫比的芳香，令人神魂顛倒。柚子與鳶尾花，是優雅與愉悅的結合，以擴香為主打，讓香氣滿溢在空間中，就好像好消息一直伴隨。
+              </p>
+              <routerLink
+                to="/product/-NbqyVvyXTcrspg7NMK9"
+                class="btn btn-outline-secondary w-100 fs-6"
+                >View More</routerLink
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -493,6 +530,7 @@
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
+
     <!-- swiper -->
     <div class="bg-light py-4">
       <swiper
@@ -718,6 +756,10 @@ import 'vue-loading-overlay/dist/css/index.css'
 // animate.css
 import 'animate.css'
 
+// AOS
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 export default {
   data() {
     return {
@@ -769,6 +811,27 @@ export default {
     setTimeout(() => {
       this.isLoading = false
     }, 2000)
+
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 140, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 700, // values from 0 to 3000, with step 50ms
+      easing: 'ease', // default easing for AOS animations
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
+    })
   }
 }
 </script>
