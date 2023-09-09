@@ -78,6 +78,16 @@ const router = createRouter({
           path: 'WishLists',
           component: () => import('../views/fronted/WishLists.vue'),
           meta: { title: 'Fangsis | 願望清單' }
+        },
+        {
+          path: '/404NotFound',
+          name: '404',
+          component: () => import('../views/fronted/404NotFound.vue'),
+          meta: { title: 'Fangsis | 找不到頁面' }
+        },
+        {
+          path: '/:pathMatch(.*)',
+          redirect: '/404NotFound'
         }
       ]
     },
