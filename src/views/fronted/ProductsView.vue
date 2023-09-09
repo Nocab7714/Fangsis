@@ -71,7 +71,31 @@
       </div>
 
       <!-- 產品顯示列表 -->
-      <div class="products col-lg-9">
+      <div class="products col-lg-9 vl-parent" ref="loading-container">
+        <!-- vue-loading -->
+        <loading
+          v-model:active="isLoading"
+          :can-cancel="false"
+          :lock-scroll="lockScroll"
+          :background-color="backgroundColor"
+          :container="container"
+          :opacity="opacity"
+          :is-full-page="fullPage"
+        >
+          <div class="loadingio-spinner-spin-gir4y11u5ph">
+            <div class="ldio-2f3eow2i9zx">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+          </div>
+        </loading>
+
         <div v-if="categoryProducts.length === 0">
           <h2 class="fs-3 text-secondary text-center mt-10 mb-20">很抱歉! 找不到符合的商品</h2>
         </div>
@@ -125,8 +149,14 @@
                 class="btn btn-sm btn-outline-primary w-100 rounded-0 mt-auto"
                 type="button"
                 @click="addToCart(product.id)"
-                :disabled="product.quantity === 0"
+                :disabled="product.quantity === 0 || spinnerLoading === product.id"
               >
+                <span
+                  v-if="spinnerLoading === product.id"
+                  class="spinner-border-sm spinner-border"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
                 加入購物車
               </button>
             </div>
@@ -181,6 +211,10 @@ import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
 export default {
   data() {
     return {
@@ -188,14 +222,25 @@ export default {
       categoryProducts: [], //分類後的產品列表。用於操作產品分類
       categoryValue: '', //用於 pagination 換頁時將類別類型加入至 getProducts
       productId: '',
-      page: {}
+      page: {},
+      // vue-loading
+      isLoading: false,
+      lockScroll: true,
+      fullPage: false,
+      container: this.$refs.loadingContainer,
+      backgroundColor: '#ffffff',
+      opacity: 0.85
     }
+  },
+  components: {
+    Loading
   },
   methods: {
     // 取得所有產品資料
     getProducts(page = 1, category = '') {
       //頁數預設參數 : 預設 1
       //分類預設參數 : 預設空字串 (顯示全部產品)
+      this.isLoading = true // 取得產品資料前顯示 loading 效果
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products?page=${page}&category=${category}`)
         .then((res) => {
@@ -204,9 +249,11 @@ export default {
           this.categoryValue = category
           this.page = res.data.pagination
           this.scrollToTop()
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
         .catch((err) => {
-          alert(err)
+          console.log(err)
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
     },
     // 產品分類 (手機版)
@@ -226,7 +273,7 @@ export default {
     ])
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus'])
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'spinnerLoading'])
   },
   mounted() {
     this.getProducts()

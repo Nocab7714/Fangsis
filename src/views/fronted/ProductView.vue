@@ -85,9 +85,15 @@
                   class="btn btn-primary fs-6 me-2"
                   type="button"
                   @click="addToCart(product.id, this.$refs.productQty.value)"
-                  :disabled="product.quantity === 0"
+                  :disabled="product.quantity === 0 || spinnerLoading === product.id"
                 >
-                  加入購物車
+                  <span
+                    v-if="spinnerLoading === product.id"
+                    class="spinner-border-sm spinner-border mx-5"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  <span v-else>加入購物車</span>
                 </button>
                 <button
                   class="btn btn-pink fs-6 position-relative btn-addToWishList"
@@ -316,6 +322,27 @@
       </div>
     </div>
   </div>
+  <!-- vue-loading -->
+  <loading
+    v-model:active="isLoading"
+    :can-cancel="false"
+    :lock-scroll="lockScroll"
+    :background-color="backgroundColor"
+    :opacity="opacity"
+    :is-full-page="fullPage"
+    class="vl-overlay-full-page"
+  >
+    <div class="d-flex flex-column align-items-center mx-3">
+      <img
+        class="img-fluid animate__animated animate__pulse animate__infinite"
+        src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598276311.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qL%2F7begbYX2RvKeejMCXEVhmPIyuNGNfCCMcDFt7bJOkRpxv46JeWb2TcnzDlPj0WB%2BEdEY5kqcd%2FuGxVX0MUcXT6mdARX8Fq51Oyho%2FKl3YIiVxIVVeF7sxsMIAK0oBlZNxrvy7yzcGJLq7uUKcPuDNXzasO4M4qt9bBKXOrDkbf8%2BCMlUoWim4Q9jtjfbIO7IgAgPn5PA1DJzmhv4bfRPco8SgGxGVvG8k9Q2ZSDxnODfwqxYHJE%2Bb6woza2dFQcEzDiBR%2FVhf1%2B8%2BB2%2BWaXD5AJCkLDjLIcTtZZBO5zCfbzg2HQAknzt%2FbXAHPI3xhOJ%2F5WXn5SnRr%2F2Xk7WDhQ%3D%3D"
+        width="192"
+        height="64"
+        alt="芳心白色logo"
+      />
+      <span class="text-white fs-7 mt-2">Loading ...</span>
+    </div>
+  </loading>
 </template>
 <script>
 import { RouterLink } from 'vue-router'
@@ -334,27 +361,44 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/free-mode'
 
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
+// animate.css
+import 'animate.css'
+
 export default {
   data() {
     return {
       product: {}, // 存放取出的單項產品資料
-      modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
+      modules: [Navigation, Autoplay, EffectFade, FreeMode], //Swiper modules
+      // vue-loading
+      isLoading: false,
+      lockScroll: true,
+      fullPage: true,
+      backgroundColor: '#5d7067',
+      opacity: 1
     }
   },
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    Loading
   },
   methods: {
     // swiper get product id
     getProductId(id) {
+      this.isLoading = true // 取得產品資料前顯示 loading 效果
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
         .then((res) => {
           this.product = res.data.product
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
         .catch((err) => {
           alert(err)
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
     },
     ...mapActions(cartAndWishListStore, [
@@ -365,19 +409,31 @@ export default {
       'wishListActive'
     ])
   },
+  watch: {
+    $route() {
+      if (!this.$route.params.id) {
+        return
+      }
+      this.getProductId(this.$route.params.id)
+    }
+  },
+
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList'])
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'spinnerLoading'])
   },
   mounted() {
+    this.isLoading = true // 取得產品資料前顯示 loading 效果
     // 取得產品 id 並串接 api 將資料儲存到 product 物件中
     const { id } = this.$route.params
     this.$http
       .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
       .then((res) => {
         this.product = res.data.product
+        this.isLoading = false // 取得產品資料後關閉 loading 效果
       })
       .catch((err) => {
         alert(err)
+        this.isLoading = false // 取得產品資料後關閉 loading 效果
       })
     this.pullLocalStorageToWishList()
   }

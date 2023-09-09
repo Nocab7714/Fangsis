@@ -345,47 +345,72 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <div
-        class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
-      ></div>
-
-      <ul class="list-unstyled">
-        <div v-if="!carts.length" class="d-flex flex-column align-items-center mb-5">
-          <h3 class="fs-5 mb-3">您的購物車目前沒有任何商品!</h3>
-          <router-link to="/products" class="btn btn-primary px-4" @click="closeCartOffcanvas()"
-            >來去購物</router-link
-          >
-        </div>
-        <li
-          v-for="cart in carts"
-          :key="cart.product.id + 1"
-          class="d-flex align-items-center justify-content-between mb-3"
-        >
-          <div class="d-flex align-items-center">
-            <img
-              class="img-fluid"
-              :src="cart.product.imageUrl"
-              :alt="cart.product.id"
-              width="100"
-              height="100"
-            />
-            <div class="ms-3">
-              <h3 class="fs-6">{{ cart.product.title }}</h3>
-              <p class="mb-0">
-                <span>{{ cart.qty }}</span
-                >x $<span>{{ cart.product.origin_price }}</span>
-              </p>
-            </div>
-          </div>
-
-          <a class="ms-6 me-3" href="" @click.prevent="removeCartProduct(cart.id)"
-            ><i class="bi bi-trash3-fill fs-5"></i
-          ></a>
-        </li>
+      <div class="vl-parent" ref="loading-container">
         <div
           class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
         ></div>
-      </ul>
+        <!-- vue-loading -->
+        <loading
+          v-model:active="cartOffcanvasIsLoading"
+          :can-cancel="false"
+          :lock-scroll="lockScroll"
+          :background-color="backgroundColor"
+          :container="container"
+          :opacity="opacity"
+          :is-full-page="fullPage"
+        >
+          <div class="loadingio-spinner-spin-gir4y11u5ph">
+            <div class="ldio-2f3eow2i9zx">
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+              <div><div></div></div>
+            </div>
+          </div>
+        </loading>
+        <ul class="list-unstyled">
+          <div v-if="!carts.length" class="d-flex flex-column align-items-center mb-5">
+            <h3 class="fs-5 mb-3">您的購物車目前沒有任何商品!</h3>
+            <router-link to="/products" class="btn btn-primary px-4" @click="closeCartOffcanvas()"
+              >來去購物</router-link
+            >
+          </div>
+          <li
+            v-for="cart in carts"
+            :key="cart.product.id + 1"
+            class="d-flex align-items-center justify-content-between mb-3"
+          >
+            <div class="d-flex align-items-center">
+              <img
+                class="img-fluid"
+                :src="cart.product.imageUrl"
+                :alt="cart.product.id"
+                width="100"
+                height="100"
+              />
+              <div class="ms-3">
+                <h3 class="fs-6">{{ cart.product.title }}</h3>
+                <p class="mb-0">
+                  <span>{{ cart.qty }}</span
+                  >x $<span>{{ cart.product.origin_price }}</span>
+                </p>
+              </div>
+            </div>
+
+            <a class="ms-6 me-3" href="" @click.prevent="removeCartProduct(cart.id)"
+              ><i class="bi bi-trash3-fill fs-5"></i
+            ></a>
+          </li>
+        </ul>
+        <div
+          class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
+        ></div>
+      </div>
+
       <div v-if="carts.length" class="d-flex justify-content-between mb-7">
         <span class="fs-5">總金額</span>
         <span class="fs-5"
@@ -463,6 +488,9 @@ import { RouterLink, RouterView } from 'vue-router'
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
 import * as bootstrap from 'bootstrap'
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 
 export default {
   data() {
@@ -473,8 +501,13 @@ export default {
       isTop: true,
       isGoToTopVisible: true,
       cartOffcanvas: {}, //存放 cart Offcanvas 實體
-      navbarListOffcanvas: {} //存放 navbar 列表 Offcanvas 實體
+      navbarListOffcanvas: {}, //存放 navbar 列表 Offcanvas 實體
+      // vue-loading
+      container: this.$refs.LoadingContainer
     }
+  },
+  components: {
+    Loading
   },
   methods: {
     scrollToTop() {
@@ -530,7 +563,16 @@ export default {
     this.navbarListOffcanvas = new bootstrap.Offcanvas(this.$refs.navbarListOffcanvas)
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'total'])
+    ...mapState(cartAndWishListStore, [
+      'carts',
+      'wishList',
+      'total',
+      'cartOffcanvasIsLoading',
+      'lockScroll',
+      'fullPage',
+      'backgroundColor',
+      'opacity'
+    ])
   }
 }
 </script>
@@ -553,7 +595,7 @@ export default {
 
 .goToTop {
   border-radius: 50%;
-  z-index: 3;
+  z-index: 7;
 
   &:hover {
     .goToTopOpacity100 {

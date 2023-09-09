@@ -672,6 +672,7 @@
     :background-color="backgroundColor"
     :opacity="opacity"
     :is-full-page="fullPage"
+    class="vl-overlay-full-page"
   >
     <div class="d-flex flex-column align-items-center mx-3">
       <img
@@ -737,15 +738,19 @@ export default {
       },
       subscriptEmail: '',
       products: [],
+      modules: [Navigation, Autoplay, EffectFade, FreeMode], //Swiper modules
       // vue-loading
       isLoading: false,
       lockScroll: true,
       fullPage: true,
       backgroundColor: '#5d7067',
-      opacity: 1,
-
-      modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
+      opacity: 1
     }
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+    Loading
   },
   methods: {
     // 訂閱最新活動消息
@@ -757,11 +762,7 @@ export default {
       this.subscriptEmail = ''
     }
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-    Loading
-  },
+
   mounted() {
     this.isLoading = true
     // 設定進首頁顯示 2s full page loading

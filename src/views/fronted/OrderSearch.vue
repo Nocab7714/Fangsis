@@ -16,7 +16,30 @@
       </div>
     </div>
   </div>
-  <div class="container my-10">
+  <div class="container my-10 vl-parent" ref="loading-container">
+    <!-- vue-loading -->
+    <loading
+      v-model:active="isLoading"
+      :can-cancel="false"
+      :lock-scroll="lockScroll"
+      :background-color="backgroundColor"
+      :container="container"
+      :opacity="opacity"
+      :is-full-page="fullPage"
+    >
+      <div class="loadingio-spinner-spin-gir4y11u5ph">
+        <div class="ldio-2f3eow2i9zx">
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+        </div>
+      </div>
+    </loading>
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="input-group">
@@ -112,6 +135,10 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 // sweetalert2
 import Swal from 'sweetalert2'
 
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
 export default {
   data() {
     return {
@@ -123,11 +150,22 @@ export default {
       address: '',
       email: '',
       name: '',
-      tel: ''
+      tel: '',
+      // vue-loading
+      isLoading: false,
+      lockScroll: true,
+      fullPage: false,
+      container: this.$refs.loadingContainer,
+      backgroundColor: '#ffffff',
+      opacity: 0.85
     }
+  },
+  components: {
+    Loading
   },
   methods: {
     getProductOrder(product_id) {
+      this.isLoading = true // 取得產品資料前顯示 loading 效果
       const productIdTrim = product_id.trim()
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${productIdTrim}`)
@@ -154,6 +192,7 @@ export default {
           this.tel = this.order.user.tel
           this.tel = this.tel.replace(/(\d{3})\d{2}(\d)\d{2}(\d{2})/, '$1**$2**$3')
           this.orderStatus = true
+          this.isLoading = false // 取得資料後關閉 loading 效果
         })
         .catch((err) => {
           this.orderStatus = false
@@ -165,6 +204,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067'
           })
+          this.isLoading = false // 取得資料後關閉 loading 效果
         })
     }
   },

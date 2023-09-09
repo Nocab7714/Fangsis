@@ -27,97 +27,61 @@
     </div>
     <!-- 購物車內有商品顯示該區塊 -->
     <div v-if="carts.length" class="row mt-4 gy-3">
+      <!-- vue-loading -->
       <div class="col-lg-8">
         <div class="border border-2 border-secondary px-5 py-5">
-          <!-- 電腦版購物車列表 -->
-          <div class="d-none d-md-block">
-            <table class="table table-striped align-middle mb-6">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">商品名稱</th>
-                  <th scope="col">價格</th>
-                  <th class="text-center" scope="col">數量</th>
-                  <th class="text-center" scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="cart in carts" :key="cart.product.id">
-                  <td scope="row">
-                    <img
-                      class="img-fluid"
-                      :src="cart.product.imageUrl"
-                      :alt="cart.product.title"
-                      width="100"
-                      height="100"
-                    />
-                  </td>
-                  <td class="text-wrap">{{ cart.product.title }}</td>
-                  <td>
-                    <span class="px-1">{{ cart.product.origin_price }}</span>
-                  </td>
-                  <td class="w-25">
-                    <div class="input-group px-2">
-                      <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        @click="upDataCartProduct(cart.id, cart.qty - 1)"
-                        :disabled="cart.qty == 1"
-                      >
-                        -
-                      </button>
-                      <input
-                        class="form-control text-center border-secondary"
-                        type="text"
-                        autocomplete="off"
-                        maxlength="99"
-                        minlength="1"
-                        oninput="value=value.replace(/[^\d]/g,'')"
-                        :value="cart.qty"
-                        @change="upDataCartProduct(cart.id, $event.target.value)"
-                      />
-                      <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        @click="upDataCartProduct(cart.id, cart.qty + 1)"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </td>
-                  <th class="text-center">
-                    <a class="me-2" href="" @click.prevent="removeCartProduct(cart.id)"
-                      ><i class="bi bi-trash3-fill fs-5"></i
-                    ></a>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- 行動版購物車列表 -->
-          <div class="d-block d-md-none">
-            <table class="table table-striped align-middle mb-6">
-              <thead>
-                <tr>
-                  <th scope="col">您所選擇的商品</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="cart in carts">
-                  <th scope="row">
-                    <div class="d-flex flex-column align-items-center py-3 px-2">
+          <div class="vl-parent" ref="loading-container">
+            <loading
+              v-model:active="isLoading"
+              :can-cancel="false"
+              :lock-scroll="lockScroll"
+              :background-color="backgroundColor"
+              :container="container"
+              :opacity="opacity"
+              :is-full-page="fullPage"
+            >
+              <div class="loadingio-spinner-spin-gir4y11u5ph">
+                <div class="ldio-2f3eow2i9zx">
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                </div>
+              </div>
+            </loading>
+            <!-- 電腦版購物車列表 -->
+            <div class="d-none d-md-block">
+              <table class="table table-striped align-middle mb-6">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">商品名稱</th>
+                    <th scope="col">價格</th>
+                    <th class="text-center" scope="col">數量</th>
+                    <th class="text-center" scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="cart in carts" :key="cart.product.id">
+                    <td scope="row">
                       <img
-                        class="img-fluid mb-3"
+                        class="img-fluid"
                         :src="cart.product.imageUrl"
                         :alt="cart.product.title"
-                        width="300"
-                        height="300"
+                        width="100"
+                        height="100"
                       />
-                      <span class="fw-normal">{{ cart.product.title }}</span>
-                      <span class="fw-normal mb-3"
-                        >NT$<span>{{ cart.product.origin_price }}</span></span
-                      >
-                      <div class="input-group w-auto mb-4">
+                    </td>
+                    <td class="text-wrap">{{ cart.product.title }}</td>
+                    <td>
+                      <span class="px-1">{{ cart.product.origin_price }}</span>
+                    </td>
+                    <td class="w-25">
+                      <div class="input-group px-2">
                         <button
                           class="btn btn-outline-secondary"
                           type="button"
@@ -144,15 +108,77 @@
                           +
                         </button>
                       </div>
-                      <a href="" @click.prevent="removeCartProduct(cart.id)"
-                        ><i class="bi bi-trash3-fill fs-4"></i
+                    </td>
+                    <th class="text-center">
+                      <a class="me-2" href="" @click.prevent="removeCartProduct(cart.id)"
+                        ><i class="bi bi-trash3-fill fs-5"></i
                       ></a>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 行動版購物車列表 -->
+            <div class="d-block d-md-none">
+              <table class="table table-striped align-middle mb-6">
+                <thead>
+                  <tr>
+                    <th scope="col">您所選擇的商品</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="cart in carts">
+                    <th scope="row">
+                      <div class="d-flex flex-column align-items-center py-3 px-2">
+                        <img
+                          class="img-fluid mb-3"
+                          :src="cart.product.imageUrl"
+                          :alt="cart.product.title"
+                          width="300"
+                          height="300"
+                        />
+                        <span class="fw-normal">{{ cart.product.title }}</span>
+                        <span class="fw-normal mb-3"
+                          >NT$<span>{{ cart.product.origin_price }}</span></span
+                        >
+                        <div class="input-group w-auto mb-4">
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            @click="upDataCartProduct(cart.id, cart.qty - 1)"
+                            :disabled="cart.qty == 1"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control text-center border-secondary"
+                            type="text"
+                            autocomplete="off"
+                            maxlength="99"
+                            minlength="1"
+                            oninput="value=value.replace(/[^\d]/g,'')"
+                            :value="cart.qty"
+                            @change="upDataCartProduct(cart.id, $event.target.value)"
+                          />
+                          <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            @click="upDataCartProduct(cart.id, cart.qty + 1)"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <a href="" @click.prevent="removeCartProduct(cart.id)"
+                          ><i class="bi bi-trash3-fill fs-4"></i
+                        ></a>
+                      </div>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+
           <div>
             <div
               class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-3"
@@ -173,88 +199,114 @@
       </div>
       <div class="col-lg-4">
         <div class="border border-2 border-secondary px-5 py-5 d-flex flex-column">
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-6"
-          >
-            <h2 class="fs-5 fw-bold">購物車總計</h2>
-          </div>
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
-          >
-            <h3 class="fs-6 text-nowra">小計</h3>
-            <span class="fw-bold fs-4 fst-italic"
-              >NT$ <span>{{ total }}</span></span
+          <div class="vl-parent" ref="loading-container">
+            <loading
+              v-model:active="isLoading"
+              :can-cancel="false"
+              :lock-scroll="lockScroll"
+              :background-color="backgroundColor"
+              :container="container"
+              :opacity="opacity"
+              :is-full-page="fullPage"
             >
-          </div>
-          <div class="mb-8">
+              <div class="loadingio-spinner-spin-gir4y11u5ph">
+                <div class="ldio-2f3eow2i9zx">
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                  <div><div></div></div>
+                </div>
+              </div>
+            </loading>
             <div
-              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-6"
             >
-              <h3 class="fs-6 fw-bold">配送方式</h3>
+              <h2 class="fs-5 fw-bold">購物車總計</h2>
             </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                id="DeliveryMethod01"
-                type="radio"
-                name="DeliveryMethod"
-                @click="deliveryMethod('7-11 取貨')"
-                :checked="delivery === '7-11 取貨'"
-              />
-              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
-            </div>
-
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                id="DeliveryMethod02"
-                type="radio"
-                name="DeliveryMethod"
-                @click="deliveryMethod('順豐速遞 - 常溫配送')"
-                :checked="delivery === '順豐速遞 - 常溫配送'"
-              />
-              <label class="form-check-label" for="DeliveryMethod02"> 順豐速遞 - 常溫配送 </label>
-            </div>
-          </div>
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
-          >
-            <h3 class="fs-6 text-nowrap">總計</h3>
-            <div class="d-flex flex-column">
-              <span
-                v-if="total !== final_total"
-                class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through"
+            <div
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
+            >
+              <h3 class="fs-6 text-nowrap">小計</h3>
+              <span class="fw-bold fs-4 fst-italic me-1"
                 >NT$ <span>{{ total }}</span></span
               >
+            </div>
+            <div class="mb-8">
+              <div
+                class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
+              >
+                <h3 class="fs-6 fw-bold">配送方式</h3>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  id="DeliveryMethod01"
+                  type="radio"
+                  name="DeliveryMethod"
+                  @click="deliveryMethod('7-11 取貨')"
+                  :checked="delivery === '7-11 取貨'"
+                />
+                <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
+              </div>
 
-              <span class="fw-bold fs-4 fst-italic"
-                >NT$ <span>{{ final_total }}</span></span
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  id="DeliveryMethod02"
+                  type="radio"
+                  name="DeliveryMethod"
+                  @click="deliveryMethod('順豐速遞 - 常溫配送')"
+                  :checked="delivery === '順豐速遞 - 常溫配送'"
+                />
+                <label class="form-check-label" for="DeliveryMethod02"> 順豐速遞 - 常溫配送 </label>
+              </div>
+            </div>
+            <div
+              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
+            >
+              <h3 class="fs-6 text-nowrap">總計</h3>
+              <div class="d-flex flex-column">
+                <span
+                  v-if="total !== final_total"
+                  class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through me-1"
+                  >NT$ <span>{{ total }}</span></span
+                >
+
+                <span class="fw-bold fs-4 fst-italic me-1"
+                  >NT$ <span>{{ final_total }}</span></span
+                >
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <router-link class="btn btn-primary w-100 w-lg-50 mb-8" to="/CartOrderersInformation"
+                >前往結帳</router-link
               >
             </div>
-          </div>
-          <router-link
-            class="btn btn-primary w-100 w-lg-50 ms-auto mb-8"
-            to="/CartOrderersInformation"
-            >前往結帳</router-link
-          >
 
-          <div class="mb-8">
-            <div
-              class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
-            >
-              <h3 class="fs-6">折價卷</h3>
+            <div class="mb-8">
+              <div
+                class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
+              >
+                <h3 class="fs-6">折價卷</h3>
+              </div>
+              <input
+                class="form-control mb-2"
+                type="text"
+                placeholder="請輸入優惠卷代碼"
+                v-model="CouponCode"
+                @keyup.enter="UseCoupon(CouponCode)"
+              />
+              <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">
+                使用折價卷
+              </button>
+              <span v-if="total !== final_total" class="fs-7"
+                >( 已套用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span
+              >
             </div>
-            <input
-              class="form-control mb-2"
-              type="text"
-              placeholder="請輸入優惠卷代碼"
-              v-model="CouponCode"
-              @keyup.enter="UseCoupon(CouponCode)"
-            />
-            <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">使用折價卷</button>
-            <span v-if="total !== final_total" class="fs-7"
-              >( 已套用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span
-            >
           </div>
         </div>
       </div>
@@ -298,10 +350,16 @@
 import { RouterLink } from 'vue-router'
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
 export default {
   data() {
     return {
-      CouponCode: '' // 輸入的優惠碼儲存
+      CouponCode: '', // 輸入的優惠碼儲存
+      // vue-loading
+      container: this.$refs.loadingContainer
     }
   },
   methods: {
@@ -314,9 +372,22 @@ export default {
       'deliveryMethod'
     ])
   },
+  components: {
+    Loading
+  },
   mounted() {},
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'total', 'final_total', 'delivery'])
+    ...mapState(cartAndWishListStore, [
+      'carts',
+      'total',
+      'final_total',
+      'delivery',
+      'isLoading',
+      'lockScroll',
+      'fullPage',
+      'backgroundColor',
+      'opacity'
+    ])
   }
 }
 </script>

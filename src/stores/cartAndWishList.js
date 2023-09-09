@@ -13,6 +13,9 @@ const Toast = Swal.mixin({
   background: '#ffffff',
   color: '#5D7067'
 })
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 
 const cartAndWishListStore = defineStore('cartAndWishList', {
   state: () => {
@@ -26,8 +29,20 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       final_total: 0, //購物車總金額 (包含套用優惠卷)
       // delivery and payment method
       delivery: '順豐速遞 - 常溫配送', //運送方法儲存 (預設狀態"順豐速遞 - 常溫配送")
-      payment: ''
+      payment: '',
+      // vue-loading
+      isLoading: false,
+      cartOffcanvasIsLoading: false,
+      lockScroll: true,
+      fullPage: false,
+      backgroundColor: '#ffffff',
+      opacity: 0.85,
+      // bootstrap 5 button loading
+      spinnerLoading: ''
     }
+  },
+  components: {
+    Loading
   },
   actions: {
     // wishList
@@ -76,6 +91,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     },
     //移除願望清單品項
     removeWishListProduct(product) {
+      this.isLoading = true // 取得產品資料前顯示 loading 效果
       this.wishList.forEach((item, index) => {
         if (item.id === product.id) {
           this.wishList.splice(index, 1)
@@ -87,6 +103,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         icon: 'success',
         title: '成功將產品從願望清單移除'
       })
+      this.isLoading = false // 取得產品資料後關閉 loading 效果
     },
     //願望清單按鈕 active 狀態切換
     wishListActive(product) {
@@ -102,15 +119,25 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     // cart
     // 取得購物車資料
     getCart() {
-      axios.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`).then((res) => {
-        this.carts = res.data.data.carts
-        this.total = res.data.data.total
-        this.final_total = res.data.data.final_total // 包含套用優惠卷的總金額
-      })
+      this.isLoading = true // 取得資料前顯示 loading 效果
+      axios
+        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
+        .then((res) => {
+          this.carts = res.data.data.carts
+          this.total = res.data.data.total
+          this.final_total = res.data.data.final_total // 包含套用優惠卷的總金額
+          this.isLoading = false // 取得資料後關閉 loading 效果
+        })
+        .catch((err) => {
+          console.log(err)
+          this.isLoading = false // 取得資料後關閉 loading 效果
+        })
     },
     // 將產品加入入購物車
     addToCart(product_id, qty = 1, product = '') {
       // 單項產品頁面判斷，未選擇產品數量會中斷加入購物車
+      this.isLoading = true // 取得產品資料前顯示 loading 效果
+      this.spinnerLoading = product_id // 開啟相對應的按鈕 loading 效果
       if (qty === '數量選擇') {
         Swal.fire({
           icon: 'error',
@@ -119,6 +146,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           confirmButtonColor: '#5D7067',
           confirmButtonText: '關閉'
         })
+        this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         return
       }
       // 避免傳入的商品數量值為 String
@@ -140,11 +168,18 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             icon: 'success',
             title: '成功將產品加入購物車'
           })
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
+          this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
-        .catch((err) => alert(err.message))
+        .catch((err) => {
+          alert(err.message)
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
+          this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
+        })
     },
     //刪除購物車"單項"產品資料資料
     removeCartProduct(product_id) {
+      this.cartOffcanvasIsLoading = true // 取得資料前顯示 loading 效果
       axios
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
         .then((res) => {
@@ -153,9 +188,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             icon: 'success',
             title: '成功將產品從購物車移除'
           })
+          this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
         })
         .catch((err) => {
           alert(err.message)
+          this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
         })
     },
     //刪除購物車"全部"產品資料資料
@@ -187,6 +224,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         }
       })
     },
+    // 更新單項產品數量
     upDataCartProduct(product_id, qty) {
       const newQty = Number(qty)
       // 商品數量若調整為小於0，將該項產品刪除
@@ -279,4 +317,5 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     }
   }
 })
+
 export default cartAndWishListStore

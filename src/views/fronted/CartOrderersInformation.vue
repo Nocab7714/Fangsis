@@ -135,8 +135,8 @@
             <div
               class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
             >
-              <h3 class="fs-6 text-nowra">小計</h3>
-              <span class="fw-bold fs-4 fst-italic"
+              <h3 class="fs-6 text-nowrap">小計</h3>
+              <span class="fw-bold fs-4 fst-italic me-1"
                 >NT$ <span>{{ total }}</span></span
               >
             </div>
@@ -176,10 +176,10 @@
               <div class="d-flex flex-column">
                 <span
                   v-if="total !== final_total"
-                  class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through"
+                  class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through me-1"
                   >NT$ <span>{{ total }}</span></span
                 >
-                <span class="fw-bold fs-4 fst-italic"
+                <span class="fw-bold fs-4 fst-italic me-1"
                   >NT$ <span>{{ final_total }}</span></span
                 >
               </div>
@@ -208,6 +208,27 @@
       </div>
     </VForm>
   </div>
+  <!-- vue-loading -->
+  <loading
+    v-model:active="isLoading"
+    :can-cancel="false"
+    :lock-scroll="lockScroll"
+    :background-color="backgroundColor"
+    :opacity="opacity"
+    :is-full-page="fullPage"
+    class="vl-overlay-full-page"
+  >
+    <div class="d-flex flex-column align-items-center mx-3">
+      <img
+        class="img-fluid animate__animated animate__pulse animate__infinite"
+        src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598276311.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qL%2F7begbYX2RvKeejMCXEVhmPIyuNGNfCCMcDFt7bJOkRpxv46JeWb2TcnzDlPj0WB%2BEdEY5kqcd%2FuGxVX0MUcXT6mdARX8Fq51Oyho%2FKl3YIiVxIVVeF7sxsMIAK0oBlZNxrvy7yzcGJLq7uUKcPuDNXzasO4M4qt9bBKXOrDkbf8%2BCMlUoWim4Q9jtjfbIO7IgAgPn5PA1DJzmhv4bfRPco8SgGxGVvG8k9Q2ZSDxnODfwqxYHJE%2Bb6woza2dFQcEzDiBR%2FVhf1%2B8%2BB2%2BWaXD5AJCkLDjLIcTtZZBO5zCfbzg2HQAknzt%2FbXAHPI3xhOJ%2F5WXn5SnRr%2F2Xk7WDhQ%3D%3D"
+        width="192"
+        height="64"
+        alt="芳心白色logo"
+      />
+      <span class="text-white fs-7 mt-2">Loading ...</span>
+    </div>
+  </loading>
 </template>
 <script>
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -229,6 +250,13 @@ const Toast = Swal.mixin({
   color: '#5D7067'
 })
 
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
+// animate.css
+import 'animate.css'
+
 export default {
   data() {
     return {
@@ -237,12 +265,22 @@ export default {
       email: '',
       tel: '',
       address: '',
-      message: ''
+      message: '',
+      // vue-loading
+      isLoading: false,
+      lockScroll: true,
+      fullPage: true,
+      backgroundColor: '#5d7067',
+      opacity: 1
     }
+  },
+  components: {
+    Loading
   },
   methods: {
     //建立訂單
     createOrder() {
+      this.isLoading = true // 建立訂單前前顯示 loading 效果
       // 訂購人資訊
       const data = {
         user: {
@@ -257,6 +295,7 @@ export default {
       this.$http
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { data })
         .then((res) => {
+          this.isLoading = false // 建立訂單成功後關閉 loading 效果
           Toast.fire({
             icon: 'success',
             title: '訂單建立成功!'
@@ -265,6 +304,7 @@ export default {
           this.$router.push(`OrderPay/${res.data.orderId}`)
         })
         .catch((err) => {
+          this.isLoading = false // 建立訂單失敗後關閉 loading 效果
           Swal.fire({
             title: '訂單建立失敗',
             text: '請確認您目前的網路連線狀況並再次嘗試',
@@ -282,7 +322,13 @@ export default {
     },
     ...mapActions(cartAndWishListStore, ['getCart'])
   },
-  mounted() {},
+  mounted() {
+    this.isLoading = true
+    // 設定進首頁顯示 2s full page loading
+    setTimeout(() => {
+      this.isLoading = false
+    }, 2000)
+  },
   computed: {
     ...mapState(cartAndWishListStore, ['carts', 'total', 'final_total', 'delivery'])
   }

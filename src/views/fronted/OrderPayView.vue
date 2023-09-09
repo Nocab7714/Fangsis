@@ -108,6 +108,12 @@
               @click="orderPay()"
               :disabled="payment === '' || order.is_paid === true"
             >
+              <span
+                v-if="isLoading === true"
+                class="spinner-border-sm spinner-border"
+                role="status"
+                aria-hidden="true"
+              ></span>
               進行付款
             </button>
           </div>
@@ -149,8 +155,8 @@ export default {
   methods: {
     // 訂單付款
     orderPay() {
+      this.isLoading = true
       const { id } = this.$route.params
-      console.log(id)
       this.$http
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/pay/${id}`)
         .then((res) => {
@@ -160,6 +166,7 @@ export default {
             title: '付款成功!'
           })
           this.$router.push(`/CartCompleteOrder/${id}`)
+          this.isLoading = false
         })
         .catch((err) => {
           Swal.fire({
@@ -170,6 +177,7 @@ export default {
             confirmButtonColor: '#5D7067'
           })
           console.log(err)
+          this.isLoading = false
         })
     },
     ...mapActions(cartAndWishListStore, ['paymentMethod'])
@@ -211,7 +219,7 @@ export default {
     this.payment = '' // 回復付款的預設狀態為 "請選擇您的付款方式"
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['total', 'payment'])
+    ...mapState(cartAndWishListStore, ['total', 'payment', 'isLoading'])
   }
 }
 </script>

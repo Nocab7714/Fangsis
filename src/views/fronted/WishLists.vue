@@ -16,7 +16,30 @@
       </div>
     </div>
   </div>
-  <div class="container mt-8 mb-14">
+  <div class="container mt-8 mb-14 vl-parent" ref="loading-container">
+    <!-- vue-loading -->
+    <loading
+      v-model:active="isLoading"
+      :can-cancel="false"
+      :lock-scroll="lockScroll"
+      :background-color="backgroundColor"
+      :container="container"
+      :opacity="opacity"
+      :is-full-page="fullPage"
+    >
+      <div class="loadingio-spinner-spin-gir4y11u5ph">
+        <div class="ldio-2f3eow2i9zx">
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+        </div>
+      </div>
+    </loading>
     <!-- 願望清單沒有商品 -->
     <div v-if="wishList.length === 0" class="border border-2 border-secondary px-5 py-5">
       <div class="d-flex justify-content-center align-items-center">
@@ -182,33 +205,38 @@ import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
+// vue-loading
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
 export default {
   data() {
-    return {}
+    return {
+      // vue-loading
+      container: this.$refs.loadingContainer
+    }
+  },
+  components: {
+    Loading
   },
   methods: {
-    // 取得購物車資料
-    // getCart() {
-    //   this.$http
-    //     .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
-    //     .then((res) => {
-    //       this.cart = res.data.data
-    //     })
-    //     .catch((err) => {
-    //       alert(err.message)
-    //     })
-    // },
     ...mapActions(cartAndWishListStore, [
       'addToCart',
       'pullLocalStorageToWishList',
       'removeWishListProduct'
     ])
-
-    // 差 removeWishListProduct 要放在 pinia 傳進來
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus'])
-    // ...mapState(cartAndWishListStore, [])
+    ...mapState(cartAndWishListStore, [
+      'carts',
+      'wishList',
+      'wishListAddStatus',
+      'isLoading',
+      'lockScroll',
+      'fullPage',
+      'backgroundColor',
+      'opacity'
+    ])
   },
   mounted() {
     this.pullLocalStorageToWishList()
