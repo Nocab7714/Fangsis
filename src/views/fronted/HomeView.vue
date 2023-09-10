@@ -38,47 +38,62 @@
         ><img
           class="d-sm-block d-none"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682567453158.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JQxvd8sFvKwS4kfpHIftV7Icb0lrQ33pmN%2B1t02GK7EfebhImHfuIxsj8pRYIvRLRVcybh1Vt0QwRpcrxQkCMyozw3OGvQDkFRZnZDweBey%2FW0k0YNRKrch9jlOA%2B7MLoBTcXtBN4LgWTn0gxoQredEtBRYeILp7wx03K4uv7u9BeB20Aui8d6TjlXY3ujra5nXsmLM7sIse12FcAncTV7SZCwUfHjwUUNZkExbkR9zT7FJvLv8btLLG%2FQxB2DGN6Ckb59ZOZzn9Il8oyOFbuIaeeE84xxTE0nP02MDndSzbgZ28cvgZY0oCYwPF7lU4hKKiJl4sV%2Ff7RkgPOA94RA%3D%3D"
-          alt="在模糊的綠色背景一隻手握著一瓶裝有黃色的香氛精油特寫" />
+          alt="在模糊的綠色背景一隻手握著一瓶裝有黃色的香氛精油特寫"
+          style="background-color: var(--bs-primary)" />
+
         <img
           class="d-sm-none d-block"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693314791115.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DwUZr3R3g1RoVyic%2FtCirzyvBqSkYfxmcF2JnN76uggdD5L2vgbCpYAE4uYt%2Bp9PBvkJMY8IbjZ95GQrZsHCAVXpoiJZNPh2JPDFc3JwFYoEnHjBdA14E3BOtl3M2ZQDJHMwT7l7G6HEI8A7g4wjBdtFx20JKT2WlB7rbCMkeUA56YPo0J2qwMdDTlEgDlIgiUiwuNVr9REQnkJN4U6st%2FIyEuUlD641SQYmWuDLn4erMKZB86IbFxqS87BfNwh1uxiU%2FdRCeXxIYw7rfTLIEaLt1iD%2FPj2EkCZykoivhA4%2Ff1GNeEtiJmVD7rq5xgK3y5MUMrfoLcR%2FANtgMRSnow%3D%3D"
           alt="在模糊的綠色背景一隻手握著一瓶裝有黃色的香氛精油特寫"
+          style="background-color: var(--bs-primary)"
       /></swiper-slide>
       <swiper-slide
         ><img
           class="d-sm-block d-none"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693310027239.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=iFbZeMaJPxF53H1H4pNVc15bzaZHYXywmpQmYJ4t2y8O8JEsdaJCYaunbghO%2BPdBJXtsbvczzddczVT1jfwT3GPYnLGIQJKmMz73dD6gcQy3%2FnmMxZUxpjA4w%2BBa5lZYshU6n5foKS0N%2F7pcolTHh%2BopQTE5iGFaWNdH8WAfybu%2F5hetJj4zLKmLmWrTd1kJs8BGWNcsg5lDeIlV5ucl%2BANE%2BIQ8SZydZfOIQO69OeDL4pVu0VJ3RHOlG%2BY6cE%2BN%2FcnPkOCMgcyLOePIEmHJN2YlkPPgtpubuI3bhFeWc9gVuvRSQNJs7uOCms7P2tMQDhafUmM5DAjIjDixMoCFlQ%3D%3D"
           alt="兩瓶小罐的精油瓶特寫近照"
+          style="background-color: var(--bs-primary)"
         /><img
           class="d-sm-none d-block"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693314804290.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JhjTF42ee9zykEpgG3Hfb9npB9hcQBF2%2By3XOqxeVBn6pZmD%2FRFzj%2FgP3Qj%2Bq67p9nkrK0NGJpzy5jIyCk%2BnusADnh27qLD2M5PidBZN5mq9NQOtl%2FmUD2YmIGIP%2F0CVotsAI3Xhjd00JmpupUR%2Bw16IkV1BoC5hJEj5dH8l5PSeJYzVWXjXHOlQwyhS0bzxm90kFRggDgYRwRrJC33BJKN7zTZ%2B5Bi9zj4zHX3Tjk1tINwLefuxoijm%2Fy3Sn1t09SvaJMevk%2BmT2%2F9TlYKradjRFMB4NsU7ou4RHPKAv83ub49RzYX%2BQJ77rqu51YoDy0IOe4bG0wNJS1kTd%2FwhVw%3D%3D"
           alt="兩瓶小罐的精油瓶特寫近照"
+          style="background-color: var(--bs-primary)"
         />
       </swiper-slide>
       <swiper-slide
         ><img
           class="d-sm-block d-none"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693310045265.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=m0DWPedrl%2F7quEh7SHq%2F5hWnjsSu3iwfuc9EpIP%2FaNTG%2B47mi44oVZT5KsP0BIU%2BasarjEKfW751VNH8bD0w6hU6WKRMxkU5EdkUHZOdcxW0cNIWSJccg4ACMGE8CpMTXmlxTe9iQar1m%2FqW6i9e%2B0xUh7mC0Pk1zWsFCQseY0In6e5X5BN%2BeS8Uakd%2BgBtmhJLV5%2BZI80zemsCD2zEh%2BitzAhjR0MpAKyeqCFi5PpdufR%2FkuSw2SWdLjAq3K2234%2BoEGIqLH%2Bm3NZ7lpnopV1n5EYd%2BpoegVdZPNY7cGbkHhT3LuhyoOfMxigzbGECS3Zrtdoy95VEk1ng3HiB3Ow%3D%3D"
-          alt="迷迭香的大特寫近照" />
+          alt="迷迭香的大特寫近照"
+          style="background-color: var(--bs-primary)" />
+
         <img
           class="d-sm-none d-block"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693314818015.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=eLYK9PwnCmpYdCNWbQPa0pQ9jb8Csvw6Et9pA3J6VafnnB5XOcKMbAUdTNloALU2b8YuzKmkXVloR8naBmCKvRUpWNToFKUYcPYpkAGGzsKfBTrZ860xcByRV5MMx27gRG39RfJW5c%2FK7AHweIHWktig2Hvvdl9OSvyMeEwOarisacttXtSWDOc49vHTOEbU2x2f174qXM%2FlMyvjkzSBMlOncO0C7Gq%2BIYtSwVzyRfmG4ySWIr%2FtyYY0MO0CEzfNwlI2wYTJpWEHsFaIccTO5mFekLWaK5nzGjYCKT1vGaJAjE%2FoPYJSZXlLoHGl0E3TrglhqxIbQ2%2FqD7qjX8sU2g%3D%3D"
           alt="迷迭香的大特寫近照"
+          style="background-color: var(--bs-primary)"
       /></swiper-slide>
       <swiper-slide
         ><img
           class="d-sm-block d-none"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693310063025.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=SMyBmDyV80fgI1tlE0ZeRPHdKXEZHPYx1M7LyRdv9QtzEap7z7pf84FG2O32pqr8yJK%2FaxhLMaHJCyo1ck9Ofh0Rhxunxvpl7g5fpFQw0gGVnfKvXpbH29hUtg1BwWkKUkNClni4%2FQPHbnpWI6S34TFvKkpN2omzQMJ%2FpudRKGTEhqgKGmGFPJip0a7E9lSxv3hdRYm1VWqAHzlfZKP7TLmW48ZpGrGljnIuyHJ%2FqBkDhh78dlmF%2FS8oCKnHWzF22SpMGrzjFseTLaeyxbcg5WZyFCoSl1uoea%2BwuCqM9rRAQZCx0XwuseVGNBU%2BpRIzeDsFKNIIL3ppVtLJJDbFfQ%3D%3D"
-          alt="一瓶大瓶的精油放在光線下的特寫照" />
+          alt="一瓶大瓶的精油放在光線下的特寫照"
+          style="background-color: var(--bs-primary)" />
         <img
           class="d-sm-none d-block"
           src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1693314773856.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jegYrUdaIK06E%2BeG3WGISKKiXSxNdNc32tHdMMECP0F7%2FnbfrYa9Oao6hctPX%2FjmHXhMjIG94IFooeobbVgx7jOWqb0UMtBsUajLJmLw%2F6IUbsVRnL3RyrvVv2QznAdsyVVgZpQ7g93%2Bbi6BQclCRN9gGWBfLiWjpXyg7vWzHO0qawakTizd9UG7Yy%2BvgxTAiNah6XKFMzHY0clSkvJYHyywAbHDNqJtl4gTlTsie8sUW6YyeiCg4AFMkz%2FAU6AgDFA9C0KNzCxESHwt0vDSsJTb%2Fq4czKp8Y8EATRI9cS0n6pXUvEGYDTeidriB%2B%2BEtnFnmrgf6dmGYSYq9zIwaaQ%3D%3D"
           alt="一瓶大瓶的精油放在光線下的特寫照"
+          style="background-color: var(--bs-primary)"
       /></swiper-slide>
     </swiper>
   </header>
   <!-- about section -->
-  <section class="about section-bkg py-7" :style="{ backgroundImage: `url(${imgUrl.aboutBkg})` }">
+  <section
+    class="about section-bkg py-7"
+    style="
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DU8b3nBYU2ER%2BdUWbghrVoA3KGX6KiJFzlKjmgNOTcZxCoxsv2AhJj7sZxIR%2BPIQLfiEq3cUrOIV9Sx0UA2NYMIPOxSla0gpXxR6MT8NRm5M4MazCYhnkplkioNt%2BSSMolimS8wk4SBicKJWyBaqRcrmKLe44PPP4QQQAFw3SLdkuBhOi%2BiKEKA4MnIEnzVxtpwY8bQfjQmCUKlLGS%2B2jhL%2FM2akcsWO0Z%2Bp9ebeA9VPplyNsoqu37H25KL%2FFT%2B9p%2F5jjoifcDzquWx7I6yqzINvnEQqu03UClrv9VHEImNlUPMc6y7%2FwP16d0tAyP6mqoDtMvsFdbPPaRGTeHF09g%3D%3D');
+    "
+  >
     <div class="container">
       <div data-aos="fade-up">
         <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
@@ -114,14 +129,17 @@
           <div data-aos="fade-up">
             <img
               class="img-fluid d-none d-lg-block"
-              src="https://shorturl.at/ckqGN"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598856516.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MzKfEB7zm7HkUSyY0Q0AOsjsiWw92Qpg6L%2BWClD8zgkMoxbP7ZgQ6rw4u8zZbHdP9mOWI2nIPqmSg9gWqOe20qRGhXbsO25LiwA%2B89PA5TZKSovFkPrOvLowPgBo7DX%2BeW3A6fhI51CBA5vmCrH9MmIrQQRl44CSCfL077Pxa1s%2BreGDOquSkZdjnkEJ7dlK%2FltuKO7HJ6zoOeCdIY2aCqSfvQPX9NHhfyaPDrqIWMJanIhCAngNwySHQJEXoU5IRhMCmHDSLqDzBaxzaeLOjvUenGjAQsoXbavEFwH3DxfAKiGxHBeXRnpEtdSB2ruC8YGT2W8hgzxnjn4UN2mEwQ%3D%3D"
               alt="用滴管將黃色精油滴在手上的特寫"
               width="636"
               height="368"
+              style="background-color: var(--bs-secondary)"
             />
             <div
               class="aboutImg d-block d-lg-none"
-              :style="{ backgroundImage: `url(${imgUrl.aboutImg})` }"
+              style="
+                background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598856516.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MzKfEB7zm7HkUSyY0Q0AOsjsiWw92Qpg6L%2BWClD8zgkMoxbP7ZgQ6rw4u8zZbHdP9mOWI2nIPqmSg9gWqOe20qRGhXbsO25LiwA%2B89PA5TZKSovFkPrOvLowPgBo7DX%2BeW3A6fhI51CBA5vmCrH9MmIrQQRl44CSCfL077Pxa1s%2BreGDOquSkZdjnkEJ7dlK%2FltuKO7HJ6zoOeCdIY2aCqSfvQPX9NHhfyaPDrqIWMJanIhCAngNwySHQJEXoU5IRhMCmHDSLqDzBaxzaeLOjvUenGjAQsoXbavEFwH3DxfAKiGxHBeXRnpEtdSB2ruC8YGT2W8hgzxnjn4UN2mEwQ%3D%3D');
+              "
             ></div>
           </div>
         </div>
@@ -138,7 +156,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639592276.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lkzWFqH%2FRLksRR9zke2Yq8iOJtAIESWCAGZJo0O2zNIru9mKvqg0K0xYrJ9Wy%2BfTuEzpHAjFSy5Q%2FJHL4uZLH85HhFsor0Y1rA48tU%2BusXo5BzU53Sxi00Sf3Lrs%2ByRCmf31qVq0lndiip8O94vs4Bc2gjT%2B1gjtLAMGWC01EBbG0GPj8aGri%2F7j30FE0rNghwNQJdWJudgTbS9Dvy7UUNLk1cUCWWXJ%2FU%2BCj9eKY%2B8ndc0r0krIrycI4GWE2UFh5%2BT425aWFvIRLN7orBsB7PUqiHBUjT8yc61NVi83qaNSV72JpTaM7IKaf9fAGxLd9GEjgTUDwJGnJjC3b6On8A%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -168,7 +189,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639640250.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Wo%2BMf7xLFVG6C7mEDvjMF3Uz1Mk4Fkt8iB4KhzQC%2FRfcYbu1LD3e3N6GvQ0BhlJwNIE0G7vzLNRSoue%2FDsPQhjAeZ6v7LlmHgUc3cT8UyCWj0Fe15uyoDWyGtqIoGu%2B%2BD8bDb6Q1vl7eSsvsbit2syOimkqJoHCEp4nMvQcNEvh0Z3PvOOJMiMUJUDALJlW9ByHZ6iK2qrMlOhXVQbru5%2Bc9mGLsRXj2MSlFJBZYUPrK5eKliWiLpP025nebgXgRT6mztdfTLdb7IL0%2BKd0L4D%2B5AAWgQC9A88PddbeaTnY%2BI33ghmi%2F3fDMdkHHHh13s%2BoH8WsB9Uqnv2XwJGyotw%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -198,7 +222,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639654250.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=R0CY%2BQWuHgBBOg6Cod8msB033OM7g1peLmTKTfuIA5fHB%2B0qZK3a%2FNIPu7SLVvDBpay%2BqIHbVJYorf9LlRLN4zfDepB5UPIDS23S4m6Yq%2BJeOcKU7JQhn2fJ8t9AT0Gal2y0zvQBcBPJ5PgbZHeAUQJVIPGNCHVB01o4yNK7%2FQpfnSQMUWn2zhxHHqHrzHOBYUFSWpkyR3PMOhXIfH4ncNmSA3et%2FW9rJR92fVGzIoTGI0cB2KOoIaW7KmKEOzLO0%2BK0iXBEKow0gGd1ffw3uCpeohzKlQCvXgxYZ5wQ%2FvhI1x%2Bovqr3QxEGDBwJJXIYnTw%2BZlc2zqI2EpwB5PHwGg%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -235,7 +262,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg01})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639592276.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lkzWFqH%2FRLksRR9zke2Yq8iOJtAIESWCAGZJo0O2zNIru9mKvqg0K0xYrJ9Wy%2BfTuEzpHAjFSy5Q%2FJHL4uZLH85HhFsor0Y1rA48tU%2BusXo5BzU53Sxi00Sf3Lrs%2ByRCmf31qVq0lndiip8O94vs4Bc2gjT%2B1gjtLAMGWC01EBbG0GPj8aGri%2F7j30FE0rNghwNQJdWJudgTbS9Dvy7UUNLk1cUCWWXJ%2FU%2BCj9eKY%2B8ndc0r0krIrycI4GWE2UFh5%2BT425aWFvIRLN7orBsB7PUqiHBUjT8yc61NVi83qaNSV72JpTaM7IKaf9fAGxLd9GEjgTUDwJGnJjC3b6On8A%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -267,7 +297,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg02})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639640250.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Wo%2BMf7xLFVG6C7mEDvjMF3Uz1Mk4Fkt8iB4KhzQC%2FRfcYbu1LD3e3N6GvQ0BhlJwNIE0G7vzLNRSoue%2FDsPQhjAeZ6v7LlmHgUc3cT8UyCWj0Fe15uyoDWyGtqIoGu%2B%2BD8bDb6Q1vl7eSsvsbit2syOimkqJoHCEp4nMvQcNEvh0Z3PvOOJMiMUJUDALJlW9ByHZ6iK2qrMlOhXVQbru5%2Bc9mGLsRXj2MSlFJBZYUPrK5eKliWiLpP025nebgXgRT6mztdfTLdb7IL0%2BKd0L4D%2B5AAWgQC9A88PddbeaTnY%2BI33ghmi%2F3fDMdkHHHh13s%2BoH8WsB9Uqnv2XwJGyotw%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -299,7 +332,10 @@
             <div class="card border-0">
               <div
                 class="card-body position-relative point-bkg"
-                :style="{ backgroundImage: `url(${imgUrl.pointBkg03})` }"
+                style="
+                  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1684639654250.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=R0CY%2BQWuHgBBOg6Cod8msB033OM7g1peLmTKTfuIA5fHB%2B0qZK3a%2FNIPu7SLVvDBpay%2BqIHbVJYorf9LlRLN4zfDepB5UPIDS23S4m6Yq%2BJeOcKU7JQhn2fJ8t9AT0Gal2y0zvQBcBPJ5PgbZHeAUQJVIPGNCHVB01o4yNK7%2FQpfnSQMUWn2zhxHHqHrzHOBYUFSWpkyR3PMOhXIfH4ncNmSA3et%2FW9rJR92fVGzIoTGI0cB2KOoIaW7KmKEOzLO0%2BK0iXBEKow0gGd1ffw3uCpeohzKlQCvXgxYZ5wQ%2FvhI1x%2Bovqr3QxEGDBwJJXIYnTw%2BZlc2zqI2EpwB5PHwGg%3D%3D');
+                  background-color: var(--bs-secondary);
+                "
               >
                 <div
                   class="point-mask position-absolute d-flex justify-content-center align-items-center"
@@ -332,7 +368,9 @@
   <!-- hot-sale section -->
   <section
     class="hot-sale py-7 section-bkg"
-    :style="{ backgroundImage: `url(${imgUrl.hotSellBkg})` }"
+    style="
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DU8b3nBYU2ER%2BdUWbghrVoA3KGX6KiJFzlKjmgNOTcZxCoxsv2AhJj7sZxIR%2BPIQLfiEq3cUrOIV9Sx0UA2NYMIPOxSla0gpXxR6MT8NRm5M4MazCYhnkplkioNt%2BSSMolimS8wk4SBicKJWyBaqRcrmKLe44PPP4QQQAFw3SLdkuBhOi%2BiKEKA4MnIEnzVxtpwY8bQfjQmCUKlLGS%2B2jhL%2FM2akcsWO0Z%2Bp9ebeA9VPplyNsoqu37H25KL%2FFT%2B9p%2F5jjoifcDzquWx7I6yqzINvnEQqu03UClrv9VHEImNlUPMc6y7%2FwP16d0tAyP6mqoDtMvsFdbPPaRGTeHF09g%3D%3D');
+    "
   >
     <div class="container">
       <div data-aos="fade-up">
@@ -349,7 +387,10 @@
                 <div class="col-6">
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
-                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg01})` }"
+                    style="
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332086719.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HNs8jkhEygSbPJ%2Bdn%2FNk3DOFOXmhtrUN4IckNIffHgsphFpU4Pfq%2BVftGSJ5h14BmpXSsmpWhCNlTLNjvE8wWJKsLeGUqh7fCPMPHr6jFv1TE0qCjJIP7bbHOrfXDs9LECHglM%2FnXxMk%2FpshfCicnXxPgT8NyqYwsalenOYHEutCFBKs09RphimB%2B8oydSZeSx5D%2BWRS%2BjHs4ZwsRZB7CJC8w%2FhMPIQ5FaDlovDE8oRR3G%2FIGf%2Ft5e46GAHyDwzCKnjp1m%2FoYmPSV4XIVZWRqpcA9ykN4UMamDy4Sk08DOhBJgOQ5KKmscTIsbnfz473%2FiDwZKEY5lkWHxvWo5%2FBTQ%3D%3D');
+                      background-color: var(--bs-secondary);
+                    "
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
@@ -398,7 +439,10 @@
                 <div class="col-6">
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
-                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg02})` }"
+                    style="
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332155439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jKvhJTUbpXsuxzS6SNlfnYj6QJUxbuYlXzruIhIWkbZSadi0AQuUC0dDH0stmRhdl2EDyM49cr6Te866BJWdfaW92ptll0CLIkzvAMk3ttIJgss1Y1wsXs7xA%2Bo%2F6SR45SCkLDUcv21N1nhGufK%2FuwZvf8VAHlHTQC2y4N5ypf5nWyOVpGcHhag8w1p6pZsSmpMzX8k2RNzYcocGjqE7hAgrWX7xLT4tTOlcatBm65vY5CLG5vuHIFuBb3DZGmwVQ8m80mz3usqIMBoLMNHfuIyTmr2sqi3dNYh8fX73cAeDOYFxZA%2FuwAy%2BDlv8Ky2qGUv7VeUU8aDwsNQbyGl8Mg%3D%3D');
+                      background-color: var(--bs-secondary);
+                    "
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
@@ -417,7 +461,10 @@
                 <div class="col-6">
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
-                    :style="{ backgroundImage: `url(${imgUrl.hotSaleDesktopImg03})` }"
+                    style="
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332179602.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=EgnxxViN%2BvEfCIfMt8hBF2sQ7taQY8ljlc3nJb72UFuLcgJg%2FlMmUzgIXX%2BB7WtqTDnj8tTFjZdacpnykuTOT%2FjjoMEA6qsgbhXablvyswR3gKUtoJJVvbyterYFLhVaUWZ9O2XzruU1x%2FfoB0HDzGKrJR7wuKR%2F8P7f6lDCRgoUdTRYlgXn3P6FenyjGyY0E6WOJ76o9JwlRtQL2Tc387xlBaos0vXXsGgyL1b1iEpkajNENf5ha4tLzYsIUPaV%2BkD07JWQiW%2BuiDVDq9lgT%2FfxL4KmGYgZUgkERG52K7FO6UKi88O2QL2w62IXI%2B2pbT037d%2BZRXXh%2F7P60Sv91w%3D%3D');
+                      background-color: var(--bs-secondary);
+                    "
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
@@ -452,11 +499,12 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              :src="imgUrl.hotSaleMobileImg01"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一塊薑餅人造型香皂的禮盒"
               width="351"
               height="320"
+              style="background-color: var(--bs-secondary)"
             />
             <div class="card-body text-center text-secondary px-55 py-4">
               <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
@@ -476,11 +524,12 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              :src="imgUrl.hotSaleMobileImg02"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409155769.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=PeuKaaKDvO1E9KxsSk3H4PihpIrFZffki1zbdIitp9ucEf4pR%2BBK0XzJiPCEgmBiAo0y%2F9MWIk0sWcPRhPz5bW3iqoy66jMuttcDrjm9fxx7mXGtgV07491rJHMrtVbb3KMr81g0a9z6RkhHVuGOfdEhnmq6NbOyMWjlTpY9qAMPOii43VP3S7Zb2l6RGyODIl%2FQVNvQcJzldZ1x5ikyNW6ZarAh1BPMg0uQxwB9ZTyWNi8FH9aI3dQ5odV7oEorM8iKUuYBQQQmecZ48ByJoDUQoM0%2F6emr75MYZUKtibmelWMTc5QW2u%2BZHB5xdJKAml4opAJJD39zR0aoL4T1PQ%3D%3D"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一個聖誕樹造型的香皂與兩個帶有花圖案的沐浴球"
               width="351"
               height="320"
+              style="background-color: var(--bs-secondary)"
             />
             <div class="card-body text-center text-secondary px-55 py-4">
               <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
@@ -501,11 +550,12 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              :src="imgUrl.hotSaleMobileImg03"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409183973.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gSM%2FQfRc41N5lEI7pJPYT5uEkgqycsSR7bLadNt7UgEqO7mphZtX2eO42jNPPiH9j%2BkQzrVIpKLG5dKTkVA8NmWkLED3UcrM71dVJkCkhpvtEVZbFmqfZIO%2BdhzdlG7GwD9yprczVvUTHWBNJYFF4XWDQW7sRjewC%2BlkJpZ4PSs5CwaKlamTYbM1%2BBzfm2N8RUjWMr0jZU52ySjYk4m1K66nX6MzUKyqD3xerncwkz6Ew70KTq3xxb45a%2F2GFqRYcAC7UKv4S6nWZ1f5TQtIZkITirpE615aLKl8L%2FNFZ4KR1ppk4yfbp02jROwb%2Beez%2FEHkfuMR%2BgVYEF7CYGbZ7Q%3D%3D"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一塊薑餅人造型香皂並且禮盒周圍有很多聖誕裝飾物品"
               width="351"
               height="320"
+              style="background-color: var(--bs-secondary)"
             />
             <div class="card-body text-center text-secondary px-55 py-4">
               <h3 class="card-title fs-3 fw-bold mb-4" style="font-family: var(--bs-NotoSerif-TC)">
@@ -530,7 +580,6 @@
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
-
     <!-- swiper -->
     <div class="bg-light py-4">
       <swiper
@@ -676,7 +725,12 @@
     </div>
   </section>
   <!-- subscript section -->
-  <section class="subscript section-bkg" :style="{ backgroundImage: `url(${imgUrl.hotSellBkg})` }">
+  <section
+    class="subscript section-bkg"
+    style="
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DU8b3nBYU2ER%2BdUWbghrVoA3KGX6KiJFzlKjmgNOTcZxCoxsv2AhJj7sZxIR%2BPIQLfiEq3cUrOIV9Sx0UA2NYMIPOxSla0gpXxR6MT8NRm5M4MazCYhnkplkioNt%2BSSMolimS8wk4SBicKJWyBaqRcrmKLe44PPP4QQQAFw3SLdkuBhOi%2BiKEKA4MnIEnzVxtpwY8bQfjQmCUKlLGS%2B2jhL%2FM2akcsWO0Z%2Bp9ebeA9VPplyNsoqu37H25KL%2FFT%2B9p%2F5jjoifcDzquWx7I6yqzINvnEQqu03UClrv9VHEImNlUPMc6y7%2FwP16d0tAyP6mqoDtMvsFdbPPaRGTeHF09g%3D%3D');
+    "
+  >
     <div class="container text-primary">
       <VForm v-slot="{ errors }" @submit="subscription">
         <label class="form-label fs-3 text-center text-md-start mb-55" for="subscript"
@@ -725,21 +779,6 @@ import 'aos/dist/aos.css'
 export default {
   data() {
     return {
-      imgUrl: {
-        bannerImg01: 'https://shorturl.at/fKU29',
-        aboutImg: 'https://shorturl.at/ckqGN',
-        aboutBkg: 'https://shorturl.at/lBDOR',
-        hotSellBkg: 'https://shorturl.at/asUYZ',
-        pointBkg01: 'https://shorturl.at/almxH',
-        pointBkg02: 'https://shorturl.at/krA04',
-        pointBkg03: 'https://shorturl.at/qDQY2',
-        hotSaleDesktopImg01: 'https://shorturl.at/fANZ8',
-        hotSaleDesktopImg02: 'https://shorturl.at/kAKN3',
-        hotSaleDesktopImg03: 'https://shorturl.at/eisO7',
-        hotSaleMobileImg01: 'https://shorturl.at/eLQZ4',
-        hotSaleMobileImg02: 'https://shorturl.at/hDE23',
-        hotSaleMobileImg03: 'https://shorturl.at/abhpM'
-      },
       subscriptEmail: '',
       products: [],
       modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
