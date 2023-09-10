@@ -676,7 +676,7 @@
     </div>
   </section>
   <!-- subscript section -->
-  <section class="subscript">
+  <section class="subscript section-bkg" :style="{ backgroundImage: `url(${imgUrl.hotSellBkg})` }">
     <div class="container text-primary">
       <VForm v-slot="{ errors }" @submit="subscription">
         <label class="form-label fs-3 text-center text-md-start mb-55" for="subscript"
@@ -872,8 +872,9 @@ export default {
 }
 
 .section-bkg {
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .point-mask {
