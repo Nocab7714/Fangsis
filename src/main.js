@@ -2,16 +2,19 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
+
+// Vue-Router
 import router from './router'
 
-// axios
+// Axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-// bootstrap 5
+// Bootstrap 5
 import './assets/all.scss'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+// VeeValidate
 // 引入 VeeValidate 元件跟功能
 import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate'
 // 引入 VeeValidate 的驗證規則
@@ -29,7 +32,7 @@ configure({
   generateMessage: localize({ zh_TW: zhTW }),
   validateOnInput: true
 })
-setLocale('zh_TW')
+setLocale('zh_TW') // 設定預設語系
 
 const app = createApp(App)
 
