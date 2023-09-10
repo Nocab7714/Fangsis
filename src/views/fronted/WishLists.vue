@@ -70,7 +70,6 @@
         </div>
       </div>
     </div>
-
     <div v-else="">
       <!-- 電腦版願望清單 -->
       <div class="d-none d-lg-block">

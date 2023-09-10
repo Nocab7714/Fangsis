@@ -220,9 +220,7 @@
     </nav>
   </transition>
   <!-- 頁面顯示區塊 -->
-
   <router-view> </router-view>
-
   <footer class="bg-primary">
     <div class="container">
       <div class="py-lg-55 pt-4 pb-5">
@@ -307,7 +305,6 @@
       </div>
     </div>
   </footer>
-
   <!-- 透明度100的向上按鈕 -->
   <transition name="fade">
     <div
@@ -326,7 +323,6 @@
       </a>
     </div>
   </transition>
-
   <!-- 購物車 offcanvas (拆成元件) ，要透過 pinia 傳入 cart 資料 -->
   <div
     class="offcanvas offcanvas-end"
