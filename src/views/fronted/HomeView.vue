@@ -680,7 +680,7 @@
     <div class="container text-primary">
       <VForm v-slot="{ errors }" @submit="subscription">
         <label class="form-label fs-3 text-center text-md-start mb-55" for="subscript"
-          >想隨時知道我們有什麼新產品嗎?</label
+          >訂閱我們，獲取優惠卷與最新活動消息</label
         >
         <div class="row input-group gx-0 gx-md-3 gy-2 align-items-center">
           <div class="col-md-10">
@@ -691,7 +691,7 @@
               type="email"
               name="email"
               rules="required|email"
-              placeholder="輸入您的信箱，訂閱我們的最新活動消息"
+              placeholder="輸入您的信箱，獲得我們的最新活動消息獲得優惠卷"
               v-model="subscriptEmail"
             />
           </div>
@@ -752,9 +752,12 @@ export default {
   methods: {
     // 訂閱最新活動消息
     subscription(subscriptEmail) {
-      Toast.fire({
+      Swal.fire({
         icon: 'success',
-        title: '成功訂閱最新活動消息'
+        title: '成功訂閱',
+        text: '獲得購物 8 折優惠代碼 fangsis888',
+        confirmButtonText: '確定',
+        confirmButtonColor: '#5D7067'
       })
       this.subscriptEmail = ''
     }
