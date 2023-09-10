@@ -223,7 +223,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .purchase-active {
   color: black;
   font-weight: bold;

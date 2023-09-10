@@ -281,7 +281,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // 產品售完 mask
 .product-sell-out {
   position: absolute;

@@ -47,7 +47,7 @@
     </div>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .division {
   font-size: 300%;
   float: left;
