@@ -1,5 +1,10 @@
 <template>
-  <div class="login-bkg py-22">
+  <div
+    class="login-bkg py-22"
+    style="
+      background-image: url('https://images.unsplash.com/photo-1617351167197-1a8715231753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    "
+  >
     <div class="login-bkg-mask"></div>
     <div class="container z-index-3 mb-1">
       <div class="row justify-content-center">
@@ -112,7 +117,7 @@ export default {
 <style lang="scss" scoped>
 .login-bkg {
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1617351167197-1a8715231753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
