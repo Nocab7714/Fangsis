@@ -11,7 +11,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 // Bootstrap 5
-import './assets/all.scss'
+import './assets/scss/all.scss'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 // VeeValidate
