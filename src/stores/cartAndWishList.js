@@ -3,16 +3,7 @@ import axios from 'axios'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 // sweetalert2
 import Swal from 'sweetalert2'
-const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 1300,
-  timerProgressBar: true,
-  iconColor: '#5D7067',
-  background: '#ffffff',
-  color: '#5D7067'
-})
+import Toast from '@/utils/Toast'
 // vue-loading
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'

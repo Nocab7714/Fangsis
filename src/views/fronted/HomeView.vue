@@ -717,16 +717,6 @@ import 'swiper/css/free-mode'
 
 // sweetalert2
 import Swal from 'sweetalert2'
-const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 1300,
-  timerProgressBar: true,
-  iconColor: '#5D7067',
-  background: '#ffffff',
-  color: '#5D7067'
-})
 
 // AOS
 import AOS from 'aos'
