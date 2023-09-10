@@ -74,7 +74,6 @@
   </div>
 </template>
 <script>
-import { RouterLink, RouterView } from 'vue-router'
 import { defineRule } from 'vee-validate'
 //定義驗證規則 : 需要輸入內容以英文與數字混和
 defineRule('mix_num', (value) => {

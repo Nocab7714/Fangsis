@@ -347,7 +347,6 @@
   </div>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
 // vue-loading

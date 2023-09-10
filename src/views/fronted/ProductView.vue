@@ -365,9 +365,6 @@ import 'swiper/css/free-mode'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 
-// animate.css
-import 'animate.css'
-
 export default {
   data() {
     return {

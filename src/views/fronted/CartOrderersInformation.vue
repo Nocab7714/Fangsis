@@ -232,8 +232,6 @@
 </template>
 <script>
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
-// router
-import { RouterLink } from 'vue-router'
 // pinia
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
@@ -253,9 +251,6 @@ const Toast = Swal.mixin({
 // vue-loading
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
-
-// animate.css
-import 'animate.css'
 
 export default {
   data() {

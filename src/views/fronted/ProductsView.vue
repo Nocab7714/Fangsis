@@ -206,7 +206,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env

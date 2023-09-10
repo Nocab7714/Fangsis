@@ -127,7 +127,6 @@
   </div>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
