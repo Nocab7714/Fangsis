@@ -24,201 +24,38 @@
   </div>
 
   <div class="container my-6">
-    <div class="row position-relative">
-      <!-- 產品分類 (桌面版) -->
-      <div class="products-categories-desktop col-lg-3 d-none d-lg-block sticky-top-customize">
-        <ul class="list-group">
-          <button
-            type="button"
-            class="list-group-item list-group-item-action"
-            :class="{ active: categoryValue === '' }"
-            @click="getProducts(1)"
-          >
-            <li class="list-unstyled">全部商品</li>
-          </button>
-          <button
-            type="button"
-            class="list-group-item list-group-item-action"
-            :class="{ active: categoryValue === 'giftBox' }"
-            @click="getProducts(1, 'giftBox')"
-          >
-            <li class="list-unstyled">禮盒系列</li>
-          </button>
-          <button
-            type="button"
-            class="list-group-item list-group-item-action"
-            :class="{ active: categoryValue === 'bathAndBodyProducts' }"
-            @click="getProducts(1, 'bathAndBodyProducts')"
-          >
-            <li class="list-unstyled">沐浴用品</li>
-          </button>
-          <button
-            type="button"
-            class="list-group-item list-group-item-action"
-            :class="{ active: categoryValue === 'fragrance' }"
-            @click="getProducts(1, 'fragrance')"
-          >
-            <li class="list-unstyled">室內香氛</li>
-          </button>
-        </ul>
+    <div class="row">
+      <div class="col-lg-3 d-none d-lg-block sticky-top-customize">
+        <ProductCategoryDesktop
+          :getProducts="getProducts"
+          :categoryValue="categoryValue"
+        ></ProductCategoryDesktop>
       </div>
-      <!-- 產品分類 (手機版) -->
-      <div class="products-categories-mobile col-lg-3 d-block d-lg-none">
-        <select
-          class="form-select mb-5 fs-6"
-          name="product-categories"
-          @change="classifyProductsMobile($event)"
-        >
-          <option value="" selected>全部商品</option>
-          <option value="giftBox">禮盒系列</option>
-          <option value="bathAndBodyProducts">沐浴用品</option>
-          <option value="fragrance">室內香氛</option>
-        </select>
+      <div class="d-block d-lg-none">
+        <ProductCategoryMobile
+          :getProducts="getProducts"
+          :categoryValue="categoryValue"
+        ></ProductCategoryMobile>
       </div>
-
-      <!-- 產品顯示列表 -->
-      <div class="products col-lg-9 vl-parent" ref="loading-container">
-        <!-- vue-loading -->
-        <loading
-          v-model:active="isLoading"
-          :can-cancel="false"
-          :lock-scroll="lockScroll"
-          :background-color="backgroundColor"
-          :container="container"
-          :opacity="opacity"
-          :is-full-page="fullPage"
-        >
-          <div class="loadingio-spinner-spin-gir4y11u5ph">
-            <div class="ldio-2f3eow2i9zx">
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-              <div><div></div></div>
-            </div>
-          </div>
-        </loading>
-
-        <div v-if="categoryProducts.length === 0">
-          <h2 class="fs-3 text-secondary text-center mt-10 mb-20">很抱歉! 找不到符合的商品</h2>
-        </div>
-        <div v-else class="row g-md-4 g-3">
-          <div v-for="product in categoryProducts" :key="product.id" class="col-lg-4 col-6">
-            <div class="card border-0 h-100 position-relative">
-              <!-- 加入許願清單按鈕 -->
-              <a
-                class="wishLists-btn fs-4 link-light"
-                href=""
-                @click.prevent="addWishList(product)"
-              >
-                <i
-                  class="bi bi-heart-fill position-relative"
-                  :class="{ 'heart-fill-active': wishListActive(product) }"
-                ></i
-                ><i class="bi bi-heart position-absolute"></i
-              ></a>
-              <router-link class="product-link text-decoration-none" :to="`/product/${product.id}`">
-                <div class="position-relative">
-                  <!-- 判定並顯示是否為熱銷產品 -->
-                  <span
-                    v-if="product.is_hotSale"
-                    class="position-absolute p-2 bg-pink z-index-4 fs-md-5 fs-7 text-white top-0"
-                    >HOT</span
-                  >
-                  <!-- 判定並顯示是產品是否售完 -->
-                  <div
-                    v-if="product.quantity === 0"
-                    class="product-sell-out text-center text-white fs-3"
-                  >
-                    已售完
-                  </div>
-                  <div class="img-hidden">
-                    <img
-                      class="rounded-0 img-fluid cover-fit"
-                      :src="product.imageUrl"
-                      :alt="product.title"
-                      width="351"
-                      height="320"
-                      style="background-color: var(--bs-secondary)"
-                    />
-                  </div>
-                </div>
-                <h3 class="card-title text-black fs-6 mb-0 mt-2">{{ product.title }}</h3>
-                <p class="card-text text-black fs-6 mb-2">
-                  NT$<span class="ms-2">{{ product.price }}</span>
-                </p>
-              </router-link>
-              <button
-                class="btn btn-sm btn-outline-primary w-100 rounded-0 mt-auto"
-                type="button"
-                @click="addToCart(product.id)"
-                :disabled="product.quantity === 0 || spinnerLoading === product.id"
-              >
-                <span
-                  v-if="spinnerLoading === product.id"
-                  class="spinner-border-sm spinner-border"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-                加入購物車
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- 分頁元件 -->
-        <div class="d-flex justify-content-center mt-7">
-          <nav aria-label="Page navigation ">
-            <ul class="pagination pagination-sm">
-              <li class="page-item" :class="{ disabled: !page.has_pre }">
-                <a
-                  class="page-link"
-                  href="#"
-                  aria-label="Previous"
-                  @click.prevent="getProducts(page.current_page - 1, categoryValue)"
-                >
-                  <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
-                </a>
-              </li>
-              <li
-                class="page-item"
-                :class="{ active: pages === page.current_page }"
-                v-for="pages in page.total_pages"
-                :key="pages + 'page'"
-              >
-                <a class="page-link" href="#" @click.prevent="getProducts(pages, categoryValue)">{{
-                  pages
-                }}</a>
-              </li>
-
-              <li class="page-item" :class="{ disabled: !page.has_next }">
-                <a
-                  class="page-link"
-                  href="#"
-                  aria-label="Next"
-                  @click.prevent="getProducts(page.current_page + 1, categoryValue)"
-                >
-                  <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div class="col-lg-9">
+        <ProductList
+          :categoryProducts="categoryProducts"
+          :categoryValue="categoryValue"
+          :getProducts="getProducts"
+          :page="page"
+          :isLoading="isLoading"
+        ></ProductList>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import ProductCategoryDesktop from '@/components/fronted/ProductCategoryDesktop.vue'
+import ProductCategoryMobile from '@/components/fronted/ProductCategoryMobile.vue'
+import ProductList from '@/components/fronted/ProductList.vue'
 
-// vue-loading
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/css/index.css'
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   data() {
@@ -226,19 +63,15 @@ export default {
       products: [], // 初始產品列表
       categoryProducts: [], //分類後的產品列表。用於操作產品分類
       categoryValue: '', //用於 pagination 換頁時將類別類型加入至 getProducts
-      productId: '',
       page: {},
       // vue-loading
-      isLoading: false,
-      lockScroll: true,
-      fullPage: false,
-      container: this.$refs.loadingContainer,
-      backgroundColor: '#ffffff',
-      opacity: 0.85
+      isLoading: false // ProductList 子元件中的 loading 開啟/關閉狀態透過 productsView 父層元件管理
     }
   },
   components: {
-    Loading
+    ProductCategoryDesktop,
+    ProductCategoryMobile,
+    ProductList
   },
   methods: {
     // 取得所有產品資料
@@ -261,108 +94,21 @@ export default {
           this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
     },
-    // 產品分類 (手機版)
-    classifyProductsMobile(event) {
-      const category = event.target.value
-      this.getProducts(1, category)
-    },
     // 滾動到視窗最頂
     scrollToTop() {
       window.scrollTo(0, 0)
-    },
-    ...mapActions(cartAndWishListStore, [
-      'addToCart',
-      'addWishList',
-      'pullLocalStorageToWishList',
-      'wishListActive'
-    ])
-  },
-  computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'spinnerLoading'])
+    }
   },
   mounted() {
     this.getProducts()
-    this.pullLocalStorageToWishList()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-// 產品售完 mask
-.product-sell-out {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(33, 33, 33, 0.75);
-  &:hover {
-    background-color: rgba(102, 101, 101, 0.75);
-    transition: 0.3s;
-  }
-}
-
-// 產品圖片 hover zoom in / out
-.img-hidden {
-  overflow: hidden;
-}
-.img-hidden img {
-  transition: 0.5s;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-.cover-fit {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .sticky-top-customize {
   position: sticky;
   top: 130px;
   height: 100%;
-}
-
-//pagination 手機板本大小設定
-@include media-breakpoint-up(sm) {
-  .pagination-sm {
-    --bs-pagination-padding-x: 0.75rem;
-    --bs-pagination-padding-y: 0.375rem;
-    --bs-pagination-border-radius: 0.375rem;
-  }
-}
-
-.wishLists-btn {
-  position: absolute;
-  z-index: 4;
-  right: 10px;
-  top: 5px;
-  .bi-heart {
-    left: 0;
-    z-index: 2;
-  }
-}
-
-.wishLists-btn .bi-heart-fill {
-  left: 0;
-  z-index: 3;
-  color: transparent; //active 樣式改為修改顏色
-  &:hover {
-    color: white;
-  }
-  &:active {
-    opacity: 100;
-    color: $pink !important;
-  }
-}
-
-.heart-fill-active {
-  // active 樣式改為修改顏色
-  color: white !important;
 }
 </style>

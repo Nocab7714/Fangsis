@@ -4,9 +4,6 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 // sweetalert2
 import Swal from 'sweetalert2'
 import Toast from '@/utils/Toast'
-// vue-loading
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/css/index.css'
 
 const cartAndWishListStore = defineStore('cartAndWishList', {
   state: () => {
@@ -17,23 +14,15 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       // cart state
       carts: [], //購物車資料
       total: 0, // 購物車總金額
-      final_total: 0, //購物車總金額 (包含套用優惠卷)
-      // delivery and payment method
+      final_total: 0, //購物車總金額 (套用優惠卷金額)
+      // 付款方式與配送方式
       delivery: '順豐速遞 - 常溫配送', //運送方法儲存 (預設狀態"順豐速遞 - 常溫配送")
       payment: '',
-      // vue-loading
+      // loading 狀態管理
       isLoading: false,
       cartOffcanvasIsLoading: false,
-      lockScroll: true,
-      fullPage: false,
-      backgroundColor: '#ffffff',
-      opacity: 0.85,
-      // bootstrap 5 button loading
       spinnerLoading: ''
     }
-  },
-  components: {
-    Loading
   },
   actions: {
     // wishList
@@ -59,7 +48,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           })
         }
       })
-      //如果 wishListAddStatus 狀態為真 (並沒有將重複資料移除)，將產品資料加入願望清單
+      //如果 wishListAddStatus 狀態為 true (並沒有將重複資料移除)，將產品資料加入願望清單
       if (this.wishListAddStatus === true) {
         this.wishList.push(wishListObj)
         Toast.fire({
@@ -258,11 +247,9 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         return
       }
       const codeTrim = code.trim()
-
       const data = {
         code: codeTrim
       }
-
       axios
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
         .then((res) => {
@@ -289,6 +276,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           })
         })
     },
+    //order
     //選擇訂單配送方式
     deliveryMethod(method) {
       this.delivery = method
@@ -296,6 +284,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     //選擇訂單付款方式
     paymentMethod(method) {
       this.payment = method
+    },
+    // 回復付款的預設狀態為 "請選擇您的付款方式"
+    paymentReset() {
+      this.payment = ''
     }
   },
   getters: {
