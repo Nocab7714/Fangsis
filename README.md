@@ -1,6 +1,6 @@
-# Fangsis 電商網站
+# # Fangsis 芳心 - 店商網站
 
-這是我參與六角學院 2022 Vue3.js 作品直播班製作的最終作頁。
+這是我參與六角學院 Vue3.js 作品直播班製作的 Fangsis 芳心 店商網站 。
 
 ## 畫面
 
@@ -11,13 +11,13 @@
 ### 取得專案
 
 ```bash
-git clone git@github.com:Nocab7714/final-bootstrap5-nocab7714.git
+git clone git@github.com:Nocab7714/Fangsis.git
 ```
 
 ### 移動到專案內
 
 ```bash
-cd final-bootstrap5-nocab7714
+cd Fangsis.git
 ```
 
 ### 安裝套件
@@ -34,19 +34,34 @@ npm run dev
 
 ## 資料夾說明
 
-- views - 畫面放置處
-- router - 路由設定放置處
 - assets - 靜態資源放置處
-  - components - scss 元件資源放置處
-  - helpers - 變數、通用類別資源放置處
+  - scss 資源放置處
+    - components - scss 元件資源放置處
+    - helpers - 變數、通用類別資源放置處
+- components - vue 元件放置處
+  - fronted - 前台 vue 元件放置處
+- router - 路由設定放置處
+- stores - pinia 狀態管理放置處
+- utils - 套件相關設定放置處
+- views - 畫面放置處
+  - admin - 後台畫面放置處
+  - fronted - 前台畫面放置處
 
 ## 專案技術
 
-- Bootstrap 5.2.3
-- Bootstrap Icons 1.10.3
 - Vue 3.2.47
 - Vue Router 4.1.6
 - Vite 4.1.4
+- Pinia 2.0.34
+- Bootstrap 5.2.3
+- Bootstrap Icons 1.10.3
+- Vue-axios 3.5.2
+- Vee-Validate 4.11.3
+- Vue-loading-overlay 6.0.3
+- Animate.css 4.1.1
+- Swiper 10.2.0
+- Aos 2.3.4
+- Sweetalert2 11.7.27
 
 ## 聯絡作者
 
