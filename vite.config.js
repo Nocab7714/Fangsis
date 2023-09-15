@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: '/Fangsis/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -18,7 +19,7 @@ export default defineConfig({
         @import 'bootstrap/scss/functions';
         @import '@/assets/scss/helpers/variables';
         @import 'bootstrap/scss/maps';
-        @import 'bootstrap/scss/mixins';
+        @import 'bootstrap/scss/mixins';  
         @import '@/assets/scss/helpers/utilities';
         `
       }
