@@ -35,11 +35,10 @@ configure({
 setLocale('zh_TW') // 設定預設語系
 
 const app = createApp(App)
-
 app.use(createPinia())
 app.use(VueAxios, axios)
+app.provide('axios', app.config.globalProperties.axios)
 app.use(router)
-
 // 掛載 Global 的 VeeValidate 元件
 app.component('VField', Field)
 app.component('VForm', Form)

@@ -93,13 +93,27 @@ const router = createRouter({
     },
     {
       path: '/admin',
-      component: () => import('../views/admin/AdminLogin.vue'),
-      meta: { title: 'Fangsis | 後台管理登入' },
+      component: () => import('../views/admin/AdminLayout.vue'),
       children: [
         {
-          path: 'adminProducts',
+          path: '',
+          component: () => import('../views/admin/AdminLogin.vue'),
+          meta: { title: 'Fangsis | 後台管理 - 後台管理登入' }
+        },
+        {
+          path: 'AdminProducts',
           component: () => import('../views/admin/AdminProducts.vue'),
-          meta: { title: 'Fangsis | 後台管理 - 全部產品' }
+          meta: { title: 'Fangsis | 後台管理 - 產品管理' }
+        },
+        {
+          path: 'AdminOrders',
+          component: () => import('../views/admin/AdminOrders.vue'),
+          meta: { title: 'Fangsis | 後台管理 - 訂單管理' }
+        },
+        {
+          path: 'AdminCoupons',
+          component: () => import('../views/admin/AdminCoupons.vue'),
+          meta: { title: 'Fangsis | 後台管理 - 優惠劵管理' }
         }
       ]
     }

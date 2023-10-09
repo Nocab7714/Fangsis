@@ -6,13 +6,13 @@
         <div class="list-group rounded-0">
           <router-link
             to="/admin/AdminProducts"
-            class="list-group-item bg-primary link-light border-0 list-group-item-active"
+            class="list-group-item bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>產品管理
           </router-link>
           <router-link
             to="/admin/AdminOrders"
-            class="list-group-item bg-primary link-light border-0"
+            class="list-group-item list-group-item-active bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>訂單管理
           </router-link>
@@ -35,60 +35,57 @@
         </div>
         <div class="container py-4 px-4">
           <div class="border rounded d-flex justify-content-between py-5 px-4 mb-3">
-            <h3>產品管理</h3>
-            <button class="btn btn-outline-primary" @click="openModal('create')" type="button">
-              新增產品
+            <h3>訂單管理</h3>
+            <button class="btn btn-outline-primary" @click="openModal('deleteAll')" type="button">
+              刪除全部訂單
             </button>
           </div>
           <div class="border rounded py-5 px-4 mb-5 d-flex flex-column">
-            <div class="vl-parent" ref="ProductLoadingContainer">
+            <div class="vl-parent" ref="orderLoadingContainer">
               <!-- loading 效果元件 -->
               <AdminContainerLoading
                 :isLoading="isLoading"
                 :container="container"
               ></AdminContainerLoading>
-              <div class="table-responsive-xl mb-3">
+              <div class="table-responsive mb-3">
                 <table class="table">
                   <thead>
                     <tr class="text-nowrap">
-                      <th scope="col">產品類別</th>
-                      <th scope="col">產品名稱</th>
-                      <th scope="col">原價</th>
-                      <th scope="col">售價</th>
-                      <th scope="col">產品數量</th>
-                      <th scope="col">啟用狀態</th>
-                      <th scope="col">熱銷狀態</th>
+                      <th scope="col" class="text-break">訂單編號</th>
+                      <th scope="col">付款狀態</th>
+                      <th scope="col">訂購人姓名</th>
+                      <th scope="col">連絡電話</th>
+                      <th scope="col">聯絡信箱</th>
+                      <th scope="col">收件地址</th>
+                      <th scope="col">訂單成立時間</th>
                       <th scope="col">編輯資料</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="product in products" :key="product.id">
-                      <td>{{ product.category }}</td>
-                      <td>{{ product.title }}</td>
-                      <td>{{ product.origin_price }}</td>
-                      <td>{{ product.price }}</td>
-                      <td class="text-center">{{ product.quantity }}</td>
+                    <tr v-for="order in orders" :key="order.id">
+                      <td>{{ order.id }}</td>
                       <td>
-                        <span class="text-success" v-if="product.is_enabled">啟用</span>
-                        <span v-else class="text-danger">未啟用</span>
+                        <span class="text-success" v-if="order.is_paid">已付款</span>
+                        <span v-else class="text-danger">未付款</span>
                       </td>
-                      <td>
-                        <span class="text-success" v-if="product.is_hotSale">啟用</span>
-                        <span v-else class="text-danger">未啟用</span>
-                      </td>
+                      <td>{{ order.user.name }}</td>
+                      <td>{{ order.user.tel }}</td>
+                      <td>{{ order.user.email }}</td>
+                      <td>{{ order.user.address }}</td>
+                      <td>{{ new Date(order.create_at * 1000).toLocaleString() }}</td>
                       <td>
                         <div class="btn-group text-nowrap">
                           <button
                             type="button"
                             class="btn btn-outline-primary btn-sm"
-                            @click="openModal('edit', product)"
+                            @click="openModal('edit', order)"
                           >
                             編輯
                           </button>
                           <button
                             type="button"
                             class="btn btn-outline-danger btn-sm"
-                            @click="openModal('delete', product)"
+                            @click="openModal('delete', order)"
                           >
                             刪除
                           </button>
@@ -99,7 +96,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-center">
-                <ProductPagination :pages="pages" :get-products="getProducts"></ProductPagination>
+                <OrderPagination :pages="pages" :getOrders="getOrders"></OrderPagination>
               </div>
             </div>
           </div>
@@ -108,25 +105,24 @@
     </div>
   </div>
   <!-- modal -->
-  <ProductDeleteModal
-    :tempProduct="tempProduct"
+  <OrderEditModal
+    :tempOrder="tempOrder"
+    :editModalIsShow="editModalIsShow"
+    :closeModal="closeModal"
+    :getOrders="getOrders"
+  ></OrderEditModal>
+  <OrderDeleteModal
+    :tempOrder="tempOrder"
     :deleteModalIsShow="deleteModalIsShow"
     :closeModal="closeModal"
-    :getProducts="getProducts"
-  ></ProductDeleteModal>
-  <ProductEditModal
-    :tempProduct="tempProduct"
-    :editModalIsShow="editModalIsShow"
-    :isNew="isNew"
-    :getProducts="getProducts"
-    :closeModal="closeModal"
-  ></ProductEditModal>
+    :getOrders="getOrders"
+  ></OrderDeleteModal>
 </template>
 
 <script>
-import ProductEditModal from '@/components/admin/ProductEditModal.vue'
-import ProductDeleteModal from '@/components/admin/ProductDeleteModal.vue'
-import ProductPagination from '@/components/admin/ProductPagination.vue'
+import OrderEditModal from '@/components/admin/OrderEditModal.vue'
+import OrderDeleteModal from '@/components/admin/OrderDeleteModal.vue'
+import OrderPagination from '@/components/admin/OrderPagination.vue'
 import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
 import AdminMixin from '@/mixins/AdminMixin.vue'
 
@@ -135,25 +131,24 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
     return {
-      products: [], // 存放所有產品資料
-      tempProduct: {
-        //存放用於修改的產品資料
-        imageUrl: []
-      },
-      isNew: false, // 判斷是否為新資料
-      container: this.$refs.ProductLoadingContainer // loading 渲染範圍
+      orders: [], // 存放所有訂單資料
+      tempOrder: {}, // 存放用於修改的訂單資料
+      pages: {}, // 存放 Pagination 的分頁狀態
+      editModalIsShow: false, // 打開與關閉 editModal 的狀態
+      deleteModalIsShow: false, // 打開與關閉 editModal 的狀態
+      container: this.$refs.orderLoadingContainer // loading 渲染範圍
     }
   },
-  components: { ProductEditModal, ProductDeleteModal, ProductPagination, AdminContainerLoading },
+  components: { OrderEditModal, OrderDeleteModal, OrderPagination, AdminContainerLoading },
   mixins: [AdminMixin],
   methods: {
-    // 取得所有產品資料
-    getProducts(page = 1) {
+    // 取得所有訂單資料
+    getOrders(page = 1) {
       this.isLoading = true
       this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/products?page=${page}`)
+        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/orders?page=${page}`)
         .then((res) => {
-          this.products = res.data.products
+          this.orders = res.data.orders
           this.pages = res.data.pagination
           this.isLoading = false
         })
@@ -163,25 +158,18 @@ export default {
         })
     },
     // 開啟 modal
-    openModal(status, product) {
-      if (status === 'create') {
-        //新增產品
-        this.isNew = true
+    openModal(status, order) {
+      if (status === 'edit') {
         this.editModalIsShow = true
-        // 會帶入初始化資料
-        this.tempProduct = {
-          imagesUrl: []
-        }
-      } else if (status === 'edit') {
-        //編輯產品
-        this.isNew = false
-        this.editModalIsShow = true
-        // 會帶入當前要編輯的資料
-        this.tempProduct = { ...product }
+        this.tempOrder = { ...order }
       } else if (status === 'delete') {
-        //刪除產品
         this.deleteModalIsShow = true
-        this.tempProduct = { ...product }
+        this.tempOrder = { ...order }
+      } else if (status === 'deleteAll') {
+        this.deleteModalIsShow = true
+        this.tempOrder = {
+          id: '全部'
+        }
       }
     },
     // 關閉 modal
@@ -194,7 +182,7 @@ export default {
     }
   },
   mounted() {
-    this.getProducts()
+    this.getOrders()
   }
 }
 </script>

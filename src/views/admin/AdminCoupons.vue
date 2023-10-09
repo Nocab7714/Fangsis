@@ -6,7 +6,7 @@
         <div class="list-group rounded-0">
           <router-link
             to="/admin/AdminProducts"
-            class="list-group-item bg-primary link-light border-0 list-group-item-active"
+            class="list-group-item bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>產品管理
           </router-link>
@@ -18,7 +18,7 @@
           </router-link>
           <router-link
             to="/admin/AdminCoupons"
-            class="list-group-item bg-primary link-light border-0"
+            class="list-group-item list-group-item-active bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>優惠卷管理
           </router-link>
@@ -35,45 +35,38 @@
         </div>
         <div class="container py-4 px-4">
           <div class="border rounded d-flex justify-content-between py-5 px-4 mb-3">
-            <h3>產品管理</h3>
+            <h3>優惠劵管理</h3>
             <button class="btn btn-outline-primary" @click="openModal('create')" type="button">
-              新增產品
+              新增優惠劵
             </button>
           </div>
           <div class="border rounded py-5 px-4 mb-5 d-flex flex-column">
-            <div class="vl-parent" ref="ProductLoadingContainer">
+            <div class="vl-parent" ref="CouponLoadingContainer">
               <!-- loading 效果元件 -->
               <AdminContainerLoading
                 :isLoading="isLoading"
                 :container="container"
               ></AdminContainerLoading>
-              <div class="table-responsive-xl mb-3">
+              <div class="table-responsive mb-3">
                 <table class="table">
                   <thead>
                     <tr class="text-nowrap">
-                      <th scope="col">產品類別</th>
-                      <th scope="col">產品名稱</th>
-                      <th scope="col">原價</th>
-                      <th scope="col">售價</th>
-                      <th scope="col">產品數量</th>
-                      <th scope="col">啟用狀態</th>
-                      <th scope="col">熱銷狀態</th>
-                      <th scope="col">編輯資料</th>
+                      <th scope="col">優惠卷名稱</th>
+                      <th scope="col">優惠卷代碼</th>
+                      <th scope="col">訂單折扣</th>
+                      <th scope="col">使用期限</th>
+                      <th scope="col">是否啟用</th>
+                      <th scope="col">編輯</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="product in products" :key="product.id">
-                      <td>{{ product.category }}</td>
-                      <td>{{ product.title }}</td>
-                      <td>{{ product.origin_price }}</td>
-                      <td>{{ product.price }}</td>
-                      <td class="text-center">{{ product.quantity }}</td>
+                    <tr v-for="coupon in coupons" :key="coupons.code">
+                      <td>{{ coupon.title }}</td>
+                      <td>{{ coupon.code }}</td>
+                      <td>{{ coupon.percent }}%</td>
+                      <td>{{ new Date(coupon.due_date * 1000).toLocaleString() }}</td>
                       <td>
-                        <span class="text-success" v-if="product.is_enabled">啟用</span>
-                        <span v-else class="text-danger">未啟用</span>
-                      </td>
-                      <td>
-                        <span class="text-success" v-if="product.is_hotSale">啟用</span>
+                        <span class="text-success" v-if="coupon.is_enabled">啟用</span>
                         <span v-else class="text-danger">未啟用</span>
                       </td>
                       <td>
@@ -81,14 +74,14 @@
                           <button
                             type="button"
                             class="btn btn-outline-primary btn-sm"
-                            @click="openModal('edit', product)"
+                            @click="openModal('edit', coupon)"
                           >
                             編輯
                           </button>
                           <button
                             type="button"
                             class="btn btn-outline-danger btn-sm"
-                            @click="openModal('delete', product)"
+                            @click="openModal('delete', coupon)"
                           >
                             刪除
                           </button>
@@ -99,7 +92,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-center">
-                <ProductPagination :pages="pages" :get-products="getProducts"></ProductPagination>
+                <CouponPagination :pages="pages" :getCoupons="getCoupons"></CouponPagination>
               </div>
             </div>
           </div>
@@ -107,26 +100,27 @@
       </main>
     </div>
   </div>
+
   <!-- modal -->
-  <ProductDeleteModal
-    :tempProduct="tempProduct"
+  <CouponEditModal
+    :tempCoupon="tempCoupon"
+    :editModalIsShow="editModalIsShow"
+    :closeModal="closeModal"
+    :getCoupons="getCoupons"
+    :isNew="isNew"
+  ></CouponEditModal>
+  <CouponDeleteModal
+    :tempCoupon="tempCoupon"
     :deleteModalIsShow="deleteModalIsShow"
     :closeModal="closeModal"
-    :getProducts="getProducts"
-  ></ProductDeleteModal>
-  <ProductEditModal
-    :tempProduct="tempProduct"
-    :editModalIsShow="editModalIsShow"
-    :isNew="isNew"
-    :getProducts="getProducts"
-    :closeModal="closeModal"
-  ></ProductEditModal>
+    :getCoupons="getCoupons"
+  ></CouponDeleteModal>
 </template>
 
 <script>
-import ProductEditModal from '@/components/admin/ProductEditModal.vue'
-import ProductDeleteModal from '@/components/admin/ProductDeleteModal.vue'
-import ProductPagination from '@/components/admin/ProductPagination.vue'
+import CouponEditModal from '@/components/admin/CouponEditModal.vue'
+import CouponDeleteModal from '@/components/admin/CouponDeleteModal.vue'
+import CouponPagination from '@/components/admin/CouponPagination.vue'
 import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
 import AdminMixin from '@/mixins/AdminMixin.vue'
 
@@ -135,25 +129,31 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data() {
     return {
-      products: [], // 存放所有產品資料
-      tempProduct: {
-        //存放用於修改的產品資料
-        imageUrl: []
-      },
+      coupons: [], // 存放所有優惠卷資料
+      tempCoupon: {
+        // 初始化資料
+        code: '',
+        due_date: null,
+        id: '',
+        is_enabled: 0,
+        num: null,
+        percent: null,
+        title: ''
+      }, //存放用於修改的優惠卷資料
       isNew: false, // 判斷是否為新資料
-      container: this.$refs.ProductLoadingContainer // loading 渲染範圍
+      container: this.$refs.CouponLoadingContainer // loading 渲染範圍
     }
   },
-  components: { ProductEditModal, ProductDeleteModal, ProductPagination, AdminContainerLoading },
+  components: { CouponEditModal, CouponDeleteModal, CouponPagination, AdminContainerLoading },
   mixins: [AdminMixin],
   methods: {
-    // 取得所有產品資料
-    getProducts(page = 1) {
+    // 取得所有優惠卷資料
+    getCoupons(page = 1) {
       this.isLoading = true
       this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/products?page=${page}`)
+        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/coupons?page=${page}`)
         .then((res) => {
-          this.products = res.data.products
+          this.coupons = res.data.coupons
           this.pages = res.data.pagination
           this.isLoading = false
         })
@@ -163,25 +163,31 @@ export default {
         })
     },
     // 開啟 modal
-    openModal(status, product) {
+    openModal(status, coupon) {
       if (status === 'create') {
         //新增產品
         this.isNew = true
         this.editModalIsShow = true
         // 會帶入初始化資料
-        this.tempProduct = {
-          imagesUrl: []
+        this.tempCoupon = {
+          code: '',
+          due_date: null,
+          id: '',
+          is_enabled: 0,
+          num: null,
+          percent: null,
+          title: ''
         }
       } else if (status === 'edit') {
         //編輯產品
         this.isNew = false
         this.editModalIsShow = true
         // 會帶入當前要編輯的資料
-        this.tempProduct = { ...product }
+        this.tempCoupon = { ...coupon }
       } else if (status === 'delete') {
         //刪除產品
         this.deleteModalIsShow = true
-        this.tempProduct = { ...product }
+        this.tempCoupon = { ...coupon }
       }
     },
     // 關閉 modal
@@ -194,7 +200,7 @@ export default {
     }
   },
   mounted() {
-    this.getProducts()
+    this.getCoupons()
   }
 }
 </script>
