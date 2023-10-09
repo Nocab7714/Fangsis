@@ -39,10 +39,12 @@ npm run dev
     - components - scss 元件資源放置處
     - helpers - 變數、通用類別資源放置處
 - components - vue 元件放置處
+  - admin - 後台 vue 元件放置處
   - fronted - 前台 vue 元件放置處
 - router - 路由設定放置處
 - stores - pinia 狀態管理放置處
 - utils - 套件相關設定放置處
+- mixins - vue mixin 資源放置處
 - views - 畫面放置處
   - admin - 後台畫面放置處
   - fronted - 前台畫面放置處
@@ -62,6 +64,7 @@ npm run dev
 - Swiper 10.2.0
 - Aos 2.3.4
 - Sweetalert2 11.7.27
+- Vue-datepicker 7.0.0
 
 ## 聯絡作者
 
