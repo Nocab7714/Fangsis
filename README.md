@@ -3,6 +3,7 @@
 這是我參與六角學院 Vue3.js 作品直播班製作的 Fangsis 芳心 店商網站 。
 
 ## 畫面
+![fangsis-01](https://github.com/Nocab7714/Fangsis/assets/101779646/a3c127fa-2140-4ee2-ab80-a9c83f3094f2)
 
 ## 安裝流程
 
