@@ -6,14 +6,14 @@
         <router-link class="navbar-brand" to="/">
           <img
             class="logo-desktop img-fluid"
-            src="https://shorturl.at/vzHZ1"
+            src="https://drive.google.com/uc?id=1fupahQJLK5ETxY3USG1rWccfN-2EScNt"
             alt="電腦版的Fangsis的店商網站logo"
             width="240"
             height="80"
           />
           <img
             class="logo-mobile img-fluid"
-            src="https://shorturl.at/pGRX8"
+            src="https://drive.google.com/uc?id=1fupahQJLK5ETxY3USG1rWccfN-2EScNt"
             alt="行動裝置版的Fangsis店商網站logo"
             width="120"
             height="40"
@@ -116,14 +116,14 @@
         <router-link class="navbar-brand" to="/">
           <img
             class="logo-desktop img-fluid"
-            src="https://shorturl.at/befrW"
+            src="https://drive.google.com/uc?id=1u6p3rUuCgfEtyWfHZmu-M3XRND0-iDm2"
             alt="電腦版的Fangsis的店商網站logo"
             width="240"
             height="80"
           />
           <img
             class="logo-mobile img-fluid"
-            src="https://shorturl.at/ahkw8"
+            src="https://drive.google.com/uc?id=1u6p3rUuCgfEtyWfHZmu-M3XRND0-iDm2"
             alt="行動裝置版的Fangsis店商網站logo"
             width="120"
             height="40"
