@@ -7,7 +7,7 @@
         >
           <img
             class="me-lg-7 me-0 mb-7 mb-lg-0 img-fluid"
-            src="https://drive.google.com/uc?id=1fupahQJLK5ETxY3USG1rWccfN-2EScNt"
+            src="@/assets/svg/logo-fangsis-white.svg"
             alt="白色文字Fangsis的店商網站logo"
             width="240"
             height="80"
@@ -30,11 +30,12 @@
                   <a
                     class="text-decoration-none link-light fs-6"
                     href="https://smallstepsgreen.com/"
+                    target="_blank"
                   >
                     <span class="d-lg-block d-none">綠印生活</span>
                     <img
                       class="d-lg-none d-block img-fluid"
-                      src="https://drive.google.com/uc?id=1_FcNsDxhNwVbMsSH9ZSkqjzplHlwoJ69"
+                      src="@/assets/svg/smallstepsgreen-logo.svg"
                       alt="綠印生活的白色logo"
                       width="70"
                       height="70"
@@ -45,10 +46,11 @@
                   <a
                     class="text-decoration-none link-light fs-6"
                     href="https://www.facebook.com/banai.savon/?locale=zh_TW"
+                    target="_blank"
                     ><span class="d-lg-block d-none">白娜Banai</span
                     ><img
                       class="d-lg-none d-block img-fluid"
-                      src="https://drive.google.com/uc?id=1FUli3Cozx_BWjug8-l5e16xAYy9DyPwD"
+                      src="@/assets/svg/banai-logo.svg"
                       width="70"
                       height="70"
                   /></a>
