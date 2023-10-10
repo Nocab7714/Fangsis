@@ -2,7 +2,7 @@
   <NavBar></NavBar>
   <router-view> </router-view>
   <FooterCard></FooterCard>
-  <GoTop></GoTop>
+  <GoTop class="me-3 mb-2"></GoTop>
 </template>
 
 <script>
