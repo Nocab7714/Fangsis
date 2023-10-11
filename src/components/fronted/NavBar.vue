@@ -4,20 +4,22 @@
     <nav v-if="isTop" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <img
+          <object
             class="logo-desktop img-fluid"
-            src="@/assets/svg/logo-fangsis-white.svg"
-            alt="電腦版的Fangsis的店商網站logo"
+            type="image/svg+xml"
+            data="src/assets/svg/logo-fangsis-white.svg"
             width="240"
             height="80"
-          />
-          <img
+            style="pointer-events: none"
+          ></object>
+          <object
             class="logo-mobile img-fluid"
-            src="@/assets/svg/logo-fangsis-white-120x40.svg"
-            alt="行動裝置版的Fangsis店商網站logo"
+            type="image/svg+xml"
+            data="src/assets/svg/logo-fangsis-white-120x40.svg"
             width="120"
             height="40"
-          />
+            style="pointer-events: none"
+          ></object>
         </router-link>
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/WishLists">
@@ -114,20 +116,22 @@
     <nav v-if="!isTop" class="navbar navbar-expand-lg bg-white navbar-dark shadow fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <img
+          <object
             class="logo-desktop img-fluid"
-            src="@/assets/svg/logo-fangsis-black.svg"
-            alt="電腦版的Fangsis的店商網站logo"
+            type="image/svg+xml"
+            data="src/assets/svg/logo-fangsis-black.svg"
             width="240"
             height="80"
-          />
-          <img
+            style="pointer-events: none"
+          ></object>
+          <object
             class="logo-mobile img-fluid"
-            src="@/assets/svg/logo-fangsis-black-120x40.svg"
-            alt="行動裝置版的Fangsis店商網站logo"
+            type="image/svg+xml"
+            data="src/assets/svg/logo-fangsis-black-120x40.svg"
             width="120"
             height="40"
-          />
+            style="pointer-events: none"
+          ></object>
         </router-link>
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/WishLists">
@@ -290,6 +294,7 @@ export default {
   color: white;
   border-radius: 50%;
   text-align: center;
+  padding-top: 4px;
 }
 
 /* 淡入淡出的效果 */

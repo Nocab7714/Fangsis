@@ -5,13 +5,13 @@
         <div
           class="d-flex mb-lg-9 mb-55 flex-column flex-lg-row align-items-lg-start align-items-center"
         >
-          <img
+          <object
             class="me-lg-7 me-0 mb-7 mb-lg-0 img-fluid"
-            src="@/assets/svg/logo-fangsis-white.svg"
-            alt="白色文字Fangsis的店商網站logo"
+            type="image/svg+xml"
+            data="src/assets/svg/logo-fangsis-white.svg"
             width="240"
             height="80"
-          />
+          ></object>
           <ul class="list-unstyled text-center d-flex mb-0 flex-column flex-lg-row">
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
               <router-link class="link-light text-decoration-none fs-5" to="/PrivacyPolicy"
@@ -33,13 +33,14 @@
                     target="_blank"
                   >
                     <span class="d-lg-block d-none">綠印生活</span>
-                    <img
+                    <object
                       class="d-lg-none d-block img-fluid"
-                      src="@/assets/svg/smallstepsgreen-logo.svg"
-                      alt="綠印生活的白色logo"
+                      type="image/svg+xml"
+                      data="src/assets/svg/smallstepsgreen-logo.svg"
                       width="70"
                       height="70"
-                    />
+                      style="pointer-events: none"
+                    ></object>
                   </a>
                 </li>
                 <li class="py-lg-25 py-0 ms-2 ms-lg-0">
@@ -47,13 +48,16 @@
                     class="text-decoration-none link-light fs-6"
                     href="https://www.facebook.com/banai.savon/?locale=zh_TW"
                     target="_blank"
-                    ><span class="d-lg-block d-none">白娜Banai</span
-                    ><img
+                    ><span class="d-lg-block d-none">白娜Banai</span>
+                    <object
                       class="d-lg-none d-block img-fluid"
-                      src="@/assets/svg/banai-logo.svg"
+                      type="image/svg+xml"
+                      data="src/assets/svg/banai-logo.svg"
                       width="70"
                       height="70"
-                  /></a>
+                      style="pointer-events: none"
+                    ></object>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -90,6 +94,15 @@
 export default {
   data() {
     return {}
+  },
+  methods: {
+    // 開啟超連結 (用於修正使用 object 點擊事件失效問題)
+    openLink(link) {
+      if (link === 'smallstepsgreen') {
+        // 開啟綠印生活綠印生活店商連結
+        window.open('https://smallstepsgreen.com/')
+      }
+    }
   }
 }
 </script>
