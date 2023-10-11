@@ -18,6 +18,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       // 付款方式與配送方式
       delivery: '順豐速遞 - 常溫配送', //運送方法儲存 (預設狀態"順豐速遞 - 常溫配送")
       payment: '',
+      couponCodeMessage: '',
       // loading 狀態管理
       isLoading: false,
       cartOffcanvasIsLoading: false,
@@ -253,23 +254,23 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       axios
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
         .then((res) => {
-          // Toast.fire({
-          //   icon: 'success',
-          //   title: '成功使用 fangsis888 優惠代碼 - 結帳8折大優惠'
-          // })
           Swal.fire({
             title: '成功使用優惠劵',
-            text: '已套用 fangsis888 優惠劵 - 結帳8折大優惠',
+            text: res.data.message,
             icon: 'success',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067'
           })
+          this.couponCodeMessage = `( ${res.data.message} )`
+          // 將信息成功使用優惠卷的信息儲存於 localStorage，避免再畫面重新整理後，位於 CartCard.vue 使用優惠卷的按紐下方
+          const localStorageCouponCodeMessage = JSON.stringify(this.couponCodeMessage)
+          localStorage.setItem('localStorageCouponCodeMessage', localStorageCouponCodeMessage)
           this.getCart()
         })
         .catch((err) => {
           Swal.fire({
             title: '資料錯誤',
-            text: '您所輸入的折價劵並不存在!',
+            text: '你所輸入的優惠券並不存在或是已經過期!',
             icon: 'error',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067'
@@ -296,6 +297,13 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     pullLocalStorage() {
       if (localStorage.key('localStorageWishList') !== null) {
         this.wishList = JSON.parse(localStorage.getItem('localStorageWishList'))
+      }
+    },
+    // Cart
+    //防呆，判斷如果 localStorage 有儲存 localStorageCouponCodeMessage 的值才將資料給 this.couponCodeMessage
+    pullLocalStorageGetCouponCodeMessage() {
+      if (localStorage.key('localStorageCouponCodeMessage') !== null) {
+        this.couponCodeMessage = JSON.parse(localStorage.getItem('localStorageCouponCodeMessage'))
       }
     }
   }

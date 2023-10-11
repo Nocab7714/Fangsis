@@ -225,7 +225,7 @@
             <div
               class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
             >
-              <h3 class="fs-6">折價卷</h3>
+              <h3 class="fs-6">優惠卷</h3>
             </div>
             <input
               class="form-control mb-2"
@@ -234,10 +234,8 @@
               v-model="CouponCode"
               @keyup.enter="UseCoupon(CouponCode)"
             />
-            <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">使用折價卷</button>
-            <span v-if="total !== final_total" class="fs-7"
-              >( 已套用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span
-            >
+            <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">使用優惠卷</button>
+            <span v-if="total !== final_total" class="fs-7">{{ couponCodeMessage }}</span>
           </div>
         </div>
       </div>
@@ -302,7 +300,14 @@ export default {
     ])
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'total', 'final_total', 'delivery', 'isLoading'])
+    ...mapState(cartAndWishListStore, [
+      'carts',
+      'total',
+      'final_total',
+      'delivery',
+      'isLoading',
+      'couponCodeMessage'
+    ])
   }
 }
 </script>

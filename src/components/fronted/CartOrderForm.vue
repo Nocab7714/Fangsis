@@ -157,9 +157,7 @@
               >
             </div>
           </div>
-          <span v-if="total !== final_total" class="fs-7 text-end"
-            >( 已套用 fangsis888 優惠代碼 - 結帳8折大優惠 )</span
-          >
+          <span v-if="total !== final_total" class="fs-7 text-end">{{ couponCodeMessage }}</span>
           <div class="row mt-5 mb-8 gx-2">
             <div class="col-6">
               <router-link class="btn btn-outline-secondary w-100" to="CartView"
@@ -229,6 +227,7 @@ export default {
             icon: 'success',
             title: '訂單建立成功!'
           })
+          localStorage.removeItem('localStorageCouponCodeMessage') // 移除儲存於 localStorage 使用的優惠卷資訊
           this.getCart()
           this.$router.push(`OrderPay/${res.data.orderId}`)
         })
@@ -252,7 +251,13 @@ export default {
     ...mapActions(cartAndWishListStore, ['getCart'])
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'total', 'final_total', 'delivery'])
+    ...mapState(cartAndWishListStore, [
+      'carts',
+      'total',
+      'final_total',
+      'delivery',
+      'couponCodeMessage'
+    ])
   }
 }
 </script>
