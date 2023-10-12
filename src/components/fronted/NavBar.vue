@@ -7,7 +7,7 @@
           <object
             class="logo-desktop img-fluid"
             type="image/svg+xml"
-            data="src/assets/svg/logo-fangsis-white.svg"
+            :data="logoSvgUrl.fangsisWhiteLogo3x"
             width="240"
             height="80"
             style="pointer-events: none"
@@ -15,7 +15,7 @@
           <object
             class="logo-mobile img-fluid"
             type="image/svg+xml"
-            data="src/assets/svg/logo-fangsis-white-120x40.svg"
+            :data="logoSvgUrl.fangsisWhiteLogo2x"
             width="120"
             height="40"
             style="pointer-events: none"
@@ -119,7 +119,7 @@
           <object
             class="logo-desktop img-fluid"
             type="image/svg+xml"
-            data="src/assets/svg/logo-fangsis-black.svg"
+            :data="logoSvgUrl.fangsisBlackLogo3x"
             width="240"
             height="80"
             style="pointer-events: none"
@@ -127,7 +127,7 @@
           <object
             class="logo-mobile img-fluid"
             type="image/svg+xml"
-            data="src/assets/svg/logo-fangsis-black-120x40.svg"
+            :data="logoSvgUrl.fangsisBlackLogo2x"
             width="120"
             height="40"
             style="pointer-events: none"
@@ -235,11 +235,23 @@ import cartAndWishListStore from '../../stores/cartAndWishList'
 import offcanvasStore from '../../stores/offcanvasStore'
 import CartOffcanvas from '@/components/fronted/CartOffcanvas.vue'
 import MenuOffcanvas from '@/components/fronted/MenuOffcanvas.vue'
+// logo
+import fangsisWhiteLogo3x from '@/assets/svg/logo-fangsis-white.svg'
+import fangsisWhiteLogo2x from '@/assets/svg/logo-fangsis-white-120x40.svg'
+import fangsisBlackLogo3x from '@/assets/svg/logo-fangsis-black.svg'
+import fangsisBlackLogo2x from '@/assets/svg/logo-fangsis-black-120x40.svg'
 
 export default {
   data() {
     return {
-      isTop: true // 視窗是否在最頂端的狀態
+      isTop: true, // 視窗是否在最頂端的狀態
+      // logo
+      logoSvgUrl: {
+        fangsisWhiteLogo3x: fangsisWhiteLogo3x,
+        fangsisWhiteLogo2x: fangsisWhiteLogo2x,
+        fangsisBlackLogo3x: fangsisBlackLogo3x,
+        fangsisBlackLogo2x: fangsisBlackLogo2x
+      }
     }
   },
   components: {

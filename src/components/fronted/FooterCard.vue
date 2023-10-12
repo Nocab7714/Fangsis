@@ -8,7 +8,7 @@
           <object
             class="me-lg-7 me-0 mb-7 mb-lg-0 img-fluid"
             type="image/svg+xml"
-            data="src/assets/svg/logo-fangsis-white.svg"
+            :data="logoSvgUrl.fangsisWhiteLogo3x"
             width="240"
             height="80"
           ></object>
@@ -36,7 +36,7 @@
                     <object
                       class="d-lg-none d-block img-fluid"
                       type="image/svg+xml"
-                      data="src/assets/svg/smallstepsgreen-logo.svg"
+                      :data="logoSvgUrl.smallstepsgreenLogo"
                       width="70"
                       height="70"
                       style="pointer-events: none"
@@ -52,7 +52,7 @@
                     <object
                       class="d-lg-none d-block img-fluid"
                       type="image/svg+xml"
-                      data="src/assets/svg/banai-logo.svg"
+                      :data="logoSvgUrl.banaiLogo"
                       width="70"
                       height="70"
                       style="pointer-events: none"
@@ -91,16 +91,19 @@
 </template>
 
 <script>
+// logo
+import banaiLogo from '@/assets/svg/banai-logo.svg'
+import smallstepsgreenLogo from '@/assets/svg/smallstepsgreen-logo.svg'
+import fangsisWhiteLogo3x from '@/assets/svg/logo-fangsis-white.svg'
+
 export default {
   data() {
-    return {}
-  },
-  methods: {
-    // 開啟超連結 (用於修正使用 object 點擊事件失效問題)
-    openLink(link) {
-      if (link === 'smallstepsgreen') {
-        // 開啟綠印生活綠印生活店商連結
-        window.open('https://smallstepsgreen.com/')
+    return {
+      // logo
+      logoSvgUrl: {
+        fangsisWhiteLogo3x: fangsisWhiteLogo3x,
+        banaiLogo: banaiLogo,
+        smallstepsgreenLogo: smallstepsgreenLogo
       }
     }
   }
