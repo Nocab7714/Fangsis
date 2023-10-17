@@ -235,7 +235,7 @@
               @keyup.enter="UseCoupon(CouponCode)"
             />
             <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">使用優惠卷</button>
-            <span v-if="total !== final_total" class="fs-7">{{ couponCodeMessage }}</span>
+            <span v-if="total !== final_total" class="fs-6">{{ couponCodeMessage }}</span>
           </div>
         </div>
       </div>

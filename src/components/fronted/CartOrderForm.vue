@@ -157,7 +157,7 @@
               >
             </div>
           </div>
-          <span v-if="total !== final_total" class="fs-7 text-end">{{ couponCodeMessage }}</span>
+          <span v-if="total !== final_total" class="fs-6 text-end">{{ couponCodeMessage }}</span>
           <div class="row mt-5 mb-8 gx-2">
             <div class="col-6">
               <router-link class="btn btn-outline-secondary w-100" to="CartView"

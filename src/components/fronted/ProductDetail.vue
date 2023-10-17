@@ -31,7 +31,11 @@
         </p>
         <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-end mt-6">
           <p class="fw-bold fs-5 fst-italic mb-lg-0 mb-2">
-            NT $<span>{{ product.price }}</span
+            NT $<span
+              v-if="product.origin_price !== product.price"
+              class="ms-1 me-2 text-decoration-line-through text-secondary"
+              >{{ product.origin_price }}</span
+            ><span class="me-1">{{ product.price }}</span
             >/ {{ product.unit }}
           </p>
           <form>

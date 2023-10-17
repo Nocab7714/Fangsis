@@ -49,7 +49,7 @@
                 <h3 class="fs-6">{{ cart.product.title }}</h3>
                 <p class="mb-0">
                   <span>{{ cart.qty }}</span
-                  >x $<span>{{ cart.product.origin_price }}</span>
+                  >x $<span>{{ cart.product.price }}</span>
                 </p>
               </div>
             </div>

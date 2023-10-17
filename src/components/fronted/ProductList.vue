@@ -42,11 +42,17 @@
                 />
               </div>
             </div>
-            <h3 class="card-title text-black fs-6 mb-0 mt-2">{{ product.title }}</h3>
-            <p class="card-text text-black fs-6 mb-2">
-              NT$<span class="ms-2">{{ product.price }}</span>
-            </p>
           </router-link>
+          <h3 class="card-title text-black fs-6 mb-0 mt-2">{{ product.title }}</h3>
+          <p class="card-text text-black fs-6 mb-2">
+            NT$
+            <span
+              v-if="product.origin_price !== product.price"
+              class="ms-1 text-decoration-line-through text-secondary"
+              >{{ product.origin_price }}</span
+            >
+            <span class="ms-1">{{ product.price }}</span>
+          </p>
           <button
             class="btn btn-sm btn-outline-primary w-100 rounded-0 mt-auto"
             type="button"
