@@ -9,10 +9,10 @@
             class="form-control"
             type="text"
             placeholder="請輸入您的訂單編號"
-            v-model="inputProductId"
-            @keyup.enter="getProductOrder(inputProductId)"
+            v-model="inputOrderId"
+            @keyup.enter="getProductOrder(inputOrderId)"
           />
-          <button class="btn btn-primary" type="button" @click="getProductOrder(inputProductId)">
+          <button class="btn btn-primary" type="button" @click="getProductOrder(inputOrderId)">
             <i class="bi bi-search"></i>
           </button>
         </div>
@@ -39,7 +39,10 @@
                 <span class="fw-bold">訂單編號 : </span> <span> {{ order.id }}</span>
               </li>
               <li class="mb-1">
-                <span class="fw-bold">建立日期 : </span> <span> {{ orderCreateTime }}</span>
+                <span class="fw-bold">建立日期 : </span>
+                <span v-if="order.create_at !== null">
+                  {{ new Date(order.create_at * 1000).toLocaleString() }}</span
+                >
               </li>
               <li class="mb-1">
                 <span class="fw-bold">是否付款 : </span>
@@ -57,20 +60,20 @@
             <ul class="list-unstyled fs-6">
               <li class="row g-0 mb-sm-1 mb-3">
                 <span class="fw-bold col-xl-2 col-sm-4 col-12">客戶姓名 :</span>
-                <span class="col-8">{{ name }}</span>
+                <span class="col-8">{{ order.user.name }}</span>
               </li>
               <li class="row g-0 mb-sm-1 mb-3">
                 <span class="fw-bold col-xl-2 col-sm-4 col-12">聯絡電話 : </span
-                ><span class="col-8">{{ tel }}</span>
+                ><span class="col-8">{{ order.user.tel }}</span>
               </li>
               <li class="row g-0 mb-sm-1 mb-3">
                 <span class="fw-bold col-xl-2 col-sm-4 col-12">電子郵件 : </span
-                ><span class="col-8">{{ email }}</span>
+                ><span class="col-8">{{ order.user.email }}</span>
               </li>
               <li class="row g-0 mb-sm-1 mb-3">
                 <span class="fw-bold col-xl-2 col-sm-4 col-12">收件地址 : </span
                 ><span class="col-8">
-                  {{ address }}
+                  {{ order.user.address }}
                 </span>
               </li>
               <li class="row">
@@ -102,16 +105,24 @@ import Swal from 'sweetalert2'
 export default {
   data() {
     return {
-      order: {}, // 接收的訂單資料
+      order: {
+        create_at: null,
+        id: '',
+        is_paid: null,
+        message: '',
+        num: null,
+        paid_date: null,
+        products: {},
+        total: null,
+        user: {
+          address: '',
+          email: '',
+          name: '',
+          tel: null
+        }
+      }, // 接收的訂單資料
       orderStatus: true, // 訂單搜尋狀態切換
-      inputProductId: '',
-      orderCreateTime: '', // 存放轉換格式時間格式後的訂單建立時間
-      // order user data
-      address: '',
-      email: '',
-      name: '',
-      tel: '',
-      // vue-loading
+      inputOrderId: '', // 訂單搜尋輸入 input
       isLoading: false, // ContainerLoading 開啟/關閉狀態
       container: this.$refs.loadingContainer // ContainerLoading 渲染容器範圍
     }
@@ -120,33 +131,13 @@ export default {
     ContainerLoading
   },
   methods: {
-    getProductOrder(product_id) {
+    getProductOrder(order_id) {
       this.isLoading = true // 取得產品資料前顯示 loading 效果
-      const productIdTrim = product_id.trim()
+      const productIdTrim = order_id.trim()
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${productIdTrim}`)
         .then((res) => {
           this.order = res.data.order
-          // 訂單建立時間格式格式轉換
-          const orderTime = res.data.order.create_at
-          const date = new Date(orderTime)
-          this.orderCreateTime = date
-          // vue3 讀取第三層物件資料有問題，改為儲存於元件 data 中，再渲染於畫面上
-          //隱藏收件地址部分字元
-          this.address = this.order.user.address
-          this.address = this.address.replace(/^.{5}/, '*****')
-          //隱藏信箱部分字元
-          this.email = this.order.user.email
-          this.email = this.email.replace(/^(.{3})/, (match, firstThreeChars) => {
-            const stars = '*'.repeat(firstThreeChars.length)
-            return stars
-          })
-          // 隱藏姓名部分字元
-          this.name = this.order.user.name
-          this.name = this.name.replace(/^(.)./, '$1*')
-          // 隱藏手機號碼部分字元
-          this.tel = this.order.user.tel
-          this.tel = this.tel.replace(/(\d{3})\d{2}(\d)\d{2}(\d{2})/, '$1**$2**$3')
           this.orderStatus = true
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
