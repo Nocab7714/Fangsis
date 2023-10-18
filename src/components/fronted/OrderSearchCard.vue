@@ -105,6 +105,7 @@ import Swal from 'sweetalert2'
 export default {
   data() {
     return {
+      // 定義回傳的訂單資料
       order: {
         create_at: null,
         id: '',
@@ -154,9 +155,6 @@ export default {
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
     }
-  },
-  mounted() {
-    this.order = {}
   }
 }
 </script>
