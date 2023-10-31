@@ -98,7 +98,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="cart in carts">
+                <tr v-for="cart in carts" :key="cart.id">
                   <th class="fw-lighter" scope="row">{{ cart.product.title }}</th>
                   <td class="fw-lighter text-end">{{ cart.qty }}</td>
                 </tr>
