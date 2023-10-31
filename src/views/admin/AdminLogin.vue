@@ -81,7 +81,7 @@
   </div>
 </template>
 <script>
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL } = import.meta.env
 import { defineRule } from 'vee-validate'
 //定義驗證規則 : 需要輸入內容以英文與數字混和
 defineRule('mix_num', (value) => {
