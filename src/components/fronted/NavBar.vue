@@ -40,7 +40,7 @@
             class="navbar-toggler"
             type="button"
             aria-controls="offcanvasNavbar"
-            @click="menuOffcanvasToggle()"
+            @click="menuOffcanvasToggle"
           >
             <i class="bi bi-list fs-3 text-white"></i>
           </button>
@@ -87,7 +87,7 @@
                 class="nav-link fs-4 me-1 link-light"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
-                @click.prevent="cartOffcanvasToggle()"
+                @click.prevent="cartOffcanvasToggle"
               >
                 <i class="bi bi-bag-fill position-relative">
                   <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
@@ -152,7 +152,7 @@
             class="navbar-toggler"
             type="button"
             aria-controls="offcanvasNavbar"
-            @click="menuOffcanvasToggle()"
+            @click="menuOffcanvasToggle"
           >
             <i class="bi bi-list fs-3 text-primary"></i>
           </button>
@@ -199,7 +199,7 @@
                 class="nav-link me-1 fs-4 link-primary"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
-                @click.prevent="cartOffcanvasToggle()"
+                @click.prevent="cartOffcanvasToggle"
               >
                 <i class="bi bi-bag-fill position-relative">
                   <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{

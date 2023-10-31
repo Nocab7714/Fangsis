@@ -29,7 +29,7 @@
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-danger" @click="deleteProduct()">確認刪除</button>
+          <button type="button" class="btn btn-danger" @click="deleteProduct">確認刪除</button>
         </div>
       </div>
     </div>

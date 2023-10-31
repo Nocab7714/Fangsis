@@ -140,11 +140,7 @@
           <div class="d-flex justify-content-between">
             <router-link class="btn btn-outline-secondary" to="/products"
               ><i class="bi bi-arrow-left me-2"></i>繼續選購</router-link
-            ><button
-              @click="removeCartAllProduct()"
-              class="btn btn-outline-secondary"
-              type="button"
-            >
+            ><button @click="removeCartAllProduct" class="btn btn-outline-secondary" type="button">
               <i class="bi bi-trash3-fill me-2"></i>清空購物車
             </button>
           </div>

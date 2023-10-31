@@ -79,7 +79,7 @@
           <button
             class="btn btn-primary w-md-50 w-100"
             type="button"
-            @click="orderPay()"
+            @click="orderPay"
             :disabled="payment === '' || order.is_paid === true"
           >
             <span

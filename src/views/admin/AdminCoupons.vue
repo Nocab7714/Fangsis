@@ -26,10 +26,10 @@
       </aside>
       <main class="main">
         <div class="bg-white border-bottom w-100 d-flex justify-content-between">
-          <a @click.prevent="sidebarToggled()" href="" class="py-3 px-4 d-inline-block border-end">
+          <a @click.prevent="sidebarToggled" href="" class="py-3 px-4 d-inline-block border-end">
             <i class="bi bi-arrows-angle-expand"></i>
           </a>
-          <button @click="adminLogout()" class="btn btn-primary text-end my-2 me-3">
+          <button @click="adminLogout" class="btn btn-primary text-end my-2 me-3">
             <i class="bi bi-door-open me-2"></i>登出
           </button>
         </div>

@@ -29,18 +29,16 @@
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <!-- 如果開啟的 modal 傳入的 tempOrder.id 為 '全部'，呼叫 deleteAllOrder() 刪除全部訂單-->
+          <!-- 如果開啟的 modal 傳入的 tempOrder.id 為 '全部'，呼叫 deleteAllOrder 刪除全部訂單-->
           <button
             v-if="tempOrder.id === '全部'"
             type="button"
             class="btn btn-danger"
-            @click="deleteAllOrder()"
+            @click="deleteAllOrder"
           >
             確認刪除
           </button>
-          <button v-else type="button" class="btn btn-danger" @click="deleteOrder()">
-            確認刪除
-          </button>
+          <button v-else type="button" class="btn btn-danger" @click="deleteOrder">確認刪除</button>
         </div>
       </div>
     </div>

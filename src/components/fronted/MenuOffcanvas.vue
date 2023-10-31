@@ -7,7 +7,7 @@
     ref="menuOffcanvas"
   >
     <div class="offcanvas-header justify-content-end">
-      <button type="button" class="btn-close text-reset" @click="menuOffcanvasToggle()"></button>
+      <button type="button" class="btn-close text-reset" @click="menuOffcanvasToggle"></button>
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
@@ -16,12 +16,12 @@
             class="nav-link mx-3 link-dark"
             aria-current="page"
             to="/about"
-            @click="menuOffcanvasToggle()"
+            @click="menuOffcanvasToggle"
             >關於芳心</router-link
           >
         </li>
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" to="/products" @click="menuOffcanvasToggle()"
+          <router-link class="nav-link mx-3 link-dark" to="/products" @click="menuOffcanvasToggle"
             >全部商品</router-link
           >
         </li>
@@ -29,7 +29,7 @@
           <router-link
             class="nav-link mx-3 link-dark"
             to="/OrderSearch"
-            @click="menuOffcanvasToggle()"
+            @click="menuOffcanvasToggle"
             >訂單查詢</router-link
           >
         </li>
@@ -38,7 +38,7 @@
           <router-link
             class="nav-link mx-3 link-dark"
             to="/MemberLogin"
-            @click="menuOffcanvasToggle()"
+            @click="menuOffcanvasToggle"
           >
             會員中心
           </router-link>
