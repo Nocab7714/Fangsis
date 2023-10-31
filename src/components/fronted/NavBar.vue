@@ -282,6 +282,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .logo-desktop {
   display: none;

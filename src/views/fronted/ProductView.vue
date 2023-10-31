@@ -36,6 +36,7 @@
   </div>
   <FullPageLoading :isLoading="isLoading"></FullPageLoading>
 </template>
+
 <script>
 import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
 import ProductDetail from '@/components/fronted/ProductDetail.vue'

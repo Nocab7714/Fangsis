@@ -180,6 +180,7 @@
   </VForm>
   <FullPageLoading :isLoading="isLoading"></FullPageLoading>
 </template>
+
 <script>
 import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
 import { mapActions, mapState } from 'pinia'

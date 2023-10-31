@@ -96,6 +96,7 @@
   </div>
   <FullPageLoading :isLoading="isLoading"></FullPageLoading>
 </template>
+
 <script>
 import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env

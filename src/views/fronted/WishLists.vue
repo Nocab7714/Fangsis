@@ -26,6 +26,7 @@
     <WishListsCard></WishListsCard>
   </div>
 </template>
+
 <script>
 import WishListsCard from '@/components/fronted/WishListsCard.vue'
 

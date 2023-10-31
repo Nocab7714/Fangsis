@@ -26,6 +26,7 @@
     <OrderSearchCard></OrderSearchCard>
   </div>
 </template>
+
 <script>
 import OrderSearchCard from '@/components/fronted/OrderSearchCard.vue'
 

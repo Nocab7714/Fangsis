@@ -29,6 +29,7 @@
     <CartCard></CartCard>
   </div>
 </template>
+
 <script>
 import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
 import CartCard from '@/components/fronted/CartCard.vue'

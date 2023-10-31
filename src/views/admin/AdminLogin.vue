@@ -80,6 +80,7 @@
     </div>
   </div>
 </template>
+
 <script>
 const { VITE_APP_URL } = import.meta.env
 import { defineRule } from 'vee-validate'
@@ -140,6 +141,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .login-bkg {
   position: relative;

@@ -20,6 +20,7 @@
     </div>
   </loading>
 </template>
+
 <script>
 // vue-loading
 import Loading from 'vue-loading-overlay'

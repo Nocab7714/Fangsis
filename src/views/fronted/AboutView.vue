@@ -53,6 +53,7 @@
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .division {
   font-size: 300%;

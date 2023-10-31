@@ -23,6 +23,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .signUp-bkg {
   position: relative;

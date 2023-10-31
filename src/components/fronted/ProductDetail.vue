@@ -91,6 +91,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '../../stores/cartAndWishList'

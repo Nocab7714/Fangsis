@@ -148,6 +148,7 @@
     </div>
   </section>
 </template>
+
 <script>
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue'

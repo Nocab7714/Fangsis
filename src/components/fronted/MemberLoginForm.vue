@@ -71,6 +71,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { defineRule } from 'vee-validate'
 //定義驗證規則 : 需要輸入內容以英文與數字混和
@@ -103,6 +104,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .input-icon {
   left: 10px;

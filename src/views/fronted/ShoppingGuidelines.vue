@@ -30,6 +30,7 @@
     <guidelines-card></guidelines-card>
   </div>
 </template>
+
 <script>
 import GuidelinesCard from '@/components/fronted/GuidelinesCard.vue'
 

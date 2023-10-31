@@ -86,6 +86,7 @@
     /></swiper-slide>
   </swiper>
 </template>
+
 <script>
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -108,6 +109,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .banner-swiper {
   width: auto;

@@ -218,6 +218,7 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
   data() {
@@ -225,6 +226,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .point-bkg {
   height: 600px;

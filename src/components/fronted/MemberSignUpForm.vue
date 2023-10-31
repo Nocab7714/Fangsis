@@ -102,6 +102,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { defineRule } from 'vee-validate'
 
@@ -144,6 +145,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .input-icon {
   left: 10px;

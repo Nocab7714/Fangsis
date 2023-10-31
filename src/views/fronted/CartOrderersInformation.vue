@@ -29,6 +29,7 @@
     <CartOrderForm></CartOrderForm>
   </div>
 </template>
+
 <script>
 import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
 import CartOrderForm from '@/components/fronted/CartOrderForm.vue'

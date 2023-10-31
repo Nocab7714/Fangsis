@@ -31,6 +31,7 @@
     </div>
   </section>
 </template>
+
 <script>
 // sweetalert2
 import Swal from 'sweetalert2'
@@ -56,6 +57,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .section-bkg {
   background-position: top;

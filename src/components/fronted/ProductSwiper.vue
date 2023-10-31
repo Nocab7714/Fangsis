@@ -176,6 +176,7 @@
     </swiper>
   </div>
 </template>
+
 <script>
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -201,6 +202,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .swiper-slide img {
   width: 100%;

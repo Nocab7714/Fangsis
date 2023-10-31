@@ -1,4 +1,5 @@
 <template></template>
+
 <script>
 const { VITE_APP_URL } = import.meta.env
 export default {

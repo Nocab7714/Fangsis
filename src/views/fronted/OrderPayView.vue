@@ -31,6 +31,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
 import CartOrderPay from '@/components/fronted/CartOrderPay.vue'

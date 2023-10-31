@@ -11,6 +11,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import MemberLoginForm from '@/components/fronted/MemberLoginForm.vue'
 export default {
@@ -22,6 +23,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .login-bkg {
   position: relative;

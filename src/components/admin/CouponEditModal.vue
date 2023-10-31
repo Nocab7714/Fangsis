@@ -70,6 +70,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import * as bootstrap from 'bootstrap'
 import VueDatePicker from '@vuepic/vue-datepicker'

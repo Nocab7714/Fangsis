@@ -159,6 +159,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
 import { mapActions, mapState } from 'pinia'

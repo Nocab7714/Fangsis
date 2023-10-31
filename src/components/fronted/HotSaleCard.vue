@@ -209,6 +209,7 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
   data() {
@@ -216,6 +217,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .section-bkg {
   background-position: center center;

@@ -44,6 +44,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import * as bootstrap from 'bootstrap'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env

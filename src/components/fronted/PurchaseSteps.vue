@@ -7,6 +7,7 @@
     </ul>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -15,6 +16,7 @@ export default {
   props: ['isActive']
 }
 </script>
+
 <style lang="scss" scoped>
 .purchase-active {
   color: black;
