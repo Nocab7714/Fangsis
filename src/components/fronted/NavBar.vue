@@ -269,12 +269,10 @@ export default {
   beforeDestroy() {
     // 移除事件監聽器，避免記憶體洩漏
     window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('scroll', goToTopHandleScroll)
   },
   mounted() {
     // 監聽視窗滾動事件
     window.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('scroll', this.goToTopHandleScroll)
     this.getCart()
     this.pullLocalStorageToWishList()
   },
@@ -307,16 +305,6 @@ export default {
   border-radius: 50%;
   text-align: center;
   padding-top: 4px;
-}
-
-/* 淡入淡出的效果 */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-  opacity: 0;
 }
 
 .active-link-white {
