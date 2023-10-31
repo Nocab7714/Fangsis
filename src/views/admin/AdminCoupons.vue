@@ -60,7 +60,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="coupon in coupons" :key="coupons.code">
+                    <tr v-for="coupon in coupons" :key="coupon.code">
                       <td>{{ coupon.title }}</td>
                       <td>{{ coupon.code }}</td>
                       <td>{{ coupon.percent }}%</td>
