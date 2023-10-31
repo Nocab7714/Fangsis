@@ -85,7 +85,7 @@
           <div>
             <h3 class="fs-3 fw-bold mb-3">訂購商品</h3>
             <ul class="list-unstyled fs-6">
-              <li v-for="product in order.products">
+              <li v-for="product in order.products" :key="product.id">
                 {{ product.product.title }} <span>x{{ product.qty }}</span>
               </li>
             </ul>
