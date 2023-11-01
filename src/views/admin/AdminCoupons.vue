@@ -43,10 +43,7 @@
           <div class="border rounded py-5 px-4 mb-5 d-flex flex-column">
             <div class="vl-parent" ref="CouponLoadingContainer">
               <!-- loading 效果元件 -->
-              <AdminContainerLoading
-                :isLoading="isLoading"
-                :container="container"
-              ></AdminContainerLoading>
+              <AdminContainerLoading :isLoading="isLoading" :container="container" />
               <div class="table-responsive mb-3">
                 <table class="table">
                   <thead>
@@ -92,7 +89,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-center">
-                <CouponPagination :pages="pages" :getCoupons="getCoupons"></CouponPagination>
+                <CouponPagination :pages="pages" :getCoupons="getCoupons" />
               </div>
             </div>
           </div>
@@ -108,13 +105,13 @@
     :closeModal="closeModal"
     :getCoupons="getCoupons"
     :isNew="isNew"
-  ></CouponEditModal>
+  />
   <CouponDeleteModal
     :tempCoupon="tempCoupon"
     :deleteModalIsShow="deleteModalIsShow"
     :closeModal="closeModal"
     :getCoupons="getCoupons"
-  ></CouponDeleteModal>
+  />
 </template>
 
 <script>

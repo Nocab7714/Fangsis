@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
-  <FullPageLoading :isLoading="isLoading"></FullPageLoading>
+  <FullPageLoading :isLoading="isLoading" />
 </template>
 
 <script>

@@ -24,10 +24,10 @@
   </div>
   <div class="container mt-5 mt-md-7 mb-10">
     <div class="container">
-      <PurchaseSteps :isActive="purchaseStepsIsActive"></PurchaseSteps>
+      <PurchaseSteps :isActive="purchaseStepsIsActive" />
     </div>
     <div class="mt-4">
-      <CartOrderPay></CartOrderPay>
+      <CartOrderPay />
     </div>
   </div>
 </template>

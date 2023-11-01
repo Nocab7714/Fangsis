@@ -24,9 +24,9 @@
   </div>
   <div class="container mt-5 mt-md-7 mb-10">
     <div class="container">
-      <PurchaseSteps :isActive="purchaseStepsIsActive"></PurchaseSteps>
+      <PurchaseSteps :isActive="purchaseStepsIsActive" />
     </div>
-    <CartOrderForm></CartOrderForm>
+    <CartOrderForm />
   </div>
 </template>
 

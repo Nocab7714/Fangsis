@@ -28,13 +28,13 @@
     </div>
   </div>
   <div class="container my-6">
-    <ProductDetail :product="product"></ProductDetail>
+    <ProductDetail :product="product" />
     <hr />
     <div class="my-5">
-      <ProductSwiper :getProductId="getProductId"></ProductSwiper>
+      <ProductSwiper :getProductId="getProductId" />
     </div>
   </div>
-  <FullPageLoading :isLoading="isLoading"></FullPageLoading>
+  <FullPageLoading :isLoading="isLoading" />
 </template>
 
 <script>

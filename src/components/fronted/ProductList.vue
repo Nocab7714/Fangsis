@@ -1,7 +1,7 @@
 <template>
   <div class="vl-parent" ref="loading-container">
     <!-- loading 效果元件 -->
-    <ContainerLoading :isLoading="isLoading" :container="container"></ContainerLoading>
+    <ContainerLoading :isLoading="isLoading" :container="container" />
     <div v-if="categoryProducts.length === 0">
       <h2 class="fs-3 text-secondary text-center mt-10 mb-20">很抱歉! 找不到符合的商品</h2>
     </div>
@@ -72,11 +72,7 @@
     </div>
     <!-- 分頁元件 -->
     <div class="mt-7">
-      <PaginationComponent
-        :getProducts="getProducts"
-        :categoryValue="categoryValue"
-        :page="page"
-      ></PaginationComponent>
+      <PaginationComponent :getProducts="getProducts" :categoryValue="categoryValue" :page="page" />
     </div>
   </div>
 </template>

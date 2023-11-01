@@ -1,6 +1,6 @@
 <template>
   <div class="vl-parent" ref="loading-container">
-    <ContainerLoading :isLoading="isLoading" :container="container"></ContainerLoading>
+    <ContainerLoading :isLoading="isLoading" :container="container" />
     <!-- 願望清單沒有商品 -->
     <div v-if="wishList.length === 0" class="border border-2 border-secondary px-5 py-5">
       <div class="d-flex justify-content-center align-items-center">

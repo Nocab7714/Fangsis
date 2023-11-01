@@ -1,7 +1,7 @@
 <template>
   <div class="vl-parent" ref="loading-container">
     <!-- loading 效果元件 -->
-    <ContainerLoading :isLoading="isLoading" :container="container"></ContainerLoading>
+    <ContainerLoading :isLoading="isLoading" :container="container" />
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="input-group">

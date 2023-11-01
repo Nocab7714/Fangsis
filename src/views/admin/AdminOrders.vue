@@ -43,10 +43,7 @@
           <div class="border rounded py-5 px-4 mb-5 d-flex flex-column">
             <div class="vl-parent" ref="orderLoadingContainer">
               <!-- loading 效果元件 -->
-              <AdminContainerLoading
-                :isLoading="isLoading"
-                :container="container"
-              ></AdminContainerLoading>
+              <AdminContainerLoading :isLoading="isLoading" :container="container" />
               <div class="table-responsive mb-3">
                 <table class="table">
                   <thead>
@@ -96,7 +93,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-center">
-                <OrderPagination :pages="pages" :getOrders="getOrders"></OrderPagination>
+                <OrderPagination :pages="pages" :getOrders="getOrders" />
               </div>
             </div>
           </div>
@@ -110,13 +107,13 @@
     :editModalIsShow="editModalIsShow"
     :closeModal="closeModal"
     :getOrders="getOrders"
-  ></OrderEditModal>
+  />
   <OrderDeleteModal
     :tempOrder="tempOrder"
     :deleteModalIsShow="deleteModalIsShow"
     :closeModal="closeModal"
     :getOrders="getOrders"
-  ></OrderDeleteModal>
+  />
 </template>
 
 <script>

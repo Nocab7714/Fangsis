@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="container mt-8 mb-14">
-    <WishListsCard></WishListsCard>
+    <WishListsCard />
   </div>
 </template>
 

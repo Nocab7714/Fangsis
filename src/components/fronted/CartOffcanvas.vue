@@ -21,10 +21,7 @@
           class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-4"
         ></div>
         <!-- loading 效果元件 -->
-        <ContainerLoading
-          :isLoading="cartOffcanvasIsLoading"
-          :container="container"
-        ></ContainerLoading>
+        <ContainerLoading :isLoading="cartOffcanvasIsLoading" :container="container" />
         <ul class="list-unstyled">
           <div v-if="!carts.length" class="d-flex flex-column align-items-center mb-5">
             <h3 class="fs-5 mb-3">您的購物車目前沒有任何商品!</h3>

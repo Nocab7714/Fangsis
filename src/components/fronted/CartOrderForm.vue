@@ -178,7 +178,7 @@
       </div>
     </div>
   </VForm>
-  <FullPageLoading :isLoading="isLoading"></FullPageLoading>
+  <FullPageLoading :isLoading="isLoading" />
 </template>
 
 <script>

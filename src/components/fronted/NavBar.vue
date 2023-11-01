@@ -224,9 +224,9 @@
     </nav>
   </transition>
   <!-- 購物車畫布元件 -->
-  <CartOffcanvas></CartOffcanvas>
+  <CartOffcanvas />
   <!-- 選單列表畫布元件 -->
-  <MenuOffcanvas></MenuOffcanvas>
+  <MenuOffcanvas />
 </template>
 
 <script>

@@ -6,7 +6,7 @@
       <div class="border border-2 border-secondary px-5 py-5">
         <div class="vl-parent" ref="loading-container">
           <!-- loading 效果元件 -->
-          <ContainerLoading :isLoading="isLoading" :container="container"></ContainerLoading>
+          <ContainerLoading :isLoading="isLoading" :container="container" />
           <!-- 電腦版購物車列表 -->
           <div class="d-none d-md-block">
             <table class="table table-striped align-middle mb-6">

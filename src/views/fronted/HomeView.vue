@@ -1,10 +1,10 @@
 <template>
-  <BannerCard></BannerCard>
-  <AboutCard></AboutCard>
-  <PainPointsCard></PainPointsCard>
-  <HotSaleCard></HotSaleCard>
-  <MoreProductsCard></MoreProductsCard>
-  <SubscriptCard></SubscriptCard>
+  <BannerCard />
+  <AboutCard />
+  <PainPointsCard />
+  <HotSaleCard />
+  <MoreProductsCard />
+  <SubscriptCard />
 </template>
 
 <script>

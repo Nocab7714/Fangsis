@@ -26,16 +26,10 @@
   <div class="container my-6">
     <div class="row">
       <div class="col-lg-3 d-none d-lg-block sticky-top-customize">
-        <ProductCategoryDesktop
-          :getProducts="getProducts"
-          :categoryValue="categoryValue"
-        ></ProductCategoryDesktop>
+        <ProductCategoryDesktop :getProducts="getProducts" :categoryValue="categoryValue" />
       </div>
       <div class="d-block d-lg-none">
-        <ProductCategoryMobile
-          :getProducts="getProducts"
-          :categoryValue="categoryValue"
-        ></ProductCategoryMobile>
+        <ProductCategoryMobile :getProducts="getProducts" :categoryValue="categoryValue" />
       </div>
       <div class="col-lg-9">
         <ProductList
@@ -44,7 +38,7 @@
           :getProducts="getProducts"
           :page="page"
           :isLoading="isLoading"
-        ></ProductList>
+        />
       </div>
     </div>
   </div>

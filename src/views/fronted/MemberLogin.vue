@@ -7,7 +7,7 @@
   >
     <div class="login-bkg-mask"></div>
     <div class="container z-index-3 mb-1">
-      <MemberLoginForm></MemberLoginForm>
+      <MemberLoginForm />
     </div>
   </div>
 </template>

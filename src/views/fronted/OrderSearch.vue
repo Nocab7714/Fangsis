@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="container my-10">
-    <OrderSearchCard></OrderSearchCard>
+    <OrderSearchCard />
   </div>
 </template>
 
