@@ -10,8 +10,8 @@
     :opacity="opacity"
     :is-full-page="fullPage"
   >
-    <div class="loadingio-spinner-spin-gir4y11u5ph">
-      <div class="ldio-2f3eow2i9zx">
+    <div class="loadingio-spinner-spin">
+      <div class="ldio">
         <div><div></div></div>
         <div><div></div></div>
         <div><div></div></div>
