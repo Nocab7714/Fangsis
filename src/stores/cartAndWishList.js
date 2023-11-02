@@ -110,7 +110,6 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
         .catch((err) => {
-          console.log(err)
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
     },
@@ -199,9 +198,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
                 title: '已清空您的購物車'
               })
             })
-            .catch((err) => {
-              console.log(err.message)
-            })
+            .catch((err) => {})
         }
       })
     },
@@ -236,9 +233,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             title: '已成功更新產品數量'
           })
         })
-        .catch((err) => {
-          console.log(err.message)
-        })
+        .catch((err) => {})
     },
     // coupon and order
     //客戶使用優惠劵

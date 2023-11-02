@@ -117,7 +117,6 @@ export default {
         this.order = res.data.order
       })
       .catch((err) => {
-        console.log(err)
         this.order = 'error'
       })
   }

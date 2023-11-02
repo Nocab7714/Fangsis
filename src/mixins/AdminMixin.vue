@@ -36,9 +36,7 @@ export default {
           alert('登出後台系統成功!')
           this.$router.push(`/admin`)
         })
-        .catch((err) => {
-          console.log(err)
-        })
+        .catch((err) => {})
     }
   },
   mounted() {

@@ -97,7 +97,7 @@ export default {
     ContainerLoading
   },
   watch: {
-    //開啟予關閉購物車畫布
+    //開啟與關閉購物車畫布
     cartOffcanvasIsShow() {
       return this.cartOffcanvasIsShow ? this.cartOffcanvas.show() : this.cartOffcanvas.hide()
     }

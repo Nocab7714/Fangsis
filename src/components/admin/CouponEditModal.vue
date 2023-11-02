@@ -101,7 +101,7 @@ export default {
           // 如果是新增優惠劵狀態，清空 vue-datepicker 所選擇的時間資料
           this.date = null
         } else if (!this.isNew) {
-          // 如果是編輯優惠劵狀態，使用 new Date() 建立一個時間物件給 vue-datepicker 的 this.date，並透過 setTime() 將從 modifyCoupon 取得的時間戳記轉換給 vue-datepicker 元件並顯示於畫面
+          // 如果是編輯優惠劵狀態，使用 new Date() 建立一個時間物件給 vue-datepicker 的 this.date
           this.date = new Date()
           this.date.setTime(this.modifyCoupon.due_date * 1000)
         }
@@ -124,13 +124,12 @@ export default {
       this.$http[method](url, { data: this.modifyCoupon })
         .then((res) => {
           this.getCoupons() // 新增完產品以後會重新取得
-          this.couponEditModal.hide() // 關閉 modal
+          this.couponEditModal.hide()
           alert(res.data.message)
         })
         .catch((err) => {
           // 新增產品失敗跳出錯誤訊息提示框
           alert(err.message)
-          console.log(err)
         })
     }
   },

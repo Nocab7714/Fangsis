@@ -145,7 +145,6 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067'
           })
-          console.log(err)
           this.isLoading = false
         })
     },

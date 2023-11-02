@@ -145,7 +145,6 @@ export default {
         })
         .catch((err) => {
           this.orderStatus = false
-          console.log(err.message)
           Swal.fire({
             title: '查詢失敗',
             text: '未找到您所查詢的訂單資訊，請確認輸入的訂單編號是否正確!',

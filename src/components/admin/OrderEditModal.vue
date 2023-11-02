@@ -189,7 +189,7 @@ export default {
           tel: ''
         }
       },
-      orderCreateAt: '' // 用於存放並顯示轉換格式後的時間 (用於畫面顯示)
+      orderCreateAt: '' // 用於存放並顯示轉換格式後的時間
     }
   },
   props: ['tempOrder', 'editModalIsShow', 'closeModal', 'getOrders'],
@@ -212,7 +212,7 @@ export default {
         })
         .then((res) => {
           this.getOrders()
-          this.orderEditModal.hide() // 關閉 modal
+          this.orderEditModal.hide()
           alert(res.data.message)
         })
         .catch((err) => {
