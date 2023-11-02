@@ -118,7 +118,7 @@ const router = createRouter({
       ]
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to) {
     // 將頁面滾動到頂部
     if (to.hash) {
       return {
@@ -134,7 +134,7 @@ const router = createRouter({
     }
   }
 })
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, next) => {
   window.document.title = to.meta.title
   next()
 })
