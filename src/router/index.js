@@ -134,7 +134,7 @@ const router = createRouter({
     }
   }
 })
-router.beforeEach((to, next) => {
+router.beforeEach((to, from, next) => {
   window.document.title = to.meta.title
   next()
 })
