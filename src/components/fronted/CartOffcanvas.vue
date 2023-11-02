@@ -82,8 +82,8 @@
 import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
 
 import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
-import offcanvasStore from '../../stores/offcanvasStore'
+import cartAndWishListStore from '@/stores/cartAndWishList'
+import offcanvasStore from '@/stores/offcanvasStore'
 import * as bootstrap from 'bootstrap'
 
 export default {

@@ -101,7 +101,7 @@
 import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
+import cartAndWishListStore from '@/stores/cartAndWishList'
 // sweetalert2
 import Swal from 'sweetalert2'
 import Toast from '@/utils/Toast'

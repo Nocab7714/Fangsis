@@ -7,7 +7,7 @@
 
 <script>
 import { mapActions } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
+import cartAndWishListStore from '@/stores/cartAndWishList'
 //
 import FooterCard from '@/components/fronted/FooterCard.vue'
 import NavBar from '@/components/fronted/NavBar.vue'

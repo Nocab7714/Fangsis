@@ -50,7 +50,7 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import offcanvasStore from '../../stores/offcanvasStore'
+import offcanvasStore from '@/stores/offcanvasStore'
 import * as bootstrap from 'bootstrap'
 
 export default {

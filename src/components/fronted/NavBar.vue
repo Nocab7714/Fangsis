@@ -231,8 +231,8 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
-import offcanvasStore from '../../stores/offcanvasStore'
+import cartAndWishListStore from '@/stores/cartAndWishList'
+import offcanvasStore from '@/stores/offcanvasStore'
 import CartOffcanvas from '@/components/fronted/CartOffcanvas.vue'
 import MenuOffcanvas from '@/components/fronted/MenuOffcanvas.vue'
 // logo

@@ -94,7 +94,7 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '../../stores/cartAndWishList'
+import cartAndWishListStore from '@/stores/cartAndWishList'
 
 export default {
   data() {
