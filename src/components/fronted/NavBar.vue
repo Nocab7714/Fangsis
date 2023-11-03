@@ -8,8 +8,8 @@
             class="logo-desktop img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisWhiteLogo3x"
-            width="240"
-            height="80"
+            width="192"
+            height="64"
             style="pointer-events: none"
           ></object>
           <object
@@ -120,8 +120,8 @@
             class="logo-desktop img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisBlackLogo3x"
-            width="240"
-            height="80"
+            width="192"
+            height="64"
             style="pointer-events: none"
           ></object>
           <object
