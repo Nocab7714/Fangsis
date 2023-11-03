@@ -113,7 +113,7 @@ export default {
 <style lang="scss" scoped>
 .banner-swiper {
   width: auto;
-  height: 841px;
+  height: 100vh;
 }
 
 .swiper-slide img {
