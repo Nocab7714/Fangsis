@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hot-sale py-7 section-bkg"
+    class="hot-sale pt-14 pb-10 section-bkg"
     style="
       background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DU8b3nBYU2ER%2BdUWbghrVoA3KGX6KiJFzlKjmgNOTcZxCoxsv2AhJj7sZxIR%2BPIQLfiEq3cUrOIV9Sx0UA2NYMIPOxSla0gpXxR6MT8NRm5M4MazCYhnkplkioNt%2BSSMolimS8wk4SBicKJWyBaqRcrmKLe44PPP4QQQAFw3SLdkuBhOi%2BiKEKA4MnIEnzVxtpwY8bQfjQmCUKlLGS%2B2jhL%2FM2akcsWO0Z%2Bp9ebeA9VPplyNsoqu37H25KL%2FFT%2B9p%2F5jjoifcDzquWx7I6yqzINvnEQqu03UClrv9VHEImNlUPMc6y7%2FwP16d0tAyP6mqoDtMvsFdbPPaRGTeHF09g%3D%3D');
     "
@@ -27,7 +27,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>
@@ -80,7 +80,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>
@@ -102,7 +102,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>
@@ -149,7 +149,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyfLN2KMNTi0BDw2a"
-                class="btn btn-outline-secondary w-100 fs-6"
+                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
                 >查看更多</routerLink
               >
             </div>
@@ -175,7 +175,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyIBPAuloX43ptLPf"
-                class="btn btn-outline-secondary w-100 fs-6"
+                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
                 >查看更多</routerLink
               >
             </div>
@@ -201,7 +201,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyVvyXTcrspg7NMK9"
-                class="btn btn-outline-secondary w-100 fs-6"
+                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
                 >查看更多</routerLink
               >
             </div>

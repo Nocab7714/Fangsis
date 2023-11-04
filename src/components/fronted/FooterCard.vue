@@ -14,21 +14,21 @@
           ></object>
           <ul class="list-unstyled text-center d-flex mb-0 flex-column flex-lg-row">
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
-              <router-link class="link-light text-decoration-none fs-5" to="/PrivacyPolicy"
+              <router-link class="link-light text-decoration-none" to="/PrivacyPolicy"
                 >隱私權服務條款</router-link
               >
             </li>
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
-              <router-link class="link-light text-decoration-none fs-5" to="/ShoppingGuidelines"
+              <router-link class="link-light text-decoration-none" to="/ShoppingGuidelines"
                 >購物流程與常見Q&A
               </router-link>
             </li>
             <li class="mx-lg-7 mx-0">
-              <span class="text-white fs-5">合作夥伴</span>
+              <span class="text-white">合作夥伴</span>
               <ul class="list-unstyled mt-lg-5 mt-4 d-lg-block d-flex">
                 <li class="py-lg-25 py-0 me-2 me-lg-0">
                   <a
-                    class="text-decoration-none link-light fs-6"
+                    class="text-decoration-none link-light"
                     href="https://smallstepsgreen.com/"
                     target="_blank"
                   >
@@ -45,7 +45,7 @@
                 </li>
                 <li class="py-lg-25 py-0 ms-2 ms-lg-0">
                   <a
-                    class="text-decoration-none link-light fs-6"
+                    class="text-decoration-none link-light"
                     href="https://www.facebook.com/banai.savon/?locale=zh_TW"
                     target="_blank"
                     ><span class="d-lg-block d-none">白娜Banai</span>

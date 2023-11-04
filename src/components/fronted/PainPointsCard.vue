@@ -25,7 +25,7 @@
                     >
                       想要送禮卻不知道送什麼嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
@@ -58,7 +58,7 @@
                     >
                       總覺得送的禮物不夠實用嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
@@ -91,7 +91,7 @@
                     >
                       擔心過度包裝會破壞環境嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
@@ -131,7 +131,7 @@
                     >
                       想要送禮卻不知道送什麼嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
@@ -166,7 +166,7 @@
                     >
                       總覺得送的禮物不夠實用嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
@@ -201,7 +201,7 @@
                     >
                       擔心過度包裝會破壞環境嗎
                     </h3>
-                    <div class="link-border border border-1 rounded-1 py-2">
+                    <div class="link-border border border-1 py-2">
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"

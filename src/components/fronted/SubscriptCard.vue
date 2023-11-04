@@ -7,25 +7,26 @@
   >
     <div class="container text-primary">
       <VForm v-slot="{ errors }" @submit="subscription">
-        <label class="form-label fs-3 text-center text-md-start mb-55" for="subscript"
-          >訂閱我們，獲取優惠劵與最新活動消息</label
+        <label
+          class="form-label fs-3 text-center text-md-start mb-55"
+          for="subscript"
+          style="font-family: var(--bs-NotoSerif-TC)"
+          >訂閱我們，獲取優惠與最新活動消息</label
         >
-        <div class="row input-group gx-0 gx-md-3 gy-2 align-items-center">
-          <div class="col-md-10">
-            <VField
-              class="form-control border-primary fs-6 w-100"
-              :class="{ 'is-invalid': errors.email }"
-              id="subscript"
-              type="email"
-              name="email"
-              rules="required|email"
-              placeholder="輸入您的信箱，獲得我們的最新活動消息獲得優惠劵"
-              v-model="subscriptEmail"
-            />
-          </div>
-          <div class="col-md-2">
-            <button class="fs-6 btn btn-outline-primary w-100" type="submit">訂閱</button>
-          </div>
+        <div class="input-group">
+          <VField
+            class="form-control border-primary rounded-0"
+            :class="{ 'is-invalid': errors.email }"
+            id="subscript"
+            type="email"
+            name="email"
+            rules="required|email"
+            placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
+            v-model="subscriptEmail"
+          />
+          <button class="fs-6 btn btn-outline-primary px-5 py-2 rounded-0" type="submit">
+            訂閱
+          </button>
         </div>
       </VForm>
     </div>

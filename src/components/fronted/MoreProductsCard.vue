@@ -1,5 +1,5 @@
 <template>
-  <section class="more-products">
+  <section class="more-products pt-8">
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
