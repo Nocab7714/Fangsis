@@ -30,7 +30,7 @@
               重心出發，恢復大地原本的芳香。
             </p>
             <routerLink to="/about" class="btn btn-outline-primary w-100 w-lg-35" href=""
-              >View More</routerLink
+              >查看更多</routerLink
             >
           </div>
         </div>

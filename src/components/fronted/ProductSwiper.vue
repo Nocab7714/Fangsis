@@ -41,9 +41,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛擴香
           </p>
         </router-link></swiper-slide
       >
@@ -55,9 +55,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛蠟燭
           </p></router-link
         ></swiper-slide
       >
@@ -69,9 +69,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛蠟燭
           </p></router-link
         ></swiper-slide
       >
@@ -83,9 +83,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            山形海鹽皂
           </p></router-link
         ></swiper-slide
       >
@@ -97,9 +97,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛沐浴皂
           </p></router-link
         ></swiper-slide
       >
@@ -111,9 +111,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            居家擴香
           </p></router-link
         ></swiper-slide
       >
@@ -125,9 +125,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛噴霧
           </p></router-link
         ></swiper-slide
       >
@@ -139,9 +139,9 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            絲瓜片香皂
           </p>
         </router-link></swiper-slide
       >
@@ -153,23 +153,23 @@
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            居家擴香
           </p>
         </router-link></swiper-slide
       >
       <swiper-slide>
-        <router-link to="/product/-NaUfL_f4_W-jKhWWj6G">
+        <router-link to="/product/-NaUb40DTd-PkPSJgMUm">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633060112.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=KE0ynhzzqn31yyD4xyxts7Etdrn6kfEOKMacSZAYiTpvAge5id05bpd0xpIovKoDoCDu%2BfjRwW7PRw9uSWnbV8HZS4gqvOKo1dNNF6IepMEModnni37cxrjv3R6CocFA7rUqnSnfojUqb9ukZxMq%2FEEG9PHq6b0icgNb430TQV62sMl3ab3QSYKAY3IezwFLnkYfp0wP4HO3T2MM5wKQo5BW7vQIMo0dmPd%2BXLNnZjodaxX7BmiB2DJ1Ux3yZJnssAXxUr3mwDcXRRbF94sohzhPCdVLnO4XnohFgiXORL1QNn4VoRfpUfj5yZvYd1tDaAe7b9nS20mfvxUXY9ePZQ%3D%3D"
             alt="紅色的洋甘菊香氛蠟燭"
           />
           <div class="swiper-slide-mask"></div>
           <p
-            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle text-center"
+            class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle text-center"
           >
-            view more
+            香氛蠟燭
           </p>
         </router-link></swiper-slide
       >

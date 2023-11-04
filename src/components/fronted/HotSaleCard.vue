@@ -29,7 +29,7 @@
                     <div
                       class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
-                      View More
+                      查看更多
                     </div>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div
                       class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
-                      View More
+                      查看更多
                     </div>
                   </div>
                 </div>
@@ -104,7 +104,7 @@
                     <div
                       class="position-absolute fs-5 text-white border border-1 border-light rounded-1 top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
-                      View More
+                      查看更多
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@
               <routerLink
                 to="/product/-NbqyfLN2KMNTi0BDw2a"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >View More</routerLink
+                >查看更多</routerLink
               >
             </div>
           </div>
@@ -176,7 +176,7 @@
               <routerLink
                 to="/product/-NbqyIBPAuloX43ptLPf"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >View More</routerLink
+                >查看更多</routerLink
               >
             </div>
           </div>
@@ -202,7 +202,7 @@
               <routerLink
                 to="/product/-NbqyVvyXTcrspg7NMK9"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >View More</routerLink
+                >查看更多</routerLink
               >
             </div>
           </div>

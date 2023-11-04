@@ -29,7 +29,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>
@@ -62,7 +62,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>
@@ -95,7 +95,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>
@@ -135,7 +135,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>
@@ -170,7 +170,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>
@@ -205,7 +205,7 @@
                       <routerLink
                         class="link-light text-decoration-none fs-6 px-6 stretched-link"
                         to="/products"
-                        >Read More</routerLink
+                        >查看更多</routerLink
                       >
                     </div>
                   </div>

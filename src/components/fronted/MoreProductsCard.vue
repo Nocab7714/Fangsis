@@ -40,9 +40,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              香氛擴香
             </p>
           </router-link></swiper-slide
         >
@@ -54,9 +54,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              香氛蠟燭
             </p></router-link
           ></swiper-slide
         >
@@ -68,9 +68,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              花香香氛沐浴皂
             </p></router-link
           ></swiper-slide
         >
@@ -82,9 +82,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              香氛大豆蠟燭
             </p></router-link
           ></swiper-slide
         >
@@ -96,9 +96,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              香氛噴霧
             </p></router-link
           ></swiper-slide
         >
@@ -110,9 +110,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              居家擴香
             </p></router-link
           ></swiper-slide
         >
@@ -124,9 +124,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              山形海鹽皂
             </p></router-link
           ></swiper-slide
         >
@@ -138,9 +138,9 @@
             />
             <div class="swiper-slide-mask"></div>
             <p
-              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 rounded px-3 py-2 mb-0 translate-middle"
+              class="swiper-slide-mask-btn position-absolute top-50 start-50 text-white border border-1 px-3 py-2 mb-0 translate-middle"
             >
-              view more
+              絲瓜片香皂
             </p>
           </router-link></swiper-slide
         >
