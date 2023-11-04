@@ -4,7 +4,7 @@
       class="banner-card z-index-2 bg-opacity-75 position-absolute bg-light p-4 pe-md-20 me-3 ms-1"
     >
       <h1
-        class="text-primary text-center text-sm-start fs-4 fs-lg-2 mb-4"
+        class="text-primary text-center text-sm-start fs-4 fs-lg-2 fw-bold mb-4"
         style="font-family: var(--bs-NotoSerif-TC)"
       >
         用花蓮在地植物萃取，<br />
