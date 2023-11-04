@@ -9,7 +9,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   // base: '/Fangsis/',
-  base: process.env.NODE_ENV === 'Fangsis' ? '/Fangsis/' : '/',
+  base: process.env.NODE_ENV === 'fangsis' ? '/fangsis/' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
