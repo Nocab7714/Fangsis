@@ -73,16 +73,30 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     //移除願望清單品項
     removeWishListProduct(product) {
       this.isLoading = true // 取得產品資料前顯示 loading 效果
-      this.wishList.forEach((item, index) => {
-        if (item.id === product.id) {
-          this.wishList.splice(index, 1)
+      Swal.fire({
+        text: '你確定要將商品從願望清單刪除嗎?',
+        icon: 'question',
+        iconColor: '#5D7067',
+        showCancelButton: true,
+        confirmButtonText: '確定',
+        confirmButtonColor: '#5D7067',
+        cancelButtonText: '取消',
+        cancelButtonColor: '#DC3545'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.wishList.forEach((item, index) => {
+            if (item.id === product.id) {
+              this.wishList.splice(index, 1)
+            }
+            const localStorageWishList = JSON.stringify(this.wishList)
+            localStorage.setItem('localStorageWishList', localStorageWishList)
+          })
+          Toast.fire({
+            icon: 'success',
+            title: '成功將產品從願望清單移除'
+          })
+          this.isLoading = false // 取得產品資料後關閉 loading 效果
         }
-        const localStorageWishList = JSON.stringify(this.wishList)
-        localStorage.setItem('localStorageWishList', localStorageWishList)
-      })
-      Toast.fire({
-        icon: 'success',
-        title: '成功將產品從願望清單移除'
       })
       this.isLoading = false // 取得產品資料後關閉 loading 效果
     },
@@ -140,10 +154,6 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
         .then((res) => {
           this.getCart() // 加入購物車後，重新整理購物車資料
-          if (product !== '') {
-            //用於願望清單加入購物車的判斷。如果有傳入 product 資料便會將該項產品從許願清單移除。用於許願清單品項加入購物車後，會在將品項從我的最愛移除
-            this.removeWishListProduct(product)
-          }
           Toast.fire({
             icon: 'success',
             title: '成功將產品加入購物車'
@@ -152,7 +162,6 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
         .catch((err) => {
-          alert(err.message)
           this.isLoading = false // 取得產品資料後關閉 loading 效果
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })

@@ -3,31 +3,23 @@
     <ContainerLoading :isLoading="isLoading" :container="container" />
     <!-- 願望清單沒有商品 -->
     <div v-if="wishList.length === 0" class="border border-2 border-secondary px-5 py-5">
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start py-7">
+      <div class="d-flex justify-content-center align-items-center py-7">
+        <div class="d-flex flex-column justify-content-center align-items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="130"
-            height="130"
+            width="100"
+            height="100"
             fill="currentColor"
-            class="bi bi-bag-heart-fill text-secondary me-md-4 me-2 mb-3 mb-md-0"
+            class="bi bi-bag-heart-fill text-secondary mb-3"
             viewBox="0 0 16 16"
           >
             <path
               d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"
             />
           </svg>
-          <div
-            class="d-flex flex-column justify-content-center align-items-center align-items-md-start"
-          >
-            <h2 class="fw-bold fs-10 fs-md-11 text-secondary mb-1">OOPS!!</h2>
-            <p class="fw-bold fs-5 fs-md-3 text-secondary mb-3">您的願望清單尚未擁有任何商品</p>
-            <router-link
-              class="btn btn-primary btn-lg align-self-center align-self-md-end"
-              to="/products"
-              >來去逛逛</router-link
-            >
-          </div>
+          <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
+          <p class="fw-bold fs-5 text-secondary mb-4">您的願望清單尚未擁有任何商品!</p>
+          <router-link class="btn btn-primary py-2" to="/products">來去逛逛</router-link>
         </div>
       </div>
     </div>
@@ -137,14 +129,14 @@
 
                       <button
                         @click="addToCart(product.id, 1, product)"
-                        class="btn btn-primary w-100 mb-2"
+                        class="btn btn-primary w-100 mb-2 py-2"
                         :disabled="!product.is_enabled || product.quantity === 0"
                       >
                         <i class="bi bi-cart3 me-2"></i>加入購物車
                       </button>
                       <button
                         @click.prevent="removeWishListProduct(product)"
-                        class="btn btn-outline-secondary w-100 mb-3"
+                        class="btn btn-outline-secondary w-100 mb-3 py-2"
                       >
                         <i class="bi bi-trash3-fill"></i>刪除
                       </button>
