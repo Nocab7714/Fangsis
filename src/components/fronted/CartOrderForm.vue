@@ -9,7 +9,7 @@
             <h2 class="fs-4 fw-bold">填寫訂購人資訊</h2>
           </div>
 
-          <div class="mb-4 w-100 w-md-50">
+          <div class="mb-4">
             <label for="PurchaserName" class="form-label">姓名 / Name</label>
             <VField
               class="form-control"
@@ -109,7 +109,7 @@
             class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
           >
             <h3 class="fs-6 text-nowrap">小計</h3>
-            <span class="fw-bold fs-4 fst-italic me-1"
+            <span class="fw-bold fs-4 me-1"
               >NT$ <span>{{ total }}</span></span
             >
           </div>
@@ -122,17 +122,6 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                id="DeliveryMethod01"
-                type="radio"
-                name="DeliveryMethod"
-                :checked="delivery === '7-11 取貨'"
-                disabled
-              />
-              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
                 id="DeliveryMethod02"
                 type="radio"
                 name="DeliveryMethod"
@@ -141,18 +130,29 @@
               />
               <label class="form-check-label" for="DeliveryMethod02"> 順豐速遞 - 常溫配送 </label>
             </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                id="DeliveryMethod01"
+                type="radio"
+                name="DeliveryMethod"
+                :checked="delivery === '7-11 取貨'"
+                disabled
+              />
+              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
+            </div>
           </div>
           <div
             class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
           >
-            <h3 class="fs-6 text-nowrap">總計</h3>
+            <h3 class="fs-6 text-nowrap fw-bold">總計</h3>
             <div class="d-flex flex-column">
               <span
                 v-if="total !== final_total"
-                class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through me-1"
+                class="fw-bold fs-4 opacity-25 text-decoration-line-through me-1"
                 >NT$ <span>{{ total }}</span></span
               >
-              <span class="fw-bold fs-4 fst-italic me-1"
+              <span class="fw-bold fs-4 me-1"
                 >NT$ <span>{{ final_total }}</span></span
               >
             </div>
@@ -160,13 +160,13 @@
           <span v-if="total !== final_total" class="fs-6 text-end">{{ couponCodeMessage }}</span>
           <div class="row mt-5 mb-8 gx-2">
             <div class="col-6">
-              <router-link class="btn btn-outline-secondary w-100" to="CartView"
-                >回上一頁</router-link
+              <router-link class="btn btn-outline-secondary w-100 py-2" to="CartView"
+                >回上一步</router-link
               >
             </div>
             <div class="col-6">
               <button
-                class="btn btn-primary w-100"
+                class="btn btn-primary w-100 py-2"
                 type="submit"
                 :disabled="carts.length === 0 || !meta.valid"
               >

@@ -97,7 +97,7 @@
                       >
                       <div class="input-group w-auto mb-4">
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-outline-secondary py-2"
                           type="button"
                           @click="upDataCartProduct(cart.id, cart.qty - 1)"
                           :disabled="cart.qty == 1"
@@ -115,7 +115,7 @@
                           @change="upDataCartProduct(cart.id, $event.target.value)"
                         />
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-outline-secondary py-2"
                           type="button"
                           @click="upDataCartProduct(cart.id, cart.qty + 1)"
                         >
@@ -138,9 +138,13 @@
             class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-3"
           ></div>
           <div class="d-flex justify-content-between">
-            <router-link class="btn btn-outline-secondary" to="/products"
+            <router-link class="btn btn-outline-secondary me-2 py-2" to="/products"
               ><i class="bi bi-arrow-left me-2"></i>繼續選購</router-link
-            ><button @click="removeCartAllProduct" class="btn btn-outline-secondary" type="button">
+            ><button
+              @click="removeCartAllProduct"
+              class="btn btn-outline-secondary ms-2 py-2"
+              type="button"
+            >
               <i class="bi bi-trash3-fill me-2"></i>清空購物車
             </button>
           </div>
@@ -161,7 +165,7 @@
             class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-11 d-flex justify-content-between align-items-end"
           >
             <h3 class="fs-6 text-nowrap">小計</h3>
-            <span class="fw-bold fs-4 fst-italic me-1"
+            <span class="fw-bold fs-4 me-1"
               >NT$ <span>{{ total }}</span></span
             >
           </div>
@@ -174,18 +178,6 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                id="DeliveryMethod01"
-                type="radio"
-                name="DeliveryMethod"
-                @click="deliveryMethod('7-11 取貨')"
-                :checked="delivery === '7-11 取貨'"
-              />
-              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
-            </div>
-
-            <div class="form-check">
-              <input
-                class="form-check-input"
                 id="DeliveryMethod02"
                 type="radio"
                 name="DeliveryMethod"
@@ -194,34 +186,23 @@
               />
               <label class="form-check-label" for="DeliveryMethod02"> 順豐速遞 - 常溫配送 </label>
             </div>
-          </div>
-          <div
-            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
-          >
-            <h3 class="fs-6 text-nowrap">總計</h3>
-            <div class="d-flex flex-column">
-              <span
-                v-if="total !== final_total"
-                class="fw-bold fs-4 fst-italic opacity-25 text-decoration-line-through me-1"
-                >NT$ <span>{{ total }}</span></span
-              >
-
-              <span class="fw-bold fs-4 fst-italic me-1"
-                >NT$ <span>{{ final_total }}</span></span
-              >
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                id="DeliveryMethod01"
+                type="radio"
+                name="DeliveryMethod"
+                @click="deliveryMethod('7-11 取貨')"
+                :checked="delivery === '7-11 取貨'"
+              />
+              <label class="form-check-label" for="DeliveryMethod01"> 7-11 取貨</label>
             </div>
           </div>
-          <div class="d-flex justify-content-end">
-            <router-link class="btn btn-primary w-100 w-lg-50 mb-8" to="/CartOrderersInformation"
-              >前往結帳</router-link
-            >
-          </div>
-
           <div class="mb-8">
             <div
               class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex"
             >
-              <h3 class="fs-6">優惠卷</h3>
+              <h3 class="fs-6 fw-bold">優惠卷</h3>
             </div>
             <input
               class="form-control mb-2"
@@ -230,8 +211,34 @@
               v-model="CouponCode"
               @keyup.enter="UseCoupon(CouponCode)"
             />
-            <button class="btn btn-primary w-100" @click="UseCoupon(CouponCode)">使用優惠卷</button>
+            <button class="btn btn-primary w-100 py-2 mb-2" @click="UseCoupon(CouponCode)">
+              使用優惠卷
+            </button>
             <span v-if="total !== final_total" class="fs-6">{{ couponCodeMessage }}</span>
+          </div>
+
+          <div
+            class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
+          >
+            <h3 class="fs-6 text-nowrap fw-bold">總計</h3>
+            <div class="d-flex flex-column">
+              <span
+                v-if="total !== final_total"
+                class="fw-bold fs-4 opacity-25 text-decoration-line-through me-1"
+                >NT$ <span>{{ total }}</span></span
+              >
+
+              <span class="fw-bold fs-4 me-1"
+                >NT$ <span>{{ final_total }}</span></span
+              >
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <router-link
+              class="btn btn-primary w-100 w-lg-50 mb-8 py-2"
+              to="/CartOrderersInformation"
+              >前往結帳</router-link
+            >
           </div>
         </div>
       </div>
@@ -240,33 +247,25 @@
   <!-- 購物車內若無商品顯示該區塊 -->
   <div
     v-if="!carts.length"
-    class="cart-status border border-2 border-secondary px-5 py-10 mt-6 mb-10 d-flex justify-content-center align-items-center flex-column"
+    class="cart-status border border-2 border-secondary px-5 py-5 mt-6 mb-5"
   >
-    <div
-      class="text-secondary d-flex flex-column flex-md-row align-items-center align-items-md-start"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="130"
-        height="130"
-        fill="currentColor"
-        class="bi bi-cart-plus-fill me-md-4 me-2 mb-3 mb-md-0"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"
-        />
-      </svg>
-      <div
-        class="d-flex flex-column justify-content-center align-items-center align-items-md-start"
-      >
-        <h2 class="fw-bold text-secondary fs-10 fs-md-11 mb-1">OOPS!!</h2>
-        <p class="fw-bold text-secondary fs-5 fs-md-3 mb-3">您的購物車裡還沒有任何商品</p>
-        <router-link
-          class="btn btn-primary btn-lg align-self-center align-self-md-end"
-          to="/products"
-          >來去逛逛</router-link
+    <div class="d-flex justify-content-center align-items-center py-7">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100"
+          height="100"
+          fill="currentColor"
+          class="bi bi-cart-plus-fill text-secondary mb-3"
+          viewBox="0 0 16 16"
         >
+          <path
+            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"
+          />
+        </svg>
+        <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
+        <p class="fw-bold fs-5 text-secondary mb-4">您的購物車裡還沒有任何商品!</p>
+        <router-link class="btn btn-primary py-2" to="/products">來去逛逛</router-link>
       </div>
     </div>
   </div>

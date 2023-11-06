@@ -169,20 +169,33 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     //刪除購物車"單項"產品資料資料
     removeCartProduct(product_id) {
       this.cartOffcanvasIsLoading = true // 取得資料前顯示 loading 效果
-      axios
-        .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
-        .then((res) => {
-          this.getCart()
-          Toast.fire({
-            icon: 'success',
-            title: '成功將產品從購物車移除'
-          })
-          this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
-        })
-        .catch((err) => {
-          alert(err.message)
-          this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
-        })
+      Swal.fire({
+        text: '你確定要將該項產品從購物車刪除嗎?',
+        icon: 'question',
+        iconColor: '#5D7067',
+        showCancelButton: true,
+        confirmButtonText: '確定',
+        confirmButtonColor: '#5D7067',
+        cancelButtonText: '取消',
+        cancelButtonColor: '#DC3545'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
+            .then((res) => {
+              this.getCart()
+              Toast.fire({
+                icon: 'success',
+                title: '成功將產品從購物車移除'
+              })
+              this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
+            })
+            .catch((err) => {
+              this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
+            })
+        }
+        this.cartOffcanvasIsLoading = false
+      })
     },
     //刪除購物車"全部"產品資料資料
     removeCartAllProduct() {

@@ -10,7 +10,7 @@
         width="130"
         height="130"
         fill="currentColor"
-        class="bi bi-clipboard-check-fill me-md-4 me-2 mb-5 mb-md-0"
+        class="bi bi-clipboard-check-fill text-secondary me-md-4 me-2 mb-5 mb-md-0"
         viewBox="0 0 16 16"
       >
         <path
@@ -21,7 +21,7 @@
         />
       </svg>
       <div
-        class="d-flex flex-column justify-content-center align-items-center align-items-md-start"
+        class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-secondary"
       >
         <h2
           class="fw-bold fs-3 fs-md-1 mb-4 d-flex flex-column flex-md-row align-self-center align-self-md-start"
@@ -44,8 +44,10 @@
           </div>
         </div>
         <div class="ms-0 ms-md-8 mt-5 align-self-center align-self-md-end">
-          <router-link class="btn btn-outline-primary me-2" to="/OrderSearch">查詢訂單</router-link>
-          <router-link class="btn btn-primary" to="/products">再去逛逛</router-link>
+          <router-link class="btn btn-outline-secondary me-2 py-2" to="/OrderSearch"
+            >查詢訂單</router-link
+          >
+          <router-link class="btn btn-primary py-2" to="/products">再去逛逛</router-link>
         </div>
       </div>
     </div>
@@ -61,7 +63,7 @@
         width="130"
         height="130"
         fill="currentColor"
-        class="bi bi-x-circle-fill me-md-4 me-2 mb-4 mb-md-0"
+        class="bi bi-x-circle-fill me-md-4 me-2 mb-4 mb-md-0 text-secondary"
         viewBox="0 0 16 16"
       >
         <path
@@ -70,7 +72,7 @@
       </svg>
 
       <div
-        class="d-flex flex-column justify-content-center align-items-center align-items-md-start"
+        class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-secondary"
       >
         <h2 class="fw-bold fs-3 fs-md-1 mb-6 mb-md-4 d-flex flex-column flex-md-row">
           訂單付款失敗!
@@ -90,7 +92,9 @@
           <p class="fs-6 mb-4">
             電子信箱: <a href="mailto:fangsisfragrance@gmail.com">fangsisfragrance@gmail.com</a>
           </p>
-          <router-link class="btn btn-primary align-self-center align-self-md-end" to="/products"
+          <router-link
+            class="btn btn-primary align-self-center align-self-md-end py-2"
+            to="/products"
             >返回商店</router-link
           >
         </div>

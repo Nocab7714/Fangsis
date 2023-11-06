@@ -17,7 +17,7 @@
           }}</span>
         </p>
         <p>
-          訂單建立時間 : <span class="ms-2">{{ orderCreateTime }}</span>
+          建立時間 : <span class="ms-2">{{ orderCreateTime }}</span>
         </p>
 
         <div
@@ -32,7 +32,10 @@
         <p>
           收件地址 : <span class="ms-2">{{ address }}</span>
         </p>
-        <p class="text-break"><span class="mb-5">訂單備註</span> :{{ order.message }}</p>
+        <p>
+          訂單備註 : <br />
+          {{ order.message }}
+        </p>
       </div>
     </div>
     <div class="col-lg-4">
@@ -67,9 +70,9 @@
         <div
           class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 w-100 mb-3 d-flex justify-content-between align-items-end"
         >
-          <h3 class="fs-6 text-nowrap">付款金額</h3>
+          <h3 class="fs-6 text-nowrap fw-bold">付款金額</h3>
           <div class="d-flex flex-column">
-            <span class="fw-bold fs-4 fst-italic"
+            <span class="fw-bold fs-4"
               >NT$ <span>{{ order.total }}</span></span
             >
           </div>
@@ -77,7 +80,7 @@
 
         <div class="mt-2 mb-8 d-flex justify-content-end">
           <button
-            class="btn btn-primary w-md-50 w-100"
+            class="btn btn-primary w-md-50 w-100 py-2"
             type="button"
             @click="orderPay"
             :disabled="payment === '' || order.is_paid === true"
@@ -159,7 +162,7 @@ export default {
         this.order = res.data.order
         // 訂單建立時間格式格式轉換
         const orderTime = res.data.order.create_at
-        const date = new Date(orderTime)
+        const date = new Date(orderTime * 1000).toLocaleString()
         this.orderCreateTime = date
         // vue3 讀取第三層物件資料有問題，改為儲存於元件 data 中，再渲染於畫面上
         this.address = this.order.user.address
