@@ -68,10 +68,4 @@ export default {
 .subscript {
   padding: 140px 0;
 }
-input::-webkit-input-placeholder {
-  font-size: 12px;
-  line-height: 20px;
-  color: $secondary;
-  padding-left: 5px;
-}
 </style>
