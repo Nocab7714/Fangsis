@@ -53,7 +53,6 @@ export default {
   .pagination-sm {
     --bs-pagination-padding-x: 0.75rem;
     --bs-pagination-padding-y: 0.375rem;
-    --bs-pagination-border-radius: 0.375rem;
   }
 }
 </style>

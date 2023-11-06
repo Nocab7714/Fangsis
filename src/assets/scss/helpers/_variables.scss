@@ -981,7 +981,7 @@ $form-select-feedback-icon-size:        $input-height-inner-half $input-height-i
 
 $form-select-border-width:        $input-border-width !default;
 $form-select-border-color:        $input-border-color !default;
-$form-select-border-radius:       $input-border-radius !default;
+$form-select-border-radius:       0; //$input-border-radius !default;
 $form-select-box-shadow:          $box-shadow-inset !default;
 
 $form-select-focus-border-color:  $input-focus-border-color !default;
@@ -1227,7 +1227,7 @@ $pagination-font-size:              $font-size-base !default;
 
 $pagination-color:                  var(--#{$prefix}link-color) !default;
 $pagination-bg:                     $white !default;
-$pagination-border-radius:          $border-radius !default;
+$pagination-border-radius:          0 !important; //$border-radius !default;
 $pagination-border-width:           $border-width !default;
 $pagination-margin-start:           ($pagination-border-width * -1) !default;
 $pagination-border-color:           $gray-300 !default;
@@ -1246,13 +1246,13 @@ $pagination-active-bg:              $component-active-bg !default;
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-disabled-color:         $gray-600 !default;
-$pagination-disabled-bg:            $white !default;
+$pagination-disabled-bg:            #DFDEDE;//$white !default;
 $pagination-disabled-border-color:  $gray-300 !default;
 
 $pagination-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
-$pagination-border-radius-sm:       $border-radius-sm !default;
-$pagination-border-radius-lg:       $border-radius-lg !default;
+$pagination-border-radius-sm:        0 !important; //$border-radius-sm !default;
+$pagination-border-radius-lg:        0 !important; //$border-radius-lg !default;
 // scss-docs-end pagination-variables
 
 
@@ -1504,7 +1504,7 @@ $list-group-color:                  $gray-900 !default;
 $list-group-bg:                     $white !default;
 $list-group-border-color:           rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
-$list-group-border-radius:          $border-radius !default;
+$list-group-border-radius:          0; //$border-radius !default;
 
 $list-group-item-padding-y:         $spacer * .5 !default;
 $list-group-item-padding-x:         $spacer !default;

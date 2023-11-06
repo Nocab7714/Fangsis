@@ -21,7 +21,7 @@
               <!-- 判定並顯示是否為熱銷產品 -->
               <span
                 v-if="product.is_hotSale"
-                class="position-absolute p-2 bg-pink z-index-4 fs-md-5 fs-7 text-white top-0"
+                class="position-absolute p-2 bg-pink z-index-4 fs-md-6 fs-7 text-white top-0"
                 >HOT</span
               >
               <!-- 判定並顯示是產品是否售完 -->
@@ -43,18 +43,21 @@
               </div>
             </div>
           </router-link>
-          <h3 class="card-title text-black fs-6 mb-0 mt-2">{{ product.title }}</h3>
-          <p class="card-text text-black fs-6 mb-2">
-            NT$
-            <span
-              v-if="product.origin_price !== product.price"
-              class="ms-1 text-decoration-line-through text-secondary"
-              >{{ product.origin_price }}</span
-            >
-            <span class="ms-1">{{ product.price }}</span>
-          </p>
+          <div class="my-2">
+            <h3 class="card-title text-black fs-6 mb-1 mt-2">{{ product.title }}</h3>
+            <p v-if="product.origin_price === product.price" class="card-text text-black fs-6 mb-2">
+              <span>NT${{ product.origin_price }} </span>
+            </p>
+            <p v-else class="card-text text-black fs-6 mb-2">
+              <span>NT${{ product.price }} </span>
+              <span class="ms-1 text-decoration-line-through text-secondary"
+                >NT${{ product.origin_price }}</span
+              >
+            </p>
+          </div>
+
           <button
-            class="btn btn-sm btn-outline-primary w-100 rounded-0 mt-auto"
+            class="btn btn-outline-primary w-100 rounded-0 mt-auto py-2"
             type="button"
             @click="addToCart(product.id)"
             :disabled="product.quantity === 0 || spinnerLoading === product.id"
