@@ -34,13 +34,13 @@
           </button>
         </div>
         <div class="container py-4 px-4">
-          <div class="border rounded d-flex justify-content-between py-5 px-4 mb-3">
+          <div class="border d-flex justify-content-between py-5 px-4 mb-3">
             <h3>訂單管理</h3>
             <button class="btn btn-outline-primary" @click="openModal('deleteAll')" type="button">
               刪除全部訂單
             </button>
           </div>
-          <div class="border rounded py-5 px-4 mb-5 d-flex flex-column">
+          <div class="border py-5 px-4 mb-5 d-flex flex-column">
             <div class="vl-parent" ref="orderLoadingContainer">
               <!-- loading 效果元件 -->
               <AdminContainerLoading :isLoading="isLoading" :container="container" />
