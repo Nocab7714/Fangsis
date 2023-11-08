@@ -18,7 +18,7 @@
         />
         <h2 class="fs-6 fs-md-4 text-light z-index-3 mb-0">會員登入</h2>
       </div>
-      <div class="bg-light z-index-3 py-7 py-md-7 py-7 px-3 px-md-7 position-relative rounded">
+      <div class="bg-light z-index-3 py-7 py-md-7 py-7 px-3 px-md-7 position-relative">
         <VForm v-slot="{ meta, errors }" @submit="MemberLoginIn">
           <div class="mb-3">
             <label for="MemberLoginAccount" class="form-label">帳號 / Account </label>
