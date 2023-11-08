@@ -39,6 +39,9 @@
 <script>
 import * as bootstrap from 'bootstrap'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
+import Toast from '@/utils/Toast'
 
 export default {
   data() {
@@ -63,10 +66,24 @@ export default {
         .then((res) => {
           this.getProducts()
           this.productDeleteModal.hide()
-          alert(res.data.message)
+          Toast.fire({
+            icon: 'success',
+            title: '已成功刪除產品'
+          })
         })
         .catch((err) => {
-          alert(err.message)
+          this.productDeleteModal.hide()
+          Swal.fire({
+            title: '刪除產品失敗',
+            text: '請確認網路連線環境並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
         })
     }
   },

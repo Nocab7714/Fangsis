@@ -129,6 +129,17 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
         .catch((err) => {
+          Swal.fire({
+            title: '連線失敗',
+            text: '無法取得購物車資料，請重新確認網路連線並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '關閉',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
     },
@@ -171,6 +182,17 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
         .catch((err) => {
+          Swal.fire({
+            title: '連線失敗',
+            text: '無法將產品加入購物車清單，請重新確認網路連線並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '關閉',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
           this.isLoading = false // 取得產品資料後關閉 loading 效果
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
@@ -205,6 +227,17 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
               this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
             })
             .catch((err) => {
+              Swal.fire({
+                title: '連線失敗',
+                text: '無法正確刪除產品資料，請重新確認網路連線並再次嘗試!',
+                icon: 'error',
+                confirmButtonText: '關閉',
+                confirmButtonColor: '#5D7067',
+                customClass: {
+                  popup: 'radius0',
+                  confirmButton: 'radius0'
+                }
+              })
               this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
             })
         }
@@ -239,7 +272,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
                 title: '已清空您的購物車'
               })
             })
-            .catch((err) => {})
+            .catch((err) => {
+              Swal.fire({
+                title: '連線失敗',
+                text: '無法清空購物車資料，請重新確認網路連線並再次嘗試!',
+                icon: 'error',
+                confirmButtonText: '關閉',
+                confirmButtonColor: '#5D7067',
+                customClass: {
+                  popup: 'radius0',
+                  confirmButton: 'radius0'
+                }
+              })
+            })
         }
       })
     },
@@ -278,7 +323,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             title: '已成功更新產品數量'
           })
         })
-        .catch((err) => {})
+        .catch((err) => {
+          Swal.fire({
+            title: '連線失敗',
+            text: '無法更新購物車資料，請重新確認網路連線並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '關閉',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
+        })
     },
     // coupon and order
     //客戶使用優惠劵

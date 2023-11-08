@@ -122,6 +122,8 @@ import OrderDeleteModal from '@/components/admin/OrderDeleteModal.vue'
 import OrderPagination from '@/components/admin/OrderPagination.vue'
 import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
 import AdminMixin from '@/mixins/AdminMixin.vue'
+// sweetalert2
+import Swal from 'sweetalert2'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -150,7 +152,17 @@ export default {
           this.isLoading = false
         })
         .catch((err) => {
-          alert(err.data.message)
+          Swal.fire({
+            title: '資料錯誤',
+            text: '無法取得後台資料，請重新確認網路連線並重新登入!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
           this.isLoading = false
         })
     },

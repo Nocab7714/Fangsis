@@ -41,6 +41,8 @@
 import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
 import ProductDetail from '@/components/fronted/ProductDetail.vue'
 import ProductSwiper from '@/components/fronted/ProductSwiper.vue'
+// sweetalert2
+import Swal from 'sweetalert2'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -66,7 +68,21 @@ export default {
           this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
         .catch((err) => {
-          alert(err)
+          Swal.fire({
+            title: '您所尋找的產品並不存在',
+            text: '無法取得該項產品資料!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$router.push(`/products`)
+            }
+          })
           this.isLoading = false // 取得產品資料後關閉 loading 效果
         })
     }
@@ -89,7 +105,22 @@ export default {
         this.isLoading = false // 取得產品資料後關閉 loading 效果
       })
       .catch((err) => {
-        alert(err)
+        Swal.fire({
+          title: '您所尋找的產品並不存在',
+          text: '無法取得該項產品資料!',
+          icon: 'error',
+          confirmButtonText: '確定',
+          confirmButtonColor: '#5D7067',
+          customClass: {
+            popup: 'radius0',
+            confirmButton: 'radius0'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$router.push(`/products`)
+          }
+        })
+
         this.isLoading = false // 取得產品資料後關閉 loading 效果
       })
   }

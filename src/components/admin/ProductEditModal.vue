@@ -203,6 +203,10 @@
 <script>
 import * as bootstrap from 'bootstrap'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
+import Toast from '@/utils/Toast'
+
 export default {
   data() {
     return {
@@ -231,12 +235,32 @@ export default {
       this.$http[method](url, { data: this.tempProduct })
         .then((res) => {
           this.getProducts() // 新增完產品以後會重新取得
-          this.productEditModal.hide() // 關閉 modal
-          alert(res.data.message)
+          this.productEditModal.hide()
+          if (method === 'post') {
+            Toast.fire({
+              icon: 'success',
+              title: '已成功新增產品'
+            })
+          } else if (method === 'put') {
+            Toast.fire({
+              icon: 'success',
+              title: '已成功更新產品'
+            })
+          }
         })
         .catch((err) => {
-          // 新增產品失敗跳出錯誤訊息提示框
-          alert(err.data.message)
+          this.productEditModal.hide()
+          Swal.fire({
+            title: '更新產品失敗',
+            text: '請確認網路連線環境並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
         })
     }
   },

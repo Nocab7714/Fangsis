@@ -75,6 +75,9 @@
 import * as bootstrap from 'bootstrap'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
+// sweetalert2
+import Swal from 'sweetalert2'
+import Toast from '@/utils/Toast'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -125,11 +128,31 @@ export default {
         .then((res) => {
           this.getCoupons() // 新增完產品以後會重新取得
           this.couponEditModal.hide()
-          alert(res.data.message)
+          if (method === 'post') {
+            Toast.fire({
+              icon: 'success',
+              title: '已成功新增優惠劵'
+            })
+          } else if (method === 'put') {
+            Toast.fire({
+              icon: 'success',
+              title: '已成功更新優惠劵'
+            })
+          }
         })
         .catch((err) => {
-          // 新增產品失敗跳出錯誤訊息提示框
-          alert(err.message)
+          this.couponEditModal.hide()
+          Swal.fire({
+            title: '更新優惠劵失敗',
+            text: '請確認網路連線環境並再次嘗試!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          })
         })
     }
   },

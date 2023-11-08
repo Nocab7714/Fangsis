@@ -184,9 +184,7 @@ export default {
           })
         }
       })
-      .catch((err) => {
-        alert(err)
-      })
+      .catch((err) => {})
     this.paymentReset() // 回復付款的預設狀態為 "請選擇您的付款方式"
   },
   computed: {

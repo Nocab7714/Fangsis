@@ -83,7 +83,6 @@
 <script>
 import PaginationComponent from '@/components/fronted/PaginationComponent.vue'
 import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
-
 import { mapActions, mapState } from 'pinia'
 import cartAndWishListStore from '@/stores/cartAndWishList'
 

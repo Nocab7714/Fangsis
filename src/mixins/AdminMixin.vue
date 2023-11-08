@@ -2,6 +2,9 @@
 
 <script>
 const { VITE_APP_URL } = import.meta.env
+// sweetalert2
+import Swal from 'sweetalert2'
+
 export default {
   data() {
     return {
@@ -24,8 +27,21 @@ export default {
         .post(`${VITE_APP_URL}/v2/api/user/check`)
         .then((res) => {})
         .catch((err) => {
-          alert('尚未登入後台系統，請重新登入!!')
-          this.$router.push(`/admin`)
+          Swal.fire({
+            title: '驗證錯誤',
+            text: '您尚未登入後台系統，請重新登入!',
+            icon: 'error',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$router.push(`/admin`)
+            }
+          })
         })
     },
     // 後台系統登出
@@ -33,8 +49,21 @@ export default {
       this.$http
         .post(`${VITE_APP_URL}/v2/logout`)
         .then((res) => {
-          alert('登出後台系統成功!')
-          this.$router.push(`/admin`)
+          Swal.fire({
+            title: '登出成功',
+            text: '您已成功登出後台系統!',
+            icon: 'success',
+            confirmButtonText: '確定',
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.$router.push(`/admin`)
+            }
+          })
         })
         .catch((err) => {})
     }
