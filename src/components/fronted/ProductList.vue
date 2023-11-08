@@ -57,7 +57,7 @@
           </div>
 
           <button
-            class="btn btn-outline-primary w-100 rounded-0 mt-auto py-2"
+            class="btn btn-outline-primary w-100 mt-auto py-2"
             type="button"
             @click="addToCart(product.id)"
             :disabled="product.quantity === 0 || spinnerLoading === product.id"

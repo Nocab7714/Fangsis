@@ -15,7 +15,7 @@
         >
         <div class="input-group">
           <VField
-            class="form-control border-primary rounded-0"
+            class="form-control border-primary"
             :class="{ 'is-invalid': errors.email }"
             id="subscript"
             type="email"
@@ -24,9 +24,7 @@
             placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
             v-model="subscriptEmail"
           />
-          <button class="fs-6 btn btn-outline-primary px-5 py-2 rounded-0" type="submit">
-            訂閱
-          </button>
+          <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit">訂閱</button>
         </div>
       </VForm>
     </div>

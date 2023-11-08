@@ -149,7 +149,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyfLN2KMNTi0BDw2a"
-                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
+                class="btn btn-outline-secondary w-100 fs-6"
                 >查看更多</routerLink
               >
             </div>
@@ -175,7 +175,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyIBPAuloX43ptLPf"
-                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
+                class="btn btn-outline-secondary w-100 fs-6"
                 >查看更多</routerLink
               >
             </div>
@@ -201,7 +201,7 @@
               </p>
               <routerLink
                 to="/product/-NbqyVvyXTcrspg7NMK9"
-                class="btn btn-outline-secondary w-100 fs-6 rounded-0"
+                class="btn btn-outline-secondary w-100 fs-6"
                 >查看更多</routerLink
               >
             </div>
