@@ -150,7 +150,11 @@ export default {
             text: '未找到您所查詢的訂單資訊，請確認輸入的訂單編號是否正確!',
             icon: 'error',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
           })
           this.isLoading = false // 取得資料後關閉 loading 效果
         })

@@ -94,7 +94,11 @@ export default {
         title: '會員登入成功!',
         icon: 'success',
         confirmButtonText: '確定',
-        confirmButtonColor: '#5D7067'
+        confirmButtonColor: '#5D7067',
+        customClass: {
+          popup: 'radius0',
+          confirmButton: 'radius0'
+        }
       }).then((result) => {
         if (result.isConfirmed) {
           this.$router.push(`/`)

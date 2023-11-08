@@ -119,7 +119,11 @@ export default {
             title: '後台登入成功!',
             icon: 'success',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
           }).then((result) => {
             if (result.isConfirmed) {
               this.$router.push(`/admin/adminProducts`)
@@ -134,7 +138,11 @@ export default {
             text: '請確認輸入的帳號與密碼是否有誤並再次嘗試!',
             icon: 'error',
             confirmButtonText: '關閉',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
           })
         })
     }

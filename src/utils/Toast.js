@@ -7,5 +7,8 @@ export default Swal.mixin({
   timerProgressBar: true,
   iconColor: '#5D7067',
   background: '#ffffff',
-  color: '#5D7067'
+  color: '#5D7067',
+  customClass: {
+    popup: 'radius0'
+  }
 })

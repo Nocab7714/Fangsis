@@ -81,7 +81,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         confirmButtonText: '確定',
         confirmButtonColor: '#5D7067',
         cancelButtonText: '取消',
-        cancelButtonColor: '#DC3545'
+        cancelButtonColor: '#DC3545',
+        customClass: {
+          popup: 'radius0',
+          confirmButton: 'radius0',
+          cancelButton: 'radius0'
+        }
       }).then((result) => {
         if (result.isConfirmed) {
           this.wishList.forEach((item, index) => {
@@ -138,7 +143,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           title: '產品數量未選擇',
           text: '請先選擇產品數量!',
           confirmButtonColor: '#5D7067',
-          confirmButtonText: '關閉'
+          confirmButtonText: '關閉',
+          customClass: {
+            popup: 'radius0',
+            confirmButton: 'radius0'
+          }
         })
         this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         return
@@ -177,7 +186,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         confirmButtonText: '確定',
         confirmButtonColor: '#5D7067',
         cancelButtonText: '取消',
-        cancelButtonColor: '#DC3545'
+        cancelButtonColor: '#DC3545',
+        customClass: {
+          popup: 'radius0',
+          confirmButton: 'radius0',
+          cancelButton: 'radius0'
+        }
       }).then((result) => {
         if (result.isConfirmed) {
           axios
@@ -208,7 +222,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         confirmButtonText: '確定',
         confirmButtonColor: '#5D7067',
         cancelButtonText: '取消',
-        cancelButtonColor: '#DC3545'
+        cancelButtonColor: '#DC3545',
+        customClass: {
+          popup: 'radius0',
+          confirmButton: 'radius0',
+          cancelButton: 'radius0'
+        }
       }).then((result) => {
         if (result.isConfirmed) {
           axios
@@ -234,7 +253,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           text: '產品數量不得少於 1 ',
           icon: 'error',
           confirmButtonText: '確定',
-          confirmButtonColor: '#5D7067'
+          confirmButtonColor: '#5D7067',
+          customClass: {
+            popup: 'radius0',
+            confirmButton: 'radius0'
+          }
         }).then((result) => {
           if (result.isConfirmed) {
             location.reload() // 整理頁面刷新 input 的 value
@@ -276,7 +299,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             text: res.data.message,
             icon: 'success',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
           })
           this.couponCodeMessage = `( ${res.data.message} )`
           // 將信息成功使用優惠卷的信息儲存於 localStorage，避免再畫面重新整理後，位於 CartCard.vue 使用優惠卷的按紐下方
@@ -290,7 +317,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             text: '你所輸入的優惠券並不存在或是已經過期!',
             icon: 'error',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
+            customClass: {
+              popup: 'radius0',
+              confirmButton: 'radius0'
+            }
           })
         })
     },
