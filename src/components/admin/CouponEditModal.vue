@@ -166,3 +166,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scope>
+:root {
+  --dp-border-radius: 0px !important;
+}
+</style>
