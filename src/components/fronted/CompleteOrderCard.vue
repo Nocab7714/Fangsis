@@ -2,7 +2,7 @@
   <!-- 訂單付款成功 -->
   <div
     v-if="order.length !== 0"
-    class="cart-status border border-2 border-secondary px-5 py-10 mt-6 mb-10 d-flex justify-content-center align-items-center flex-column"
+    class="cart-status border border-2 border-secondary px-5 py-10 mt-2 mb-10 d-flex justify-content-center align-items-center flex-column"
   >
     <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
       <svg
@@ -55,7 +55,7 @@
   <!-- 訂單付款失敗 -->
   <div
     v-else-if="order === 'error'"
-    class="cart-status border border-2 border-secondary px-5 py-10 mt-6 mb-10 d-flex justify-content-center align-items-center flex-column"
+    class="cart-status border border-2 border-secondary px-5 py-10 mt-2 mb-10 d-flex justify-content-center align-items-center flex-column"
   >
     <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start">
       <svg

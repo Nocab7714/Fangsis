@@ -1,6 +1,6 @@
 <template>
   <!-- 購物車內有商品顯示該區塊 -->
-  <div v-if="carts.length" class="row mt-4 gy-3">
+  <div v-if="carts.length" class="row mt-2 gy-3">
     <!-- vue-loading -->
     <div class="col-lg-8">
       <div class="border border-2 border-secondary px-5 py-5">

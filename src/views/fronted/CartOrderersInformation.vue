@@ -23,15 +23,14 @@
     </div>
   </div>
   <div class="container mt-5 mt-md-7 mb-10">
-    <div class="container">
-      <PurchaseSteps :isActive="purchaseStepsIsActive" />
-    </div>
+    <PurchaseStepper :isActive="purchaseStepsIsActive" />
+
     <CartOrderForm />
   </div>
 </template>
 
 <script>
-import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
 import CartOrderForm from '@/components/fronted/CartOrderForm.vue'
 
 export default {
@@ -41,7 +40,7 @@ export default {
     }
   },
   components: {
-    PurchaseSteps,
+    PurchaseStepper,
     CartOrderForm
   }
 }

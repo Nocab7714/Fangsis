@@ -23,25 +23,23 @@
     </div>
   </div>
   <div class="container mt-5 mt-md-7 mb-10">
-    <div class="container">
-      <PurchaseSteps :isActive="purchaseStepsIsActive" />
-    </div>
+    <PurchaseStepper :isActive="PurchaseStepperIsActive" />
     <CartCard />
   </div>
 </template>
 
 <script>
-import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
 import CartCard from '@/components/fronted/CartCard.vue'
 
 export default {
   data() {
     return {
-      purchaseStepsIsActive: 'cart' // purchaseSteps active 樣式狀態
+      PurchaseStepperIsActive: 'cart' // purchaseSteps active 樣式狀態
     }
   },
   components: {
-    PurchaseSteps,
+    PurchaseStepper,
     CartCard
   },
   mounted() {}

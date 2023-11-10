@@ -1,6 +1,6 @@
 <template>
   <VForm v-slot="{ meta, errors }" @submit="createOrder">
-    <div class="row mt-4 gy-3">
+    <div class="row mt-2 gy-3">
       <div class="col-lg-8">
         <div class="border border-2 border-secondary px-5 py-5">
           <div

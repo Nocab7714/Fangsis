@@ -8,7 +8,7 @@
   >
     <div class="container d-flex flex-column align-items-center">
       <h2 class="fw-bold fs-lg-10 fs-1 mb-3 text-white" style="font-family: var(--bs-NotoSerif-TC)">
-        訂單明細
+        訂單付款
       </h2>
       <div class="fs-6">
         <nav aria-label="breadcrumb">
@@ -16,16 +16,14 @@
             <li class="breadcrumb-item">
               <routerLink class="text-decoration-none text-white" to="/">首頁</routerLink>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">訂單明細</li>
+            <li class="breadcrumb-item active" aria-current="page">訂單付款</li>
           </ol>
         </nav>
       </div>
     </div>
   </div>
   <div class="container mt-5 mt-md-7 mb-10">
-    <div class="container">
-      <PurchaseSteps :isActive="purchaseStepsIsActive" />
-    </div>
+    <PurchaseStepper :isActive="purchaseStepsIsActive" />
     <div class="mt-4">
       <CartOrderPay />
     </div>
@@ -33,17 +31,17 @@
 </template>
 
 <script>
-import PurchaseSteps from '@/components/fronted/PurchaseSteps.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
 import CartOrderPay from '@/components/fronted/CartOrderPay.vue'
 
 export default {
   data() {
     return {
-      purchaseStepsIsActive: 'details' // purchaseSteps active 樣式狀態
+      purchaseStepsIsActive: 'pay' // purchaseSteps active 樣式狀態
     }
   },
   components: {
-    PurchaseSteps,
+    PurchaseStepper,
     CartOrderPay
   }
 }
