@@ -4,22 +4,36 @@
     <nav v-if="isTop" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <object
+          <!-- <object
             class="logo-desktop img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisWhiteLogo3x"
             width="192"
             height="64"
             style="pointer-events: none"
-          ></object>
-          <object
+          ></object> -->
+          <img
+            :src="logoSvgUrl.fangsisWhiteLogo3x"
+            class="logo-desktop img-fluid"
+            alt="透明底白色字大小為 192*64 的 Fangsis 芳心 Logo"
+            width="192"
+            height="64"
+          />
+          <!-- <object
             class="logo-mobile img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisWhiteLogo2x"
             width="120"
             height="40"
             style="pointer-events: none"
-          ></object>
+          ></object> -->
+          <img
+            :src="logoSvgUrl.fangsisWhiteLogo2x"
+            class="logo-mobile img-fluid"
+            alt="透明底白色字大小為 120*64 的 Fangsis 芳心 Logo"
+            width="120"
+            height="64"
+          />
         </router-link>
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/WishLists">
@@ -116,22 +130,36 @@
     <nav v-if="!isTop" class="navbar navbar-expand-lg bg-white navbar-dark shadow fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <object
+          <!-- <object
             class="logo-desktop img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisBlackLogo3x"
             width="192"
             height="64"
             style="pointer-events: none"
-          ></object>
-          <object
+          ></object> -->
+          <img
+            :src="logoSvgUrl.fangsisBlackLogo3x"
+            class="logo-desktop img-fluid"
+            alt="透明底黑字大小為 192*64 的 Fangsis 芳心 Logo"
+            width="192"
+            height="64"
+          />
+          <!-- <object
             class="logo-mobile img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisBlackLogo2x"
             width="120"
             height="40"
             style="pointer-events: none"
-          ></object>
+          ></object> -->
+          <img
+            :src="logoSvgUrl.fangsisBlackLogo3x"
+            class="logo-mobile img-fluid"
+            alt="透明底黑字大小為 120*40 的 Fangsis 芳心 Logo"
+            width="120"
+            height="40"
+          />
         </router-link>
         <div class="ms-auto d-flex">
           <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/WishLists">

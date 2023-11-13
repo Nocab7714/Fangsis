@@ -5,13 +5,20 @@
         <div
           class="d-flex mb-lg-9 mb-55 flex-column flex-lg-row align-items-lg-start align-items-center"
         >
-          <object
+          <!-- <object
             class="me-lg-7 me-0 mb-7 mb-lg-0 img-fluid"
             type="image/svg+xml"
             :data="logoSvgUrl.fangsisWhiteLogo3x"
             width="240"
             height="80"
-          ></object>
+          ></object> -->
+          <img
+            :src="logoSvgUrl.fangsisWhiteLogo3x"
+            class="me-lg-7 me-0 mb-7 mb-lg-0 img-fluid"
+            alt="透明底白字大小為 240*80 的 Fangsis 芳心 Logo"
+            width="240"
+            height="80"
+          />
           <ul class="list-unstyled text-center d-flex mb-0 flex-column flex-lg-row">
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
               <router-link class="link-light text-decoration-none" to="/PrivacyPolicy"
@@ -33,14 +40,21 @@
                     target="_blank"
                   >
                     <span class="d-lg-block d-none">綠印生活</span>
-                    <object
+                    <!-- <object
                       class="d-lg-none d-block img-fluid"
                       type="image/svg+xml"
                       :data="logoSvgUrl.smallstepsgreenLogo"
                       width="70"
                       height="70"
                       style="pointer-events: none"
-                    ></object>
+                    ></object> -->
+                    <img
+                      :src="logoSvgUrl.smallstepsgreenLogo"
+                      class="d-lg-none d-block img-fluid"
+                      alt="透明底白字的綠印生活 Logo"
+                      width="70"
+                      height="70"
+                    />
                   </a>
                 </li>
                 <li class="py-lg-25 py-0 ms-2 ms-lg-0">
@@ -49,14 +63,21 @@
                     href="https://www.facebook.com/banai.savon/?locale=zh_TW"
                     target="_blank"
                     ><span class="d-lg-block d-none">白娜Banai</span>
-                    <object
+                    <!-- <object
                       class="d-lg-none d-block img-fluid"
                       type="image/svg+xml"
                       :data="logoSvgUrl.banaiLogo"
                       width="70"
                       height="70"
                       style="pointer-events: none"
-                    ></object>
+                    ></object> -->
+                    <img
+                      :src="logoSvgUrl.banaiLogo"
+                      class="d-lg-none d-block img-fluid"
+                      alt="透明底白字的白娜手作 Logo"
+                      width="70"
+                      height="70"
+                    />
                   </a>
                 </li>
               </ul>
