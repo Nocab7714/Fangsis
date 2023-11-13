@@ -4,31 +4,15 @@
     <nav v-if="isTop" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <!-- <object
-            class="logo-desktop img-fluid"
-            type="image/svg+xml"
-            :data="logoSvgUrl.fangsisWhiteLogo3x"
-            width="192"
-            height="64"
-            style="pointer-events: none"
-          ></object> -->
           <img
-            :src="logoSvgUrl.fangsisWhiteLogo3x"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881744888.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J6pG4b8yb5eOth8gCVd4ORKGIbVdMBjFNJEWBcl%2FHON2NuIxWP%2FCfj4CXeek1FaA65A6l7zo2ljoDvUClymsepQLm2e3%2FgR%2BVvlbX7G4ZtLJtG%2FBbrTPIJuWycBRPTriIQoaMTa7dsW2ii3vf%2B1wcj3ENTg1HlGRNDmRLkojrilWvkPOGY9fxTdW9f8QDHJBC3V8VMjEEycnTToRB58uZWwawDzErOa8GpmzYnlqErvtrf4Gejj%2FDWSUkkR9eQ7kK1636iMZYnemMVCn9FsuoEGN7Ml5y1fcZ%2BD27X%2Bpt%2Bh3VsdBZjGhXVruoSrOrbWM%2F4VkBS1wR3WMpxXv4Plnwg%3D%3D"
             class="logo-desktop img-fluid"
             alt="透明底白色字大小為 192*64 的 Fangsis 芳心 Logo"
             width="192"
             height="64"
           />
-          <!-- <object
-            class="logo-mobile img-fluid"
-            type="image/svg+xml"
-            :data="logoSvgUrl.fangsisWhiteLogo2x"
-            width="120"
-            height="40"
-            style="pointer-events: none"
-          ></object> -->
           <img
-            :src="logoSvgUrl.fangsisWhiteLogo2x"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881758680.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=KCORmZQq%2Bmzd5MuFMNzp1bVPnNSajk50a8aeFbuKPK0fYV2FnpzucIJKMVfIq4DA3ABjJ8blL%2BQez0DgI%2FkLSvg%2F8CbPJOaZtE8jtHELI14FC6g%2FBsGowPK2cVE8o4WFDela2ir1IFjyu6GYQGu9%2FcRvIAUR25gzSxYv4klavXuFXpk0jZnQZzIYhSAgbX6cAgoNsAxhISdruZxLIC45SXJl3iW6Tx3mODHGNhIzTwqgVbj7Rctkm6%2BqwBSgtQwt4moo5sj5vlBUQ3ozvvppxTcQK0PQFOiXhx6oPQ2hX4j5c0E8F%2FGNO33ku7Hy66ZYpPIeHshCUBp5PdnoM8lhuA%3D%3D"
             class="logo-mobile img-fluid"
             alt="透明底白色字大小為 120*64 的 Fangsis 芳心 Logo"
             width="120"
@@ -130,31 +114,15 @@
     <nav v-if="!isTop" class="navbar navbar-expand-lg bg-white navbar-dark shadow fixed-top">
       <div class="container">
         <router-link class="navbar-brand" to="/">
-          <!-- <object
-            class="logo-desktop img-fluid"
-            type="image/svg+xml"
-            :data="logoSvgUrl.fangsisBlackLogo3x"
-            width="192"
-            height="64"
-            style="pointer-events: none"
-          ></object> -->
           <img
-            :src="logoSvgUrl.fangsisBlackLogo3x"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881703031.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JshnLFJ6J7C7n5ZSNer5M55ESAbj4CYnldHRSIK8FpfJEBp7kKQkK3lGML9ESbuyWnggedeaMAuhWbNQRHS0al88jyd3iX92YvZoKjbxlpf7NeucZoPXY4VrknbAELFiGHXmQ4Kdt9eOZVA8pVMk%2Fnpx3fejMGDDOBzQZ%2FxuZdQ8vgMvrf67E9gytrAZDKV5FKr9sGrtHQBuDKBkfov0ZFSiQUg58IbJfJ7AUARRQbq%2Fo4LxIkpZKlXDrMTA7ZvMDpctVZ4vLTSgOQKGmDUc%2FSsK6dkSsf4SXE%2FZGh%2BvuETEn3A%2Fv3hZrbxrI2Vwq4Jh0qXto0TKxr6o3RHNKdudhQ%3D%3D"
             class="logo-desktop img-fluid"
             alt="透明底黑字大小為 192*64 的 Fangsis 芳心 Logo"
             width="192"
             height="64"
           />
-          <!-- <object
-            class="logo-mobile img-fluid"
-            type="image/svg+xml"
-            :data="logoSvgUrl.fangsisBlackLogo2x"
-            width="120"
-            height="40"
-            style="pointer-events: none"
-          ></object> -->
           <img
-            :src="logoSvgUrl.fangsisBlackLogo3x"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881715229.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qE%2BIivfwHwuFau4D1%2FBm37WIrUN7lIuaMurr6nKnAVDJ14LQ%2Fq0Ag7gRtRUoyCzpre3t2n%2BVc0tmMVyDr7sWwH99OPxo1%2B6cAqV%2FiJxc88VXWTDGO0gvbCDrwnidfbNfPdlN16c%2FGcUXtXhIwpN9K0Xetb4BECFinl3N2eg%2Bl834ARNTyb7GDhwiEtq%2FAQQtdBbk59RJLeIJsN0lp%2BBVDOEWo%2BuBhiqNWUWxCdwZ0ndePnLOA6mwt3OmLdpu6iU6%2BPWr0ZlKPpo0odOsWYDABPi1vzObR8NTjLA9TkALY1D3HpnkS67ac4uX5blc2woiclKYpt82la1nDqQcwB7Ulg%3D%3D"
             class="logo-mobile img-fluid"
             alt="透明底黑字大小為 120*40 的 Fangsis 芳心 Logo"
             width="120"
@@ -263,23 +231,11 @@ import cartAndWishListStore from '@/stores/cartAndWishList'
 import offcanvasStore from '@/stores/offcanvasStore'
 import CartOffcanvas from '@/components/fronted/CartOffcanvas.vue'
 import MenuOffcanvas from '@/components/fronted/MenuOffcanvas.vue'
-// logo
-import fangsisWhiteLogo3x from '@/assets/svg/logo-fangsis-white.svg'
-import fangsisWhiteLogo2x from '@/assets/svg/logo-fangsis-white-120x40.svg'
-import fangsisBlackLogo3x from '@/assets/svg/logo-fangsis-black.svg'
-import fangsisBlackLogo2x from '@/assets/svg/logo-fangsis-black-120x40.svg'
 
 export default {
   data() {
     return {
-      isTop: true, // 視窗是否在最頂端的狀態
-      // logo
-      logoSvgUrl: {
-        fangsisWhiteLogo3x: fangsisWhiteLogo3x,
-        fangsisWhiteLogo2x: fangsisWhiteLogo2x,
-        fangsisBlackLogo3x: fangsisBlackLogo3x,
-        fangsisBlackLogo2x: fangsisBlackLogo2x
-      }
+      isTop: true // 視窗是否在最頂端的狀態
     }
   },
   components: {
