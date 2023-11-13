@@ -32,11 +32,11 @@ export default {
 
 <style lang="scss" scope>
 :root {
-  --circle-size: clamp(1.5rem, 4vw, 4rem);
+  --circle-size: clamp(2rem, 4vw, 3rem);
   --spacing: clamp(0.25rem, 2vw, 0.5rem);
 }
 
-.stepper-item-cart {
+@mixin stepper-item {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -44,7 +44,6 @@ export default {
 
   &:before {
     --size: 3rem;
-    content: '1';
     display: block;
     width: var(--circle-size);
     height: var(--circle-size);
@@ -67,105 +66,37 @@ export default {
       background-color: $secondary;
       order: -1;
     }
+  }
+}
+
+.stepper-item-cart {
+  @include stepper-item;
+  &:before {
+    content: '1';
   }
 }
 .stepper-item-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-align: center;
-
+  @include stepper-item;
   &:before {
-    --size: 3rem;
     content: '2';
-    display: block;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    border-radius: 50%;
-    border: 2px solid $primary;
-    color: $primary;
-    margin: 0 auto 1rem;
-    font-size: calc(var(--circle-size) / 2);
-    padding-top: 2px;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: '';
-      position: relative;
-      top: calc(var(--circle-size) / 2);
-      width: calc(100% - var(--circle-size) - calc(var(--spacing) * 2));
-      left: calc(50% + calc(var(--circle-size) / 2 + var(--spacing)));
-      height: 2px;
-      background-color: $secondary;
-      order: -1;
-    }
   }
 }
 .stepper-item-pay {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-align: center;
-
+  @include stepper-item;
   &:before {
-    --size: 3rem;
     content: '3';
-    display: block;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    border-radius: 50%;
-    border: 2px solid $primary;
-    color: $primary;
-    margin: 0 auto 1rem;
-    font-size: calc(var(--circle-size) / 2);
-    padding-top: 2px;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: '';
-      position: relative;
-      top: calc(var(--circle-size) / 2);
-      width: calc(100% - var(--circle-size) - calc(var(--spacing) * 2));
-      left: calc(50% + calc(var(--circle-size) / 2 + var(--spacing)));
-      height: 2px;
-      background-color: $secondary;
-      order: -1;
-    }
   }
 }
 .stepper-item-complete {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-align: center;
-
+  @include stepper-item;
   &:before {
-    --size: 3rem;
     content: '4';
-    display: block;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    border-radius: 50%;
-    border: 2px solid $primary;
-    color: $primary;
-    margin: 0 auto 1rem;
-    font-size: calc(var(--circle-size) / 2);
-    padding-top: 2px;
   }
 
-  &:not(:last-child) {
-    &:after {
-      content: '';
-      position: relative;
-      top: calc(var(--circle-size) / 2);
-      width: calc(100% - var(--circle-size) - calc(var(--spacing) * 2));
-      left: calc(50% + calc(var(--circle-size) / 2 + var(--spacing)));
-      height: 2px;
-      background-color: $secondary;
-      order: -1;
-    }
+  &:after {
+    content: '';
+    height: 2px;
+    order: -1;
   }
 }
 
