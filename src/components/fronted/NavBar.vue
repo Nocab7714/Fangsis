@@ -84,7 +84,7 @@
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
-                class="nav-link fs-4 me-1 link-light"
+                class="nav-link fs-4 link-light"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
                 @click.prevent="cartOffcanvasToggle"
@@ -97,8 +97,8 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link fs-3 link-light" to="/MemberLogin">
-                <i class="bi bi-person-fill"></i>
+              <router-link class="nav-link fs-2 link-light" to="/MemberLogin">
+                <i class="bi bi-person-fill p-1"></i>
               </router-link>
             </li>
             <li class="nav-item d-block d-lg-none my-2">
@@ -196,7 +196,7 @@
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
-                class="nav-link me-1 fs-4 link-primary"
+                class="nav-link fs-4 link-primary"
                 aria-controls="offcanvasWithBackdrop"
                 href=""
                 @click.prevent="cartOffcanvasToggle"
@@ -209,8 +209,8 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link fs-3 link-primary" to="/MemberLogin">
-                <i class="bi bi-person-fill"></i>
+              <router-link class="nav-link fs-2 link-primary" to="/MemberLogin">
+                <i class="bi bi-person-fill p-1"></i>
               </router-link>
             </li>
             <li class="nav-item d-block d-lg-none my-2">
@@ -305,7 +305,6 @@ export default {
   color: white;
   border-radius: 50%;
   text-align: center;
-  padding-top: 4px;
 }
 
 .active-link-white {
