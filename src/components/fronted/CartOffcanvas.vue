@@ -79,52 +79,52 @@
 </template>
 
 <script>
-import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
+import ContainerLoading from '@/components/fronted/ContainerLoading.vue';
 
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
-import offcanvasStore from '@/stores/offcanvasStore'
-import * as bootstrap from 'bootstrap'
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
+import offcanvasStore from '@/stores/offcanvasStore';
+import * as bootstrap from 'bootstrap';
 
 export default {
   data() {
     return {
-      cartOffcanvas: {}, //存放 cart Offcanvas 實體
-      container: this.$refs.LoadingContainer // ContainerLoading 渲染容器範圍
-    }
+      cartOffcanvas: {}, // 存放 cart Offcanvas 實體
+      container: this.$refs.LoadingContainer, // ContainerLoading 渲染容器範圍
+    };
   },
   components: {
-    ContainerLoading
+    ContainerLoading,
   },
   watch: {
-    //開啟與關閉購物車畫布
+    // 開啟與關閉購物車畫布
     cartOffcanvasIsShow() {
-      return this.cartOffcanvasIsShow ? this.cartOffcanvas.show() : this.cartOffcanvas.hide()
-    }
+      return this.cartOffcanvasIsShow ? this.cartOffcanvas.show() : this.cartOffcanvas.hide();
+    },
   },
   methods: {
     ...mapActions(cartAndWishListStore, [
       'getCart',
       'pullLocalStorageToWishList',
-      'removeCartProduct'
+      'removeCartProduct',
     ]),
-    ...mapActions(offcanvasStore, ['cartOffcanvasToggle', 'resetCartOffcanvasIsShowStatus'])
+    ...mapActions(offcanvasStore, ['cartOffcanvasToggle', 'resetCartOffcanvasIsShowStatus']),
   },
   mounted() {
-    this.getCart()
+    this.getCart();
     // 購物車 Offcanvas 實體化
-    this.cartOffcanvas = new bootstrap.Offcanvas(this.$refs.cartOffcanvas)
-    this.$refs.cartOffcanvas.addEventListener('hide.bs.offcanvas', (event) => {
-      this.resetCartOffcanvasIsShowStatus()
-    })
+    this.cartOffcanvas = new bootstrap.Offcanvas(this.$refs.cartOffcanvas);
+    this.$refs.cartOffcanvas.addEventListener('hide.bs.offcanvas', () => {
+      this.resetCartOffcanvasIsShowStatus();
+    });
   },
   computed: {
     ...mapState(cartAndWishListStore, [
       'carts',
       'total',
-      'cartOffcanvasIsLoading' // loading 開啟狀態透過 pinia 管理
+      'cartOffcanvasIsLoading', // loading 開啟狀態透過 pinia 管理
     ]),
-    ...mapState(offcanvasStore, ['cartOffcanvasIsShow'])
-  }
-}
+    ...mapState(offcanvasStore, ['cartOffcanvasIsShow']),
+  },
+};
 </script>

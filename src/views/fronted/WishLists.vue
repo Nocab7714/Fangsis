@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import WishListsCard from '@/components/fronted/WishListsCard.vue'
+import WishListsCard from '@/components/fronted/WishListsCard.vue';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
-    WishListsCard
-  }
-}
+    WishListsCard,
+  },
+};
 </script>

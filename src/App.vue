@@ -3,18 +3,20 @@
 </template>
 <script>
 // animate.css
-import 'animate.css'
+import 'animate.css';
 // AOS
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default {
   data() {
-    return {}
+    return {};
   },
   mounted() {
     AOS.init({
       // Global settings:
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      disable: false,
+      // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
       startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
       initClassName: 'aos-init', // class applied after initialization
       animatedClassName: 'aos-animate', // class applied on animation
@@ -30,8 +32,8 @@ export default {
       easing: 'ease', // default easing for AOS animations
       once: true, // whether animation should happen only once - while scrolling down
       mirror: false, // whether elements should animate out while scrolling past them
-      anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
-    })
-  }
-}
+      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+  },
+};
 </script>

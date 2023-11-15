@@ -37,42 +37,43 @@
 </template>
 
 <script>
-import * as bootstrap from 'bootstrap'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import * as bootstrap from 'bootstrap';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
-      couponDeleteModal: {} // 存放 deleteOrderModal 實體
-    }
+      couponDeleteModal: {}, // 存放 deleteOrderModal 實體
+    };
   },
   props: ['tempCoupon', 'deleteModalIsShow', 'closeModal', 'getCoupons'],
   watch: {
     // 如果 deleteModalIsShow 變更狀態值，打開 modal
     deleteModalIsShow() {
       if (this.deleteModalIsShow) {
-        this.couponDeleteModal.show()
+        this.couponDeleteModal.show();
       }
-    }
+    },
   },
   methods: {
     //  刪除優惠劵
     deleteCoupon() {
       this.$http
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/coupon/${this.tempCoupon.id}`)
-        .then((res) => {
-          this.getCoupons()
-          this.couponDeleteModal.hide()
+        .then(() => {
+          this.getCoupons();
+          this.couponDeleteModal.hide();
           Toast.fire({
             icon: 'success',
-            title: '已成功刪除優惠劵'
-          })
+            title: '已成功刪除優惠劵',
+          });
         })
-        .catch((err) => {
-          this.couponDeleteModal.hide()
+        .catch(() => {
+          this.couponDeleteModal.hide();
           Swal.fire({
             title: '刪除優惠劵失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -81,19 +82,19 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
   },
   mounted() {
     // bootstrap5 modal 實體化
-    this.couponDeleteModal = new bootstrap.Modal(this.$refs.couponDeleteModal)
-    //關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
-    this.$refs.couponDeleteModal.addEventListener('hidden.bs.modal', (event) => {
-      this.closeModal('delete')
-    })
-  }
-}
+    this.couponDeleteModal = new bootstrap.Modal(this.$refs.couponDeleteModal);
+    // 關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
+    this.$refs.couponDeleteModal.addEventListener('hidden.bs.modal', () => {
+      this.closeModal('delete');
+    });
+  },
+};
 </script>

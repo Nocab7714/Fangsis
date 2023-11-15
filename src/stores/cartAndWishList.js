@@ -1,33 +1,33 @@
+/* eslint-disable no-restricted-globals */
 import { defineStore } from 'pinia'
 import axios from 'axios'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 // sweetalert2
 import Swal from 'sweetalert2'
 import Toast from '@/utils/Toast'
 
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+
 const cartAndWishListStore = defineStore('cartAndWishList', {
-  state: () => {
-    return {
-      // wishList state
-      wishList: [],
-      wishListAddStatus: true,
-      // cart state
-      carts: [], //購物車資料
-      total: 0, // 購物車總金額
-      final_total: 0, //購物車總金額 (套用優惠卷金額)
-      // 付款方式與配送方式
-      delivery: '順豐速遞 - 常溫配送', //運送方法儲存 (預設狀態"順豐速遞 - 常溫配送")
-      payment: '',
-      couponCodeMessage: '',
-      // loading 狀態管理
-      isLoading: false,
-      cartOffcanvasIsLoading: false,
-      spinnerLoading: ''
-    }
-  },
+  state: () => ({
+    // wishList state
+    wishList: [],
+    wishListAddStatus: true,
+    // cart state
+    carts: [], // 購物車資料
+    total: 0, // 購物車總金額
+    final_total: 0, // 購物車總金額 (套用優惠卷金額)
+    // 付款方式與配送方式
+    delivery: '順豐速遞 - 常溫配送', // 運送方法儲存 (預設狀態"順豐速遞 - 常溫配送")
+    payment: '',
+    couponCodeMessage: '',
+    // loading 狀態管理
+    isLoading: false,
+    cartOffcanvasIsLoading: false,
+    spinnerLoading: ''
+  }),
   actions: {
     // wishList
-    //加入願望清單
+    // 加入願望清單
     addWishList(product) {
       const wishListObj = {
         title: product.title,
@@ -49,7 +49,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           })
         }
       })
-      //如果 wishListAddStatus 狀態為 true (並沒有將重複資料移除)，將產品資料加入願望清單
+      // 如果 wishListAddStatus 狀態為 true (並沒有將重複資料移除)，將產品資料加入願望清單
       if (this.wishListAddStatus === true) {
         this.wishList.push(wishListObj)
         Toast.fire({
@@ -60,17 +60,17 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       // 回復 wishListAddStatus 初始狀態
       this.wishListAddStatus = true
 
-      //將願望清單資料存在 local Storage
+      // 將願望清單資料存在 local Storage
       const localStorageWishList = JSON.stringify(this.wishList)
       localStorage.setItem('localStorageWishList', localStorageWishList)
     },
-    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
+    // 防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
     pullLocalStorageToWishList() {
       if (localStorage.key('localStorageWishList') !== null) {
         this.wishList = JSON.parse(localStorage.getItem('localStorageWishList'))
       }
     },
-    //移除願望清單品項
+    // 移除願望清單品項
     removeWishListProduct(product) {
       this.isLoading = true // 取得產品資料前顯示 loading 效果
       Swal.fire({
@@ -105,11 +105,11 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       })
       this.isLoading = false // 取得產品資料後關閉 loading 效果
     },
-    //願望清單按鈕 active 狀態切換
+    // 願望清單按鈕 active 狀態切換
     wishListActive(product) {
       let isActive = false // 狀態初始值
       this.wishList.forEach((item) => {
-        //判斷願望清單中的品項 id 與傳入的產品 id 相同，則改變 isActive 狀態數值
+        // 判斷願望清單中的品項 id 與傳入的產品 id 相同，則改變 isActive 狀態數值
         if (product.id === item.id) {
           isActive = true
         }
@@ -128,7 +128,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.final_total = res.data.data.final_total // 包含套用優惠卷的總金額
           this.isLoading = false // 取得資料後關閉 loading 效果
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '連線失敗',
             text: '無法取得購物車資料，請重新確認網路連線並再次嘗試!',
@@ -144,10 +144,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         })
     },
     // 將產品加入入購物車
-    addToCart(product_id, qty = 1, product = '') {
+    addToCart(productId, qty = 1, product = '') {
       // 單項產品頁面判斷，未選擇產品數量會中斷加入購物車
       this.isLoading = true // 取得產品資料前顯示 loading 效果
-      this.spinnerLoading = product_id // 開啟相對應的按鈕 loading 效果
+      this.spinnerLoading = productId // 開啟相對應的按鈕 loading 效果
       if (qty === '數量選擇') {
         Swal.fire({
           icon: 'error',
@@ -167,12 +167,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       const newQty = Number(qty)
       // 當沒有傳入參數時，會使用預設值
       const data = {
-        product_id,
+        product_id: productId,
         qty: newQty
       }
       axios
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
-        .then((res) => {
+        .then(() => {
           this.getCart() // 加入購物車後，重新整理購物車資料
           Toast.fire({
             icon: 'success',
@@ -181,7 +181,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.isLoading = false // 取得產品資料後關閉 loading 效果
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '連線失敗',
             text: '無法將產品加入購物車清單，請重新確認網路連線並再次嘗試!',
@@ -197,8 +197,8 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           this.spinnerLoading = '' // 關閉相對應的按鈕 loading 效果
         })
     },
-    //刪除購物車"單項"產品資料資料
-    removeCartProduct(product_id) {
+    // 刪除購物車"單項"產品資料資料
+    removeCartProduct(productId) {
       this.cartOffcanvasIsLoading = true // 取得資料前顯示 loading 效果
       Swal.fire({
         text: '你確定要將該項產品從購物車刪除嗎?',
@@ -217,8 +217,8 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`)
-            .then((res) => {
+            .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${productId}`)
+            .then(() => {
               this.getCart()
               Toast.fire({
                 icon: 'success',
@@ -226,7 +226,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
               })
               this.cartOffcanvasIsLoading = false // 取得產品資料後關閉 loading 效果
             })
-            .catch((err) => {
+            .catch(() => {
               Swal.fire({
                 title: '連線失敗',
                 text: '無法正確刪除產品資料，請重新確認網路連線並再次嘗試!',
@@ -244,7 +244,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         this.cartOffcanvasIsLoading = false
       })
     },
-    //刪除購物車"全部"產品資料資料
+    // 刪除購物車"全部"產品資料資料
     removeCartAllProduct() {
       Swal.fire({
         title: '清空購物車',
@@ -265,14 +265,14 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         if (result.isConfirmed) {
           axios
             .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
-            .then((res) => {
+            .then(() => {
               this.getCart()
               Toast.fire({
                 icon: 'success',
                 title: '已清空您的購物車'
               })
             })
-            .catch((err) => {
+            .catch(() => {
               Swal.fire({
                 title: '連線失敗',
                 text: '無法清空購物車資料，請重新確認網路連線並再次嘗試!',
@@ -289,7 +289,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
       })
     },
     // 更新單項產品數量
-    upDataCartProduct(product_id, qty) {
+    upDataCartProduct(productId, qty) {
       const newQty = Number(qty)
       // 商品數量若調整為小於0，將該項產品刪除
       if (newQty < 1) {
@@ -311,19 +311,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         return
       }
       const data = {
-        product_id,
+        productId,
         qty: newQty
       }
       axios
-        .put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${product_id}`, { data })
-        .then((res) => {
+        .put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${productId}`, { data })
+        .then(() => {
           this.getCart()
           Toast.fire({
             icon: 'success',
             title: '已成功更新產品數量'
           })
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '連線失敗',
             text: '無法更新購物車資料，請重新確認網路連線並再次嘗試!',
@@ -338,7 +338,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         })
     },
     // coupon and order
-    //客戶使用優惠劵
+    // 客戶使用優惠劵
     UseCoupon(code) {
       // 輸入資料為空值不進行任何動作
       if (code === '') {
@@ -368,7 +368,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           localStorage.setItem('localStorageCouponCodeMessage', localStorageCouponCodeMessage)
           this.getCart()
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '資料錯誤',
             text: '你所輸入的優惠券並不存在或是已經過期!',
@@ -382,12 +382,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           })
         })
     },
-    //order
-    //選擇訂單配送方式
+    // order
+    // 選擇訂單配送方式
     deliveryMethod(method) {
       this.delivery = method
     },
-    //選擇訂單付款方式
+    // 選擇訂單付款方式
     paymentMethod(method) {
       this.payment = method
     },
@@ -398,14 +398,14 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
   },
   getters: {
     // wishList
-    //防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
+    // 防呆，判斷如果 localStorage 有儲存 localStorageWishList 的值才將資料給 this.wishList
     pullLocalStorage() {
       if (localStorage.key('localStorageWishList') !== null) {
         this.wishList = JSON.parse(localStorage.getItem('localStorageWishList'))
       }
     },
     // Cart
-    //防呆，判斷如果 localStorage 有儲存 localStorageCouponCodeMessage 的值才將資料給 this.couponCodeMessage
+    // 防呆，判斷如果 localStorage 有儲存 localStorageCouponCodeMessage 的值才將資料給 this.couponCodeMessage
     pullLocalStorageGetCouponCodeMessage() {
       if (localStorage.key('localStorageCouponCodeMessage') !== null) {
         this.couponCodeMessage = JSON.parse(localStorage.getItem('localStorageCouponCodeMessage'))

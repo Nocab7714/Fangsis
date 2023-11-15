@@ -45,58 +45,58 @@
 </template>
 
 <script>
-import ProductCategoryDesktop from '@/components/fronted/ProductCategoryDesktop.vue'
-import ProductCategoryMobile from '@/components/fronted/ProductCategoryMobile.vue'
-import ProductList from '@/components/fronted/ProductList.vue'
+import ProductCategoryDesktop from '@/components/fronted/ProductCategoryDesktop.vue';
+import ProductCategoryMobile from '@/components/fronted/ProductCategoryMobile.vue';
+import ProductList from '@/components/fronted/ProductList.vue';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       products: [], // 初始產品列表
-      categoryProducts: [], //分類後的產品列表。用於操作產品分類
-      categoryValue: '', //用於 pagination 換頁時將類別類型加入至 getProducts
+      categoryProducts: [], // 分類後的產品列表。用於操作產品分類
+      categoryValue: '', // 用於 pagination 換頁時將類別類型加入至 getProducts
       page: {},
       // vue-loading
-      isLoading: false // ProductList 子元件中的 loading 開啟/關閉狀態透過 productsView 父層元件管理
-    }
+      isLoading: false, // ProductList 子元件中的 loading 開啟/關閉狀態透過 productsView 父層元件管理
+    };
   },
   components: {
     ProductCategoryDesktop,
     ProductCategoryMobile,
-    ProductList
+    ProductList,
   },
   methods: {
     // 取得所有產品資料
     getProducts(page = 1, category = '') {
-      //頁數預設參數 : 預設 1
-      //分類預設參數 : 預設空字串 (顯示全部產品)
-      this.isLoading = true // 取得產品資料前顯示 loading 效果
+      // 頁數預設參數 : 預設 1
+      // 分類預設參數 : 預設空字串 (顯示全部產品)
+      this.isLoading = true; // 取得產品資料前顯示 loading 效果
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products?page=${page}&category=${category}`)
         .then((res) => {
-          this.products = res.data.products
-          this.categoryProducts = this.products
-          this.categoryValue = category
-          this.page = res.data.pagination
-          this.scrollToTop()
-          this.isLoading = false // 取得產品資料後關閉 loading 效果
+          this.products = res.data.products;
+          this.categoryProducts = this.products;
+          this.categoryValue = category;
+          this.page = res.data.pagination;
+          this.scrollToTop();
+          this.isLoading = false; // 取得產品資料後關閉 loading 效果
         })
         .catch((err) => {
-          console.log(err)
-          this.isLoading = false // 取得產品資料後關閉 loading 效果
-        })
+          console.log(err);
+          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+        });
     },
     // 滾動到視窗最頂
     scrollToTop() {
-      window.scrollTo(0, 0)
-    }
+      window.scrollTo(0, 0);
+    },
   },
   mounted() {
-    this.getProducts()
-  }
-}
+    this.getProducts();
+  },
+};
 </script>
 
 <style lang="scss" scoped>

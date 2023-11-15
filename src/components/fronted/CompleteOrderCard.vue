@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <!-- 訂單付款成功 -->
   <div
@@ -104,25 +105,25 @@
 </template>
 
 <script>
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
-      order: {}
-    }
+      order: {},
+    };
   },
   mounted() {
     // 進入付款的動態路由頁面
-    const { id } = this.$route.params
+    const { id } = this.$route.params;
     this.$http
       .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${id}`)
       .then((res) => {
-        this.order = res.data.order
+        this.order = res.data.order;
       })
-      .catch((err) => {
-        this.order = 'error'
-      })
-  }
-}
+      .catch(() => {
+        this.order = 'error';
+      });
+  },
+};
 </script>

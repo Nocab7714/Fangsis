@@ -22,29 +22,29 @@
 export default {
   data() {
     return {
-      isGoToTopVisible: false
-    }
+      isGoToTopVisible: false,
+    };
   },
   methods: {
     scrollToTop() {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     },
     goToTopHandleScroll() {
-      const distanceFromTop = window.scrollY
+      const distanceFromTop = window.scrollY;
       // 設定一個閾值，表示視窗離開頂部多少距離時，顯示 div 元素
-      const threshold = 400
-      this.isGoToTopVisible = distanceFromTop > threshold
-    }
+      const threshold = 400;
+      this.isGoToTopVisible = distanceFromTop > threshold;
+    },
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // 移除事件監聽器，避免記憶體洩漏
-    window.removeEventListener('scroll', goToTopHandleScroll)
+    window.removeEventListener('scroll', this.goToTopHandleScroll);
   },
   mounted() {
     // 監聽視窗滾動事件
-    window.addEventListener('scroll', this.goToTopHandleScroll)
-  }
-}
+    window.addEventListener('scroll', this.goToTopHandleScroll);
+  },
+};
 </script>
 <style lang="scss" scoped>
 .goToTop-img-opacity {

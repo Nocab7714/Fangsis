@@ -38,36 +38,36 @@
 </template>
 
 <script>
-import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
-import ProductDetail from '@/components/fronted/ProductDetail.vue'
-import ProductSwiper from '@/components/fronted/ProductSwiper.vue'
+import FullPageLoading from '@/components/fronted/FullPageLoading.vue';
+import ProductDetail from '@/components/fronted/ProductDetail.vue';
+import ProductSwiper from '@/components/fronted/ProductSwiper.vue';
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       product: {}, // 存放取出的單項產品資料
-      isLoading: false // FullPageLoading 開啟/關閉狀態
-    }
+      isLoading: false, // FullPageLoading 開啟/關閉狀態
+    };
   },
   components: {
     FullPageLoading,
     ProductDetail,
-    ProductSwiper
+    ProductSwiper,
   },
   methods: {
     getProductId(id) {
-      this.isLoading = true // 取得產品資料前顯示 loading 效果
+      this.isLoading = true; // 取得產品資料前顯示 loading 效果
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
         .then((res) => {
-          this.product = res.data.product
-          this.isLoading = false // 取得產品資料後關閉 loading 效果
+          this.product = res.data.product;
+          this.isLoading = false; // 取得產品資料後關閉 loading 效果
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '您所尋找的產品並不存在',
             text: '無法取得該項產品資料!',
@@ -76,35 +76,35 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
+              confirmButton: 'radius0',
+            },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push(`/products`)
+              this.$router.push('/products');
             }
-          })
-          this.isLoading = false // 取得產品資料後關閉 loading 效果
-        })
-    }
+          });
+          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+        });
+    },
   },
   watch: {
     $route() {
       if (!this.$route.params.id) {
-        return
+        return;
       }
-      this.getProductId(this.$route.params.id)
-    }
+      this.getProductId(this.$route.params.id);
+    },
   },
   mounted() {
-    this.isLoading = true // 取得產品資料前顯示 loading 效果
-    const { id } = this.$route.params // 取得產品 id 並串接 api 將資料儲存到 product 物件中
+    this.isLoading = true; // 取得產品資料前顯示 loading 效果
+    const { id } = this.$route.params; // 取得產品 id 並串接 api 將資料儲存到 product 物件中
     this.$http
       .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
       .then((res) => {
-        this.product = res.data.product
-        this.isLoading = false // 取得產品資料後關閉 loading 效果
+        this.product = res.data.product;
+        this.isLoading = false; // 取得產品資料後關閉 loading 效果
       })
-      .catch((err) => {
+      .catch(() => {
         Swal.fire({
           title: '您所尋找的產品並不存在',
           text: '無法取得該項產品資料!',
@@ -113,16 +113,16 @@ export default {
           confirmButtonColor: '#5D7067',
           customClass: {
             popup: 'radius0',
-            confirmButton: 'radius0'
-          }
+            confirmButton: 'radius0',
+          },
         }).then((result) => {
           if (result.isConfirmed) {
-            this.$router.push(`/products`)
+            this.$router.push('/products');
           }
-        })
+        });
 
-        this.isLoading = false // 取得產品資料後關閉 loading 效果
-      })
-  }
-}
+        this.isLoading = false; // 取得產品資料後關閉 loading 效果
+      });
+  },
+};
 </script>

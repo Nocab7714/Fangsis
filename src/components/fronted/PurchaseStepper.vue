@@ -24,10 +24,10 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
-  props: ['isActive']
-}
+  props: ['isActive'],
+};
 </script>
 
 <style lang="scss" scope>

@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <section
     class="hot-sale pt-14 pb-10 section-bkg"
@@ -215,9 +216,9 @@
 <script>
 export default {
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <h2 class="fs-4 mb-3" style="font-family: var(--bs-NotoSerif-TC)">你可能也會喜歡</h2>
   <div class="py-4">
@@ -179,28 +180,30 @@
 
 <script>
 // Import Swiper
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Autoplay, EffectFade, FreeMode } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import {
+  Navigation, Autoplay, EffectFade, FreeMode,
+} from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/autoplay'
-import 'swiper/css/effect-fade'
-import 'swiper/css/navigation'
-import 'swiper/css/free-mode'
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
 export default {
   data() {
     return {
-      modules: [Navigation, Autoplay, EffectFade, FreeMode]
-    }
+      modules: [Navigation, Autoplay, EffectFade, FreeMode],
+    };
   },
   // props:['getProductId'],
   components: {
     Swiper,
-    SwiperSlide
-  }
-}
+    SwiperSlide,
+  },
+};
 </script>
 
 <style lang="scss">

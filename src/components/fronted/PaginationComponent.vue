@@ -41,10 +41,10 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
-  props: ['getProducts', 'categoryValue', 'page']
-}
+  props: ['getProducts', 'categoryValue', 'page'],
+};
 </script>
 
 <style lang="scss" scoped>

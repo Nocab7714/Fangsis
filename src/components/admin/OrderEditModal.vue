@@ -166,11 +166,12 @@
 </template>
 
 <script>
-import * as bootstrap from 'bootstrap'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import * as bootstrap from 'bootstrap';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
@@ -189,40 +190,41 @@ export default {
           address: '',
           email: '',
           name: '',
-          tel: ''
-        }
+          tel: '',
+        },
       },
-      orderCreateAt: '' // 用於存放並顯示轉換格式後的時間
-    }
+      orderCreateAt: '', // 用於存放並顯示轉換格式後的時間
+    };
   },
   props: ['tempOrder', 'editModalIsShow', 'closeModal', 'getOrders'],
   watch: {
     editModalIsShow() {
       // 如果 editModalIsShow 變更狀態值，打開 modal
       if (this.editModalIsShow) {
-        this.orderEditModal.show()
-        this.modifyOrder = JSON.parse(JSON.stringify(this.tempOrder))
-        this.orderCreateAt = new Date(this.modifyOrder.create_at * 1000).toLocaleString() // 將訂單建立 unix 的時間戳記進行格式轉換轉換
+        this.orderEditModal.show();
+        this.modifyOrder = JSON.parse(JSON.stringify(this.tempOrder));
+        // 將訂單建立 unix 的時間戳記進行格式轉換轉換
+        this.orderCreateAt = new Date(this.modifyOrder.create_at * 1000).toLocaleString();
       }
-    }
+    },
   },
   methods: {
     // 編輯訂單
     updateOrder() {
       this.$http
         .put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/order/${this.modifyOrder.id}`, {
-          data: this.modifyOrder
+          data: this.modifyOrder,
         })
-        .then((res) => {
-          this.getOrders()
-          this.orderEditModal.hide()
+        .then(() => {
+          this.getOrders();
+          this.orderEditModal.hide();
           Toast.fire({
             icon: 'success',
-            title: '已成功更新訂單'
-          })
+            title: '已成功更新訂單',
+          });
         })
-        .catch((err) => {
-          this.orderEditModal.hide()
+        .catch(() => {
+          this.orderEditModal.hide();
           Swal.fire({
             title: '更新訂單失敗失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -231,19 +233,19 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
   },
   mounted() {
     // bootstrap5 modal 實體化
-    this.orderEditModal = new bootstrap.Modal(this.$refs.orderEditModal)
-    //關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
-    this.$refs.orderEditModal.addEventListener('hidden.bs.modal', (event) => {
-      this.closeModal('edit')
-    })
-  }
-}
+    this.orderEditModal = new bootstrap.Modal(this.$refs.orderEditModal);
+    // 關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
+    this.$refs.orderEditModal.addEventListener('hidden.bs.modal', () => {
+      this.closeModal('edit');
+    });
+  },
+};
 </script>

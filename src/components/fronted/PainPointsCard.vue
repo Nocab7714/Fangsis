@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <section class="pain-points">
     <!-- 網頁版 pain-points -->
@@ -222,9 +223,9 @@
 <script>
 export default {
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>

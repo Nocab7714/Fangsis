@@ -32,12 +32,12 @@
 </template>
 
 <script>
-import GuidelinesCard from '@/components/fronted/GuidelinesCard.vue'
+import GuidelinesCard from '@/components/fronted/GuidelinesCard.vue';
 
 export default {
   data() {
-    return {}
+    return {};
   },
-  components: { GuidelinesCard }
-}
+  components: { GuidelinesCard },
+};
 </script>

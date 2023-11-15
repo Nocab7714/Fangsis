@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div class="row gy-3">
     <div class="col-lg-8">
@@ -101,94 +102,95 @@
 </template>
 
 <script>
-import FullPageLoading from '@/components/fronted/FullPageLoading.vue'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import FullPageLoading from '@/components/fronted/FullPageLoading.vue';
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       order: {}, // 存放接收的訂單資料
-      orderCreateTime: '', //存放轉換格式時間格式後的訂單建立時間
+      orderCreateTime: '', // 存放轉換格式時間格式後的訂單建立時間
       // 訂購人資料
       address: '',
       email: '',
       name: '',
       tel: '',
-      isLoading: false // FullPageLoading 開啟/關閉狀態
-    }
+      isLoading: false, // FullPageLoading 開啟/關閉狀態
+    };
   },
   components: {
-    FullPageLoading
+    FullPageLoading,
   },
   methods: {
     // 訂單付款
     orderPay() {
-      this.isLoading = true
-      const { id } = this.$route.params
+      this.isLoading = true;
+      const { id } = this.$route.params;
       this.$http
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/pay/${id}`)
-        .then((res) => {
+        .then(() => {
           Toast.fire({
             icon: 'success',
-            title: '付款成功!'
-          })
-          this.$router.push(`/CartCompleteOrder/${id}`)
-          this.isLoading = false
+            title: '付款成功!',
+          });
+          this.$router.push(`/CartCompleteOrder/${id}`);
+          this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '付款失敗',
             text: '請確認您目前的網路連線狀況並再次嘗試',
             icon: 'error',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
-          })
-          this.isLoading = false
-        })
+            confirmButtonColor: '#5D7067',
+          });
+          this.isLoading = false;
+        });
     },
-    ...mapActions(cartAndWishListStore, ['paymentMethod', 'paymentReset'])
+    ...mapActions(cartAndWishListStore, ['paymentMethod', 'paymentReset']),
   },
   mounted() {
     // 進入付款的動態路由頁面
-    const { id } = this.$route.params
+    const { id } = this.$route.params;
     this.$http
       .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${id}`)
       .then((res) => {
-        this.order = res.data.order
+        this.order = res.data.order;
         // 訂單建立時間格式格式轉換
-        const orderTime = res.data.order.create_at
-        const date = new Date(orderTime * 1000).toLocaleString()
-        this.orderCreateTime = date
+        const orderTime = res.data.order.create_at;
+        const date = new Date(orderTime * 1000).toLocaleString();
+        this.orderCreateTime = date;
         // vue3 讀取第三層物件資料有問題，改為儲存於元件 data 中，再渲染於畫面上
-        this.address = this.order.user.address
-        this.email = this.order.user.email
-        this.name = this.order.user.name
-        this.tel = this.order.user.tel
-        //若付款成功後又再次回到該頁面，引導客戶到訂單查詢頁面
+        this.address = this.order.user.address;
+        this.email = this.order.user.email;
+        this.name = this.order.user.name;
+        this.tel = this.order.user.tel;
+        // 若付款成功後又再次回到該頁面，引導客戶到訂單查詢頁面
         if (this.order.is_paid === true) {
           Swal.fire({
             title: '訂單付款已成功',
             text: '若要查詢訂單資訊請透過「訂單查詢系統」，謝謝! ',
             icon: 'warning',
             confirmButtonText: '確定',
-            confirmButtonColor: '#5D7067'
+            confirmButtonColor: '#5D7067',
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push(`/OrderSearch`)
+              this.$router.push('/OrderSearch');
             }
-          })
+          });
         }
       })
-      .catch((err) => {})
-    this.paymentReset() // 回復付款的預設狀態為 "請選擇您的付款方式"
+      .catch(() => {});
+    this.paymentReset(); // 回復付款的預設狀態為 "請選擇您的付款方式"
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['total', 'payment'])
-  }
-}
+    ...mapState(cartAndWishListStore, ['total', 'payment']),
+  },
+};
 </script>

@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <footer class="bg-primary">
     <div class="container">
@@ -91,7 +92,7 @@
 <script>
 export default {
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>

@@ -1,9 +1,11 @@
+<!-- eslint-disable vue/valid-template-root -->
 <template></template>
 
 <script>
-const { VITE_APP_URL } = import.meta.env
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+const { VITE_APP_URL } = import.meta.env;
 
 export default {
   data() {
@@ -13,20 +15,20 @@ export default {
       editModalIsShow: false, // 打開/關閉 editModal 的狀態
       deleteModalIsShow: false, // 打開/關閉 editModal 的狀態
       // loading 狀態管理
-      isLoading: false
-    }
+      isLoading: false,
+    };
   },
   methods: {
     // 打開與收合 sidebar
     sidebarToggled() {
-      this.sidebarToggledStatus = !this.sidebarToggledStatus
+      this.sidebarToggledStatus = !this.sidebarToggledStatus;
     },
     // 確認登入狀態，並執行相對應行為
     checkAdmin() {
       this.$http
         .post(`${VITE_APP_URL}/v2/api/user/check`)
-        .then((res) => {})
-        .catch((err) => {
+        .then(() => {})
+        .catch(() => {
           Swal.fire({
             title: '驗證錯誤',
             text: '您尚未登入後台系統，請重新登入!',
@@ -35,20 +37,20 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
+              confirmButton: 'radius0',
+            },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push(`/admin`)
+              this.$router.push('/admin');
             }
-          })
-        })
+          });
+        });
     },
     // 後台系統登出
     adminLogout() {
       this.$http
         .post(`${VITE_APP_URL}/v2/logout`)
-        .then((res) => {
+        .then(() => {
           Swal.fire({
             title: '登出成功',
             text: '您已成功登出後台系統!',
@@ -57,28 +59,28 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
+              confirmButton: 'radius0',
+            },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push(`/admin`)
+              this.$router.push('/admin');
             }
-          })
+          });
         })
-        .catch((err) => {})
-    }
+        .catch(() => {});
+    },
   },
   mounted() {
-    //取出 cookie 上儲存的 token
-    //執行 proxy 上的 ckeckAdmin 方法，確認是否為登入成功的狀態
+    // 取出 cookie 上儲存的 token
+    // 執行 proxy 上的 ckeckAdmin 方法，確認是否為登入成功的狀態
     const token = document.cookie.replace(
       /(?:(?:^|.*;\s*)hexPeihanWangToken\s*=\s*([^;]*).*$)|^.*$/,
-      '$1'
-    )
-    this.$http.defaults.headers.common.Authorization = token
-    this.checkAdmin()
-  }
-}
+      '$1',
+    );
+    this.$http.defaults.headers.common.Authorization = token;
+    this.checkAdmin();
+  },
+};
 </script>
 
 <style lang="scss">

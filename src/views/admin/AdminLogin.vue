@@ -82,26 +82,28 @@
 </template>
 
 <script>
-const { VITE_APP_URL } = import.meta.env
-import { defineRule } from 'vee-validate'
-//定義驗證規則 : 需要輸入內容以英文與數字混和
+import { defineRule } from 'vee-validate';
+// sweetalert2
+import Swal from 'sweetalert2';
+
+const { VITE_APP_URL } = import.meta.env;
+// 定義驗證規則 : 需要輸入內容以英文與數字混和
 defineRule('mix_num', (value) => {
   if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
-    return true
+    return true;
   }
-  return '需要以英文與數字混和'
-})
-// sweetalert2
-import Swal from 'sweetalert2'
+  return '需要以英文與數字混和';
+});
+
 export default {
   data() {
     return {
       // signin api post 資料格式
       user: {
         username: '',
-        password: ''
-      }
-    }
+        password: '',
+      },
+    };
   },
   methods: {
     AdminLoginIn() {
@@ -113,8 +115,8 @@ export default {
         // expire 設置有效時間 (unix timestamp 格式轉換)
         // 跳轉頁面到後台管理系統
         .then((res) => {
-          const { token, expired } = res.data
-          document.cookie = `hexPeihanWangToken=${token};expire=${new Date(expired)};path=/`
+          const { token, expired } = res.data;
+          document.cookie = `hexPeihanWangToken=${token};expire=${new Date(expired)};path=/`;
           Swal.fire({
             title: '後台登入成功!',
             icon: 'success',
@@ -122,17 +124,17 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
+              confirmButton: 'radius0',
+            },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push(`/admin/adminProducts`)
+              this.$router.push('/admin/adminProducts');
             }
-          })
+          });
         })
         // 失敗狀態:
         // 失敗將 err.response.data 的錯誤訊息透過彈跳視窗顯示
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '後台登入失敗!',
             text: '請確認輸入的帳號與密碼是否有誤並再次嘗試!',
@@ -141,13 +143,13 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
-  }
-}
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

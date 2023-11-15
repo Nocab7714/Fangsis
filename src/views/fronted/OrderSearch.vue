@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import OrderSearchCard from '@/components/fronted/OrderSearchCard.vue'
+import OrderSearchCard from '@/components/fronted/OrderSearchCard.vue';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
-    OrderSearchCard
-  }
-}
+    OrderSearchCard,
+  },
+};
 </script>

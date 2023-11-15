@@ -115,15 +115,15 @@
 </template>
 
 <script>
-import CouponEditModal from '@/components/admin/CouponEditModal.vue'
-import CouponDeleteModal from '@/components/admin/CouponDeleteModal.vue'
-import CouponPagination from '@/components/admin/CouponPagination.vue'
-import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
-import AdminMixin from '@/mixins/AdminMixin.vue'
+import CouponEditModal from '@/components/admin/CouponEditModal.vue';
+import CouponDeleteModal from '@/components/admin/CouponDeleteModal.vue';
+import CouponPagination from '@/components/admin/CouponPagination.vue';
+import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue';
+import AdminMixin from '@/mixins/AdminMixin.vue';
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
@@ -137,27 +137,29 @@ export default {
         is_enabled: 0,
         num: null,
         percent: null,
-        title: ''
-      }, //存放用於修改的優惠卷資料
+        title: '',
+      }, // 存放用於修改的優惠卷資料
       isNew: false, // 判斷是否為新資料
-      container: this.$refs.CouponLoadingContainer // loading 渲染範圍
-    }
+      container: this.$refs.CouponLoadingContainer, // loading 渲染範圍
+    };
   },
-  components: { CouponEditModal, CouponDeleteModal, CouponPagination, AdminContainerLoading },
+  components: {
+    CouponEditModal, CouponDeleteModal, CouponPagination, AdminContainerLoading,
+  },
   mixins: [AdminMixin],
   methods: {
     // 取得所有優惠卷資料
     getCoupons(page = 1) {
-      this.isLoading = true
+      this.isLoading = true;
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/coupons?page=${page}`)
         .then((res) => {
-          this.coupons = res.data.coupons
-          this.pages = res.data.pagination
-          this.isLoading = false
+          this.coupons = res.data.coupons;
+          this.pages = res.data.pagination;
+          this.isLoading = false;
         })
-        .catch((err) => {
-          this.isLoading = false
+        .catch(() => {
+          this.isLoading = false;
           Swal.fire({
             title: '資料錯誤',
             text: '無法取得後台資料，請重新確認網路連線並重新登入!',
@@ -166,17 +168,17 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
+              confirmButton: 'radius0',
+            },
+          });
+        });
     },
     // 開啟 modal
     openModal(status, coupon) {
       if (status === 'create') {
-        //新增產品
-        this.isNew = true
-        this.editModalIsShow = true
+        // 新增產品
+        this.isNew = true;
+        this.editModalIsShow = true;
         // 會帶入初始化資料
         this.tempCoupon = {
           code: '',
@@ -185,33 +187,33 @@ export default {
           is_enabled: 0,
           num: null,
           percent: null,
-          title: ''
-        }
+          title: '',
+        };
       } else if (status === 'edit') {
-        //編輯產品
-        this.isNew = false
-        this.editModalIsShow = true
+        // 編輯產品
+        this.isNew = false;
+        this.editModalIsShow = true;
         // 會帶入當前要編輯的資料
-        this.tempCoupon = { ...coupon }
+        this.tempCoupon = { ...coupon };
       } else if (status === 'delete') {
-        //刪除產品
-        this.deleteModalIsShow = true
-        this.tempCoupon = { ...coupon }
+        // 刪除產品
+        this.deleteModalIsShow = true;
+        this.tempCoupon = { ...coupon };
       }
     },
     // 關閉 modal
     closeModal(modalName) {
       if (modalName === 'edit') {
-        this.editModalIsShow = false
+        this.editModalIsShow = false;
       } else if (modalName === 'delete') {
-        this.deleteModalIsShow = false
+        this.deleteModalIsShow = false;
       }
-    }
+    },
   },
   mounted() {
-    this.getCoupons()
-  }
-}
+    this.getCoupons();
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

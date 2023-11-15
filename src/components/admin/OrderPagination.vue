@@ -38,8 +38,8 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
-  props: ['pages', 'getOrders']
-}
+  props: ['pages', 'getOrders'],
+};
 </script>

@@ -13,15 +13,16 @@
 </template>
 
 <script>
-import MemberSignUpForm from '@/components/fronted/MemberSignUpForm.vue'
+import MemberSignUpForm from '@/components/fronted/MemberSignUpForm.vue';
+
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
-    MemberSignUpForm
-  }
-}
+    MemberSignUpForm,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

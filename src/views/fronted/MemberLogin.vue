@@ -13,15 +13,16 @@
 </template>
 
 <script>
-import MemberLoginForm from '@/components/fronted/MemberLoginForm.vue'
+import MemberLoginForm from '@/components/fronted/MemberLoginForm.vue';
+
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
-    MemberLoginForm
-  }
-}
+    MemberLoginForm,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

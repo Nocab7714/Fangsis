@@ -29,19 +29,19 @@
 </template>
 
 <script>
-import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
-import CartCard from '@/components/fronted/CartCard.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue';
+import CartCard from '@/components/fronted/CartCard.vue';
 
 export default {
   data() {
     return {
-      PurchaseStepperIsActive: 'cart' // purchaseSteps active 樣式狀態
-    }
+      PurchaseStepperIsActive: 'cart', // purchaseSteps active 樣式狀態
+    };
   },
   components: {
     PurchaseStepper,
-    CartCard
+    CartCard,
   },
-  mounted() {}
-}
+  mounted() {},
+};
 </script>

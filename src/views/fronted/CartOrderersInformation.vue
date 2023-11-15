@@ -30,18 +30,18 @@
 </template>
 
 <script>
-import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
-import CartOrderForm from '@/components/fronted/CartOrderForm.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue';
+import CartOrderForm from '@/components/fronted/CartOrderForm.vue';
 
 export default {
   data() {
     return {
-      purchaseStepsIsActive: 'details' // purchaseSteps active 樣式狀態
-    }
+      purchaseStepsIsActive: 'details', // purchaseSteps active 樣式狀態
+    };
   },
   components: {
     PurchaseStepper,
-    CartOrderForm
-  }
-}
+    CartOrderForm,
+  },
+};
 </script>

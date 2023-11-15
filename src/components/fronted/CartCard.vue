@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <!-- 購物車內有商品顯示該區塊 -->
   <div v-if="carts.length" class="row mt-2 gy-3">
@@ -81,7 +82,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="cart in carts">
+                <tr v-for="cart in carts" :key="cart.product.title">
                   <th scope="row">
                     <div class="d-flex flex-column align-items-center py-3 px-2">
                       <img
@@ -272,17 +273,17 @@
 </template>
 
 <script>
-import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
+import ContainerLoading from '@/components/fronted/ContainerLoading.vue';
 
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 
 export default {
   data() {
     return {
       CouponCode: '', // 輸入的優惠碼儲存
-      container: this.$refs.loadingContainer // ContainerLoading 渲染容器範圍
-    }
+      container: this.$refs.loadingContainer, // ContainerLoading 渲染容器範圍
+    };
   },
   components: { ContainerLoading },
   methods: {
@@ -292,8 +293,8 @@ export default {
       'removeCartAllProduct',
       'upDataCartProduct',
       'UseCoupon',
-      'deliveryMethod'
-    ])
+      'deliveryMethod',
+    ]),
   },
   computed: {
     ...mapState(cartAndWishListStore, [
@@ -302,8 +303,8 @@ export default {
       'final_total',
       'delivery',
       'isLoading',
-      'couponCodeMessage'
-    ])
-  }
-}
+      'couponCodeMessage',
+    ]),
+  },
+};
 </script>

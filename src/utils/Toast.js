@@ -1,4 +1,5 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
 export default Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -9,6 +10,6 @@ export default Swal.mixin({
   background: '#ffffff',
   color: '#5D7067',
   customClass: {
-    popup: 'radius0'
-  }
-})
+    popup: 'radius0',
+  },
+});

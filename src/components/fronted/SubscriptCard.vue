@@ -33,28 +33,28 @@
 
 <script>
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 export default {
   data() {
     return {
-      subscriptEmail: ''
-    }
+      subscriptEmail: '',
+    };
   },
   methods: {
     // 訂閱最新活動消息
-    subscription(subscriptEmail) {
+    subscription() {
       Swal.fire({
         icon: 'success',
         title: '成功訂閱',
         text: '獲得購物 8 折優惠代碼 fangsis888',
         confirmButtonText: '確定',
-        confirmButtonColor: '#5D7067'
-      })
-      this.subscriptEmail = ''
-    }
-  }
-}
+        confirmButtonColor: '#5D7067',
+      });
+      this.subscriptEmail = '';
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -38,8 +38,8 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
-  props: ['pages', 'getCoupons']
-}
+  props: ['pages', 'getCoupons'],
+};
 </script>

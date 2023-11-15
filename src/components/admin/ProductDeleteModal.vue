@@ -37,42 +37,43 @@
 </template>
 
 <script>
-import * as bootstrap from 'bootstrap'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import * as bootstrap from 'bootstrap';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
-      productDeleteModal: {} // 存放 deleteProductModal 實體
-    }
+      productDeleteModal: {}, // 存放 deleteProductModal 實體
+    };
   },
   props: ['tempProduct', 'deleteModalIsShow', 'closeModal', 'getProducts'],
   watch: {
     // 如果 deleteModalIsShow 變更狀態值，打開 modal
     deleteModalIsShow() {
       if (this.deleteModalIsShow) {
-        this.productDeleteModal.show()
+        this.productDeleteModal.show();
       }
-    }
+    },
   },
   methods: {
-    //刪除單項產品
+    // 刪除單項產品
     deleteProduct() {
       this.$http
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`)
-        .then((res) => {
-          this.getProducts()
-          this.productDeleteModal.hide()
+        .then(() => {
+          this.getProducts();
+          this.productDeleteModal.hide();
           Toast.fire({
             icon: 'success',
-            title: '已成功刪除產品'
-          })
+            title: '已成功刪除產品',
+          });
         })
-        .catch((err) => {
-          this.productDeleteModal.hide()
+        .catch(() => {
+          this.productDeleteModal.hide();
           Swal.fire({
             title: '刪除產品失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -81,19 +82,19 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
   },
   mounted() {
     // bootstrap5 modal 實體化
-    this.productDeleteModal = new bootstrap.Modal(this.$refs.productDeleteModal)
-    //關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
-    this.$refs.productDeleteModal.addEventListener('hidden.bs.modal', (event) => {
-      this.closeModal('delete')
-    })
-  }
-}
+    this.productDeleteModal = new bootstrap.Modal(this.$refs.productDeleteModal);
+    // 關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
+    this.$refs.productDeleteModal.addEventListener('hidden.bs.modal', () => {
+      this.closeModal('delete');
+    });
+  },
+};
 </script>

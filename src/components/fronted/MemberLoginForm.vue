@@ -73,20 +73,20 @@
 </template>
 
 <script>
-import { defineRule } from 'vee-validate'
-//定義驗證規則 : 需要輸入內容以英文與數字混和
+import { defineRule } from 'vee-validate';
+// sweetalert2
+import Swal from 'sweetalert2';
+// 定義驗證規則 : 需要輸入內容以英文與數字混和
 defineRule('mix_num', (value) => {
   if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
-    return true
+    return true;
   }
-  return '需要以英文與數字混和'
-})
-// sweetalert2
-import Swal from 'sweetalert2'
+  return '需要以英文與數字混和';
+});
 
 export default {
   data() {
-    return {}
+    return {};
   },
   methods: {
     MemberLoginIn() {
@@ -97,16 +97,16 @@ export default {
         confirmButtonColor: '#5D7067',
         customClass: {
           popup: 'radius0',
-          confirmButton: 'radius0'
-        }
+          confirmButton: 'radius0',
+        },
       }).then((result) => {
         if (result.isConfirmed) {
-          this.$router.push(`/`)
+          this.$router.push('/');
         }
-      })
-    }
-  }
-}
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

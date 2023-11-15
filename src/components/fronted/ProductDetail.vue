@@ -93,21 +93,21 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   props: ['product'],
   methods: {
-    ...mapActions(cartAndWishListStore, ['addToCart', 'addWishList', 'wishListActive'])
+    ...mapActions(cartAndWishListStore, ['addToCart', 'addWishList', 'wishListActive']),
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['spinnerLoading'])
-  }
-}
+    ...mapState(cartAndWishListStore, ['spinnerLoading']),
+  },
+};
 </script>
 <style lang="scss">
 .btn-addToWishList {

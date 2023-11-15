@@ -21,7 +21,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" v-if="tempProductEdit">
           <div class="row">
             <div class="col-sm-4">
               <div class="mb-2">
@@ -31,7 +31,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入圖片連結"
-                    v-model="tempProduct.imageUrl"
+                    v-model="tempProductEdit.imageUrl"
                   />
                 </div>
                 <img class="img-fluid" :src="tempProduct.imageUrl" alt="" />
@@ -40,7 +40,7 @@
                 <!-- 判斷 tempProduct.imagesUrl 是一個陣列 -->
                 <template v-if="Array.isArray(tempProduct.imagesUrl)">
                   <template v-for="(img, key) in tempProduct.imagesUrl" :key="key + 7788">
-                    <input type="text" class="form-control" v-model="tempProduct.imagesUrl[key]" />
+                    <input type="text" class="form-control" v-model="tempProductEdit.imagesUrl[key]" />
                     <img :src="tempProduct.imagesUrl[key]" alt="" class="img-fluid" />
                   </template>
 
@@ -50,17 +50,17 @@
                   <button
                     class="btn btn-outline-primary btn-sm d-block w-100"
                     v-if="
-                      !tempProduct.imagesUrl.length ||
-                      tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
+                      !tempProductEdit.imagesUrl.length ||
+                      tempProductEdit.imagesUrl[tempProductEdit.imagesUrl.length - 1]
                     "
-                    @click="tempProduct.imagesUrl.push('')"
+                    @click="tempProductEdit.imagesUrl.push('')"
                   >
                     新增圖片
                   </button>
                   <button
                     class="btn btn-outline-danger btn-sm d-block w-100"
                     v-else
-                    @click="tempProduct.imagesUrl.pop('')"
+                    @click="tempProductEdit.imagesUrl.pop('')"
                   >
                     刪除圖片
                   </button>
@@ -75,7 +75,7 @@
                   type="text"
                   class="form-control"
                   placeholder="請輸入產品名稱"
-                  v-model="tempProduct.title"
+                  v-model="tempProductEdit.title"
                 />
               </div>
 
@@ -87,7 +87,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入分類"
-                    v-model="tempProduct.category"
+                    v-model="tempProductEdit.category"
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -97,7 +97,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入單位"
-                    v-model="tempProduct.unit"
+                    v-model="tempProductEdit.unit"
                   />
                 </div>
               </div>
@@ -111,7 +111,7 @@
                     min="0"
                     class="form-control"
                     placeholder="請輸入原價"
-                    v-model.number="tempProduct.origin_price"
+                    v-model.number="tempProductEdit.origin_price"
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -122,7 +122,7 @@
                     min="0"
                     class="form-control"
                     placeholder="請輸入售價"
-                    v-model.number="tempProduct.price"
+                    v-model.number="tempProductEdit.price"
                   />
                 </div>
               </div>
@@ -132,7 +132,7 @@
                   type="number"
                   class="form-control"
                   id="quantity"
-                  v-model="tempProduct.quantity"
+                  v-model="tempProductEdit.quantity"
                 />
               </div>
               <hr />
@@ -144,7 +144,7 @@
                   type="text"
                   rows="3"
                   placeholder="請輸入產品描述"
-                  v-model="tempProduct.description"
+                  v-model="tempProductEdit.description"
                 >
                 </textarea>
               </div>
@@ -156,7 +156,7 @@
                   type="text"
                   rows="3"
                   placeholder="請輸入說明內容"
-                  v-model="tempProduct.content"
+                  v-model="tempProductEdit.content"
                 >
                 </textarea>
               </div>
@@ -168,7 +168,7 @@
                     type="checkbox"
                     :true-value="1"
                     :false-value="0"
-                    v-model="tempProduct.is_enabled"
+                    v-model="tempProductEdit.is_enabled"
                   />
                   <label class="form-check-label" for="productIsEnabled">是否啟用</label>
                 </div>
@@ -179,8 +179,8 @@
                       class="form-check-input"
                       type="checkbox"
                       :true-value="1"
-                      :false-value="0"
-                      v-model="tempProduct.is_hotSale"
+                      :false-value="0"                     
+                      v-model="tempProductEdit.is_hotSale"
                     />
                     <label class="form-check-label" for="is_hotSale">是否為熱銷產品</label>
                   </div>
@@ -201,55 +201,58 @@
 </template>
 
 <script>
-import * as bootstrap from 'bootstrap'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import * as bootstrap from 'bootstrap';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
-      productEditModal: {}
-    }
+      productEditModal: {},   
+      tempProductEdit: null,  
+    };
   },
   props: ['tempProduct', 'editModalIsShow', 'isNew', 'getProducts', 'closeModal'],
   watch: {
     editModalIsShow() {
       // 如果 editModalIsShow 變更狀態值，打開 modal
       if (this.editModalIsShow) {
-        this.productEditModal.show()
+        this.productEditModal.show();
+        this.tempProductEdit = JSON.parse(JSON.stringify(this.tempProduct))
       }
-    }
+    },
   },
   methods: {
-    //更新與新增產品
+    // 更新與新增產品
     updateProduct() {
-      let url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product`
+      let url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product`;
       // 用 isNew 判斷 API 如何運行
-      let method = 'post'
+      let method = 'post';
       if (!this.isNew) {
-        url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`
-        method = 'put'
+        url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product/${this.tempProductEdit.id}`;
+        method = 'put';
       }
-      this.$http[method](url, { data: this.tempProduct })
-        .then((res) => {
-          this.getProducts() // 新增完產品以後會重新取得
-          this.productEditModal.hide()
+      this.$http[method](url, { data: this.tempProductEdit })
+        .then(() => {
+          this.getProducts(); // 新增完產品以後會重新取得
+          this.productEditModal.hide();
           if (method === 'post') {
             Toast.fire({
               icon: 'success',
-              title: '已成功新增產品'
-            })
+              title: '已成功新增產品',
+            });
           } else if (method === 'put') {
             Toast.fire({
               icon: 'success',
-              title: '已成功更新產品'
-            })
+              title: '已成功更新產品',
+            });
           }
         })
-        .catch((err) => {
-          this.productEditModal.hide()
+        .catch(() => {
+          this.productEditModal.hide();
           Swal.fire({
             title: '更新產品失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -258,19 +261,20 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
   },
   mounted() {
     // bootstrap5 modal 實體化
-    this.productEditModal = new bootstrap.Modal(this.$refs.productEditModal)
-    //關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
-    this.$refs.productEditModal.addEventListener('hidden.bs.modal', (event) => {
-      this.closeModal('edit')
-    })
-  }
-}
+    this.productEditModal = new bootstrap.Modal(this.$refs.productEditModal);
+    // 關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
+    this.$refs.productEditModal.addEventListener('hidden.bs.modal', () => {
+      this.closeModal('edit');
+    });
+    
+  },
+};
 </script>

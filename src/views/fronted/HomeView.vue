@@ -8,16 +8,16 @@
 </template>
 
 <script>
-import BannerCard from '@/components/fronted/BannerCard.vue'
-import AboutCard from '@/components/fronted/AboutCard.vue'
-import PainPointsCard from '@/components/fronted/PainPointsCard.vue'
-import HotSaleCard from '@/components/fronted/HotSaleCard.vue'
-import MoreProductsCard from '@/components/fronted/MoreProductsCard.vue'
-import SubscriptCard from '@/components/fronted/SubscriptCard.vue'
+import BannerCard from '@/components/fronted/BannerCard.vue';
+import AboutCard from '@/components/fronted/AboutCard.vue';
+import PainPointsCard from '@/components/fronted/PainPointsCard.vue';
+import HotSaleCard from '@/components/fronted/HotSaleCard.vue';
+import MoreProductsCard from '@/components/fronted/MoreProductsCard.vue';
+import SubscriptCard from '@/components/fronted/SubscriptCard.vue';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
     BannerCard,
@@ -25,7 +25,7 @@ export default {
     PainPointsCard,
     HotSaleCard,
     MoreProductsCard,
-    SubscriptCard
-  }
-}
+    SubscriptCard,
+  },
+};
 </script>

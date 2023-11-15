@@ -14,15 +14,15 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
   props: ['getProducts', 'categoryValue'],
   methods: {
     // 產品分類 (手機版)
     classifyProductsMobile(event) {
-      const category = event.target.value
-      this.getProducts(1, category)
-    }
-  }
-}
+      const category = event.target.value;
+      this.getProducts(1, category);
+    },
+  },
+};
 </script>

@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/css/index.css'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/css/index.css';
 
 export default {
   data() {
@@ -35,12 +35,12 @@ export default {
       lockScroll: true,
       fullPage: false,
       backgroundColor: '#ffffff',
-      opacity: 0.85
-    }
+      opacity: 0.85,
+    };
   },
   props: ['isLoading', 'container'],
   components: {
-    Loading
-  }
-}
+    Loading,
+  },
+};
 </script>

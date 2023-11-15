@@ -117,15 +117,15 @@
 </template>
 
 <script>
-import OrderEditModal from '@/components/admin/OrderEditModal.vue'
-import OrderDeleteModal from '@/components/admin/OrderDeleteModal.vue'
-import OrderPagination from '@/components/admin/OrderPagination.vue'
-import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
-import AdminMixin from '@/mixins/AdminMixin.vue'
+import OrderEditModal from '@/components/admin/OrderEditModal.vue';
+import OrderDeleteModal from '@/components/admin/OrderDeleteModal.vue';
+import OrderPagination from '@/components/admin/OrderPagination.vue';
+import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue';
+import AdminMixin from '@/mixins/AdminMixin.vue';
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
@@ -135,23 +135,25 @@ export default {
       pages: {}, // 存放 Pagination 的分頁狀態
       editModalIsShow: false, // 打開與關閉 editModal 的狀態
       deleteModalIsShow: false, // 打開與關閉 editModal 的狀態
-      container: this.$refs.orderLoadingContainer // loading 渲染範圍
-    }
+      container: this.$refs.orderLoadingContainer, // loading 渲染範圍
+    };
   },
-  components: { OrderEditModal, OrderDeleteModal, OrderPagination, AdminContainerLoading },
+  components: {
+    OrderEditModal, OrderDeleteModal, OrderPagination, AdminContainerLoading,
+  },
   mixins: [AdminMixin],
   methods: {
     // 取得所有訂單資料
     getOrders(page = 1) {
-      this.isLoading = true
+      this.isLoading = true;
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/orders?page=${page}`)
         .then((res) => {
-          this.orders = res.data.orders
-          this.pages = res.data.pagination
-          this.isLoading = false
+          this.orders = res.data.orders;
+          this.pages = res.data.pagination;
+          this.isLoading = false;
         })
-        .catch((err) => {
+        .catch(() => {
           Swal.fire({
             title: '資料錯誤',
             text: '無法取得後台資料，請重新確認網路連線並重新登入!',
@@ -160,40 +162,40 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-          this.isLoading = false
-        })
+              confirmButton: 'radius0',
+            },
+          });
+          this.isLoading = false;
+        });
     },
     // 開啟 modal
     openModal(status, order) {
       if (status === 'edit') {
-        this.editModalIsShow = true
-        this.tempOrder = { ...order }
+        this.editModalIsShow = true;
+        this.tempOrder = { ...order };
       } else if (status === 'delete') {
-        this.deleteModalIsShow = true
-        this.tempOrder = { ...order }
+        this.deleteModalIsShow = true;
+        this.tempOrder = { ...order };
       } else if (status === 'deleteAll') {
-        this.deleteModalIsShow = true
+        this.deleteModalIsShow = true;
         this.tempOrder = {
-          id: '全部'
-        }
+          id: '全部',
+        };
       }
     },
     // 關閉 modal
     closeModal(modalName) {
       if (modalName === 'edit') {
-        this.editModalIsShow = false
+        this.editModalIsShow = false;
       } else if (modalName === 'delete') {
-        this.deleteModalIsShow = false
+        this.deleteModalIsShow = false;
       }
-    }
+    },
   },
   mounted() {
-    this.getOrders()
-  }
-}
+    this.getOrders();
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div class="vl-parent" ref="loading-container">
     <ContainerLoading :isLoading="isLoading" :container="container" />
@@ -91,11 +92,9 @@
         <div class="border border-2 border-secondary px-5 py-5">
           <table class="table table-striped align-middle mb-3">
             <thead>
-              <thead>
                 <tr>
                   <th scope="col"></th>
                 </tr>
-              </thead>
             </thead>
             <tbody>
               <template v-for="product in wishList" :key="product.id">
@@ -153,24 +152,24 @@
 </template>
 
 <script>
-import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import ContainerLoading from '@/components/fronted/ContainerLoading.vue';
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 
 export default {
   data() {
     return {
-      container: this.$refs.loadingContainer // ContainerLoading 渲染容器範圍
-    }
+      container: this.$refs.loadingContainer, // ContainerLoading 渲染容器範圍
+    };
   },
   components: {
-    ContainerLoading
+    ContainerLoading,
   },
   methods: {
-    ...mapActions(cartAndWishListStore, ['addToCart', 'removeWishListProduct'])
+    ...mapActions(cartAndWishListStore, ['addToCart', 'removeWishListProduct']),
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'isLoading'])
-  }
-}
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'isLoading']),
+  },
+};
 </script>

@@ -81,30 +81,30 @@
 </template>
 
 <script>
-import PaginationComponent from '@/components/fronted/PaginationComponent.vue'
-import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import PaginationComponent from '@/components/fronted/PaginationComponent.vue';
+import ContainerLoading from '@/components/fronted/ContainerLoading.vue';
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 
 export default {
   data() {
     return {
-      container: this.$refs.loadingContainer // ContainerLoading 渲染容器範圍
-    }
+      container: this.$refs.loadingContainer, // ContainerLoading 渲染容器範圍
+    };
   },
   props: ['categoryProducts', 'categoryValue', 'getProducts', 'page', 'isLoading'],
   components: {
     // Loading,
     PaginationComponent,
-    ContainerLoading
+    ContainerLoading,
   },
   methods: {
-    ...mapActions(cartAndWishListStore, ['addToCart', 'addWishList', 'wishListActive'])
+    ...mapActions(cartAndWishListStore, ['addToCart', 'addWishList', 'wishListActive']),
   },
   computed: {
-    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'spinnerLoading'])
-  }
-}
+    ...mapState(cartAndWishListStore, ['carts', 'wishList', 'wishListAddStatus', 'spinnerLoading']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -6,28 +6,28 @@
 </template>
 
 <script>
-import { mapActions } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
+import { mapActions } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
 //
-import FooterCard from '@/components/fronted/FooterCard.vue'
-import NavBar from '@/components/fronted/NavBar.vue'
-import GoTop from '@/components/fronted/GoTop.vue'
+import FooterCard from '@/components/fronted/FooterCard.vue';
+import NavBar from '@/components/fronted/NavBar.vue';
+import GoTop from '@/components/fronted/GoTop.vue';
 
 export default {
   data() {
-    return {}
+    return {};
   },
   components: {
     FooterCard,
     NavBar,
-    GoTop
+    GoTop,
   },
   methods: {
-    ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList'])
+    ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList']),
   },
   mounted() {
-    this.getCart()
-    this.pullLocalStorageToWishList()
-  }
-}
+    this.getCart();
+    this.pullLocalStorageToWishList();
+  },
+};
 </script>

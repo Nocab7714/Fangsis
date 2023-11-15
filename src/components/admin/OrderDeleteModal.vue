@@ -46,42 +46,43 @@
 </template>
 
 <script>
-import * as bootstrap from 'bootstrap'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import * as bootstrap from 'bootstrap';
 // sweetalert2
-import Swal from 'sweetalert2'
-import Toast from '@/utils/Toast'
+import Swal from 'sweetalert2';
+import Toast from '@/utils/Toast';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
-      deleteOrderModal: {} // 存放 deleteOrderModal 實體
-    }
+      deleteOrderModal: {}, // 存放 deleteOrderModal 實體
+    };
   },
   props: ['tempOrder', 'deleteModalIsShow', 'closeModal', 'getOrders'],
   watch: {
     // 如果 deleteModalIsShow 變更狀態值，打開 modal
     deleteModalIsShow() {
       if (this.deleteModalIsShow) {
-        this.deleteOrderModal.show()
+        this.deleteOrderModal.show();
       }
-    }
+    },
   },
   methods: {
     //  刪除訂單
     deleteOrder() {
       this.$http
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/order/${this.tempOrder.id}`)
-        .then((res) => {
-          this.getOrders()
-          this.deleteOrderModal.hide()
+        .then(() => {
+          this.getOrders();
+          this.deleteOrderModal.hide();
           Toast.fire({
             icon: 'success',
-            title: '已成功刪除訂單'
-          })
+            title: '已成功刪除訂單',
+          });
         })
-        .catch((err) => {
-          this.deleteOrderModal.hide()
+        .catch(() => {
+          this.deleteOrderModal.hide();
           Swal.fire({
             title: '刪除訂單失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -90,25 +91,25 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
+              confirmButton: 'radius0',
+            },
+          });
+        });
     },
     // 刪除全部訂單
     deleteAllOrder() {
       this.$http
         .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/orders/all`)
-        .then((res) => {
-          this.getOrders()
-          this.deleteOrderModal.hide()
+        .then(() => {
+          this.getOrders();
+          this.deleteOrderModal.hide();
           Toast.fire({
             icon: 'success',
-            title: '已成功刪除全部訂單'
-          })
+            title: '已成功刪除全部訂單',
+          });
         })
-        .catch((err) => {
-          this.deleteOrderModal.hide()
+        .catch(() => {
+          this.deleteOrderModal.hide();
           Swal.fire({
             title: '刪除訂單失敗',
             text: '請確認網路連線環境並再次嘗試!',
@@ -117,19 +118,19 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
-    }
+              confirmButton: 'radius0',
+            },
+          });
+        });
+    },
   },
   mounted() {
     // bootstrap5 modal 實體化
-    this.deleteOrderModal = new bootstrap.Modal(this.$refs.deleteOrderModal)
-    //關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
-    this.$refs.deleteOrderModal.addEventListener('hidden.bs.modal', (event) => {
-      this.closeModal('delete')
-    })
-  }
-}
+    this.deleteOrderModal = new bootstrap.Modal(this.$refs.deleteOrderModal);
+    // 關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
+    this.$refs.deleteOrderModal.addEventListener('hidden.bs.modal', () => {
+      this.closeModal('delete');
+    });
+  },
+};
 </script>

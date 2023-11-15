@@ -226,45 +226,45 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia'
-import cartAndWishListStore from '@/stores/cartAndWishList'
-import offcanvasStore from '@/stores/offcanvasStore'
-import CartOffcanvas from '@/components/fronted/CartOffcanvas.vue'
-import MenuOffcanvas from '@/components/fronted/MenuOffcanvas.vue'
+import { mapActions, mapState } from 'pinia';
+import cartAndWishListStore from '@/stores/cartAndWishList';
+import offcanvasStore from '@/stores/offcanvasStore';
+import CartOffcanvas from '@/components/fronted/CartOffcanvas.vue';
+import MenuOffcanvas from '@/components/fronted/MenuOffcanvas.vue';
 
 export default {
   data() {
     return {
-      isTop: true // 視窗是否在最頂端的狀態
-    }
+      isTop: true, // 視窗是否在最頂端的狀態
+    };
   },
   components: {
     CartOffcanvas,
-    MenuOffcanvas
+    MenuOffcanvas,
   },
   methods: {
     handleScroll() {
       // 判斷視窗是否在最頂端
-      this.isTop = window.scrollY === 0
+      this.isTop = window.scrollY === 0;
     },
     ...mapActions(cartAndWishListStore, ['getCart', 'pullLocalStorageToWishList']),
-    ...mapActions(offcanvasStore, ['cartOffcanvasToggle', 'menuOffcanvasToggle'])
+    ...mapActions(offcanvasStore, ['cartOffcanvasToggle', 'menuOffcanvasToggle']),
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // 移除事件監聽器，避免記憶體洩漏
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('scroll', this.handleScroll);
   },
   mounted() {
     // 監聽視窗滾動事件
-    window.addEventListener('scroll', this.handleScroll)
-    this.getCart()
-    this.pullLocalStorageToWishList()
+    window.addEventListener('scroll', this.handleScroll);
+    this.getCart();
+    this.pullLocalStorageToWishList();
   },
   computed: {
     ...mapState(cartAndWishListStore, ['carts', 'wishList']),
-    ...mapState(offcanvasStore, ['cartOffcanvasIsShow', 'menuOffcanvasIsShow'])
-  }
-}
+    ...mapState(offcanvasStore, ['cartOffcanvasIsShow', 'menuOffcanvasIsShow']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

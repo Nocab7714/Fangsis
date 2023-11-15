@@ -121,43 +121,45 @@
 </template>
 
 <script>
-import ProductEditModal from '@/components/admin/ProductEditModal.vue'
-import ProductDeleteModal from '@/components/admin/ProductDeleteModal.vue'
-import ProductPagination from '@/components/admin/ProductPagination.vue'
-import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue'
-import AdminMixin from '@/mixins/AdminMixin.vue'
+import ProductEditModal from '@/components/admin/ProductEditModal.vue';
+import ProductDeleteModal from '@/components/admin/ProductDeleteModal.vue';
+import ProductPagination from '@/components/admin/ProductPagination.vue';
+import AdminContainerLoading from '@/components/admin/AdminContainerLoading.vue';
+import AdminMixin from '@/mixins/AdminMixin.vue';
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       products: [], // 存放所有產品資料
       tempProduct: {
-        //存放用於修改的產品資料
-        imageUrl: []
+        // 存放用於修改的產品資料
+        imageUrl: [],
       },
       isNew: false, // 判斷是否為新資料
-      container: this.$refs.ProductLoadingContainer // loading 渲染範圍
-    }
+      container: this.$refs.ProductLoadingContainer, // loading 渲染範圍
+    };
   },
-  components: { ProductEditModal, ProductDeleteModal, ProductPagination, AdminContainerLoading },
+  components: {
+    ProductEditModal, ProductDeleteModal, ProductPagination, AdminContainerLoading,
+  },
   mixins: [AdminMixin],
   methods: {
     // 取得所有產品資料
     getProducts(page = 1) {
-      this.isLoading = true
+      this.isLoading = true;
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/products?page=${page}`)
         .then((res) => {
-          this.products = res.data.products
-          this.pages = res.data.pagination
-          this.isLoading = false
+          this.products = res.data.products;
+          this.pages = res.data.pagination;
+          this.isLoading = false;
         })
-        .catch((err) => {
-          this.isLoading = false
+        .catch(() => {
+          this.isLoading = false;
           Swal.fire({
             title: '資料錯誤',
             text: '無法取得後台資料，請重新確認網路連線並重新登入!',
@@ -166,46 +168,46 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-        })
+              confirmButton: 'radius0',
+            },
+          });
+        });
     },
     // 開啟 modal
     openModal(status, product) {
       if (status === 'create') {
-        //新增產品
-        this.isNew = true
-        this.editModalIsShow = true
+        // 新增產品
+        this.isNew = true;
+        this.editModalIsShow = true;
         // 會帶入初始化資料
         this.tempProduct = {
-          imagesUrl: []
-        }
+          imagesUrl: [],
+        };
       } else if (status === 'edit') {
-        //編輯產品
-        this.isNew = false
-        this.editModalIsShow = true
+        // 編輯產品
+        this.isNew = false;
+        this.editModalIsShow = true;
         // 會帶入當前要編輯的資料
-        this.tempProduct = { ...product }
+        this.tempProduct = { ...product };
       } else if (status === 'delete') {
-        //刪除產品
-        this.deleteModalIsShow = true
-        this.tempProduct = { ...product }
+        // 刪除產品
+        this.deleteModalIsShow = true;
+        this.tempProduct = { ...product };
       }
     },
     // 關閉 modal
     closeModal(modalName) {
       if (modalName === 'edit') {
-        this.editModalIsShow = false
+        this.editModalIsShow = false;
       } else if (modalName === 'delete') {
-        this.deleteModalIsShow = false
+        this.deleteModalIsShow = false;
       }
-    }
+    },
   },
   mounted() {
-    this.getProducts()
-  }
-}
+    this.getProducts();
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

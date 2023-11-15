@@ -1,47 +1,47 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
-import App from './App.vue'
-
-// Vue-Router
-import router from './router'
+/* eslint-disable import/extensions */
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
 // Axios
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 // Bootstrap 5
-import './assets/scss/all.scss'
-import 'bootstrap/dist/js/bootstrap.min.js'
+import './assets/scss/all.scss';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 // VeeValidate
 // 引入 VeeValidate 元件跟功能
-import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate'
+import {
+  Field, Form, ErrorMessage, defineRule, configure,
+} from 'vee-validate';
 // 引入 VeeValidate 的驗證規則
-import AllRules from '@vee-validate/rules'
+import AllRules from '@vee-validate/rules';
 // 引入 VeeValidate 的 i18n 功能
-import { localize, setLocale } from '@vee-validate/i18n'
+import { localize, setLocale } from '@vee-validate/i18n';
 // 引入 VeeValidate 的繁體中文語系檔
-import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+import router from './router';
+import App from './App.vue';
 // 使用 Object.keys 將 AllRules 轉為陣列並使用 forEach 迴圈將驗證規則加入 VeeValidate
 Object.keys(AllRules).forEach((rule) => {
-  defineRule(rule, AllRules[rule])
-})
+  defineRule(rule, AllRules[rule]);
+});
 // 將當前 VeeValidate 的語系設定為繁體中文
 configure({
   generateMessage: localize({ zh_TW: zhTW }),
-  validateOnInput: true
-})
-setLocale('zh_TW') // 設定預設語系
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
 
-const app = createApp(App)
-app.use(createPinia())
-app.use(VueAxios, axios)
-app.provide('axios', app.config.globalProperties.axios)
-app.use(router)
+const app = createApp(App);
+app.use(createPinia());
+app.use(VueAxios, axios);
+app.provide('axios', app.config.globalProperties.axios);
+app.use(router);
 // 掛載 Global 的 VeeValidate 元件
-app.component('VField', Field)
-app.component('VForm', Form)
-app.component('ErrorMessage', ErrorMessage)
+app.component('VField', Field);
+app.component('VForm', Form);
+app.component('ErrorMessage', ErrorMessage);
 
-app.mount('#app')
+app.mount('#app');

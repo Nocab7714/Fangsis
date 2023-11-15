@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <section class="more-products pt-8">
     <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
@@ -151,27 +152,29 @@
 
 <script>
 // Import Swiper
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Autoplay, EffectFade, FreeMode } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import {
+  Navigation, Autoplay, EffectFade, FreeMode,
+} from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/autoplay'
-import 'swiper/css/effect-fade'
-import 'swiper/css/navigation'
-import 'swiper/css/free-mode'
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
 export default {
   data() {
     return {
-      modules: [Navigation, Autoplay, EffectFade, FreeMode] //Swiper modules
-    }
+      modules: [Navigation, Autoplay, EffectFade, FreeMode], // Swiper modules
+    };
   },
   components: {
     Swiper,
-    SwiperSlide
-  }
-}
+    SwiperSlide,
+  },
+};
 </script>
 
 <style lang="scss">

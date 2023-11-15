@@ -49,34 +49,34 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia'
-import offcanvasStore from '@/stores/offcanvasStore'
-import * as bootstrap from 'bootstrap'
+import { mapActions, mapState } from 'pinia';
+import offcanvasStore from '@/stores/offcanvasStore';
+import * as bootstrap from 'bootstrap';
 
 export default {
   data() {
     return {
-      menuOffcanvas: {} //存放選單列表 Offcanvas 實體
-    }
+      menuOffcanvas: {}, // 存放選單列表 Offcanvas 實體
+    };
   },
   watch: {
-    //開啟與關閉選單列表畫布
+    // 開啟與關閉選單列表畫布
     menuOffcanvasIsShow() {
-      return this.menuOffcanvasIsShow ? this.menuOffcanvas.show() : this.menuOffcanvas.hide()
-    }
+      return this.menuOffcanvasIsShow ? this.menuOffcanvas.show() : this.menuOffcanvas.hide();
+    },
   },
   methods: {
-    ...mapActions(offcanvasStore, ['menuOffcanvasToggle', 'resetMenuOffcanvasIsShowStatus'])
+    ...mapActions(offcanvasStore, ['menuOffcanvasToggle', 'resetMenuOffcanvasIsShowStatus']),
   },
   mounted() {
     // navbar 選單列表 Offcanvas 實體化
-    this.menuOffcanvas = new bootstrap.Offcanvas(this.$refs.menuOffcanvas)
-    this.$refs.menuOffcanvas.addEventListener('hide.bs.offcanvas', (event) => {
-      this.resetMenuOffcanvasIsShowStatus()
-    })
+    this.menuOffcanvas = new bootstrap.Offcanvas(this.$refs.menuOffcanvas);
+    this.$refs.menuOffcanvas.addEventListener('hide.bs.offcanvas', () => {
+      this.resetMenuOffcanvasIsShowStatus();
+    });
   },
   computed: {
-    ...mapState(offcanvasStore, ['menuOffcanvasIsShow'])
-  }
-}
+    ...mapState(offcanvasStore, ['menuOffcanvasIsShow']),
+  },
+};
 </script>

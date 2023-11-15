@@ -31,18 +31,18 @@
 </template>
 
 <script>
-import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue'
-import CartOrderPay from '@/components/fronted/CartOrderPay.vue'
+import PurchaseStepper from '@/components/fronted/PurchaseStepper.vue';
+import CartOrderPay from '@/components/fronted/CartOrderPay.vue';
 
 export default {
   data() {
     return {
-      purchaseStepsIsActive: 'pay' // purchaseSteps active 樣式狀態
-    }
+      purchaseStepsIsActive: 'pay', // purchaseSteps active 樣式狀態
+    };
   },
   components: {
     PurchaseStepper,
-    CartOrderPay
-  }
-}
+    CartOrderPay,
+  },
+};
 </script>

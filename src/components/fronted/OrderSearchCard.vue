@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div class="vl-parent" ref="loading-container">
     <!-- loading 效果元件 -->
@@ -97,11 +98,11 @@
 </template>
 
 <script>
-import ContainerLoading from '@/components/fronted/ContainerLoading.vue'
-
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+import ContainerLoading from '@/components/fronted/ContainerLoading.vue';
 // sweetalert2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
   data() {
@@ -120,31 +121,31 @@ export default {
           address: '',
           email: '',
           name: '',
-          tel: null
-        }
+          tel: null,
+        },
       }, // 接收的訂單資料
       orderStatus: true, // 訂單搜尋狀態切換
       inputOrderId: '', // 訂單搜尋輸入 input
       isLoading: false, // ContainerLoading 開啟/關閉狀態
-      container: this.$refs.loadingContainer // ContainerLoading 渲染容器範圍
-    }
+      container: this.$refs.loadingContainer, // ContainerLoading 渲染容器範圍
+    };
   },
   components: {
-    ContainerLoading
+    ContainerLoading,
   },
   methods: {
-    getProductOrder(order_id) {
-      this.isLoading = true // 取得產品資料前顯示 loading 效果
-      const productIdTrim = order_id.trim()
+    getProductOrder(orderId) {
+      this.isLoading = true; // 取得產品資料前顯示 loading 效果
+      const productIdTrim = orderId.trim();
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${productIdTrim}`)
         .then((res) => {
-          this.order = res.data.order
-          this.orderStatus = true
-          this.isLoading = false // 取得資料後關閉 loading 效果
+          this.order = res.data.order;
+          this.orderStatus = true;
+          this.isLoading = false; // 取得資料後關閉 loading 效果
         })
-        .catch((err) => {
-          this.orderStatus = false
+        .catch(() => {
+          this.orderStatus = false;
           Swal.fire({
             title: '查詢失敗',
             text: '未找到您所查詢的訂單資訊，請確認輸入的訂單編號是否正確!',
@@ -153,12 +154,12 @@ export default {
             confirmButtonColor: '#5D7067',
             customClass: {
               popup: 'radius0',
-              confirmButton: 'radius0'
-            }
-          })
-          this.isLoading = false // 取得資料後關閉 loading 效果
-        })
-    }
-  }
-}
+              confirmButton: 'radius0',
+            },
+          });
+          this.isLoading = false; // 取得資料後關閉 loading 效果
+        });
+    },
+  },
+};
 </script>
