@@ -39,7 +39,6 @@ npm run dev
   - scss - 資源放置處
     - components - scss 元件資源放置處
     - helpers - 變數、通用類別資源放置處
-  - svg - svg 資源放置處
 - components - vue 元件放置處
   - admin - 後台 vue 元件放置處
   - fronted - 前台 vue 元件放置處
