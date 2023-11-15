@@ -1,7 +1,7 @@
 <template>
   <!-- Loading 容器範圍由外部元件 props 傳入控制 -->
   <!-- Loading 開啟狀態由外部元件透過 props 傳入控制 -->
-  <loading
+  <Loading
     :active="isLoading"
     :can-cancel="false"
     :lock-scroll="lockScroll"
@@ -22,7 +22,7 @@
         <div><div></div></div>
       </div>
     </div>
-  </loading>
+  </Loading>
 </template>
 
 <script>

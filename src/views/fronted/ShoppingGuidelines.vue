@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="container my-6 mb-12">
-    <guidelines-card />
+    <GuidelinesCard />
   </div>
 </template>
 

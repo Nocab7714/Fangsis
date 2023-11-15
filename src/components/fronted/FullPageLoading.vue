@@ -1,5 +1,5 @@
 <template>
-  <loading
+  <Loading
     :active="isLoading"
     :can-cancel="false"
     :lock-scroll="lockScroll"
@@ -18,7 +18,7 @@
       />
       <span class="text-white fs-7 mt-2">Loading ...</span>
     </div>
-  </loading>
+  </Loading>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
 <template>
   <h2 class="fs-4 mb-3" style="font-family: var(--bs-NotoSerif-TC)">你可能也會喜歡</h2>
   <div class="py-4">
-    <swiper
+    <Swiper
       :slidesPerView="1"
       :spaceBetween="10"
       :breakpoints="{
@@ -34,7 +34,7 @@
       :freeMode="true"
       class="more-product-swiper"
     >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUfrmB_22pg-iMk29q">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633769143.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ejuKNHXdsLAbIKMvCP4nBukOQCAQT24uUfdkmrhCoWTPysqvfDgwbIAeQu8pzHbmVFVjo%2FBlukUV8MpVL5GwQJvIae4cPbtOvCR2C1YnF2igHjUiZv%2FblMvbjGYHsSBwdDugoNDq41jbXAtfD%2Fr7wKCPbC85EnG90050%2BbIjZ0MCpf3bw4%2BWbYme6ALqfHmWA5yr6jgaC55WiYhXRRpLXAcUEj7%2FxdWkS1BTniECwLm757CfyijBT9TaTfCEJiMc0%2FTPzDsFOTRDh4hDZkk790%2FSf7Srlw1lHaOnLt%2B5SinjNtK9xCrpKbCnLF6nz%2BuiT9lCxcuv3gRKImQdzXr4IA%3D%3D"
@@ -46,9 +46,9 @@
           >
             香氛擴香
           </p>
-        </router-link></swiper-slide
+        </router-link></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUd-NzuK3kTJRK_-wz">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633203526.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=eW4jtER1hXR3%2F1wOv0XbYHC0zdtfoZ5wiMvgkIm7hxW%2BUVoiRCveYBgXAkE9vBSSqmcZmyta31z0Y4JxGIJx16q1gs1wrZKieBx8xJkhOJ3XUV%2Fd4KZppxWcR83bHtE9Pm8w1LbQFc0cEwVxowksh3tzPEDmFpRnUbiqwrapQKdEwQJJOIZ%2F0sIzVBkVHtwkF5OTty0SCJ61eC0mXeLY7uRaxwtOCVkDcrxQspGWr5BvBaojm4Eq95DuBEvC0CxNsvv4RX8Dr1g8MM%2BRXN%2F1JeVNpe%2F93B2GI2QK8pH00ZSRrHsVA8U0Rmozd6QCRlf%2BHCzRM7O6ZyH2AQUH%2FLM09w%3D%3D"
@@ -60,9 +60,9 @@
           >
             香氛蠟燭
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUfmD6hldVIBMNW303">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633745811.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GAADz5FaDFXMsKYX%2FFMOdLO6YKb%2Bf0OrLtFlyeNuuOPCwW5PpvN6OSZBGp6SiQNlalIvnZMpRuDe3lNDX%2Fy1nrsI4LHv%2BjuToFGAeYgb6v%2FbZQf4IjGfRSU39iFHNEdwIDZPtoOsYoRvfl%2B1oLMiBOd6Tk9BUfH0ewuYtpFkjj%2F0KTSvytaaQL6As0TF1cV9XAZgaL9xDNf29LMnLCYWuuCZvMdNaJ1RMrYoGD24wk63yXvztVDM6%2FKg6f8rbkuX9QMHMSJ%2BBlCbQdW26zM7gifn%2FxpvTbWPr4ADVhjp%2BTgxgw6yHVTzT8XTnTL0a4baPwKNTjnsEBMBoYRLU75emg%3D%3D"
@@ -74,9 +74,9 @@
           >
             香氛蠟燭
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUeamgqGkzq4BTFRJ0">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633534220.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OXbSt9vUg1T%2BEMkjC9V1W88H42phrKXTcBf1%2FsSxOqudHJ3BFa1OTabzyvnnTnrAk3wOUArOkl2H4%2F9FevWUJGul8bJCv8jJJCRYjTqCoyam3TH%2FmIGam%2Fe4CMnmqeWjjtS38ZbteZGzq7HMAioMqAXoYASwu6QyGsbJIjKABmeWjGjg4toV4nBWHrfCtNVurwU9sByyN65NU1uiLM6xlHtZsmOn7WF%2FF5S%2F4fWD6rYKjvOC8YM%2Ff0q5gRH0gwmjlbcHjMiL%2BWrWHI3RnLMN%2Bwtgnb8ZZznhDsNVtCEzO0cG0bKWXNLWP0kRy2NiBp4rudnothozKi56r3My71wWGg%3D%3D"
@@ -88,9 +88,9 @@
           >
             山形海鹽皂
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUgD1YW3GgBdaJMpZ2">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633823857.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=mvAQtg4LjGeJVV6QM5Mm8NDhdmcMbW%2F1PkBp%2F8XimzY%2FC%2FhoidyAObTlDyZArBpfN9mcRqpveZixW6SN%2FlD4VaiCHAyxbl52Zppn0U2G7WiuRvXvoI6J95iUkfId30%2FXO5C9eoeoNNDTUzFCzdAQCWJkIO4eRGtstE2gyOxDhr31SgpTEZJVCStALXp%2Bq%2F6%2FLHtWEpvNpweZAgm2jxT5A0E11ej4KPyRaTi6cJ%2F3KYP9RfNSCWHIurKvDGTb8P5AiJjNfhwNn6AN5LUcF4cN3rL8cxw9%2F2ZpgOpVW4O41AzM7ZCf15FRuprDVjAyspzAj2k7BvoCDP4rqFXcvFuxgg%3D%3D"
@@ -102,9 +102,9 @@
           >
             香氛沐浴皂
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUd3lZGkS1IJDjaSCV">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633231830.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=YOqiBfmUlHKemT74wXg3tHMeWXcKZt9qPkQdOhuQK%2Bossb4YEyBPWVs3T37L4IPiKOQUiQiWtW3fMC5nQbATdALGyRbO40fo69W4S%2BUS8sJYKKvidMLDsIMNdQvkWy8lWhefXRuEOjr3U4YtQWosixRqE4JW49zZ9ZXpKU7O3vF0dL2n24tGjhXgeVDkSLf7ZUG3rELUxqBRYxKO4hDZnK7%2Fq6HPielBTq7PSa83y8mIce3PK3YAtMc74asjKFEUSCqzwkWyTXQnP7W%2FU5FW1tJn68szL97BLNJirpCXf4Gt8EQlWhXmgW6RVbJ86OhkiDI7d7xFXhT967GROTNgwA%3D%3D"
@@ -116,9 +116,9 @@
           >
             居家擴香
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUfgD8vUylevh0StTh">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633728303.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RWZ3hiUcR9Jx%2BeCgMKPz0tG%2B2pMQtFOdRE%2BKbscw8pyNWyDX7PcIDfjsl18srrAy%2Blhqj1FysKTBRr5l0jLXfBupKqAX7xJOyTUSeaIpDh09x389iK%2BkbYSa7PByPk6dFj%2FBoQFykwvmUU7%2Bt13msK6aKgWQdo4LUMMqS5AQybdOcSwa4Jfn2gYLGQauOu9cdKEv6E0SaCZjfSRatXUhOkfG283ahnCD93ODyzjhoyOOD08nHRIG3Eb1xDNJ%2F8Uh5lrxwI1LY6cVhXYT2OJdpG0QHvMl6iivmgu5vUpbjdj02iwMVxzIQcNMB5APonqwgThO83eSULnrZk52yS4mWw%3D%3D"
@@ -130,9 +130,9 @@
           >
             香氛噴霧
           </p></router-link
-        ></swiper-slide
+        ></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUegMYLEbG-GRD7_IO">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633563910.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lBgmsdwE2Q5e8dBmVShbLWIWLU7TtqKFppIdLHRuCVUEPYskcrq0bWR%2B8ElUrzMkZU3eVChWNUwl5KZcX6S41F1xLvhAr%2B6PhMKKKDVraA%2FX7oTEqrLvhYrzOiIF%2BCg6JlUbPetaYGtLj2ua7yrltRXB73g5BinjMkA1NjPMj2GL3BbTHmXSrvnsOK8cFDJ6XRBG6qDkuuu9a3couUCFFy4to1Yr983qY%2FdkljuEWFjn9Vm7Ext7Vjml9vu2VUNfZMEbTo03wumK2yQa%2BO48AAgVaN7bL7T6xsw%2FG0B1ce5lZ2pXRDSiE%2F89J3cCfyQY%2BCnFs9vMthGmP%2F8BZ6ojxQ%3D%3D"
@@ -144,9 +144,9 @@
           >
             絲瓜片香皂
           </p>
-        </router-link></swiper-slide
+        </router-link></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUfL_f4_W-jKhWWj6G">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633642899.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HzvYOeMiginhMlRWziy08hnnSIi%2FfIZQZnFPi03Qysbz6U%2B00Vcz6jVmwHL6wIEUXOYESvNfPMVI%2F0uGNFOqUKZYj17ungGIxFXLu7zmn21n6kVornXDGvWAedd1wlray4D5vO0aioJaPddmwk8brOzpzWQS1cMq%2FZLrOzjIYUWCOnNafnQhmPMYoYcaLzJ0Y%2B9hreudeQrKiqLf%2FBJ1mmq%2FlHWLXpNS9TtWDNFDsBeOfSedUbf0U1nd%2FW8uI%2B343Ds84DUgZwszNR342%2BNkgVWeRtye7eEl2vw597astXlLN%2BdQeNOV%2FMeMyZ8iWBx7ILsPi7Ga0xJMsOOhUa%2B44w%3D%3D"
@@ -158,9 +158,9 @@
           >
             居家擴香
           </p>
-        </router-link></swiper-slide
+        </router-link></SwiperSlide
       >
-      <swiper-slide>
+      <SwiperSlide>
         <router-link to="/product/-NaUb40DTd-PkPSJgMUm">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690633060112.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=KE0ynhzzqn31yyD4xyxts7Etdrn6kfEOKMacSZAYiTpvAge5id05bpd0xpIovKoDoCDu%2BfjRwW7PRw9uSWnbV8HZS4gqvOKo1dNNF6IepMEModnni37cxrjv3R6CocFA7rUqnSnfojUqb9ukZxMq%2FEEG9PHq6b0icgNb430TQV62sMl3ab3QSYKAY3IezwFLnkYfp0wP4HO3T2MM5wKQo5BW7vQIMo0dmPd%2BXLNnZjodaxX7BmiB2DJ1Ux3yZJnssAXxUr3mwDcXRRbF94sohzhPCdVLnO4XnohFgiXORL1QNn4VoRfpUfj5yZvYd1tDaAe7b9nS20mfvxUXY9ePZQ%3D%3D"
@@ -172,9 +172,9 @@
           >
             香氛蠟燭
           </p>
-        </router-link></swiper-slide
+        </router-link></SwiperSlide
       >
-    </swiper>
+    </Swiper>
   </div>
 </template>
 
