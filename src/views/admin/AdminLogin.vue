@@ -56,7 +56,7 @@
                     id="AdminLoginPassword"
                     type="password"
                     name="密碼"
-                    rules="required|alpha_num|min:8|max:16|mix_num"
+                    rules="required|min:8|max:16|mix_num"
                     autoComplete="off"
                   />
                   <ErrorMessage class="invalid-feedback ms-1" name="密碼" />
@@ -82,12 +82,33 @@
 </template>
 
 <script>
-import { defineRule } from 'vee-validate';
 // sweetalert2
 import Swal from 'sweetalert2';
 
-const { VITE_APP_URL } = import.meta.env;
-// 定義驗證規則 : 需要輸入內容以英文與數字混和
+// vee-validate
+import {
+  Field, Form, ErrorMessage, defineRule, configure,
+} from 'vee-validate';
+import {
+  required, email, min, max,
+} from '@vee-validate/rules';
+import { localize, setLocale } from '@vee-validate/i18n';
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+
+configure({
+  generateMessage: localize({ zh_TW: zhTW }),
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
+
+const VField = Field;
+const VForm = Form;
+
+// vee-validate rule
+defineRule('required', required);
+defineRule('email', email);
+defineRule('min', min);
+defineRule('max', max);
 defineRule('mix_num', (value) => {
   if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
     return true;
@@ -95,10 +116,11 @@ defineRule('mix_num', (value) => {
   return '需要以英文與數字混和';
 });
 
+const { VITE_APP_URL } = import.meta.env;
+
 export default {
   data() {
     return {
-      // signin api post 資料格式
       user: {
         username: '',
         password: '',
@@ -109,11 +131,6 @@ export default {
     AdminLoginIn() {
       this.$http
         .post(`${VITE_APP_URL}/v2/admin/signin`, this.user)
-        // 成功狀態:
-        // 先將儲存在 res.data 的 token 與 expired 解構出來，
-        // 寫入 cookie token，
-        // expire 設置有效時間 (unix timestamp 格式轉換)
-        // 跳轉頁面到後台管理系統
         .then((res) => {
           const { token, expired } = res.data;
           document.cookie = `hexPeihanWangToken=${token};expire=${new Date(expired)};path=/`;
@@ -132,8 +149,6 @@ export default {
             }
           });
         })
-        // 失敗狀態:
-        // 失敗將 err.response.data 的錯誤訊息透過彈跳視窗顯示
         .catch(() => {
           Swal.fire({
             title: '後台登入失敗!',
@@ -148,6 +163,9 @@ export default {
           });
         });
     },
+  },
+  components: {
+    VField, VForm, ErrorMessage,
   },
 };
 </script>

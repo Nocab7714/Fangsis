@@ -30,7 +30,7 @@
                 id="MemberLoginAccount"
                 type="text"
                 name="帳號"
-                rules="required|alpha_num|min:8|max:16|mix_num"
+                rules="required|min:8|max:16|mix_num"
                 autoComplete="off"
               />
               <ErrorMessage class="invalid-feedback ms-1" name="帳號" />
@@ -46,7 +46,7 @@
                 id="MemberLoginPassword"
                 type="password"
                 name="密碼"
-                rules="required|alpha_num|min:8|max:16|mix_num"
+                rules="required|min:8|max:16|mix_num"
                 autoComplete="off"
               />
               <ErrorMessage class="invalid-feedback ms-1" name="密碼" />
@@ -73,10 +73,33 @@
 </template>
 
 <script>
-import { defineRule } from 'vee-validate';
 // sweetalert2
 import Swal from 'sweetalert2';
-// 定義驗證規則 : 需要輸入內容以英文與數字混和
+
+// vee-validate
+import {
+  Field, Form, ErrorMessage, defineRule, configure,
+} from 'vee-validate';
+import {
+  required, email, min, max,
+} from '@vee-validate/rules';
+import { localize, setLocale } from '@vee-validate/i18n';
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+
+configure({
+  generateMessage: localize({ zh_TW: zhTW }),
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
+
+const VField = Field;
+const VForm = Form;
+
+// vee-validate rule
+defineRule('required', required);
+defineRule('email', email);
+defineRule('min', min);
+defineRule('max', max);
 defineRule('mix_num', (value) => {
   if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
     return true;
@@ -105,6 +128,9 @@ export default {
         }
       });
     },
+  },
+  components: {
+    VField, VForm, ErrorMessage,
   },
 };
 </script>

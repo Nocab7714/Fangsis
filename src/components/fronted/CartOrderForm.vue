@@ -32,7 +32,7 @@
               id="PurchaserPhoneNumber"
               type="tel"
               name="手機電話號碼"
-              :rules="isPhone"
+              rules="isPhone"
               placeholder="請輸入您的手機電話號碼"
               oninput="value=value.replace(/[^\d]/g,'')"
               v-model="tel"
@@ -190,6 +190,35 @@ import cartAndWishListStore from '@/stores/cartAndWishList';
 import Swal from 'sweetalert2';
 import Toast from '@/utils/Toast';
 
+// vee-validate
+import {
+  Field, Form, ErrorMessage, defineRule, configure,
+} from 'vee-validate';
+import {
+  required, email,
+} from '@vee-validate/rules';
+import { localize, setLocale } from '@vee-validate/i18n';
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+
+configure({
+  generateMessage: localize({ zh_TW: zhTW }),
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
+
+const VField = Field;
+const VForm = Form;
+
+// vee-validate rule
+defineRule('required', required);
+defineRule('email', email);
+defineRule('isPhone', (value) => {
+  if (/^(09)[0-9]{8}$/.test(value)) {
+    return true;
+  }
+  return '請輸入正確的手機號碼格式';
+});
+
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
@@ -205,7 +234,7 @@ export default {
     };
   },
   components: {
-    FullPageLoading,
+    FullPageLoading, VField, VForm, ErrorMessage,
   },
   methods: {
     // 建立訂單
@@ -244,11 +273,6 @@ export default {
             confirmButtonColor: '#5D7067',
           });
         });
-    },
-    // 手機號碼驗證的規則
-    isPhone(value) {
-      const phoneNumber = /^(09)[0-9]{8}$/;
-      return phoneNumber.test(value) ? true : '請輸入正確的手機號碼格式';
     },
     ...mapActions(cartAndWishListStore, ['getCart']),
   },

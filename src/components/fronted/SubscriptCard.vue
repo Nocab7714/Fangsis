@@ -24,7 +24,7 @@
             placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
             v-model="subscriptEmail"
           />
-          <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit">訂閱</button>
+          <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit" >訂閱</button>
         </div>
       </VForm>
     </div>
@@ -34,6 +34,28 @@
 <script>
 // sweetalert2
 import Swal from 'sweetalert2';
+// vee-validate
+import {
+  Field, Form, defineRule, configure, ErrorMessage,
+} from 'vee-validate';
+import {
+  required, email,
+} from '@vee-validate/rules';
+import { localize, setLocale } from '@vee-validate/i18n';
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+
+configure({
+  generateMessage: localize({ zh_TW: zhTW }),
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
+
+const VField = Field;
+const VForm = Form;
+
+// vee-validate rule
+defineRule('required', required);
+defineRule('email', email);
 
 export default {
   data() {
@@ -52,7 +74,9 @@ export default {
         confirmButtonColor: '#5D7067',
       });
       this.subscriptEmail = '';
-    },
+  },
+  components: {
+    VField, VForm, ErrorMessage,
   },
 };
 </script>

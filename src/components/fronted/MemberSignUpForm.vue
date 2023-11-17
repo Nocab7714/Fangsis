@@ -46,7 +46,7 @@
                 :class="{ 'is-invalid': errors.帳號 }"
                 id="MemberSignUpAccount"
                 name="帳號"
-                rules="required|alpha_num|min:8|max:16|mix_num"
+                rules="required|min:8|max:16|mix_num"
                 type="text"
                 placeholder="請設定8至16位元英文混和數字的會員帳號"
                 autoComplete="off"
@@ -63,7 +63,7 @@
                 :class="{ 'is-invalid': errors.密碼 }"
                 id="MemberSignUpPassword"
                 name="密碼"
-                rules="required|alpha_num|min:8|max:16|mix_num"
+                rules="required|min:8|max:16|mix_num"
                 type="password"
                 placeholder="請設定8至16位元英文混和數字的會員密碼"
                 autoComplete="off"
@@ -82,7 +82,7 @@
                 :class="{ 'is-invalid': errors.密碼確認 }"
                 id="MemberSignUpPasswordConfirm"
                 name="密碼確認"
-                rules="required|confirmed:密碼|alpha_num|min:8|max:16|mix_num"
+                rules="required|confirmed:密碼|min:8|max:16|mix_num"
                 type="password"
                 placeholder="請再次輸入您設定的會員密碼"
                 autoComplete="off"
@@ -104,25 +104,44 @@
 </template>
 
 <script>
-import { defineRule } from 'vee-validate';
-
 // sweetalert2
 import Swal from 'sweetalert2';
 
-// 定義驗證規則 : 二次確認密碼
-defineRule('confirmed', (value, [target], ctx) => {
-  if (value === ctx.form[target]) {
-    return true;
-  }
-  return '兩次密碼輸入不同，請重新確認';
-});
+// vee-validate
+import {
+  Field, Form, ErrorMessage, defineRule, configure,
+} from 'vee-validate';
+import {
+  required, email, min, max,
+} from '@vee-validate/rules';
+import { localize, setLocale } from '@vee-validate/i18n';
+import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 
-// 定義驗證規則 : 需要輸入內容以英文與數字混和
+configure({
+  generateMessage: localize({ zh_TW: zhTW }),
+  validateOnInput: true,
+});
+setLocale('zh_TW'); // 設定預設語系
+
+const VField = Field;
+const VForm = Form;
+
+// vee-validate rule
+defineRule('required', required);
+defineRule('email', email);
+defineRule('min', min);
+defineRule('max', max);
 defineRule('mix_num', (value) => {
   if (/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(value)) {
     return true;
   }
   return '需要以英文與數字混和';
+});
+defineRule('confirmed', (value, [target], ctx) => {
+  if (value === ctx.form[target]) {
+    return true;
+  }
+  return '兩次密碼輸入不同，請重新確認';
 });
 
 export default {
@@ -146,6 +165,9 @@ export default {
         }
       });
     },
+  },
+  components: {
+    VField, VForm, ErrorMessage,
   },
 };
 </script>
