@@ -83,8 +83,7 @@ export default {
           this.scrollToTop();
           this.isLoading = false; // 取得產品資料後關閉 loading 效果
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           this.isLoading = false; // 取得產品資料後關閉 loading 效果
         });
     },
