@@ -176,6 +176,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left bottom;
+  height: 100vh;
 }
 .login-bkg-mask {
   position: absolute;
