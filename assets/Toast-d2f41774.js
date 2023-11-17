@@ -1,0 +1,1 @@
+import{S as o}from"./sweetalert2.all-af1e6bc0.js";const t=o.mixin({toast:!0,position:"top-end",showConfirmButton:!1,timer:1300,timerProgressBar:!0,iconColor:"#5D7067",background:"#ffffff",color:"#5D7067",customClass:{popup:"radius0"}});export{t as T};
