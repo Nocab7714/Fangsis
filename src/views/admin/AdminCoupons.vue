@@ -144,7 +144,10 @@ export default {
     };
   },
   components: {
-    CouponEditModal, CouponDeleteModal, CouponPagination, AdminContainerLoading,
+    CouponEditModal,
+    CouponDeleteModal,
+    CouponPagination,
+    AdminContainerLoading,
   },
   mixins: [AdminMixin],
   methods: {

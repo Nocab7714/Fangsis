@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div
     id="productEditModal"
@@ -179,7 +180,7 @@
                       class="form-check-input"
                       type="checkbox"
                       :true-value="1"
-                      :false-value="0"                     
+                      :false-value="0"
                       v-model="tempProductEdit.is_hotSale"
                     />
                     <label class="form-check-label" for="is_hotSale">是否為熱銷產品</label>
@@ -211,8 +212,8 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
   data() {
     return {
-      productEditModal: {},   
-      tempProductEdit: null,  
+      productEditModal: {},
+      tempProductEdit: null,
     };
   },
   props: ['tempProduct', 'editModalIsShow', 'isNew', 'getProducts', 'closeModal'],
@@ -221,7 +222,7 @@ export default {
       // 如果 editModalIsShow 變更狀態值，打開 modal
       if (this.editModalIsShow) {
         this.productEditModal.show();
-        this.tempProductEdit = JSON.parse(JSON.stringify(this.tempProduct))
+        this.tempProductEdit = JSON.parse(JSON.stringify(this.tempProduct));
       }
     },
   },
@@ -274,7 +275,6 @@ export default {
     this.$refs.productEditModal.addEventListener('hidden.bs.modal', () => {
       this.closeModal('edit');
     });
-    
   },
 };
 </script>
