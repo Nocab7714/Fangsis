@@ -6,7 +6,7 @@
     "
   >
     <div class="container text-primary">
-      <VForm v-slot="{ errors }" @submit="subscription">
+      <VForm v-slot="{ errors }" @submit="subscription" ref="subscriptionForm">
         <label
           class="form-label fs-3 text-center text-md-start mb-55"
           for="subscript"
@@ -22,9 +22,9 @@
             name="email"
             rules="required|email"
             placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
-            v-model="subscriptEmail"
           />
           <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit" >訂閱</button>
+          <ErrorMessage class="invalid-feedback ms-1" name="email" />
         </div>
       </VForm>
     </div>
@@ -60,7 +60,6 @@ defineRule('email', email);
 export default {
   data() {
     return {
-      subscriptEmail: '',
     };
   },
   methods: {
@@ -73,7 +72,8 @@ export default {
         confirmButtonText: '確定',
         confirmButtonColor: '#5D7067',
       });
-      this.subscriptEmail = '';
+      this.$refs.subscriptionForm.resetForm();
+    },
   },
   components: {
     VField, VForm, ErrorMessage,
