@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-env node */
 require('@rushstack/eslint-patch/modern-module-resolution');
 
@@ -24,5 +25,4 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
   },
-  'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 };
