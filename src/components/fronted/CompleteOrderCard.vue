@@ -36,7 +36,7 @@
             </p>
 
             <p class="fs-6 mb-0">
-              若要確認訂單資訊，請透過<router-link to="/OrderSearch">「訂單查詢系統」</router-link
+              若要確認訂單資訊，請透過<RouterLink to="/OrderSearch">「訂單查詢系統」</RouterLink
               >進行查詢，有任何訂單上的問題歡迎與<a href="mailto:fangsisfragrance@gmail.com"
                 >我們聯繫!!</a
               >
@@ -45,10 +45,10 @@
           </div>
         </div>
         <div class="ms-0 ms-md-8 mt-5 align-self-center align-self-md-end">
-          <router-link class="btn btn-outline-secondary me-2 py-2" to="/OrderSearch"
-            >查詢訂單</router-link
+          <RouterLink class="btn btn-outline-secondary me-2 py-2" to="/OrderSearch"
+            >查詢訂單</RouterLink
           >
-          <router-link class="btn btn-primary py-2" to="/products">再去逛逛</router-link>
+          <RouterLink class="btn btn-primary py-2" to="/products">再去逛逛</RouterLink>
         </div>
       </div>
     </div>
@@ -71,14 +71,12 @@
           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"
         />
       </svg>
-
       <div
         class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-secondary"
       >
         <h2 class="fw-bold fs-3 fs-md-1 mb-6 mb-md-4 d-flex flex-column flex-md-row">
           訂單付款失敗!
         </h2>
-
         <div class="d-flex flex-column">
           <p class="fs-6 mb-0">交易失敗的原因可能如下:</p>
           <ol class="fs-6 mb-3">
@@ -93,10 +91,10 @@
           <p class="fs-6 mb-4">
             電子信箱: <a href="mailto:fangsisfragrance@gmail.com">fangsisfragrance@gmail.com</a>
           </p>
-          <router-link
+          <RouterLink
             class="btn btn-primary align-self-center align-self-md-end py-2"
             to="/products"
-            >返回商店</router-link
+            >返回商店</RouterLink
           >
         </div>
       </div>

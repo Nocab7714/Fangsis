@@ -25,8 +25,8 @@
         <ul class="list-unstyled">
           <div v-if="!carts.length" class="d-flex flex-column align-items-center mb-5">
             <h3 class="fs-5 mb-3">您的購物車目前沒有任何商品!</h3>
-            <router-link to="/products" class="btn btn-primary px-4" @click="cartOffcanvasToggle"
-              >來去購物</router-link
+            <RouterLink to="/products" class="btn btn-primary px-4" @click="cartOffcanvasToggle"
+              >來去購物</RouterLink
             >
           </div>
           <li
@@ -67,12 +67,12 @@
           >$ <span>{{ total }}</span></span
         >
       </div>
-      <router-link
+      <RouterLink
         v-if="carts.length"
         class="btn btn-primary w-100"
         to="/CartView"
         @click="cartOffcanvasToggle"
-        >查看購物車</router-link
+        >查看購物車</RouterLink
       >
     </div>
   </div>

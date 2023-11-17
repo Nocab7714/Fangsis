@@ -20,7 +20,7 @@
           </svg>
           <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
           <p class="fw-bold fs-5 text-secondary mb-4">您的願望清單尚未擁有任何商品!</p>
-          <router-link class="btn btn-primary py-2" to="/products">來去逛逛</router-link>
+          <RouterLink class="btn btn-primary py-2" to="/products">來去逛逛</RouterLink>
         </div>
       </div>
     </div>
@@ -52,10 +52,10 @@
                     />
                   </td>
                   <td>
-                    <router-link
+                    <RouterLink
                       :to="`/product/${product.id}`"
                       class="text-decoration-none link-dark"
-                      >{{ product.title }}</router-link
+                      >{{ product.title }}</RouterLink
                     >
                   </td>
                   <td>{{ product.price }}</td>
@@ -101,7 +101,7 @@
                 <tr>
                   <th scope="row">
                     <div class="d-flex flex-column align-items-center py-4 px-2">
-                      <router-link :to="`/product/${product.id}`">
+                      <RouterLink :to="`/product/${product.id}`">
                         <img
                           class="img-fluid mb-3"
                           :src="product.imageUrl"
@@ -109,12 +109,12 @@
                           width="200"
                           height="200"
                         />
-                      </router-link>
+                      </RouterLink>
 
-                      <router-link
+                      <RouterLink
                         :to="`/product/${product.id}`"
                         class="text-decoration-none link-dark"
-                        ><span class="fw-normal fs-5">{{ product.title }}</span></router-link
+                        ><span class="fw-normal fs-5">{{ product.title }}</span></RouterLink
                       >
                       <span class="fw-normal mb-3"
                         >NT$<span>{{ product.price }}</span></span

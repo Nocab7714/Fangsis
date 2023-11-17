@@ -15,7 +15,7 @@
       <!-- 網頁版 hot-sale -->
       <div class="hot-sale-desktop d-none d-md-block">
         <div data-aos="fade-up">
-          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyfLN2KMNTi0BDw2a">
+          <RouterLink class="hot-sale-link text-decoration-none" to="/product/-NbqyfLN2KMNTi0BDw2a">
             <div class="card border-0 position-relative">
               <div class="row g-0">
                 <div class="col-6">
@@ -51,8 +51,8 @@
                 </div>
               </div>
             </div>
-          </routerLink>
-          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyIBPAuloX43ptLPf">
+          </RouterLink>
+          <RouterLink class="hot-sale-link text-decoration-none" to="/product/-NbqyIBPAuloX43ptLPf">
             <div class="card border-0 position-relative">
               <div class="row g-0">
                 <div class="col-6 hot-sale-hover-style">
@@ -89,8 +89,8 @@
                 </div>
               </div>
             </div>
-          </routerLink>
-          <routerLink class="hot-sale-link text-decoration-none" to="/product/-NbqyVvyXTcrspg7NMK9">
+          </RouterLink>
+          <RouterLink class="hot-sale-link text-decoration-none" to="/product/-NbqyVvyXTcrspg7NMK9">
             <div class="card border-0 position-relative">
               <div class="row g-0">
                 <div class="col-6">
@@ -126,7 +126,7 @@
                 </div>
               </div>
             </div>
-          </routerLink>
+          </RouterLink>
         </div>
       </div>
       <!-- 行動版 hot-sale -->
@@ -148,10 +148,10 @@
               <p class="card-text fs-6 mb-4">
                 雄偉巨大的大西洋雪松，是力量、智慧與富裕的象徵。雪松精油具有非常好的鎮靜效果，木質調的香氣也能讓人感到平靜。柚子與雪松兩者的結合高貴又甜美，並以香氛蠟燭為主打，不論是明火點燃或融蠟燈的光源，都能讓人感到安心、溫暖，並從嗅覺和視覺中獲得療癒和釋放。
               </p>
-              <routerLink
+              <RouterLink
                 to="/product/-NbqyfLN2KMNTi0BDw2a"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >查看更多</routerLink
+                >查看更多</RouterLink
               >
             </div>
           </div>
@@ -174,10 +174,10 @@
                 花梨木，也叫玫瑰木
                 Rosewood，散發著淡淡的玫瑰香氣的木質調，平易近人卻又如此的貼近心房，就像它的花語「讓一切回歸平凡」一樣。花梨木的香氣輕柔、淡雅、溫潤，在身心俱疲時，花梨木精油帶來穩定及收斂心情的作用。以泡澡球為主打，送給疲倦忙碌的她/他，來一個輕鬆享受的泡泡浴。
               </p>
-              <routerLink
+              <RouterLink
                 to="/product/-NbqyIBPAuloX43ptLPf"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >查看更多</routerLink
+                >查看更多</RouterLink
               >
             </div>
           </div>
@@ -200,10 +200,10 @@
               <p class="card-text fs-6 mb-4">
                 鳶尾花「Iris」，在希臘文中是彩虹的意思，會給人帶來好消息，也是鳶尾花花語「愛的使者」的由來。細膩濃厚，無與倫比的芳香，令人神魂顛倒。柚子與鳶尾花，是優雅與愉悅的結合，以擴香為主打，讓香氣滿溢在空間中，就好像好消息一直伴隨。
               </p>
-              <routerLink
+              <RouterLink
                 to="/product/-NbqyVvyXTcrspg7NMK9"
                 class="btn btn-outline-secondary w-100 fs-6"
-                >查看更多</routerLink
+                >查看更多</RouterLink
               >
             </div>
           </div>

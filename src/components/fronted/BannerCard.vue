@@ -16,8 +16,8 @@
       >
         送給她，送給自己。
       </p>
-      <router-link class="btn btn-outline-primary w-100 w-sm-35 py-2" to="/products"
-        >來去送禮</router-link
+      <RouterLink class="btn btn-outline-primary w-100 w-sm-35 py-2" to="/products"
+        >來去送禮</RouterLink
       >
     </div>
   </div>

@@ -14,7 +14,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0 text-white text-center">
             <li class="breadcrumb-item">
-              <routerLink class="text-decoration-none text-white" to="/">首頁</routerLink>
+              <RouterLink class="text-decoration-none text-white" to="/">首頁</RouterLink>
             </li>
             <li class="breadcrumb-item active" aria-current="page">全站商品</li>
           </ol>

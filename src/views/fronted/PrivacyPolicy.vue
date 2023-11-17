@@ -15,7 +15,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0 text-white text-center">
             <li class="breadcrumb-item">
-              <routerLink class="text-decoration-none text-white" to="/">首頁</routerLink>
+              <RouterLink class="text-decoration-none text-white" to="/">首頁</RouterLink>
             </li>
             <li class="breadcrumb-item active" aria-current="page">隱私權服務條款</li>
           </ol>
@@ -91,9 +91,9 @@
         </ul>
       </div>
       <div class="mb-6">
-        <h2 class="fs-4 fs-md-3 mb-3">六、Cookie之使用</h2>
+        <h2 class="fs-4 fs-md-3 mb-3">六、Cookie 之使用</h2>
         <p class="fs-6">
-          為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行
+          為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的 Cookie ，若您不願接受 Cookie 的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕 Cookie 的寫入，但可能會導至網站某些功能無法正常執行
           。
         </p>
       </div>

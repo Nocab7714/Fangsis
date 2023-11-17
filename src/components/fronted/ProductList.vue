@@ -16,7 +16,7 @@
             ></i
             ><i class="bi bi-heart position-absolute"></i
           ></a>
-          <router-link class="product-link text-decoration-none" :to="`/product/${product.id}`">
+          <RouterLink class="product-link text-decoration-none" :to="`/product/${product.id}`">
             <div class="position-relative">
               <!-- 判定並顯示是否為熱銷產品 -->
               <span
@@ -42,7 +42,7 @@
                 />
               </div>
             </div>
-          </router-link>
+          </RouterLink>
           <div class="my-2">
             <h3 class="card-title text-black fs-6 mb-1 mt-2">{{ product.title }}</h3>
             <p v-if="product.origin_price === product.price" class="card-text text-black fs-6 mb-2">

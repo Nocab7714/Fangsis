@@ -139,8 +139,8 @@
             class="border border-1 border-secondary border-top-0 border-end-0 border-start-0 mb-3"
           ></div>
           <div class="d-flex justify-content-between">
-            <router-link class="btn btn-outline-secondary me-2 py-2" to="/products"
-              ><i class="bi bi-arrow-left me-2"></i>繼續選購</router-link
+            <RouterLink class="btn btn-outline-secondary me-2 py-2" to="/products"
+              ><i class="bi bi-arrow-left me-2"></i>繼續選購</RouterLink
             ><button
               @click="removeCartAllProduct"
               class="btn btn-outline-secondary ms-2 py-2"
@@ -235,10 +235,10 @@
             </div>
           </div>
           <div class="d-flex justify-content-end">
-            <router-link
+            <RouterLink
               class="btn btn-primary w-100 w-lg-50 mb-8 py-2"
               to="/CartOrderersInformation"
-              >前往結帳</router-link
+              >前往結帳</RouterLink
             >
           </div>
         </div>
@@ -266,7 +266,7 @@
         </svg>
         <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
         <p class="fw-bold fs-5 text-secondary mb-4">您的購物車裡還沒有任何商品!</p>
-        <router-link class="btn btn-primary py-2" to="/products">來去逛逛</router-link>
+        <RouterLink class="btn btn-primary py-2" to="/products">來去逛逛</RouterLink>
       </div>
     </div>
   </div>

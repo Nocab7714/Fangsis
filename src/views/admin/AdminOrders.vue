@@ -4,24 +4,24 @@
       <aside class="sidebar bg-primary" style="min-height: 110vh">
         <h2 class="fs-5 text-white py-3 px-3">Fangsis 後台管理系統</h2>
         <div class="list-group rounded-0">
-          <router-link
+          <RouterLink
             to="/admin/AdminProducts"
             class="list-group-item bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>產品管理
-          </router-link>
-          <router-link
+          </RouterLink>
+          <RouterLink
             to="/admin/AdminOrders"
             class="list-group-item list-group-item-active bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>訂單管理
-          </router-link>
-          <router-link
+          </RouterLink>
+          <RouterLink
             to="/admin/AdminCoupons"
             class="list-group-item bg-primary link-light border-0"
           >
             <i class="bi bi-box-seam-fill me-2"></i>優惠卷管理
-          </router-link>
+          </RouterLink>
         </div>
       </aside>
       <main class="main">

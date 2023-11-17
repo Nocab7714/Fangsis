@@ -53,12 +53,12 @@
             </div>
           </div>
           <div class="mb-4">
-            <router-link to="">忘記密碼?</router-link>
+            <RouterLink to="">忘記密碼?</RouterLink>
           </div>
 
           <div class="row gx-2 justify-content-end">
             <div class="col-lg-3 col-6">
-              <router-link to="/MemberSignUp" class="btn btn-secondary w-100">註冊會員</router-link>
+              <RouterLink to="/MemberSignUp" class="btn btn-secondary w-100">註冊會員</RouterLink>
             </div>
             <div class="col-lg-3 col-6">
               <button type="submit" class="btn btn-primary w-100" :disabled="!meta.valid">

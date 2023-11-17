@@ -3,7 +3,7 @@
   <transition name="fade">
     <nav v-if="isTop" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <router-link class="navbar-brand" to="/">
+        <RouterLink class="navbar-brand" to="/">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881744888.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J6pG4b8yb5eOth8gCVd4ORKGIbVdMBjFNJEWBcl%2FHON2NuIxWP%2FCfj4CXeek1FaA65A6l7zo2ljoDvUClymsepQLm2e3%2FgR%2BVvlbX7G4ZtLJtG%2FBbrTPIJuWycBRPTriIQoaMTa7dsW2ii3vf%2B1wcj3ENTg1HlGRNDmRLkojrilWvkPOGY9fxTdW9f8QDHJBC3V8VMjEEycnTToRB58uZWwawDzErOa8GpmzYnlqErvtrf4Gejj%2FDWSUkkR9eQ7kK1636iMZYnemMVCn9FsuoEGN7Ml5y1fcZ%2BD27X%2Bpt%2Bh3VsdBZjGhXVruoSrOrbWM%2F4VkBS1wR3WMpxXv4Plnwg%3D%3D"
             class="logo-desktop img-fluid"
@@ -18,22 +18,22 @@
             width="120"
             height="64"
           />
-        </router-link>
+        </RouterLink>
         <div class="ms-auto d-flex">
-          <router-link class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/WishLists">
+          <RouterLink class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/WishLists">
             <i class="bi bi-heart-fill position-relative">
               <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">
                 {{ wishList.length }}
               </span>
             </i>
-          </router-link>
-          <router-link class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/CartView">
+          </RouterLink>
+          <RouterLink class="nav-link fs-5 link-light d-block d-lg-none me-3" to="/CartView">
             <i class="bi bi-bag-fill position-relative">
               <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
                 carts.length
               }}</span>
             </i>
-          </router-link>
+          </RouterLink>
           <button
             class="navbar-toggler"
             type="button"
@@ -47,38 +47,38 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-light navbar-link-white-hover"
                 active-class="active-link-white"
                 aria-current="page"
                 to="/about"
-                >關於芳心</router-link
+                >關於芳心</RouterLink
               >
             </li>
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-light navbar-link-white-hover"
                 active-class="active-link-white"
                 to="/products"
-                >全部商品</router-link
+                >全部商品</RouterLink
               >
             </li>
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-light navbar-link-white-hover"
                 active-class="active-link-white"
                 to="/OrderSearch"
-                >訂單查詢</router-link
+                >訂單查詢</RouterLink
               >
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link ms-4 me-1 link-light" to="/WishLists">
+              <RouterLink class="nav-link ms-4 me-1 link-light" to="/WishLists">
                 <i class="bi bi-heart-fill position-relative fs-4">
                   <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">{{
                     wishList.length
                   }}</span>
                 </i>
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
@@ -95,14 +95,14 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link fs-2 link-light" to="/MemberLogin">
+              <RouterLink class="nav-link fs-2 link-light" to="/MemberLogin">
                 <i class="bi bi-person-fill p-1"></i>
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item d-block d-lg-none my-2">
-              <router-link class="nav-link mx-3 link-light" to="/MemberLogin">
+              <RouterLink class="nav-link mx-3 link-light" to="/MemberLogin">
                 會員中心
-              </router-link>
+              </RouterLink>
             </li>
           </ul>
         </div>
@@ -113,7 +113,7 @@
   <transition name="fade">
     <nav v-if="!isTop" class="navbar navbar-expand-lg bg-white navbar-dark shadow fixed-top">
       <div class="container">
-        <router-link class="navbar-brand" to="/">
+        <RouterLink class="navbar-brand" to="/">
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881703031.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JshnLFJ6J7C7n5ZSNer5M55ESAbj4CYnldHRSIK8FpfJEBp7kKQkK3lGML9ESbuyWnggedeaMAuhWbNQRHS0al88jyd3iX92YvZoKjbxlpf7NeucZoPXY4VrknbAELFiGHXmQ4Kdt9eOZVA8pVMk%2Fnpx3fejMGDDOBzQZ%2FxuZdQ8vgMvrf67E9gytrAZDKV5FKr9sGrtHQBuDKBkfov0ZFSiQUg58IbJfJ7AUARRQbq%2Fo4LxIkpZKlXDrMTA7ZvMDpctVZ4vLTSgOQKGmDUc%2FSsK6dkSsf4SXE%2FZGh%2BvuETEn3A%2Fv3hZrbxrI2Vwq4Jh0qXto0TKxr6o3RHNKdudhQ%3D%3D"
             class="logo-desktop img-fluid"
@@ -128,22 +128,22 @@
             width="120"
             height="40"
           />
-        </router-link>
+        </RouterLink>
         <div class="ms-auto d-flex">
-          <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/WishLists">
+          <RouterLink class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/WishLists">
             <i class="bi bi-heart-fill position-relative">
               <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">
                 {{ wishList.length }}</span
               >
             </i>
-          </router-link>
-          <router-link class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/CartView">
+          </RouterLink>
+          <RouterLink class="nav-link fs-5 link-primary d-block d-lg-none me-3" to="/CartView">
             <i class="bi bi-bag-fill position-relative">
               <span v-if="carts.length > 0" class="navbar-badge fs-7 fst-normal">{{
                 carts.length
               }}</span>
             </i>
-          </router-link>
+          </RouterLink>
           <button
             class="navbar-toggler"
             type="button"
@@ -157,38 +157,38 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-dark navbar-link-black-hover"
                 active-class="active-link-black"
                 aria-current="page"
                 to="/about"
-                >關於芳心</router-link
+                >關於芳心</RouterLink
               >
             </li>
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-dark navbar-link-black-hover"
                 active-class="active-link-black"
                 to="/products"
-                >全部商品</router-link
+                >全部商品</RouterLink
               >
             </li>
             <li class="nav-item my-2">
-              <router-link
+              <RouterLink
                 class="nav-link mx-3 link-dark navbar-link-black-hover"
                 active-class="active-link-black"
                 to="/OrderSearch"
-                >訂單查詢</router-link
+                >訂單查詢</RouterLink
               >
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link ms-4 me-1 link-primary" to="/WishLists">
+              <RouterLink class="nav-link ms-4 me-1 link-primary" to="/WishLists">
                 <i class="bi bi-heart-fill position-relative fs-4">
                   <span v-if="wishList.length > 0" class="navbar-badge fs-7 fst-normal">{{
                     wishList.length
                   }}</span>
                 </i>
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item d-none d-lg-block">
               <a
@@ -205,14 +205,14 @@
               </a>
             </li>
             <li class="nav-item d-none d-lg-block">
-              <router-link class="nav-link fs-2 link-primary" to="/MemberLogin">
+              <RouterLink class="nav-link fs-2 link-primary" to="/MemberLogin">
                 <i class="bi bi-person-fill p-1"></i>
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item d-block d-lg-none my-2">
-              <router-link class="nav-link mx-3 link-primary" to="/MemberLogin">
+              <RouterLink class="nav-link mx-3 link-primary" to="/MemberLogin">
                 會員中心
-              </router-link>
+              </RouterLink>
             </li>
           </ul>
         </div>

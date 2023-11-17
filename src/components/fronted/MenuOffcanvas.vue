@@ -12,36 +12,36 @@
     <div class="offcanvas-body">
       <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-center">
         <li class="nav-item my-2">
-          <router-link
+          <RouterLink
             class="nav-link mx-3 link-dark"
             aria-current="page"
             to="/about"
             @click="menuOffcanvasToggle"
-            >關於芳心</router-link
+            >關於芳心</RouterLink
           >
         </li>
         <li class="nav-item my-2">
-          <router-link class="nav-link mx-3 link-dark" to="/products" @click="menuOffcanvasToggle"
-            >全部商品</router-link
+          <RouterLink class="nav-link mx-3 link-dark" to="/products" @click="menuOffcanvasToggle"
+            >全部商品</RouterLink
           >
         </li>
         <li class="nav-item my-2">
-          <router-link
+          <RouterLink
             class="nav-link mx-3 link-dark"
             to="/OrderSearch"
             @click="menuOffcanvasToggle"
-            >訂單查詢</router-link
+            >訂單查詢</RouterLink
           >
         </li>
 
         <li class="nav-item my-2">
-          <router-link
+          <RouterLink
             class="nav-link mx-3 link-dark"
             to="/MemberLogin"
             @click="menuOffcanvasToggle"
           >
             會員中心
-          </router-link>
+          </RouterLink>
         </li>
       </ul>
     </div>

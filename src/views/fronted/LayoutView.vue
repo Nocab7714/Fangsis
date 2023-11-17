@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <router-view />
+  <RouterView />
   <FooterCard />
   <GoTop class="me-3 mb-2" />
 </template>

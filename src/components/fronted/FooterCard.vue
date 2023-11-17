@@ -15,14 +15,14 @@
           />
           <ul class="list-unstyled text-center d-flex mb-0 flex-column flex-lg-row">
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
-              <router-link class="link-light text-decoration-none" to="/PrivacyPolicy"
-                >隱私權服務條款</router-link
+              <RouterLink class="link-light text-decoration-none" to="/PrivacyPolicy"
+                >隱私權服務條款</RouterLink
               >
             </li>
             <li class="mx-lg-7 mx-0 mb-lg-0 mb-4">
-              <router-link class="link-light text-decoration-none" to="/ShoppingGuidelines"
+              <RouterLink class="link-light text-decoration-none" to="/ShoppingGuidelines"
                 >購物流程與常見Q&A
-              </router-link>
+              </RouterLink>
             </li>
             <li class="mx-lg-7 mx-0">
               <span class="text-white">合作夥伴</span>

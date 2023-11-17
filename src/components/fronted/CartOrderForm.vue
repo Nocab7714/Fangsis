@@ -161,8 +161,8 @@
           <span v-if="total !== final_total" class="fs-6 text-end">{{ couponCodeMessage }}</span>
           <div class="row mt-5 mb-8 gx-2">
             <div class="col-6">
-              <router-link class="btn btn-outline-secondary w-100 py-2" to="CartView"
-                >回上一步</router-link
+              <RouterLink class="btn btn-outline-secondary w-100 py-2" to="CartView"
+                >回上一步</RouterLink
               >
             </div>
             <div class="col-6">
