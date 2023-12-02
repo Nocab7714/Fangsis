@@ -56,11 +56,10 @@ import * as bootstrap from 'bootstrap';
 export default {
   data() {
     return {
-      menuOffcanvas: {}, // 存放選單列表 Offcanvas 實體
+      menuOffcanvas: {},
     };
   },
   watch: {
-    // 開啟與關閉選單列表畫布
     menuOffcanvasIsShow() {
       return this.menuOffcanvasIsShow ? this.menuOffcanvas.show() : this.menuOffcanvas.hide();
     },
@@ -69,7 +68,6 @@ export default {
     ...mapActions(offcanvasStore, ['menuOffcanvasToggle', 'resetMenuOffcanvasIsShowStatus']),
   },
   mounted() {
-    // navbar 選單列表 Offcanvas 實體化
     this.menuOffcanvas = new bootstrap.Offcanvas(this.$refs.menuOffcanvas);
     this.$refs.menuOffcanvas.addEventListener('hide.bs.offcanvas', () => {
       this.resetMenuOffcanvasIsShowStatus();

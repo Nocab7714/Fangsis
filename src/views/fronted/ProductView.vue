@@ -60,12 +60,12 @@ export default {
   },
   methods: {
     getProductId(id) {
-      this.isLoading = true; // 取得產品資料前顯示 loading 效果
+      this.isLoading = true;
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
         .then((res) => {
           this.product = res.data.product;
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+          this.isLoading = false;
         })
         .catch(() => {
           Swal.fire({
@@ -75,6 +75,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -83,7 +84,7 @@ export default {
               this.$router.push('/products');
             }
           });
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+          this.isLoading = false;
         });
     },
   },
@@ -96,13 +97,13 @@ export default {
     },
   },
   mounted() {
-    this.isLoading = true; // 取得產品資料前顯示 loading 效果
+    this.isLoading = true;
     const { id } = this.$route.params; // 取得產品 id 並串接 api 將資料儲存到 product 物件中
     this.$http
       .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
       .then((res) => {
         this.product = res.data.product;
-        this.isLoading = false; // 取得產品資料後關閉 loading 效果
+        this.isLoading = false;
       })
       .catch(() => {
         Swal.fire({
@@ -112,6 +113,7 @@ export default {
           confirmButtonText: '確定',
           confirmButtonColor: '#5D7067',
           customClass: {
+            title: 'titleFontStyle',
             popup: 'radius0',
             confirmButton: 'radius0',
           },
@@ -121,7 +123,7 @@ export default {
           }
         });
 
-        this.isLoading = false; // 取得產品資料後關閉 loading 效果
+        this.isLoading = false;
       });
   },
 };

@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div class="vl-parent" ref="loading-container">
     <ContainerLoading :isLoading="isLoading" :container="container" />
@@ -18,8 +17,7 @@
               d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"
             />
           </svg>
-          <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
-          <p class="fw-bold fs-5 text-secondary mb-4">您的願望清單尚未擁有任何商品!</p>
+          <h2 class="fw-bold fs-3 text-secondary mb-5" style="font-family: var(--bs-NotoSerif-TC)">哎呀! 您的願望清單尚未擁有任何商品!</h2>
           <RouterLink class="btn btn-primary py-2" to="/products">來去逛逛</RouterLink>
         </div>
       </div>

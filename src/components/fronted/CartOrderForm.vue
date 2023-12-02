@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <VForm v-slot="{ meta, errors }" @submit="createOrder">
     <div class="row mt-2 gy-3">
@@ -224,7 +223,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
   data() {
     return {
-      isLoading: false, // FullPageLoading 開啟/關閉狀態
+      isLoading: false,
       // 訂購人填寫訂單資料
       name: '',
       email: '',
@@ -239,7 +238,7 @@ export default {
   methods: {
     // 建立訂單
     createOrder() {
-      this.isLoading = true; // 建立訂單前前顯示 loading 效果
+      this.isLoading = true;
       // 訂購人資訊
       const data = {
         user: {
@@ -254,23 +253,28 @@ export default {
       this.$http
         .post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { data })
         .then((res) => {
-          this.isLoading = false; // 建立訂單成功後關閉 loading 效果
+          this.isLoading = false;
           Toast.fire({
             icon: 'success',
             title: '訂單建立成功!',
           });
-          localStorage.removeItem('localStorageCouponCodeMessage'); // 移除儲存於 localStorage 使用的優惠卷資訊
+          localStorage.removeItem('localStorageCouponCodeMessage');
           this.getCart();
           this.$router.push(`OrderPay/${res.data.orderId}`);
         })
         .catch(() => {
-          this.isLoading = false; // 建立訂單失敗後關閉 loading 效果
+          this.isLoading = false;
           Swal.fire({
             title: '訂單建立失敗',
             text: '請確認您目前的網路連線狀況並再次嘗試',
             icon: 'error',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
+            customClass: {
+              title: 'titleFontStyle',
+              popup: 'radius0',
+              confirmButton: 'radius0',
+            },
           });
         });
     },

@@ -1,6 +1,7 @@
 <template>
   <RouterView />
 </template>
+
 <script>
 // animate.css
 import 'animate.css';

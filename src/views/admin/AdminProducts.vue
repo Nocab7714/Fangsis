@@ -167,6 +167,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },

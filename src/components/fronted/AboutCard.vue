@@ -7,7 +7,7 @@
   >
     <div class="container">
       <div data-aos="fade-up">
-        <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
+        <h2 class="fs-2 fw-bold text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
           關於芳心。
         </h2>
       </div>

@@ -57,9 +57,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           title: '成功將產品加入願望清單',
         });
       }
-      // 回復 wishListAddStatus 初始狀態
       this.wishListAddStatus = true;
-
       // 將願望清單資料存在 local Storage
       const localStorageWishList = JSON.stringify(this.wishList);
       localStorage.setItem('localStorageWishList', localStorageWishList);
@@ -72,7 +70,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     },
     // 移除願望清單品項
     removeWishListProduct(product) {
-      this.isLoading = true; // 取得產品資料前顯示 loading 效果
+      this.isLoading = true;
       Swal.fire({
         text: '你確定要將商品從願望清單刪除嗎?',
         icon: 'question',
@@ -83,6 +81,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         cancelButtonText: '取消',
         cancelButtonColor: '#DC3545',
         customClass: {
+          title: 'titleFontStyle',
           popup: 'radius0',
           confirmButton: 'radius0',
           cancelButton: 'radius0',
@@ -100,10 +99,10 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             icon: 'success',
             title: '成功將產品從願望清單移除',
           });
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+          this.isLoading = false;
         }
       });
-      this.isLoading = false; // 取得產品資料後關閉 loading 效果
+      this.isLoading = false;
     },
     // 願望清單按鈕 active 狀態切換
     wishListActive(product) {
@@ -119,14 +118,14 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     // cart
     // 取得購物車資料
     getCart() {
-      this.isLoading = true; // 取得資料前顯示 loading 效果
+      this.isLoading = true;
       axios
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
         .then((res) => {
           this.carts = res.data.data.carts;
           this.total = res.data.data.total;
           this.final_total = res.data.data.final_total; // 包含套用優惠卷的總金額
-          this.isLoading = false; // 取得資料後關閉 loading 效果
+          this.isLoading = false;
         })
         .catch(() => {
           Swal.fire({
@@ -136,18 +135,19 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             confirmButtonText: '關閉',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
           });
-          this.isLoading = false; // 取得資料後關閉 loading 效果
+          this.isLoading = false;
         });
     },
     // 將產品加入入購物車
     addToCart(productId, qty = 1) {
       // 單項產品頁面判斷，未選擇產品數量會中斷加入購物車
-      this.isLoading = true; // 取得產品資料前顯示 loading 效果
-      this.spinnerLoading = productId; // 開啟相對應的按鈕 loading 效果
+      this.isLoading = true;
+      this.spinnerLoading = productId;
       if (qty === '數量選擇') {
         Swal.fire({
           icon: 'error',
@@ -156,11 +156,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           confirmButtonColor: '#5D7067',
           confirmButtonText: '關閉',
           customClass: {
+            title: 'titleFontStyle',
             popup: 'radius0',
             confirmButton: 'radius0',
           },
         });
-        this.spinnerLoading = ''; // 關閉相對應的按鈕 loading 效果
+        this.spinnerLoading = '';
         return;
       }
       // 避免傳入的商品數量值為 String
@@ -178,8 +179,8 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             icon: 'success',
             title: '成功將產品加入購物車',
           });
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
-          this.spinnerLoading = ''; // 關閉相對應的按鈕 loading 效果
+          this.isLoading = false;
+          this.spinnerLoading = '';
         })
         .catch(() => {
           Swal.fire({
@@ -189,17 +190,18 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             confirmButtonText: '關閉',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
           });
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
-          this.spinnerLoading = ''; // 關閉相對應的按鈕 loading 效果
+          this.isLoading = false;
+          this.spinnerLoading = '';
         });
     },
     // 刪除購物車"單項"產品資料資料
     removeCartProduct(productId) {
-      this.cartOffcanvasIsLoading = true; // 取得資料前顯示 loading 效果
+      this.cartOffcanvasIsLoading = true;
       Swal.fire({
         text: '你確定要將該項產品從購物車刪除嗎?',
         icon: 'question',
@@ -210,6 +212,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         cancelButtonText: '取消',
         cancelButtonColor: '#DC3545',
         customClass: {
+          title: 'titleFontStyle',
           popup: 'radius0',
           confirmButton: 'radius0',
           cancelButton: 'radius0',
@@ -224,7 +227,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
                 icon: 'success',
                 title: '成功將產品從購物車移除',
               });
-              this.cartOffcanvasIsLoading = false; // 取得產品資料後關閉 loading 效果
+              this.cartOffcanvasIsLoading = false;
             })
             .catch(() => {
               Swal.fire({
@@ -234,11 +237,12 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
                 confirmButtonText: '關閉',
                 confirmButtonColor: '#5D7067',
                 customClass: {
+                  title: 'titleFontStyle',
                   popup: 'radius0',
                   confirmButton: 'radius0',
                 },
               });
-              this.cartOffcanvasIsLoading = false; // 取得產品資料後關閉 loading 效果
+              this.cartOffcanvasIsLoading = false;
             });
         }
         this.cartOffcanvasIsLoading = false;
@@ -248,7 +252,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
     removeCartAllProduct() {
       Swal.fire({
         title: '清空購物車',
-        text: '您確定要空購物車內的所有產品嗎?',
+        text: '您確定要清空購物車內的所有產品嗎?',
         icon: 'question',
         iconColor: '#5D7067',
         showCancelButton: true,
@@ -257,6 +261,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         cancelButtonText: '取消',
         cancelButtonColor: '#DC3545',
         customClass: {
+          title: 'titleFontStyle',
           popup: 'radius0',
           confirmButton: 'radius0',
           cancelButton: 'radius0',
@@ -280,6 +285,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
                 confirmButtonText: '關閉',
                 confirmButtonColor: '#5D7067',
                 customClass: {
+                  title: 'titleFontStyle',
                   popup: 'radius0',
                   confirmButton: 'radius0',
                 },
@@ -300,6 +306,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
           confirmButtonText: '確定',
           confirmButtonColor: '#5D7067',
           customClass: {
+            title: 'titleFontStyle',
             popup: 'radius0',
             confirmButton: 'radius0',
           },
@@ -331,6 +338,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             confirmButtonText: '關閉',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -358,6 +366,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -376,6 +385,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },

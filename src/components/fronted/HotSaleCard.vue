@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <section
     class="hot-sale pt-14 pb-10 section-bkg"
@@ -8,7 +7,7 @@
   >
     <div class="container">
       <div data-aos="fade-up">
-        <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
+        <h2 class="fs-2 fw-bold text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
           熱銷禮盒。
         </h2>
       </div>
@@ -28,7 +27,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-6 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>
@@ -81,7 +80,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-6 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>
@@ -103,7 +102,7 @@
                   >
                     <div class="hot-sale-img-mask position-absolute"></div>
                     <div
-                      class="position-absolute fs-5 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
+                      class="position-absolute fs-6 text-white border border-1 border-light top-50 start-50 translate-middle hot-sale-btn py-2 px-3"
                     >
                       查看更多
                     </div>

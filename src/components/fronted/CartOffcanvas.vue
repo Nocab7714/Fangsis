@@ -89,7 +89,7 @@ import * as bootstrap from 'bootstrap';
 export default {
   data() {
     return {
-      cartOffcanvas: {}, // 存放 cart Offcanvas 實體
+      cartOffcanvas: {},
       container: this.$refs.LoadingContainer, // ContainerLoading 渲染容器範圍
     };
   },
@@ -97,7 +97,6 @@ export default {
     ContainerLoading,
   },
   watch: {
-    // 開啟與關閉購物車畫布
     cartOffcanvasIsShow() {
       return this.cartOffcanvasIsShow ? this.cartOffcanvas.show() : this.cartOffcanvas.hide();
     },
@@ -112,7 +111,6 @@ export default {
   },
   mounted() {
     this.getCart();
-    // 購物車 Offcanvas 實體化
     this.cartOffcanvas = new bootstrap.Offcanvas(this.$refs.cartOffcanvas);
     this.$refs.cartOffcanvas.addEventListener('hide.bs.offcanvas', () => {
       this.resetCartOffcanvasIsShowStatus();
@@ -122,7 +120,7 @@ export default {
     ...mapState(cartAndWishListStore, [
       'carts',
       'total',
-      'cartOffcanvasIsLoading', // loading 開啟狀態透過 pinia 管理
+      'cartOffcanvasIsLoading',
     ]),
     ...mapState(offcanvasStore, ['cartOffcanvasIsShow']),
   },

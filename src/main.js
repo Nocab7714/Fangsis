@@ -1,4 +1,4 @@
-/* eslint-disable import/extensions */
+// /* eslint-disable import/extensions */
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 // Axios
@@ -7,7 +7,7 @@ import VueAxios from 'vue-axios';
 
 // Bootstrap 5
 import './assets/scss/all.scss';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.min';
 import router from './router';
 import App from './App.vue';
 

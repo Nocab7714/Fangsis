@@ -176,7 +176,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
   data() {
     return {
-      orderEditModal: {}, // 存放 orderModal 的實體
+      orderEditModal: {},
       // modifyOrder 用於儲存要修改後送出的訂單資料
       modifyOrder: {
         create_at: '',
@@ -199,7 +199,6 @@ export default {
   props: ['tempOrder', 'editModalIsShow', 'closeModal', 'getOrders'],
   watch: {
     editModalIsShow() {
-      // 如果 editModalIsShow 變更狀態值，打開 modal
       if (this.editModalIsShow) {
         this.orderEditModal.show();
         this.modifyOrder = JSON.parse(JSON.stringify(this.tempOrder));
@@ -232,6 +231,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -240,9 +240,7 @@ export default {
     },
   },
   mounted() {
-    // bootstrap5 modal 實體化
     this.orderEditModal = new bootstrap.Modal(this.$refs.orderEditModal);
-    // 關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
     this.$refs.orderEditModal.addEventListener('hidden.bs.modal', () => {
       this.closeModal('edit');
     });

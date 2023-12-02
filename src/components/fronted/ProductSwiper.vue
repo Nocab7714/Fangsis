@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <h2 class="fs-4 mb-3" style="font-family: var(--bs-NotoSerif-TC)">你可能也會喜歡</h2>
   <div class="py-4">

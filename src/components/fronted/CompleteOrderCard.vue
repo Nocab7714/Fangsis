@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <!-- 訂單付款成功 -->
   <div
@@ -25,7 +24,7 @@
         class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-secondary"
       >
         <h2
-          class="fw-bold fs-3 fs-md-1 mb-4 d-flex flex-column flex-md-row align-self-center align-self-md-start"
+          class="fw-bold fs-3 fs-md-1 mb-4 d-flex flex-column flex-md-row align-self-center align-self-md-start" style="font-family: var(--bs-NotoSerif-TC)"
         >
           您的訂單已成功付款!
         </h2>
@@ -74,7 +73,7 @@
       <div
         class="d-flex flex-column justify-content-center align-items-center align-items-md-start text-secondary"
       >
-        <h2 class="fw-bold fs-3 fs-md-1 mb-6 mb-md-4 d-flex flex-column flex-md-row">
+        <h2 class="fw-bold fs-3 fs-md-1 mb-6 mb-md-4 d-flex flex-column flex-md-row" style="font-family: var(--bs-NotoSerif-TC)">
           訂單付款失敗!
         </h2>
         <div class="d-flex flex-column">

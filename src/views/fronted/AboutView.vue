@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div
     class="py-md-13 py-9 background-position-center background-size-corver"

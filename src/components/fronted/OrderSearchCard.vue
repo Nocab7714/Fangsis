@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div class="vl-parent" ref="loading-container">
     <!-- loading 效果元件 -->
@@ -24,8 +23,8 @@
           class="cart-status border border-2 border-secondary px-5 py-10 mt-6 mb-10 d-flex justify-content-center align-items-center flex-column"
         >
           <div>
-            <h3 class="fs-1 fw-bold">Sorry ... <br />查無此訂單資料</h3>
-            <p class="fs-5">請再次確認輸入的訂單編號正確無誤!</p>
+            <h3 class="fs-1 fw-bold " style="font-family: var(--bs-NotoSerif-TC)">很抱歉 ... <br />查無此訂單資料</h3>
+            <p class="fs-6">請再次確認輸入的訂單編號正確無誤!</p>
           </div>
         </div>
         <!-- 查詢訂單顯示 -->
@@ -34,7 +33,7 @@
           class="cart-status border border-2 border-secondary px-5 py-5 mt-4 mb-10 d-flex justify-content-center flex-column"
         >
           <div class="mb-5">
-            <h3 class="fs-3 fw-bold mb-3">訂單資料</h3>
+            <h3 class="fs-3 fw-bold mb-3" style="font-family: var(--bs-NotoSerif-TC)">訂單資料</h3>
             <ul class="list-unstyled fs-6">
               <li class="mb-1">
                 <span class="fw-bold">訂單編號 : </span> <span> {{ order.id }}</span>
@@ -57,7 +56,7 @@
             </ul>
           </div>
           <div class="mb-5">
-            <h3 class="fs-3 fw-bold mb-3">訂購人個人資料</h3>
+            <h3 class="fs-3 fw-bold mb-3" style="font-family: var(--bs-NotoSerif-TC)">訂購人個人資料</h3>
             <ul class="list-unstyled fs-6">
               <li class="row g-0 mb-sm-1 mb-3">
                 <span class="fw-bold col-xl-2 col-sm-4 col-12">客戶姓名 :</span>
@@ -84,7 +83,7 @@
             </ul>
           </div>
           <div>
-            <h3 class="fs-3 fw-bold mb-3">訂購商品</h3>
+            <h3 class="fs-3 fw-bold mb-3" style="font-family: var(--bs-NotoSerif-TC)">訂購商品</h3>
             <ul class="list-unstyled fs-6">
               <li v-for="product in order.products" :key="product.id">
                 {{ product.product.title }} <span>x{{ product.qty }}</span>
@@ -123,7 +122,7 @@ export default {
           name: '',
           tel: null,
         },
-      }, // 接收的訂單資料
+      },
       orderStatus: true, // 訂單搜尋狀態切換
       inputOrderId: '', // 訂單搜尋輸入 input
       isLoading: false, // ContainerLoading 開啟/關閉狀態
@@ -135,14 +134,16 @@ export default {
   },
   methods: {
     getProductOrder(orderId) {
-      this.isLoading = true; // 取得產品資料前顯示 loading 效果
+      this.isLoading = true;
       const productIdTrim = orderId.trim();
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order/${productIdTrim}`)
         .then((res) => {
           this.order = res.data.order;
-          this.orderStatus = true;
-          this.isLoading = false; // 取得資料後關閉 loading 效果
+          if (this.order.id !== null) {
+            this.orderStatus = true;
+          }
+          this.isLoading = false;
         })
         .catch(() => {
           this.orderStatus = false;
@@ -153,11 +154,12 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
           });
-          this.isLoading = false; // 取得資料後關閉 loading 效果
+          this.isLoading = false;
         });
     },
   },

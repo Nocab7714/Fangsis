@@ -94,7 +94,6 @@ export default {
   },
   props: ['categoryProducts', 'categoryValue', 'getProducts', 'page', 'isLoading'],
   components: {
-    // Loading,
     PaginationComponent,
     ContainerLoading,
   },

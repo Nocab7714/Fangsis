@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <section class="pain-points">
     <!-- 網頁版 pain-points -->

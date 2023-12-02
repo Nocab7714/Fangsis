@@ -1,7 +1,6 @@
-<!-- eslint-disable max-len -->
 <template>
   <section class="more-products pt-8">
-    <h2 class="fs-2 text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
+    <h2 class="fs-2 fw-bold text-primary text-center mb-6" style="font-family: var(--bs-NotoSerif-TC)">
       更多香氛。
     </h2>
     <!-- swiper -->

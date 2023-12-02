@@ -47,12 +47,11 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
   data() {
     return {
-      productDeleteModal: {}, // 存放 deleteProductModal 實體
+      productDeleteModal: {},
     };
   },
   props: ['tempProduct', 'deleteModalIsShow', 'closeModal', 'getProducts'],
   watch: {
-    // 如果 deleteModalIsShow 變更狀態值，打開 modal
     deleteModalIsShow() {
       if (this.deleteModalIsShow) {
         this.productDeleteModal.show();
@@ -81,6 +80,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -89,9 +89,7 @@ export default {
     },
   },
   mounted() {
-    // bootstrap5 modal 實體化
     this.productDeleteModal = new bootstrap.Modal(this.$refs.productDeleteModal);
-    // 關閉 modal 後執行 closeModal() 並傳入參數 'delete' 將 deleteModalIsShow 改為 false
     this.$refs.productDeleteModal.addEventListener('hidden.bs.modal', () => {
       this.closeModal('delete');
     });

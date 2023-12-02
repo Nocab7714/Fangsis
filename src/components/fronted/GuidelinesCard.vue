@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div class="mb-8">
     <h2 class="fs-4 fw-bold mb-3" style="font-family: var(--bs-NotoSerif-TC)">

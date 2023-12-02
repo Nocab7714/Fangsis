@@ -1,7 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   root: true,
   extends: [
@@ -23,6 +19,6 @@ module.exports = {
     },
   },
   rules: {
-    'linebreak-style': 'off',
+    'max-len': 'off',
   },
 };

@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <!-- 購物車內有商品顯示該區塊 -->
   <div v-if="carts.length" class="row mt-2 gy-3">
@@ -264,8 +263,7 @@
             d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"
           />
         </svg>
-        <h2 class="fw-bold fs-2 text-secondary mb-1">OOPS!!</h2>
-        <p class="fw-bold fs-5 text-secondary mb-4">您的購物車裡還沒有任何商品!</p>
+        <h2 class="fw-bold fs-3 text-secondary mb-5" style="font-family: var(--bs-NotoSerif-TC)">哎呀! 您的購物車裡還沒有任何商品!</h2>
         <RouterLink class="btn btn-primary py-2" to="/products">來去逛逛</RouterLink>
       </div>
     </div>

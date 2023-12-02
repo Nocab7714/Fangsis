@@ -72,7 +72,7 @@ export default {
     getProducts(page = 1, category = '') {
       // 頁數預設參數 : 預設 1
       // 分類預設參數 : 預設空字串 (顯示全部產品)
-      this.isLoading = true; // 取得產品資料前顯示 loading 效果
+      this.isLoading = true;
       this.$http
         .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products?page=${page}&category=${category}`)
         .then((res) => {
@@ -81,10 +81,10 @@ export default {
           this.categoryValue = category;
           this.page = res.data.pagination;
           this.scrollToTop();
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+          this.isLoading = false;
         })
         .catch(() => {
-          this.isLoading = false; // 取得產品資料後關閉 loading 效果
+          this.isLoading = false;
         });
     },
     // 滾動到視窗最頂

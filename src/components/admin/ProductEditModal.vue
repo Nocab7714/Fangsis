@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div
     id="productEditModal"
@@ -230,7 +229,6 @@ export default {
     // 更新與新增產品
     updateProduct() {
       let url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product`;
-      // 用 isNew 判斷 API 如何運行
       let method = 'post';
       if (!this.isNew) {
         url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/product/${this.tempProductEdit.id}`;
@@ -238,7 +236,7 @@ export default {
       }
       this.$http[method](url, { data: this.tempProductEdit })
         .then(() => {
-          this.getProducts(); // 新增完產品以後會重新取得
+          this.getProducts();
           this.productEditModal.hide();
           if (method === 'post') {
             Toast.fire({
@@ -261,6 +259,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -269,9 +268,7 @@ export default {
     },
   },
   mounted() {
-    // bootstrap5 modal 實體化
     this.productEditModal = new bootstrap.Modal(this.$refs.productEditModal);
-    // 關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
     this.$refs.productEditModal.addEventListener('hidden.bs.modal', () => {
       this.closeModal('edit');
     });

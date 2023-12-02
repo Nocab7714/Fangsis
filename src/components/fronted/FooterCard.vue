@@ -1,10 +1,9 @@
-<!-- eslint-disable max-len -->
 <template>
   <footer class="bg-primary">
     <div class="container">
       <div class="py-lg-55 pt-4 pb-5">
         <div
-          class="d-flex mb-lg-9 mb-55 flex-column flex-lg-row align-items-lg-start align-items-center"
+          class="d-flex mb-lg-9 mb-55 flex-column flex-lg-row align-items-lg-start align-items-center justify-content-between"
         >
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881744888.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J6pG4b8yb5eOth8gCVd4ORKGIbVdMBjFNJEWBcl%2FHON2NuIxWP%2FCfj4CXeek1FaA65A6l7zo2ljoDvUClymsepQLm2e3%2FgR%2BVvlbX7G4ZtLJtG%2FBbrTPIJuWycBRPTriIQoaMTa7dsW2ii3vf%2B1wcj3ENTg1HlGRNDmRLkojrilWvkPOGY9fxTdW9f8QDHJBC3V8VMjEEycnTToRB58uZWwawDzErOa8GpmzYnlqErvtrf4Gejj%2FDWSUkkR9eQ7kK1636iMZYnemMVCn9FsuoEGN7Ml5y1fcZ%2BD27X%2Bpt%2Bh3VsdBZjGhXVruoSrOrbWM%2F4VkBS1wR3WMpxXv4Plnwg%3D%3D"
@@ -24,7 +23,7 @@
                 >購物流程與常見Q&A
               </RouterLink>
             </li>
-            <li class="mx-lg-7 mx-0">
+            <li class="ms-lg-7 mx-0">
               <span class="text-white">合作夥伴</span>
               <ul class="list-unstyled mt-lg-5 mt-4 d-lg-block d-flex">
                 <li class="py-lg-25 py-0 me-2 me-lg-0">
@@ -88,11 +87,3 @@
     </div>
   </footer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>

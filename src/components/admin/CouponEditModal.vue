@@ -84,7 +84,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
   data() {
     return {
-      couponEditModal: {}, // 存放 couponEditModal 的實體
+      couponEditModal: {},
       // modifyCoupon 用於儲存要修改後送出的優惠卷資料
       modifyCoupon: {},
       // vue-datepicker
@@ -96,7 +96,6 @@ export default {
   components: { VueDatePicker },
   watch: {
     editModalIsShow() {
-      // 如果 editModalIsShow 變更狀態值，打開 modal
       if (this.editModalIsShow) {
         this.couponEditModal.show();
         this.modifyCoupon = { ...this.tempCoupon };
@@ -115,7 +114,6 @@ export default {
     // 編輯優惠卷
     updateCoupon() {
       let url = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/coupon`;
-      // 用 isNew 判斷 API 如何運行
       let method = 'post';
       // 將使用 vue-datepicker 選擇的時間轉換成 unix 時間戳記並轉換成數字型別
       this.modifyCoupon.due_date = Number(this.date.getTime() * 0.001);
@@ -126,7 +124,7 @@ export default {
       }
       this.$http[method](url, { data: this.modifyCoupon })
         .then(() => {
-          this.getCoupons(); // 新增完產品以後會重新取得
+          this.getCoupons();
           this.couponEditModal.hide();
           if (method === 'post') {
             Toast.fire({
@@ -149,6 +147,7 @@ export default {
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
+              title: 'titleFontStyle',
               popup: 'radius0',
               confirmButton: 'radius0',
             },
@@ -157,9 +156,7 @@ export default {
     },
   },
   mounted() {
-    // bootstrap5 modal 實體化
     this.couponEditModal = new bootstrap.Modal(this.$refs.couponEditModal);
-    // 關閉 modal 執行 closeModal() 並傳入參數 'edit' 將 editModalIsShow 改為 false
     this.$refs.couponEditModal.addEventListener('hidden.bs.modal', () => {
       this.closeModal('edit');
     });

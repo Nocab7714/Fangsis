@@ -1,4 +1,3 @@
-<!-- eslint-disable max-len -->
 <template>
   <div class="row gy-3">
     <div class="col-lg-8">
@@ -121,7 +120,7 @@ export default {
       email: '',
       name: '',
       tel: '',
-      isLoading: false, // FullPageLoading 開啟/關閉狀態
+      isLoading: false,
     };
   },
   components: {
@@ -149,6 +148,11 @@ export default {
             icon: 'error',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
+            customClass: {
+              title: 'titleFontStyle',
+              popup: 'radius0',
+              confirmButton: 'radius0',
+            },
           });
           this.isLoading = false;
         });
@@ -166,7 +170,6 @@ export default {
         const orderTime = res.data.order.create_at;
         const date = new Date(orderTime * 1000).toLocaleString();
         this.orderCreateTime = date;
-        // vue3 讀取第三層物件資料有問題，改為儲存於元件 data 中，再渲染於畫面上
         this.address = this.order.user.address;
         this.email = this.order.user.email;
         this.name = this.order.user.name;
@@ -179,6 +182,11 @@ export default {
             icon: 'warning',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
+            customClass: {
+              title: 'titleFontStyle',
+              popup: 'radius0',
+              confirmButton: 'radius0',
+            },
           }).then((result) => {
             if (result.isConfirmed) {
               this.$router.push('/OrderSearch');
@@ -187,7 +195,7 @@ export default {
         }
       })
       .catch(() => {});
-    this.paymentReset(); // 回復付款的預設狀態為 "請選擇您的付款方式"
+    this.paymentReset();
   },
   computed: {
     ...mapState(cartAndWishListStore, ['total', 'payment']),

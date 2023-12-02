@@ -109,6 +109,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .btn-addToWishList {
   .bi-heart-fill {

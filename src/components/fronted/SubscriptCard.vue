@@ -6,27 +6,31 @@
     "
   >
     <div class="container text-primary">
-      <VForm v-slot="{ errors }" @submit="subscription" ref="subscriptionForm">
-        <label
-          class="form-label fs-3 text-center text-md-start mb-55"
-          for="subscript"
-          style="font-family: var(--bs-NotoSerif-TC)"
-          >訂閱我們，獲取優惠與最新活動消息</label
-        >
-        <div class="input-group">
-          <VField
-            class="form-control border-primary"
-            :class="{ 'is-invalid': errors.email }"
-            id="subscript"
-            type="email"
-            name="email"
-            rules="required|email"
-            placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
-          />
-          <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit" >訂閱</button>
-          <ErrorMessage class="invalid-feedback ms-1" name="email" />
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <VForm v-slot="{ errors }" @submit="subscription" ref="subscriptionForm">
+            <label
+              class="form-label fs-3 fw-bold text-center text-md-start mb-55"
+              for="subscript"
+              style="font-family: var(--bs-NotoSerif-TC)"
+              >訂閱我們，獲取優惠與最新活動消息</label
+            >
+            <div class="input-group">
+              <VField
+                class="form-control border-primary"
+                :class="{ 'is-invalid': errors.email }"
+                id="subscript"
+                type="email"
+                name="email"
+                rules="required|email"
+                placeholder="輸入您的信箱，獲得優惠劵與最新活動消息"
+              />
+              <button class="fs-6 btn btn-outline-primary px-5 py-2" type="submit" >訂閱</button>
+              <ErrorMessage class="invalid-feedback ms-1" name="email" />
+            </div>
+          </VForm>
         </div>
-      </VForm>
+      </div>
     </div>
   </section>
 </template>
@@ -71,6 +75,11 @@ export default {
         text: '獲得購物 8 折優惠代碼 fangsis888',
         confirmButtonText: '確定',
         confirmButtonColor: '#5D7067',
+        customClass: {
+          title: 'titleFontStyle',
+          popup: 'radius0',
+          confirmButton: 'radius0',
+        },
       });
       this.$refs.subscriptionForm.resetForm();
     },
