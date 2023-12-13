@@ -50,11 +50,6 @@ const router = createRouter({
           meta: { title: 'Fangsis | 完成訂單' },
         },
         {
-          path: 'OrderSearch',
-          component: () => import('../views/fronted/OrderSearch.vue'),
-          meta: { title: 'Fangsis | 訂單查詢' },
-        },
-        {
           path: 'PrivacyPolicy',
           component: () => import('../views/fronted/PrivacyPolicy.vue'),
           meta: { title: 'Fangsis | 隱私權服務條款' },

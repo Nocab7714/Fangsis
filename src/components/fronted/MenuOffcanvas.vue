@@ -28,15 +28,6 @@
         <li class="nav-item my-2">
           <RouterLink
             class="nav-link mx-3 link-dark"
-            to="/OrderSearch"
-            @click="menuOffcanvasToggle"
-            >訂單查詢</RouterLink
-          >
-        </li>
-
-        <li class="nav-item my-2">
-          <RouterLink
-            class="nav-link mx-3 link-dark"
             to="/MemberLogin"
             @click="menuOffcanvasToggle"
           >

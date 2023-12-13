@@ -178,8 +178,8 @@ export default {
         if (this.order.is_paid === true) {
           Swal.fire({
             title: '訂單付款已成功',
-            text: '若要查詢訂單資訊請透過「訂單查詢系統」，謝謝! ',
-            icon: 'warning',
+            text: '訂單處理中，如有任何問題歡迎與我們聯繫!!',
+            icon: 'success',
             confirmButtonText: '確定',
             confirmButtonColor: '#5D7067',
             customClass: {
@@ -189,7 +189,7 @@ export default {
             },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.$router.push('/OrderSearch');
+              this.$router.push('/');
             }
           });
         }

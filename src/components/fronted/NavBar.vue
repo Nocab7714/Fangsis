@@ -63,14 +63,6 @@
                 >全部商品</RouterLink
               >
             </li>
-            <li class="nav-item my-2">
-              <RouterLink
-                class="nav-link mx-3 link-light navbar-link-white-hover"
-                active-class="active-link-white"
-                to="/OrderSearch"
-                >訂單查詢</RouterLink
-              >
-            </li>
             <li class="nav-item d-none d-lg-block">
               <RouterLink class="nav-link ms-4 me-1 link-light" to="/WishLists">
                 <i class="bi bi-heart-fill position-relative fs-4">
@@ -171,14 +163,6 @@
                 active-class="active-link-black"
                 to="/products"
                 >全部商品</RouterLink
-              >
-            </li>
-            <li class="nav-item my-2">
-              <RouterLink
-                class="nav-link mx-3 link-dark navbar-link-black-hover"
-                active-class="active-link-black"
-                to="/OrderSearch"
-                >訂單查詢</RouterLink
               >
             </li>
             <li class="nav-item d-none d-lg-block">

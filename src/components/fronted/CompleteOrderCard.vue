@@ -31,22 +31,11 @@
         <div class="d-flex flex-column flex-lg-row">
           <div>
             <p class="fs-6 mb-2">
-              訂單編號 : <span> {{ order.id }}</span>
+              感謝您的訂購!! 我們正在處理您的訂單，如有任何問題歡迎<a href="mailto:fangsisfragrance@gmail.com">與我們聯繫</a>!!
             </p>
-
-            <p class="fs-6 mb-0">
-              若要確認訂單資訊，請透過<RouterLink to="/OrderSearch">「訂單查詢系統」</RouterLink
-              >進行查詢，有任何訂單上的問題歡迎與<a href="mailto:fangsisfragrance@gmail.com"
-                >我們聯繫!!</a
-              >
-            </p>
-            <p class="fs-6 mb-0"></p>
           </div>
         </div>
         <div class="ms-0 ms-md-8 mt-5 align-self-center align-self-md-end">
-          <RouterLink class="btn btn-outline-secondary me-2 py-2" to="/OrderSearch"
-            >查詢訂單</RouterLink
-          >
           <RouterLink class="btn btn-primary py-2" to="/products">再去逛逛</RouterLink>
         </div>
       </div>
