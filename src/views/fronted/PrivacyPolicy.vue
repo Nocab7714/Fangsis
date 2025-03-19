@@ -2,7 +2,7 @@
   <div
     class="py-md-13 py-9 background-position-center background-size-corver"
     style="
-      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690032171404.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RvNdh2ZWGYVGrunm2%2BmV7OYg0Fi6Jyhi7iqINvhu6VEBrRzaEOhzfqFGTKpozLvxwM8LnGKFxBRr90vYvOILlHsBuALE4oV3bseVqyAzrcH5cdWk%2F556NfXJRnBwOsbxfA%2Fq5Axd5q20EKgGvac1yiw6FzQsnAoBeDYzWdE1N%2BAHhBnXZGm4fXyAOIhuC7PK1nAw%2F5%2FN3ImowPU0jzDj307xtmvfoZLPB1DOIR1DhvCM41RVZmuLnjqzMksc3Ol6WsIoHhtxMTvDl6rlwGn5zbIF677kF1mODSd74FL%2FEmLufMGibEcd9krsXTG2x6RT6f84iR5Kq0pWNL5bLFrdCA%3D%3D');
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690032171404.jpg');
       background-color: var(--bs-primary);
     "
   >

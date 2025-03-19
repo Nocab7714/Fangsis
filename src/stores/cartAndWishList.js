@@ -318,7 +318,7 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
         return;
       }
       const data = {
-        productId,
+        product_id: productId,
         qty: newQty,
       };
       axios
@@ -330,7 +330,8 @@ const cartAndWishListStore = defineStore('cartAndWishList', {
             title: '已成功更新產品數量',
           });
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error(error);
           Swal.fire({
             title: '連線失敗',
             text: '無法更新購物車資料，請重新確認網路連線並再次嘗試!',

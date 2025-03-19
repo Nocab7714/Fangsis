@@ -2,7 +2,7 @@
   <div
     class="py-md-13 py-9 background-position-center background-size-corver"
     style="
-      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690032171404.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RvNdh2ZWGYVGrunm2%2BmV7OYg0Fi6Jyhi7iqINvhu6VEBrRzaEOhzfqFGTKpozLvxwM8LnGKFxBRr90vYvOILlHsBuALE4oV3bseVqyAzrcH5cdWk%2F556NfXJRnBwOsbxfA%2Fq5Axd5q20EKgGvac1yiw6FzQsnAoBeDYzWdE1N%2BAHhBnXZGm4fXyAOIhuC7PK1nAw%2F5%2FN3ImowPU0jzDj307xtmvfoZLPB1DOIR1DhvCM41RVZmuLnjqzMksc3Ol6WsIoHhtxMTvDl6rlwGn5zbIF677kF1mODSd74FL%2FEmLufMGibEcd9krsXTG2x6RT6f84iR5Kq0pWNL5bLFrdCA%3D%3D');
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690032171404.jpg');
       background-color: var(--bs-primary);
     "
   >
@@ -62,7 +62,7 @@
 
 <style lang="scss" scoped>
 .bkg-banai-secondary {
-  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690375495924.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DozD4VXQB0toB564NLELKSZfCkESXl8Qtjb1hDg0ohfu5PXEx%2F1LtxOLgwhOeRzMXE0kA4F6hCAUMeF%2FYuYCKgSk%2BBPimbh%2BRqFk6g7Xa1TxR3pXVr8TahUdU3d6lI%2FoCHsPSzowU6QXbgg5PH2zaCV8HOcEoSC58WdRoduG8mavLNOa%2BWadwy29InZB0uXv75ovv3uUw2bTOwgGzka0bCKI0buB%2FnakBJZv4gy9sa6oWxZPdI6zS9M986kwKa4tQk7BwhSuQr0jAGB4nGKK%2BR06BcXBd4hImHlrbX%2F%2FCbwwVsqP7X8MPXPPihm%2Fm64nXuvMpcVQJc5zN3VpuYnbSw%3D%3D');
+  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690375495924.png');
   background-size: auto;
   background-position: center center;
   background-repeat: no-repeat;
@@ -75,7 +75,7 @@
   opacity: 15%;
 }
 .bkg-smallstepsgreen-secondary {
-  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690377184765.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JL2EAyrOQKe4%2Bq2uNc7BgzRuNmovOEbFANacTzVmuPDLYEGmCRu5FLI6WNdmFUAHlJmM1gMaQSYE2B9hv1pNh9bx7pLWwqjLPz2hre7p0dUmDKg5Qw1JFHKTDM71voQDn6VafAsfKZkSD01dZwmhjTDsiXpOt6%2BB2i3GppcVMTCKiQ7D%2FO7tnpQKFjo7EWcb%2FNEkYiJS4MWnwwDcmRb6Gej8mfSF%2BRAiXa2w%2BzrVeiZSBRaNQlIfW%2FY2V2VvUo65OmegL3kHSsBIhnCsc2Ij2BygsIXDFOj4EfDy3Py12d%2BMr2RjVIuIrxo%2BzQbTUk%2BozPV0FR4jzLMCRpEkVO3u0w%3D%3D');
+  background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1690377184765.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

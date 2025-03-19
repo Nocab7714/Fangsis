@@ -5,14 +5,14 @@
       <div class="container">
         <RouterLink class="navbar-brand" to="/">
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881744888.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J6pG4b8yb5eOth8gCVd4ORKGIbVdMBjFNJEWBcl%2FHON2NuIxWP%2FCfj4CXeek1FaA65A6l7zo2ljoDvUClymsepQLm2e3%2FgR%2BVvlbX7G4ZtLJtG%2FBbrTPIJuWycBRPTriIQoaMTa7dsW2ii3vf%2B1wcj3ENTg1HlGRNDmRLkojrilWvkPOGY9fxTdW9f8QDHJBC3V8VMjEEycnTToRB58uZWwawDzErOa8GpmzYnlqErvtrf4Gejj%2FDWSUkkR9eQ7kK1636iMZYnemMVCn9FsuoEGN7Ml5y1fcZ%2BD27X%2Bpt%2Bh3VsdBZjGhXVruoSrOrbWM%2F4VkBS1wR3WMpxXv4Plnwg%3D%3D"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881744888.png"
             class="logo-desktop img-fluid"
             alt="透明底白色字大小為 192*64 的 Fangsis 芳心 Logo"
             width="192"
             height="64"
           />
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881758680.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=KCORmZQq%2Bmzd5MuFMNzp1bVPnNSajk50a8aeFbuKPK0fYV2FnpzucIJKMVfIq4DA3ABjJ8blL%2BQez0DgI%2FkLSvg%2F8CbPJOaZtE8jtHELI14FC6g%2FBsGowPK2cVE8o4WFDela2ir1IFjyu6GYQGu9%2FcRvIAUR25gzSxYv4klavXuFXpk0jZnQZzIYhSAgbX6cAgoNsAxhISdruZxLIC45SXJl3iW6Tx3mODHGNhIzTwqgVbj7Rctkm6%2BqwBSgtQwt4moo5sj5vlBUQ3ozvvppxTcQK0PQFOiXhx6oPQ2hX4j5c0E8F%2FGNO33ku7Hy66ZYpPIeHshCUBp5PdnoM8lhuA%3D%3D"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881758680.png"
             class="logo-mobile img-fluid"
             alt="透明底白色字大小為 120*64 的 Fangsis 芳心 Logo"
             width="120"
@@ -107,14 +107,14 @@
       <div class="container">
         <RouterLink class="navbar-brand" to="/">
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881703031.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=JshnLFJ6J7C7n5ZSNer5M55ESAbj4CYnldHRSIK8FpfJEBp7kKQkK3lGML9ESbuyWnggedeaMAuhWbNQRHS0al88jyd3iX92YvZoKjbxlpf7NeucZoPXY4VrknbAELFiGHXmQ4Kdt9eOZVA8pVMk%2Fnpx3fejMGDDOBzQZ%2FxuZdQ8vgMvrf67E9gytrAZDKV5FKr9sGrtHQBuDKBkfov0ZFSiQUg58IbJfJ7AUARRQbq%2Fo4LxIkpZKlXDrMTA7ZvMDpctVZ4vLTSgOQKGmDUc%2FSsK6dkSsf4SXE%2FZGh%2BvuETEn3A%2Fv3hZrbxrI2Vwq4Jh0qXto0TKxr6o3RHNKdudhQ%3D%3D"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881703031.png"
             class="logo-desktop img-fluid"
             alt="透明底黑字大小為 192*64 的 Fangsis 芳心 Logo"
             width="192"
             height="64"
           />
           <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881715229.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qE%2BIivfwHwuFau4D1%2FBm37WIrUN7lIuaMurr6nKnAVDJ14LQ%2Fq0Ag7gRtRUoyCzpre3t2n%2BVc0tmMVyDr7sWwH99OPxo1%2B6cAqV%2FiJxc88VXWTDGO0gvbCDrwnidfbNfPdlN16c%2FGcUXtXhIwpN9K0Xetb4BECFinl3N2eg%2Bl834ARNTyb7GDhwiEtq%2FAQQtdBbk59RJLeIJsN0lp%2BBVDOEWo%2BuBhiqNWUWxCdwZ0ndePnLOA6mwt3OmLdpu6iU6%2BPWr0ZlKPpo0odOsWYDABPi1vzObR8NTjLA9TkALY1D3HpnkS67ac4uX5blc2woiclKYpt82la1nDqQcwB7Ulg%3D%3D"
+            src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1699881715229.png"
             class="logo-mobile img-fluid"
             alt="透明底黑字大小為 120*40 的 Fangsis 芳心 Logo"
             width="120"

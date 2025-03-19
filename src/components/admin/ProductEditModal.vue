@@ -40,7 +40,11 @@
                 <!-- 判斷 tempProduct.imagesUrl 是一個陣列 -->
                 <template v-if="Array.isArray(tempProduct.imagesUrl)">
                   <template v-for="(img, key) in tempProduct.imagesUrl" :key="key + 7788">
-                    <input type="text" class="form-control" v-model="tempProductEdit.imagesUrl[key]" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="tempProductEdit.imagesUrl[key]"
+                    />
                     <img :src="tempProduct.imagesUrl[key]" alt="" class="img-fluid" />
                   </template>
 

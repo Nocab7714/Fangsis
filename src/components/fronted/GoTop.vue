@@ -8,7 +8,7 @@
       <a class="cursor-pointer" href="#" @click.prevent="scrollToTop">
         <img
           class="goToTop-img-opacity"
-          src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598597601.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=SlZgeC3bcoMaZXLRCt3LOyY0saRfRr3IcpguZvimYO5uF77zrFDKaBtfeMHtOZ7ivKxPoqp6zvmyvTn4vlppa110pZl3RvUmgPQEeoDYO3%2BZnXeTXBEG7Y3j5wfj21JAlMnWi3M1QknwDKchbR45NjnyIwK%2B00G7g3wd0%2F1y98UQsrnJtrPsxWbggxXrVmUmHvHVYvPPvScmTdgLvSpkhzYkYDa04O864bbXb31WT7bg32v5QD%2FzXq78QWxoNLJW0YsNju%2BGkGvWe3%2FnxMQZX7tVbnnKKA3blVo3QDv0GWUJtVpJIfAOHmf3eBzw8EEnR4%2FkLr%2Fm7dhYWfGYYC%2FrtQ%3D%3D"
+          src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598597601.png"
           alt="透明度100的向上按鈕"
           width="40"
           height="40"

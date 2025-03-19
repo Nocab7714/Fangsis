@@ -2,7 +2,7 @@
   <section
     class="hot-sale pt-14 pb-10 section-bkg"
     style="
-      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DU8b3nBYU2ER%2BdUWbghrVoA3KGX6KiJFzlKjmgNOTcZxCoxsv2AhJj7sZxIR%2BPIQLfiEq3cUrOIV9Sx0UA2NYMIPOxSla0gpXxR6MT8NRm5M4MazCYhnkplkioNt%2BSSMolimS8wk4SBicKJWyBaqRcrmKLe44PPP4QQQAFw3SLdkuBhOi%2BiKEKA4MnIEnzVxtpwY8bQfjQmCUKlLGS%2B2jhL%2FM2akcsWO0Z%2Bp9ebeA9VPplyNsoqu37H25KL%2FFT%2B9p%2F5jjoifcDzquWx7I6yqzINvnEQqu03UClrv9VHEImNlUPMc6y7%2FwP16d0tAyP6mqoDtMvsFdbPPaRGTeHF09g%3D%3D');
+      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1682598842821.png');
     "
   >
     <div class="container">
@@ -21,7 +21,7 @@
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
                     style="
-                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332086719.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=HNs8jkhEygSbPJ%2Bdn%2FNk3DOFOXmhtrUN4IckNIffHgsphFpU4Pfq%2BVftGSJ5h14BmpXSsmpWhCNlTLNjvE8wWJKsLeGUqh7fCPMPHr6jFv1TE0qCjJIP7bbHOrfXDs9LECHglM%2FnXxMk%2FpshfCicnXxPgT8NyqYwsalenOYHEutCFBKs09RphimB%2B8oydSZeSx5D%2BWRS%2BjHs4ZwsRZB7CJC8w%2FhMPIQ5FaDlovDE8oRR3G%2FIGf%2Ft5e46GAHyDwzCKnjp1m%2FoYmPSV4XIVZWRqpcA9ykN4UMamDy4Sk08DOhBJgOQ5KKmscTIsbnfz473%2FiDwZKEY5lkWHxvWo5%2FBTQ%3D%3D');
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332086719.jpg');
                       background-color: var(--bs-secondary);
                     "
                   >
@@ -74,7 +74,7 @@
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
                     style="
-                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332155439.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jKvhJTUbpXsuxzS6SNlfnYj6QJUxbuYlXzruIhIWkbZSadi0AQuUC0dDH0stmRhdl2EDyM49cr6Te866BJWdfaW92ptll0CLIkzvAMk3ttIJgss1Y1wsXs7xA%2Bo%2F6SR45SCkLDUcv21N1nhGufK%2FuwZvf8VAHlHTQC2y4N5ypf5nWyOVpGcHhag8w1p6pZsSmpMzX8k2RNzYcocGjqE7hAgrWX7xLT4tTOlcatBm65vY5CLG5vuHIFuBb3DZGmwVQ8m80mz3usqIMBoLMNHfuIyTmr2sqi3dNYh8fX73cAeDOYFxZA%2FuwAy%2BDlv8Ky2qGUv7VeUU8aDwsNQbyGl8Mg%3D%3D');
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332155439.png');
                       background-color: var(--bs-secondary);
                     "
                   >
@@ -96,7 +96,7 @@
                   <div
                     class="position-relative h-100 hot-sale-bkg-img"
                     style="
-                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332179602.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=EgnxxViN%2BvEfCIfMt8hBF2sQ7taQY8ljlc3nJb72UFuLcgJg%2FlMmUzgIXX%2BB7WtqTDnj8tTFjZdacpnykuTOT%2FjjoMEA6qsgbhXablvyswR3gKUtoJJVvbyterYFLhVaUWZ9O2XzruU1x%2FfoB0HDzGKrJR7wuKR%2F8P7f6lDCRgoUdTRYlgXn3P6FenyjGyY0E6WOJ76o9JwlRtQL2Tc387xlBaos0vXXsGgyL1b1iEpkajNENf5ha4tLzYsIUPaV%2BkD07JWQiW%2BuiDVDq9lgT%2FfxL4KmGYgZUgkERG52K7FO6UKi88O2QL2w62IXI%2B2pbT037d%2BZRXXh%2F7P60Sv91w%3D%3D');
+                      background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685332179602.png');
                       background-color: var(--bs-secondary);
                     "
                   >
@@ -133,7 +133,7 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OvdXEuQtyceGUcLaad2HkURIB0b6EKyajfTcSbyWEjfdO5RRh4gB7kS%2FaSdpaUzNBaJvX%2Bdz6j1SgoScr%2F9goY9Za6DfLBkfeCyYLEG2sXZwS4C9qbwcmNjWXH1HPXUFXV8sG9Dh9M5kHdF2wyIiiHdzXtKC%2BaIc%2FD9Zo1CvnSj9f96cvSBsVO3HW73lKFZHxM09ZsACxHqLrAythPC1LUIeJ298ygaCw6lGJiRZP824q%2BIAjMeCcxCNO6l5ktoM5YIBGu6WxlIAztZfgD1bhQIpVMT2n3xHQM9W%2Fs7zTEhB8gy6HATI1xj3y0VvWESk8Qcf4UZKq%2F6Kmzy2IND7xw%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409103327.jpg"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一塊薑餅人造型香皂的禮盒"
               width="351"
@@ -158,7 +158,7 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409155769.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=PeuKaaKDvO1E9KxsSk3H4PihpIrFZffki1zbdIitp9ucEf4pR%2BBK0XzJiPCEgmBiAo0y%2F9MWIk0sWcPRhPz5bW3iqoy66jMuttcDrjm9fxx7mXGtgV07491rJHMrtVbb3KMr81g0a9z6RkhHVuGOfdEhnmq6NbOyMWjlTpY9qAMPOii43VP3S7Zb2l6RGyODIl%2FQVNvQcJzldZ1x5ikyNW6ZarAh1BPMg0uQxwB9ZTyWNi8FH9aI3dQ5odV7oEorM8iKUuYBQQQmecZ48ByJoDUQoM0%2F6emr75MYZUKtibmelWMTc5QW2u%2BZHB5xdJKAml4opAJJD39zR0aoL4T1PQ%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409155769.jpg"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一個聖誕樹造型的香皂與兩個帶有花圖案的沐浴球"
               width="351"
@@ -185,7 +185,7 @@
         <div data-aos="fade-up">
           <div class="card mb-3 border-0 rounded-0">
             <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409183973.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gSM%2FQfRc41N5lEI7pJPYT5uEkgqycsSR7bLadNt7UgEqO7mphZtX2eO42jNPPiH9j%2BkQzrVIpKLG5dKTkVA8NmWkLED3UcrM71dVJkCkhpvtEVZbFmqfZIO%2BdhzdlG7GwD9yprczVvUTHWBNJYFF4XWDQW7sRjewC%2BlkJpZ4PSs5CwaKlamTYbM1%2BBzfm2N8RUjWMr0jZU52ySjYk4m1K66nX6MzUKyqD3xerncwkz6Ew70KTq3xxb45a%2F2GFqRYcAC7UKv4S6nWZ1f5TQtIZkITirpE615aLKl8L%2FNFZ4KR1ppk4yfbp02jROwb%2Beez%2FEHkfuMR%2BgVYEF7CYGbZ7Q%3D%3D"
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/peihanwang-hexschool/1685409183973.jpg"
               class="card-img-top img-fluid rounded-0"
               alt="禮盒中有一塊薑餅人造型香皂並且禮盒周圍有很多聖誕裝飾物品"
               width="351"
